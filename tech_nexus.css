@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #4cbbca, #2adee8,rgb(24, 212, 222));
+    color: #fff;
+  }
+  
+  header {
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(14, 152, 243, 0.5);
+  }
+  
+  header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .search-container {
+    text-align: center;
+    margin: 30px auto;
+  }
+  
+  .search-container input {
+    width: 60%;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .subjects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 20px;
+  }
+  
+  .subject-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .subject-card:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .subject-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .units-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+  }
+  
+  #selectedSubject {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .unit-card {
+    background-color: #fff;
+    color: #000;
+    padding: 15px 30px;
+    margin: 10px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    text-align: center;
+    width: 220px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .unit-card:hover {
+    transform: scale(1.05);
+    background-color: #e0e0e0;
+  }
+  
+  .back-btn {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    background-color: #cccccc;
+  }
+  
