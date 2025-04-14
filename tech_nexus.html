@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tech_Nexus</title>
+  <link rel="stylesheet" href="tech_nexus.css" />
+</head>
+<body>
+  <header>
+    <h1>Tech_Nexus</h1>
+    <p>Your CSE Study Companion</p>
+  </header>
+
+  <div class="search-container">
+    <input type="text" id="searchBar" placeholder="Search subjects..." onkeyup="filterSubjects()" />
+  </div>
+
+  <div class="subjects-container" id="subjectsContainer">
+    <div class="subject-card" onclick="showUnits('Machine Learning')">
+      <h3>Machine Learning</h3>
+    </div>
+    <div class="subject-card" onclick="showUnits('Compiler Design')">
+      <h3>Compiler Design</h3>
+    </div>
+    <div class="subject-card" onclick="showUnits('Cryptography and Network Security')">
+      <h3>Cryptography and Network Security</h3>
+    </div>
+    <div class="subject-card" onclick="showUnits('OOAD')">
+      <h3>OOAD</h3>
+    </div>
+    <div class="subject-card" onclick="showUnits('MEAN Stack Development')">
+      <h3>MEAN Stack Development</h3>
+    </div>
+  </div>
+<!-- Machine Learning Units -->
+<div class="units-container" id="mlUnitsContainer" style="display: none;">
+  <h2>Machine Learning</h2>
+  <a href="ML_unit1.html" class="unit-card"><h3>Unit 1</h3></a>
+  <a href="ML_unit2.html" class="unit-card"><h3>Unit 2</h3></a>
+  <a href="ML_unit3.html" class="unit-card"><h3>Unit 3</h3></a>
+  <a href="ML_unit4.html" class="unit-card"><h3>Unit 4</h3></a>
+  <a href="ML_unit5.html" class="unit-card"><h3>Unit 5</h3></a>
+</div>
+
+<!-- Compiler Design Units -->
+<div class="units-container" id="cdUnitsContainer" style="display: none;">
+  <h2>Compiler Design</h2>
+  <a href="CD_UNIT1.html" class="unit-card"><h3>Unit 1</h3></a>
+  <a href="CD_UNIT2.html" class="unit-card"><h3>Unit 2</h3></a>
+  <a href="CD_UNIT3.html" class="unit-card"><h3>Unit 3</h3></a>
+  <a href="CD_UNIT4.html" class="unit-card"><h3>Unit 4</h3></a>
+  <a href="CD_UNIT5.html" class="unit-card"><h3>Unit 5</h3></a>  
+</div>
+
+<!-- Cryptography and Network Security Units -->
+<div class="units-container" id="cnsUnitsContainer" style="display: none;">
+  <h2>Cryptography and Network Security</h2>
+  <a href="CNS_UNIT1.html" class="unit-card"><h3>Unit 1</h3></a>
+  <a href="CNS_UNIT2.html" class="unit-card"><h3>Unit 2</h3></a>
+  <a href="CNS_UNIT3.html" class="unit-card"><h3>Unit 3</h3></a>
+  <a href="CNS_UNIT4.html" class="unit-card"><h3>Unit 4</h3></a>
+  <a href="CNS_UNIT5.html" class="unit-card"><h3>Unit 5</h3></a>
+</div>
+
+<!-- OOAD Units -->
+<div class="units-container" id="ooadUnitsContainer" style="display: none;">
+  <h2>OOAD</h2>
+  <a href="OOAD_UNIT1.html" class="unit-card"><h3>Unit 1</h3></a>
+  <a href="OOAD_UNIT2.html" class="unit-card"><h3>Unit 2</h3></a>
+  <a href="OOAD_UNIT3.html" class="unit-card"><h3>Unit 3</h3></a>
+  <a href="OOAD_UNIT4.html" class="unit-card"><h3>Unit 4</h3></a>
+  <a href="OOAD_UNIT5.html" class="unit-card"><h3>Unit 5</h3></a> 
+</div>
+
+<!-- MEAN Stack Development Units -->
+<div class="units-container" id="meanUnitsContainer" style="display: none;">
+  <h2>MEAN Stack Development</h2>
+  <a href="MSD_UNIT1.html" class="unit-card"><h3>Unit 1</h3></a>
+  <a href="MSD_UNIT2.html" class="unit-card"><h3>Unit 2</h3></a>
+  <a href="MSD_UNIT3.html" class="unit-card"><h3>Unit 3</h3></a>
+  <a href="MSD_UNIT4.html" class="unit-card"><h3>Unit 4</h3></a>
+  <a href="MSD_UNIT5.html" class="unit-card"><h3>Unit 5</h3></a>
+</div>
+
+
+
+  <script src="tech_nexus.js"></script>
+  
+</body>
+</html>
+
