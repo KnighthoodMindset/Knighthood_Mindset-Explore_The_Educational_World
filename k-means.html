@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction to ANNs with Keras | Tech Nexus</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+
+<section>
+    <h3>K-Means</h3>
+</section>
+<section>
+    <h4>What is K-means Clustering</h4>
+    <p><strong>K-means clustering</strong> is a popular <strong>unsupervised machine learning algorithm</strong> used to partition a dataset into <strong>K distinct, non-overlapping groups or clusters</strong> based on similarity.</p>
+    <p>It is a <strong>centroid-based algorithm</strong>, meaning each cluster is represented by the <strong>mean (centroid)</strong> of its data points. The primary goal is to <strong>intra-cluster variance</strong> and maximize inter-cluster separation</p>
+    <p>It is called “K-means” because:</p>
+    <li><strong>k:</strong> The number of Clusters to form</li>
+    <li><strong>Means:</strong>The algorithm uses the <strong>mean</strong> of data points to define the cluster centers.</li>
+ </section>   
+    <section>
+        <h4>How K-Means Clustering Works</h4>
+        <p>K-means follows an <strong>iterative refinement approach</strong>, where it optimizes the clustering by minimizing the <strong>sum of squared distances</strong> between data points and their assigned cluster centroids.</p>
+        <p><strong>1. Initialization:</strong></p>
+        <li>Choose the number of Clusters, <strong>K</strong></li>
+        <li>Randomly select K data points as initial <strong>centroids</strong></li>
+        <p><strong>2. Assignment Step:</strong></p>
+        <li>Assign each data point to the <strong>nearest centroid</strong> using a <strong>distance metric</strong> (commonly <strong>Euclidean distance</strong>)</li>
+        <li>This step groups the data points into K clusters</li>
+        <p><strong>3. Update Step:</strong></p>
+        <li>Recalculate the centroids by computing the <strong>mean</strong> of all data points assigned to each cluster</li>
+        <p><strong>Repeat</strong></p>
+        <li>Continue repeating the Assignment and Update steps until the <strong>centroids no longer change significantly</strong> or a <strong>maximum number of iterations</strong> is reached (convergence).</li>
+    </section>
+    <section>
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 081458.png">
+    </section>
+    <section>
+        <h4>Key Concepts</h4>
+        <p><strong>Centroid:</strong>The center of a cluster, calculated as the mean of all data points in that cluster</p>
+        <p><strong>Cluster:</strong>A group of data points whose distance to their corresponding centroid is smaller than to any other centroid</p>
+        <p><strong>Distance Metric:</strong>Determines how similarity is measured. Common ones include:</p>
+        <li>Euclidean Distance</li>
+        <li>Manhattan Distance</li>
+        <li>Cosine Similarity</li>
+        <p><strong>Convergence:</strong>The point at which the algorithm stabilizes, i.e., assignments no longer change</p>
+    </section>
+    <section>
+        <h4>Choosing the Optimal Number of Clusters (K)</h4>
+        <p>Selecting the right **K** is critical. Some commonly used techniques include:</p>
+        <h5>Elbow Method</h5>
+        <li> Plot the **within-cluster sum of squares (WCSS)** against different values of K</li>
+        <li>Look for the **“elbow” point**, where the WCSS stops decreasing significantly</li>
+        <h5>Silhouette Score</h5>
+        <li>Measures how similar an object is to its own cluster compared to other clusters</li>
+        <li>Ranges from -1 to 1, where higher values indicate better clustering</li>
+        <h5>Gap Statistic</h5>
+        <li>Compares WCSS to that expected under a null reference distribution</li>
+    </section>
+    <section>
+        <h4>Applicationa of k-Means Clustering</h4>
+        <ul>
+         <li><strong>Costomer Segmentation:</strong>Grouping customers based on purchasing behavior or demographics</li>
+         <li><strong>Image Compression and Segmentation:</strong>Reducing colors in an image by clustering pixel values.</li>
+         <li><strong>Document or Text Clustering:</strong>Grouping similar documents using vectorized features like TF-IDF</li>
+         <li><strong>Market Basket Analysis:</strong>Identifying shopping patterns and groupings of products</li>
+         <li><strong>Anomaly Detection:</strong>Identifying outliers or data points far from any cluster center</li>
+        </ul>
+    </section>
+    <section>
+      <h4>Advantagesof K-Means Clustering</h4>
+      <ul>
+         <li>Simple and easy to implement</li>
+         <li>Fast and efficient on large datasets</li>
+         <li>Works well with distinct, well-separated clusters</li>
+         <li>Easily scalable and interpretable</li>
+      </ul>
+    </section>
+
+    <section>
+      <h4>Limitations of K-Means Clustering</h4>
+      <p><strong>1. Sensitive to Initialization:</strong>Different initial centroids can lead to different results.</p>
+      <p>solution::Use K-means++ initialization for better centroid selection</p>
+      <p><strong>2. Requires Predefined K:</strong>You must know or guess the number of clusters in advance.</p>
+      <p><strong>3. Assumes Spherical Clusters:</strong>Works best when clusters are of similar size and shape (circular in Euclidean space)</p>
+      <p><strong>4. Sensitive to Outliers:</strong>Outliers can distort the mean and lead to poor clustering</p>
+      <p><strong>5. Not Ideal for Categorical Data:</strong>K-means works best with <strong>numerical data</strong> For categorical data, use alternatives like <strong>K-modes</strong> or <strong>K-prototypes</strong></p>
+    </section>
+    <sectioon>
+      <h4>Variations and Improvements</h4>
+      <li><strong>K=Means++</strong>: Improves initialization by spreading out initial centroids</li>
+      <li><strong>MiniBatch K-Means</strong>: Speeds up the algorithm by using small random samples of the data</li>
+      <li><strong>Fuzzy C-Means</strong>: Allows data points to belong to multiple clusters with varying degrees of membership</li>
+    </sectioon>
+    <section>
+      <h4>Conclusion</h4>
+      <p>K-means clustering is a **foundational and widely used** clustering technique in unsupervised learning.</p>
+      <p>It provides a **simple yet powerful tool** for data exploration and pattern discovery when the number of clusters is known in advance and the data is well-behaved.</p>
+      <p>While it comes with certain assumptions and limitations, its speed and simplicity make it a go-to algorithm in many real-world applications.</p>
+      <p>By understanding the theory, mathematics, and practical considerations behind K-means, you can effectively apply it to uncover hidden patterns in your data.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <a href="ML_unit4.html" class="back-btn">← Back to Unit 5 Topics</a>
+  </footer>
+  
+  </body>
+</html>
+  

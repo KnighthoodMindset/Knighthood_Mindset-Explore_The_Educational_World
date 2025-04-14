@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction to ANNs with Keras | Tech Nexus</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>PCA Using Scik it-Learn</h3>
+    </section>
+    <section>
+        <h4>What is PCA</h4>
+        <p><strong>Principal Component Analysis (PCA)</strong> is a <strong>dimensionality reduction technique</strong> used in machine learning and statistics. It transforms the original features into a new set of <strong>uncorrelated variables</strong> called <strong>principal components</strong>, ordered by the amount of variance they capture from the original data.</p>
+    </section>
+    <section>
+        <h4>Main Goals:</h4>
+        <li>Reduce dimensionality while retaining as much information as possible.</li>
+        <li>Eliminate redundancy (correlated features).</li>
+        <li>Improve model performance and visualization.</li>
+    </section>
+    ,<section>
+        <h4>How PCA Works</h4>
+        <h5>Standardization:</h5>
+        <p>Since PCA is sensitive to feature scales, we standardize the dataset so each feature has mean = 0 and standard deviation = 1.</p>
+        <h5>Convariance Matrix Computation</h5>
+        <p>Compute the covariance matrix to understand how features vary together</p>
+        <h5>Eigen Decomposition</h5>
+        <p>Compute <strong>eigenvectors</strong> (principal components) and <strong>eigenvalues</strong> (variance explained).</p>
+        <h5>Select Principal Components</h5>
+        <p>Sort the eigenvectors by decreasing eigenvalues and select the top `k` components based on desired variance retention.</p>
+        <h5>Project the Data</h5>
+        <p>Transform the data to the new feature space using selected principal components</p>
+    </section>
+    <section>
+        <h4>Advantages of PCA</h4>
+        <li>Reduces noise and overfitting.</li>
+        <li>Helps with data visualization (e.g., projecting to 2D or 3D).</li>
+        <li>Improves training time and efficiency.</li>
+        <li>Removes multicollinearity (correlation between features).</li>
+    </section>
+    <section>
+        <h4>Limitations</h4>
+        <li>Linear method: not ideal for nonlinear datasets.</li>
+        <li>Loses some information (though often minimal).</li>
+        <li>Not always interpretable: principal components are linear combinations of features.</li>
+    </section>
+    <section>
+        <h4>Real-World Applications of PCA</h4>
+        <li>Image compression</li>
+        <li>Visualization of high-dimensional datasets</li>
+        <li>Genomics (reducing large gene expression data)</li>
+        <li>Finance (identifying uncorrelated stock features)</li>
+    </section>
+  </main>    
+  <footer>
+    <a href="ML_unit4.html" class="back-btn">← Back to Unit 5 Topics</a>
+  </footer>
+  
+</body>
+</html>

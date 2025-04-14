@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction to ANNs with Keras | Tech Nexus</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>Using Clustering for Image Segmentation</h3>
+    </section>
+    <section>
+        <h4>What is segmentation</h4>
+        <p>Image segmentation is the process of dividing an image into segments (regions) to simplify or change the representation of an image into something more meaningful and easier to analyze</p>
+    </section>
+    <section>
+        <h4>What is Clustering</h4>
+        <p>Clustering is an unsupervised machine learning technique that groups similar data points together based on certain features</p>
+        <p>In image segmentation, clustering groups pixels with similar color, intensity, or texture into the same segment</p>
+        <p><strong>Clustering for image segmentation</strong> is about grouping similar pixels in an image so that each group represents a meaningful region—like sky, building, road, or object. It simplifies the image and helps computers "understand" different parts of it</p>
+        <p>Instead of labeling pixels manually, clustering uses <strong>unsupervised learning</strong>, meaning it figures out the groupings on its own based on the data (in this case, pixel information like color and intensity).</p>
+    </section>
+    <section>
+        <h4>Step-by-Step process</h4>
+        <p><strong>1. Pixel Representation</strong>Every pixel in an image has features—usually RGB (Red, Green, Blue) values, or grayscale intensity. These are treated as data points in a multi-dimensional space (usually 3D for RGB).</p>
+        <p><strong>2. Feature Extraction</strong>Sometimes, additional features like pixel position, texture, or color histograms are included to improve accuracy.</p>
+        <p><strong>3. Clustering Algorithm</strong>A clustering algorithm is applied to group similar pixels. Each cluster ideally represents a different object or region in the image.</p>
+        <p><strong>4. Segmented Image Formation</strong>Pixels in the same cluster are colored the same or assigned a label, producing a simplified version of the original image where different regions are clearly separated</p>
+    </section>
+    <section>
+        <h4>Types of Algoriyhms Used</h4>
+        <p><h5>1. K-Means Clustering</h5></p>
+        <li>It is the most commonly used method</li>
+        <li>It divides pixels into <strong>k</strong> clusters based on similarity (usually color)</li>
+        <li>You need to choose the number of clusters (`k`) manually</li>
+        <p><h5> 2. Mean Shift Clustering</h5></p>
+        <li>Does not require specifying the number of clusters</li>
+        <li> Based on finding high-density areas in pixel space</li>
+        <li> Works well with images containing complex patterns or textures</li>
+        <p><h5>3. DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</h5></p>
+        <li>Focuses on finding areas of high pixel density</li>
+        <li>Great for <strong>non-linear shaped segments</strong> and can detect noise or outlier pixels</li>
+        <li>Doesn’t require number of clusters but needs parameters for density estimation</li>
+        <p><h5>4. Gaussian Mixture Models (GMM)</h5></p>
+        <li>Treats the image as a mix of several Gaussian distributions</li>
+        <li>Allows soft clustering, where a pixel can partially belong to multiple segments</li>
+        <li>Allows soft clustering, where a pixel can partially belong to multiple segments</li>
+    </section>
+    <section>
+        <h4>Real-Life Applications</h4>
+        <ul>
+            <li><strong>Medical Imaging</strong>Segment tumors, organs, or tissues</li>
+            <li><strong>Satelite Imaging</strong>Classify land cover types like forest, water, and urban areas</li>
+            <li><strong>Photo Editing</strong>Automatically detect background or separate objects</li>
+            <li><strong>Autonomous Vehicles</strong>Understand road, lane lines, pedestrians, etc</li>
+            <li><strong>Facial Recognition</strong>Isolate facial features like eyes, mouth, etc</li>
+        </ul>
+    </section>
+    <section>
+        <h5>Pro tips</h5>
+        <p>Combine clustering with pre-processing like **filtering or color space conversion (e.g., RGB to LAB)** for better results</p>
+        <p>Use clustering as a **first step** in more advanced segmentation workflows.</p>
+        <p>For better boundaries, clustering can be combined with **edge detection** or **morphological operations**</p>
+    </section>
+     
+  </main>
+
+  <footer>
+    <a href="ML_unit4.html" class="back-btn">← Back to Unit 5 Topics</a>
+  </footer>
+  
+</body>
+</html>
+ 

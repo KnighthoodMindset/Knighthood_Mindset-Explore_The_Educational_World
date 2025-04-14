@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gaussian Mixture Models</title>
+  <link rel="stylesheet" href="exp.css" />
+  <!-- MathJax for math rendering -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+    <div class="top-banner">
+        <h1>Tech Nexus</h1>
+        <h2>Your Study Companion</h2>
+      </div>
+    <main>
+    <section>
+    <h3>Gaussian Mixture Models</h3>
+    </section>
+
+  <div class="section">
+    <h4> What is a Gaussian Mixture Model?</h4>
+    <p>A <strong>Gaussian Mixture Model (GMM)</strong> is a probabilistic model that assumes the data is generated from a mixture of several Gaussian distributions with unknown parameters. It is widely used for <strong>soft clustering</strong> where each data point has a probability of belonging to each cluster.</p>
+    <p>The data is generated from a mixture of several Gaussian distributions.</p>
+    <p>Each Gaussian (also called a component) represents a cluster.</p>
+</div>
+
+
+  <div class="section">
+    <h4>Mathematical Foundation</h4>
+    <p>The GMM models the data distribution as a weighted sum of multivariate Gaussian distributions:</p>
+    <div class="highlight">
+      $$ p(x) = \sum_{k=1}^{K} \pi_k \cdot \mathcal{N}(x \mid \mu_k, \Sigma_k) $$
+    </div>
+    <ul>
+      <li><strong>K</strong> = number of clusters</li>
+      <li><strong>\(\pi_k\)</strong> = mixing coefficient (weight) for the k-th component</li>
+      <li><strong>\(\mu_k\)</strong> = mean vector</li>
+      <li><strong>\(\Sigma_k\)</strong> = covariance matrix</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h4> How GMM Works (Expectation-Maximization Algorithm)</h4>
+    <p><strong>Step 1: Initialization</strong></p>
+    <p>Initialize parameters: means (\(\mu_k\)), covariances (\(\Sigma_k\)), and weights (\(\pi_k\)).</p>
+
+    <p><strong>Step 2: Expectation Step (E-step)</strong></p>
+    <p>Compute the responsibility of each Gaussian for each data point:</p>
+    <div class="highlight">
+      $$ \gamma_{ik} = \frac{ \pi_k \mathcal{N}(x_i \mid \mu_k, \Sigma_k) }{ \sum_{j=1}^{K} \pi_j \mathcal{N}(x_i \mid \mu_j, \Sigma_j) } $$
+    </div>
+
+    <p><strong>Step 3: Maximization Step (M-step)</strong></p>
+    <p>Update the parameters based on current responsibilities:</p>
+    <div class="highlight">
+      $$ \mu_k = \frac{1}{N_k} \sum_{i=1}^{n} \gamma_{ik} x_i $$
+      $$ \Sigma_k = \frac{1}{N_k} \sum_{i=1}^{n} \gamma_{ik} (x_i - \mu_k)(x_i - \mu_k)^T $$
+      $$ \pi_k = \frac{N_k}{n}, \quad \text{where } N_k = \sum_{i=1}^{n} \gamma_{ik} $$
+    </div>
+
+    <p><strong>Step 4: Repeat</strong></p>
+    <p>Repeat the E-step and M-step until convergence (change in log-likelihood is minimal).</p>
+  </div>
+
+  <div class="section">
+    <h4> Applications</h4>
+    <ul>
+      <li>Voice recognition</li>
+      <li>Image segmentation</li>
+      <li>Financial modeling</li>
+      <li>Document classification</li>
+      <li>Anomaly detection</li>
+    </ul>
+  </div>
+
+
+  <div class="section">
+    <h4> Advantages</h4>
+    <ul>
+      <li>Can model complex, elliptical clusters</li>
+      <li>Soft assignments provide richer clustering info</li>
+      <li>Based on sound probabilistic principles</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h4> Limitations</h4>
+    <ul>
+      <li>Need to specify the number of components \(K\) in advance</li>
+      <li>Can be sensitive to initialization</li>
+      <li>May overfit with too many components</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h4> Conclusion</h4>
+    <p>Gaussian Mixture Models provide a flexible, powerful approach to clustering and density estimation. Their probabilistic nature and ability to model complex distributions make them ideal for many real-world applications where hard boundaries are unrealistic.</p>
+  </div>
+</main>
+</body>
+</html>

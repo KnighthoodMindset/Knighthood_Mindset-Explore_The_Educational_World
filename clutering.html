@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction to ANNs with Keras | Tech Nexus</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>Clustering</h3>
+        <h4>what is Clustering</h4>
+        <p><strong>Clustering</strong> is a type of unsupervised machine learning algorithm that groups similar data points or observations into clusters based on their features or characteristics. The goal of clustering is to identify patterns or structures in the data that are not easily visible by other means.</p>
+        <img src="c:\Users\SWEETY\OneDrive\Pictures\clustering.png">
+    </section>
+    <section>
+        <h4>How Clustering Works</h4>
+        <p><strong>1. Data Processing:</strong>The data is prepared by selecting the relevant features and scaling or normalizing the data if necessary</p>
+        <p><strong>2. Distance Calculation:</strong>The distance between each pair of data points is calculated using a distance metric such as Euclidean distance or Manhattan distance.</p>
+        <p><strong>3. Cluster Assignment:</strong>Each data point is assigned to a cluster based on its similarity to other data points</p>
+        <p><strong>4. Cluster Evaluation:</strong> The quality of the clusters is evaluated using metrics such as silhouette score or Davies-Bouldin index</p>
+    </section>
+    <section>
+      <h4>Types of Clustering</h4>
+      <p>Clustering is broadly classified into two types</p>
+      <li>Hard Clustering</li>
+      <li>Soft Clustering</li>
+      <h4>Hard Clustering</h4>
+      <p>Hard clustering, also known as crisp clustering, assigns each data point to exactly one cluster. Each data point is either a member of a cluster or not.</p>
+      <p>It is Suitable for applications where clusters are well-separated and distinct, such as customer segmentation</p>
+      <h4>Soft Clustering</h4>
+      <p>Soft clustering, also known as fuzzy clustering, assigns a probability or membership degree to each data point for each cluster. Each data point can belong to multiple clusters with different membership degrees</p>
+      <p>It is Suitable for applications where clusters are overlapping or fuzzy, such as image segmentation or gene expression analysis</p>
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\Types_Clustering.png">
+    </section>
+    <section>
+      <h3>Types of Clustering Algorithms</h3>
+      <section>
+      <h4>1. Hieracrchial Clustering</h4><p>Hierarchical clustering is a technique that is used to group similar data points together in a Tree-like Structure. There are two types of hierarchical clustering</p>
+      <li><strong>Agglomerative Clustering:</strong> Starts with each data point as a separate cluster and merges them into larger clusters.</li>
+      <li><strong>Divisive Clustering:</strong>Starts with all data points in a single cluster and splits them into smaller clusters.</li>
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\Hierarchial.png">
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 081237.png">
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 081251.png">
+        </section>
+
+        <section>
+      <h4>2. K-Means Clustering:</h4><p>K-Means is an Unsupervised machine learning algorithm used to divide a dataset into K distinct clusters, based on their similarities</p>
+      <p>K-means clustering partitions the data into K clusters based on the mean distance of the features. It's a popular and efficient algorithm, but requires specifying the number of clusters (K) in advance</p>
+      <p><strong>1. Initialization:</strong>The number of clusters, K, is specified beforehand. Then, K initial centroids (the center points of the clusters) are chosen randomly from the dataset</p>
+      <p><strong>2. Assignment Step:</strong>Each data point is assigned to the nearest centroid, forming K clusters. This is usually done by calculating the Euclidean distance between the data points and the centroids</p>
+      <p><strong>3. Update Step:</strong>After all points have been assigned to a cluster, the centroids of the clusters are recalculated as the mean of all the data points within that cluster</p>
+      <p><strong>4. Iteration:</strong>The assignment and update steps are repeated iteratively until the centroids no longer change significantly, meaning the algorithm has converged and the clustering is stable</p>
+      <p> The goal of K-means is to minimize the within-cluster variance, or the sum of squared distances between each point and its assigned centroid</p>
+      <p> It’s widely used for tasks like customer segmentation, image compression, and document clustering. However, it has limitations, such as sensitivity to the initial choice of centroids and the need to specify the number of clusters in advance.</p>
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 081458.png">
+          </section>
+
+          <section>
+      <h4>3. DBSCAN-Density-Based Spatial Clustering of Applications with Noise</h4>
+      <p>DBSCAN (Density-Based Spatial Clustering of Applications with Noise) is an unsupervised machine learning algorithm used for clustering data based on its density.</p>
+      <p>Unlike K-means, which divides the data into a predefined number of clusters, DBSCAN identifies clusters of varying shapes and sizes based on density, and it can also distinguish noise points that don't belong to any cluster.</p>
+      <p>DBSCAN groups data points into clusters based on their density and proximity to each other. It's robust to noise and outliers, and doesn't require specifying the number of clusters.</p>
+      <h4>Key Concepts</h4>
+      <li><strong>Core point:</strong>A point is considered a core point if it has at least a minimum number of points (MinPts) within a specified radius (epsilon, ε).</li>
+      <li><strong>Border point:</strong>A point that is not a core point but lies within the ε-neighborhood of a core point. It is part of a cluster but doesn't have enough neighboring points to be a core point itself</li>
+      <li><strong>Noise point:</strong>A point that is neither a core point nor a border point. These are considered outliers and are not assigned to any cluster</li>
+      <li><strong>Epsilon:</strong>The radius around a point within which other points are considered to be neighbors. A smaller ε results in more, smaller clusters, while a larger ε results in fewer, larger clusters</li>
+      <li><strong>Min pts:</strong>The minimum number of points required to form a dense region or cluster. This threshold determines the minimum size of a cluster</li>
+      
+      <h4>Working of DBSCAN</h4>
+      <p><strong>1. Identify Core Points:</strong>The algorithm first scans the data to identify core points. A point is considered a core point if there are at least MinPts points within a distance ε from it. These points represent dense regions.</p>
+      <p><strong>2. Cluster Expansion</strong>Starting from an unvisited core point, DBSCAN iteratively adds all directly reachable points (points within ε distance) to the same cluster. The cluster will expand as long as there are neighboring points within ε distance.</p>
+      <p><strong>3. Border Points</strong>Border points are not core points themselves but can be added to a cluster if they fall within the ε-distance of a core point. They do not expand the cluster but are considered part of it</p>
+      <p><strong>4. Noise Points</strong>Points that cannot be classified as core or border points are treated as noise. These points do not belong to any cluster</p>
+      <p><strong>5. Iteration</strong>he process continues until all points have been visited. Each point is either assigned to a cluster or marked as noise.</p>
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\DBSCAN.png">
+      </section>
+
+      <section>
+      <h4>4. K-Metoids Clustering:</h4>
+      <p>K-medoids clustering is similar to K-means, but uses medoids (objects that are representative of their cluster) instead of centroids</p>
+      <p>K-medoids clustering, also known as Partitioning Around Medoids (PAM), is a variant of the K-means clustering algorithm. Instead of using the mean (centroid) of the data points to represent a cluster, K-medoids uses actual data points as the cluster center (medoid). This makes K-medoids more robust to outliers and noise compared to K-means</p>
+
+      <h4>Key Concepts of K-metoids</h4>
+      <li><strong>Metoid:</strong>A medoid is an actual data point within the cluster that minimizes the sum of dissimilarities (e.g., distance) between itself and all other points in the cluster. It acts as the central representative of the cluster</li>
+      <li><strong>Dissimilarity /measure</strong>Unlike K-means, which uses Euclidean distance, K-medoids typically uses any dissimilarity measure, like Manhattan distance, cosine similarity, or any other distance metric depending on the nature of the data.</li>
+      <li><strong>Cluster Assignment</strong>Each data point is assigned to the cluster whose medoid is the closest (according to the chosen dissimilarity measure).</li>
+
+      <h4>Working od K-metoids</h4>
+      <p><strong>1. Initialisation:</strong>Choose K initial medoids randomly from the dataset. These are the points that will represent the clusters</p>
+      <p><strong>2. Assignment Step:</strong>Assign each data point to the nearest medoid. The "nearest" medoid is determined by the chosen dissimilarity measure (e.g., distance).</p>
+      <p><strong>3. Update Step:</strong>For each cluster, calculate the new medoid. The new medoid is the data point within the cluster that minimizes the total dissimilarity to all other points in that cluster. In other words, find the point that minimizes the sum of distances to all other points in the cluster</p>
+      <p><strong>4. Iteration:</strong>Repeat the assignment and update steps until convergence. Convergence occurs when the medoids no longer change, meaning the clusters are stable</p>
+      <h5>Example</h5>
+      <p>Imagine you have a dataset of geographical locations (latitude and longitude) of various stores. K-medoids can be used to cluster the stores based on their proximity to one another. If you want to find the K medoid stores, K-medoids would choose actual stores as the cluster centers, ensuring that each cluster is represented by a store that minimizes the total distance to all other stores in that cluster</p>
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\k-metoids.png">
+      </section>
+
+      <section>
+      <h4>5. Expectation-Maximisation(EM) Clustering</h4>
+      <p>EM clustering is a probabilistic clustering algorithm that can handle missing data and uncertainty</p>
+      <P>it if often used to find clusters in data when the underlying distribution is assumed to be a **mixture of several probability distributions** (usually Gaussian)</P>
+      <p>it is an iterative algorithm that estimates the parameters of these distributions to best fit the data</p>
+      <p>This method is most commonly used in the **Gaussian Mixture Model (GMM)** approach, which assumes that the data points are generated from a combination of multiple Gaussian distributions, each representing a different cluster</p>
+
+      <h4>Key Concepts</h4>
+      <li><strong>Mixture Models:</strong>EM is based on the idea that the data comes from a mixture of several distributions (e.g., multiple Gaussian distributions). Each component (distribution) represents a cluster</li>
+      <li><strong>Soft Clustering</strong>Unlike K-means (which is a hard clustering algorithm), EM assigns **probabilities** to each point belonging to each cluster. So, a point can partially belong to multiple clusters.</li>
+      <li><strong>Latent Variables</strong>These are the hidden variables that indicate which distribution (cluster) each point came from. EM tries to infer these latent variables</li>
+      
+      <h4>How the EM Algorithm Works</h4>
+      <p><strong>Initialization:</strong>Start with initial guesses for the parameters of the distributions (e.g., means, variances, and mixing coefficients for each Gaussian).</p>
+      <p><strong>E-Step(Expectation Step):</strong>Estimate the probability that each data point belongs to each cluster, based on the current parameters</p>
+      <p>This is done using Bayes'theorem</p>
+      <p>The result is a probability distribution over the clusters for each point</p>
+      <p><strong>M-step(Maximization STep):</strong>Update the parameters (mean, variance, and mixing coefficients) of the distributions to maximize the likelihood of the data given the probabilities computed in the E-step</p>
+      <p><strong>Repeat:</strong>Alternate between the E-step and M-step until the parameters converge (i.e., they change very little between iterations).</p>
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 080449.png">
+      </section>
+
+      <section>
+      <h4>6. Density-Based Clustering:</h4>
+      <p><strong>Density-Based Clustering</strong>is a type of unsupervised learning method that identifies clusters as dense regions of data points separated by regions of lower density</p>
+      <p>The main idea is that clusters are formed where the data points are closely packed together, and noise or outliers exist in sparse regions</p>
+      <p>Density-based clustering algorithms group data points into clusters based on their density and proximity to each other</p>
+     
+      <h4>How Density-Based Clustering Works</h4>
+      <p>1. For each point, count how many points are within ε distance.</p>
+      <p>2. If a point has MinPts or more in its ε-neighborhood, it's a core point and starts a new cluster.</p>
+      <p>3. All points within the ε-radius of this core point are added to the cluster.</p>
+      <p>4. If any of those new points are core points, their neighbors are also added to the cluster</p>
+      <p>5. Repeat until the cluster cannot expand anymore</p>
+      <p>6. Continue the process with unvisited points to form new clusters</p>
+      <p>7. Points that do not belong to any cluster are labeled as noise.</p>
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 082045.png">
+      </section>
+
+      <section>
+      <h4>7. Distribution-based Clustering:</h4>
+      <p>Distribution-based clustering algorithms group data points into clusters based on their distribution (e.g., Gaussian mixture models).</p>
+      <p>Distribution-Based Clustering is a clustering approach that assumes the data is generated from a mixture of underlying probability distributions — each cluster corresponds to a different distribution</p>
+      <p> Unlike methods like K-means that rely on distances or DBSCAN that relies on density, distribution-based clustering focuses on how likely a data point is to belong to a certain statistical distribution, such as a Gaussian (normal) distribution</p>
+      
+      <h4>How Distribution - Based Clustering Works</h4>
+      <p><strong>Initialize the parameters of the distributions:</strong>mean, variance, and weight of each cluster</p>
+      <p><strong>Expectation Step:</strong>Compute the probability that each point belongs to each distribution</p>
+      <p><strong>Maximization Step:</strong>Update the parameters of each distribution to maximize the likelihood based on the current assignments.</p>
+      <p><strong>Repeat:</strong>E-step and M-step until convergence</p>
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 082838.png">
+      </section>
+
+      <section>
+      <h4>8. Special Clustering</h4>
+      <p>Spectral Clustering is an unsupervised learning algorithm that groups data based on the structure of a similarity graph derived from the dataset.</p>
+      <p> Unlike traditional clustering techniques like K-means, which rely on direct spatial distances between data points, spectral clustering uses concepts from graph theory and linear algebra to detect complex cluster shapes and connections</p>
+      <p>It is especially useful when clusters are non-convex, overlapping, or not easily separated by straight lines, making it a powerful technique for tasks where traditional methods fail</p>
+      <p>Spectral clustering is a graph-based clustering algorithm that uses the spectrum (eigenvalues) of the similarity matrix to cluster data points.</p>
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 082339.png">
+    </section>
+    <section>
+      <p>Each type of clustering algorithm has its strengths and weaknesses, and the choice of algorithm depends on the characteristics of the data and the specific problem being addressed.</p>
+    </section>
+    <section>
+      <h3>Benefits of Clustering</h3>
+      <li><strong>1. pattern Discovery:</strong>Clustering can help discover patterns or structures in the data that are not easily visible by other means</li>
+      <li><strong>2, Data Reduction:</strong>Clustering can help reduce the dimensionality of the data by grouping similar data points together</li>
+      <li><strong>3. Anamoly Detection:</strong>Clustering can help detect anomalies or outliers in the data</li>
+    </section>
+    <section>
+      <h3>Applications of Clustering</h3>
+      <li><strong>1. Customer segmentation:</strong> Clustering can be used to segment customers based on their behavior, preferences, or demographics</li>
+      <li>2. Image Segmantation:<strong></strong>Clustering can be used to segment images into different regions based on their features or characteristics</li>
+      <li><strong>3. Anamoly Detection:</strong>Clustering can be used to detect anomalies or outliers in the data.</li>
+      <li><strong>4. Gene Expression Analysis:</strong> Clustering can be used to identify patterns in gene expression data.</li>
+    </section>
+    <section>
+      <h3>Challenges of Clustering</h3>
+      <li><strong>1. Choosing the right Algorithm:</strong>Choosing the right Clustering algoritham can be Challenging, as the different algorithms have different strengths and weaknesses</li>
+      <li><strong>2. Determining the Number of Clusters:</strong>Determining the number of clusters can be challenging, as it depends on the characteristics of the data</li>
+      <li><strong>3. Interpreting the Results:</strong>Interpreting the results of clustering can be challenging, as the clusters may not always have a clear meaning.</li>
+    </section>
+  </main>
+
+  <footer>
+    <a href="ML_unit4.html" class="back-btn">← Back to Unit 5 Topics</a>
+  </footer>
+  
+  </body>
+  </html>
+  

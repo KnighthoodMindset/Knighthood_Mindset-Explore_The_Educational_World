@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction to ANNs with Keras | Tech Nexus</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>DBSCAN(Density-Based Spatial Clustering of Applications with Noise)</h3>
+    </section>
+    <section>
+        <p>DBSCAN (Density-Based Spatial Clustering of Applications with Noise) is an unsupervised machine learning algorithm used for clustering data based on its density. Unlike K-means, which divides the data into a predefined number of clusters, DBSCAN identifies clusters of varying shapes and sizes based on density, and it can also distinguish noise points that don't belong to any cluster. </p>
+    </section>
+    <section>
+        <h4>Key Concepts</h4>
+        <p><strong>1. Core Point:</strong>A point is considered a core point if it has at least a minimum number of points (MinPts) within a specified radius (epsilon, ε).</p>
+        <p><strong>2. Border Point:</strong>A point that is not a core point but lies within the ε-neighborhood of a core point. It is part of a cluster but doesn't have enough neighboring points to be a core point itself</p>
+        <p><strong>3. Noise Point:</strong>A point that is neither a core point nor a border point. These are considered outliers and are not assigned to any cluster</p>
+        <p><strong>4. Epsilon (ε):</strong>The radius around a point within which other points are considered to be neighbors. A smaller ε results in more, smaller clusters, while a larger ε results in fewer, larger clusters</p>
+        <p><strong>5. MinPts:</strong>The minimum number of points required to form a dense region or cluster. This threshold determines the minimum size of a cluster.</p>
+        <img src="c:\Users\SWEETY\OneDrive\Pictures\DBSCAN.png">
+    </section>
+    <section>
+        <h4>Working of DBSCAN</h4>
+        <p>The DBSCAN algorithm works in the following steps:</p>
+        <p><strong>1. Identify Core Points:</strong>The algorithm first scans the data to identify core points. A point is considered a core point if there are at least MinPts points within a distance ε from it. These points represent dense regions.</p>
+        <p><strong>2. Cluster Expansion:</strong>Starting from an unvisited core point, DBSCAN iteratively adds all directly reachable points (points within ε distance) to the same cluster. The cluster will expand as long as there are neighboring points within ε distance.</p>
+        <p><strong>3. Border Points:</strong>Border points are not core points themselves but can be added to a cluster if they fall within the ε-distance of a core point. They do not expand the cluster but are considered part of it</p>
+        <p><strong>4. Noise Points:</strong>Points that cannot be classified as core or border points are treated as noise. These points do not belong to any cluster</p>
+        <p><strong>5. Iteration:</strong>The process continues until all points have been visited. Each point is either assigned to a cluster or marked as noise</p>
+        <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 081645.png">
+    </section>
+    <section>
+        <h4>Advantages of DBSCAN</h4>
+        <p><strong>1. No Need for Predefined Cluster Count:</strong>Unlike K-means, DBSCAN doesn't require the user to specify the number of clusters beforehand. The algorithm automatically finds the number of clusters based on the density of the data</p>
+        <p><strong>2. Can Handle Clusters of Arbitrary Shape:</strong>DBSCAN can discover clusters of arbitrary shape, unlike K-means, which tends to form spherical clusters.</p>
+        <p><strong>3. Noise Detection:</strong> DBSCAN is effective in identifying outliers or noise, as points that do not fit into any cluster are labeled as noise.</p>
+        <p><strong>4. Handles Varying Density:</strong>DBSCAN works well when the data contains clusters of varying densities, as long as the density difference is not extreme</p>
+    </section>
+    <section>
+        <h4> Disadvantages of DBSCAN</h4>
+        <p><strong>1. Sensitive to Parameters:</strong>The algorithm’s performance is sensitive to the choice of ε and MinPts. If ε is too small, the algorithm might treat most points as noise. If ε is too large, it may merge distinct clusters into one. Similarly, choosing the appropriate MinPts value can be challenging</p>
+        <p><strong>2. Difficulty with Varying Densities:</strong>DBSCAN can struggle if clusters have very different densities. A cluster with low density might not be detected, and a denser region may be merged with a less dense region</p>
+        <p><strong>3. High Dimensionality:</strong>In high-dimensional spaces, DBSCAN may struggle because the concept of "density" becomes harder to define as the data becomes sparse</p>
+    </section>
+    <section>
+        <h4>Applications of DBSCAN</h4>
+        <p>DBSCAN is particularly useful in situations where:</p>
+        <p>The data contains noise or outliers.</p>
+        <p>The number of clusters is not known beforehand.</p>
+        <p>The clusters have arbitrary shapes (not necessarily spherical or globular).</p>
+        <p>Clusters have varying densities (e.g., geographical clustering).</p>
+    </section>
+    <section>
+        <h4>Common applications include</h4>
+        <p><strong>1. Geospatial Clustering:</strong>Identifying clusters of points in geographical space, such as detecting groups of houses or restaurants</p>
+        <p><strong>2. Image Segmentation:</strong>Grouping pixels in an image based on similarity</p>
+        <p><strong>3. Anomaly Detection:</strong>Detecting outliers or anomalies in data, such as fraud detection in financial transactions or finding rare events in sensor data</p>
+        <p><strong>4. Bioinformatics:</strong>Identifying gene expression patterns or clusters of similar biological data</p>
+        <p><strong></strong></p>
+    </section>
+    <section>
+        <h4>Conclusion</h4>
+        <p>DBSCAN is a powerful algorithm for density-based clustering that can detect clusters of arbitrary shapes and handle noise in datasets. It is particularly useful in scenarios where the number of clusters is unknown and when data contains outliers. However, its performance depends on the appropriate selection of the ε and MinPts parameters, and it may not work well in high-dimensional data or data with clusters of highly varying densities</p>
+    </section>
+   
+    </main>    
+  <footer>
+    <a href="ML_unit4.html" class="back-btn">← Back to Unit 5 Topics</a>
+  </footer>
+  
+</body>
+</html>
