@@ -48,13 +48,8 @@
       <h4>1. Hieracrchial Clustering</h4><p>Hierarchical clustering is a technique that is used to group similar data points together in a Tree-like Structure. There are two types of hierarchical clustering</p>
       <li><strong>Agglomerative Clustering:</strong> Starts with each data point as a separate cluster and merges them into larger clusters.</li>
       <li><strong>Divisive Clustering:</strong>Starts with all data points in a single cluster and splits them into smaller clusters.</li>
-      <img src="c:\Users\SWEETY\OneDrive\Pictures\Hierarchial.png">
       <img src="https://raw.githubusercontent.com/KnighthoodMindset/Knighthood_Mindset-Explore_The_Educational_World/main/Hierarchial.png" width="500" >
-        
-      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 081237.png">
       <img src="https://raw.githubusercontent.com/KnighthoodMindset/Knighthood_Mindset-Explore_The_Educational_World/main/Screenshot 2025-04-13 081237.png" width="500" >
-        
-      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 081251.png">
       <img src="https://raw.githubusercontent.com/KnighthoodMindset/Knighthood_Mindset-Explore_The_Educational_World/main/Screenshot 2025-04-13 081251.png" width="500">
         
         </section>
@@ -68,7 +63,6 @@
       <p><strong>4. Iteration:</strong>The assignment and update steps are repeated iteratively until the centroids no longer change significantly, meaning the algorithm has converged and the clustering is stable</p>
       <p> The goal of K-means is to minimize the within-cluster variance, or the sum of squared distances between each point and its assigned centroid</p>
       <p> It’s widely used for tasks like customer segmentation, image compression, and document clustering. However, it has limitations, such as sensitivity to the initial choice of centroids and the need to specify the number of clusters in advance.</p>
-      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 081458.png">
       <img src="https://raw.githubusercontent.com/KnighthoodMindset/Knighthood_Mindset-Explore_The_Educational_World/main/Screenshot 2025-04-13 081458.png" width="500">
         
           </section>
@@ -91,7 +85,6 @@
       <p><strong>3. Border Points</strong>Border points are not core points themselves but can be added to a cluster if they fall within the ε-distance of a core point. They do not expand the cluster but are considered part of it</p>
       <p><strong>4. Noise Points</strong>Points that cannot be classified as core or border points are treated as noise. These points do not belong to any cluster</p>
       <p><strong>5. Iteration</strong>he process continues until all points have been visited. Each point is either assigned to a cluster or marked as noise.</p>
-      <img src="c:\Users\SWEETY\OneDrive\Pictures\DBSCAN.png">
       <img src="https://raw.githubusercontent.com/KnighthoodMindset/Knighthood_Mindset-Explore_The_Educational_World/main/DBSCAN.png" width="500" >       
             
       </section>
@@ -113,7 +106,6 @@
       <p><strong>4. Iteration:</strong>Repeat the assignment and update steps until convergence. Convergence occurs when the medoids no longer change, meaning the clusters are stable</p>
       <h5>Example</h5>
       <p>Imagine you have a dataset of geographical locations (latitude and longitude) of various stores. K-medoids can be used to cluster the stores based on their proximity to one another. If you want to find the K medoid stores, K-medoids would choose actual stores as the cluster centers, ensuring that each cluster is represented by a store that minimizes the total distance to all other stores in that cluster</p>
-      <img src="c:\Users\SWEETY\OneDrive\Pictures\k-metoids.png">
       <img src="https://raw.githubusercontent.com/KnighthoodMindset/Knighthood_Mindset-Explore_The_Educational_World/main/k-metoids.png" width="500" >
         
       </section>
@@ -137,7 +129,6 @@
       <p>The result is a probability distribution over the clusters for each point</p>
       <p><strong>M-step(Maximization STep):</strong>Update the parameters (mean, variance, and mixing coefficients) of the distributions to maximize the likelihood of the data given the probabilities computed in the E-step</p>
       <p><strong>Repeat:</strong>Alternate between the E-step and M-step until the parameters converge (i.e., they change very little between iterations).</p>
-      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 080449.png">
       <img src="https://raw.githubusercontent.com/KnighthoodMindset/Knighthood_Mindset-Explore_The_Educational_World/main/Screenshot 2025-04-13 080449.png" width="500">
         
       </section>
@@ -156,7 +147,6 @@
       <p>5. Repeat until the cluster cannot expand anymore</p>
       <p>6. Continue the process with unvisited points to form new clusters</p>
       <p>7. Points that do not belong to any cluster are labeled as noise.</p>
-      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 082045.png">
       <img src="https://raw.githubusercontent.com/KnighthoodMindset/Knighthood_Mindset-Explore_The_Educational_World/main/Screenshot 2025-04-13 082045.png" width="500">
         
       </section>
@@ -172,7 +162,6 @@
       <p><strong>Expectation Step:</strong>Compute the probability that each point belongs to each distribution</p>
       <p><strong>Maximization Step:</strong>Update the parameters of each distribution to maximize the likelihood based on the current assignments.</p>
       <p><strong>Repeat:</strong>E-step and M-step until convergence</p>
-      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 082838.png">
       <img src="https://raw.githubusercontent.com/KnighthoodMindset/Knighthood_Mindset-Explore_The_Educational_World/main/Screenshot 2025-04-13 082838.png" width="500">
         
       </section>
@@ -183,7 +172,6 @@
       <p> Unlike traditional clustering techniques like K-means, which rely on direct spatial distances between data points, spectral clustering uses concepts from graph theory and linear algebra to detect complex cluster shapes and connections</p>
       <p>It is especially useful when clusters are non-convex, overlapping, or not easily separated by straight lines, making it a powerful technique for tasks where traditional methods fail</p>
       <p>Spectral clustering is a graph-based clustering algorithm that uses the spectrum (eigenvalues) of the similarity matrix to cluster data points.</p>
-      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-13 082339.png">
       <img src="https://raw.githubusercontent.com/KnighthoodMindset/Knighthood_Mindset-Explore_The_Educational_World/main/Screenshot 2025-04-13 082339.png" width="500" >
         
     </section>
