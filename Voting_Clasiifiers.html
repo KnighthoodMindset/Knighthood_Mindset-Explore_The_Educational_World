@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction to ANNs with Keras | Tech Nexus</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Voting Classifiers</h3>
+    </section>
+    <section>
+      <p>A Voting Classifier is an ensemble learning technique that combines the predictions from multiple base models to make a final decision. This ensemble method is used primarily in <strong>classification problems</strong> and aims to improve prediction performance by leveraging the strengths of multiple models.</p>
+      <p>There are two main types of voting:</p>
+      <h5>1. Hard Voting</h5>
+      <li>Each model predicts a class label</li>
+      <li>The class receiving the majority of votes is selected as the final prediction</li>
+      <li>Ideal when models are diverse but individually decent</li>
+      <h5>2. Soft Voting</h5>
+      <li>Each model predicts a probability distribution over all possible classes</li>
+      <li>These probabilities are averaged</li>
+      <li>The class with the highest average probability is chosen</li>
+      <li>More accurate when models can output confidence levels</li>
+    </section>
+    <section>
+      <h3> Mathematics of Voting Classifiers</h3>
+        <section>
+      <p>Let:</p>
+      <ul>
+        <li>\( M \): number of classifiers</li>
+        <li>\( h_1(x), h_2(x), \dots, h_M(x) \): predictions from classifiers</li>
+        <li>\( x \): input data sample</li>
+        <li>\( p_{ij} \): probability of class \( j \) predicted by model \( i \)</li>
+      </ul>
+
+      <hr>
+
+      <h4> Hard Voting</h4>
+      <p>\[
+        H(x) = \text{mode} \{ h_1(x), h_2(x), \dots, h_M(x) \}
+      \]</p>
+      <p>Here, <code>mode</code> gives the most frequently predicted class.</p>
+
+      <hr>
+
+      <h4> Soft Voting</h4>
+      <p>\[
+        P_j = \frac{1}{M} \sum_{i=1}^{M} p_{ij}
+        \quad \Rightarrow \quad
+        H(x) = \arg\max_j P_j
+      \]</p>
+      <ul>
+        <li>\( P_j \): average probability for class \( j \)</li>
+        <li>\( \arg\max_j P_j \): class with the highest average probability</li>
+      </ul>
+      </section>
+      <section>
+        <h4>Advantages</h4>
+        <li>Combines multiple models to make more robust predictions</li>
+        <li>Reduces Overfitting by leveraging diverse classifiers</li>
+        <li>Easy to implement using popular ML libraries</li>
+        <li>Improves accuracy over individual base models in many cases</li>
+        <li>Can combine heterogeneous models (e.g., SVM, KNN, Logistic Regression)</li>
+      </section>
+      <section>
+        <h4>Limitatins</h4>
+        <li>Not useful if base models are too similar (low diversity)</li>
+        <li>Requires base classifiers to be well-tuned</li>
+        <li>Soft voting requires models that can output probabilities</li>
+        <li>Hard voting may fail if there's a tie</li>
+        <li>Can be computationally expensive if using many large models</li>
+      </section>
+      <section>
+        <h4>Applications</h4>
+        <li>Medical diagnosis (combining multiple models for disease detection)</li>
+        <li>Spam filtering</li>
+        <li>Credit scoring and fraud detection</li>
+        <li>Used in Kaggle competitions to boost model performance</li>
+      </section>
+      <section>
+        <h4>Conclusion</h4>
+        <p>Voting classifiers are a simple yet powerful ensemble technique that combines predictions from multiple models to improve classification performance. While easy to implement, their success depends on the diversity and quality of base learners. Soft voting generally offers better performance but requires probability support. Overall, voting classifiers are a great first step into ensemble learning and can serve as a solid baseline for comparison with more advanced techniques like <strong>Bagging, Boosting, and Stacking</strong>.</p>
+      </section>
+
+    
+  </main>    
+  <footer>
+    <a href="ML_unit4.html" class="back-btn">← Back to Unit 5 Topics</a>
+  </footer>
+
+</body>
+</html>
