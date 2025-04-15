@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction to ANNs with Keras | Tech Nexus</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>Introductioon to Ensemble Learning and Random Forests</h3>
+    </section>
+    <section>
+        <h4>What is Ensemble Learning?</h4>
+        <p>Ensemble learning is a machine learning technique where multiple models (often called "weak learners") are combined to solve a particular problem and improve performance. The core idea is that a group of weak models, when combined properly, can produce a much stronger model.</p>
+        <p>Instead of relying on a single opinion (model), Ensemble Learning take the "wisdom of the crowd" and make a final decision by combining the output of several models.</p>
+        <p>Imagine asking 10 doctors for a diagnosis instead of just one — even if some get it wrong, the <strong>majority will likely lead to the correct result</strong>. That’s the essence of ensemble learning.</p>
+        <p>individual models are often referred to as <strong>weak learners</strong>, and the ensemble becomes a <strong>strong learner</strong>.</p>
+    </section>
+    <section>
+        <h4>Why do We Need Ensemble Learning?</h4>
+        <ul>
+            <li>Single models can be unstable. For instance, decision trees are powerful but can be prone to <strong>overfitting</strong>.</li>
+            <li>By using an ensemble of models, we reduce the <strong>variance</strong>, <strong>bias</strong>, or both.</li>
+            <li> Ensemble methods are often used to win machine learning competitions because they consistently deliver better results.</li>
+        </ul>
+        <p><strong>it can also be used for:</strong></p>
+        <ul>
+          <li>Increaseds accuracy</li>
+          <li>Reduces Overfitting</li>
+          <li>Works well with complex datasets</li>
+          <li>provides better generalization</li>
+        </ul>
+    </section>
+    <section>
+      <h4>Types of Ensemble Learning Methods</h4>
+      </section>
+      <section>
+      <h5>1. Bagging(Bootstrap Aggregation)</h5>
+      <li>- Bagging involves training several models <strong>independently</strong> on different random subsets of the training data.</li>
+      <li>These subsets are created using <strong>bootstrapping</strong> (sampling with replacement).</li>
+      <li>The final prediction is made by <strong>averaging</strong> the results (regression) or <strong>voting</strong> (classification).</li>
+      <li>Popular example: Random Forest</li>
+    
+      <div class="card">
+        <h3>Mathematics of Bagging</h3>
+        <p>Let:</p>
+        <p>\( D = \{(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\} \) be the original dataset.</p>
+        <p>\( D_1, D_2, \dots, D_M \) are bootstrap samples drawn from \( D \).</p>
+        <p>\( h_i(x) \) is the prediction from the \( i^{th} \) model.</p>
+    
+        <h5>Classification:</h5>
+        <p>\[
+        H(x) = \text{majority\_vote}(h_1(x), h_2(x), \dots, h_M(x))
+        \]</p>
+    
+        <h5>Regression:</h5>
+        <p>\[
+        H(x) = \frac{1}{M} \sum_{i=1}^{M} h_i(x)
+        \]</p>
+    
+        <p><strong>Goal:</strong> Reduce variance by averaging over diverse learners.</p>
+      </div>   
+      </section>
+
+      <section> 
+      <h5>2. Boosting</h5>
+      <li> Boosting trains models sequentially, where each new model tries to <strong>fix the errors</strong> made by the previous ones.</li>
+      <li> Focuses more on difficult examples.</li>
+      <li>It’s like a teacher giving more attention to students who are struggling.</li>
+      <li>Examples: AdaBoost, Gradient Boosting, XGBoost</li>
+      
+
+      <div class="card">
+        <h4> Mathematics of Boosting</h4>
+        <p>Let:</p>
+        <p>\( w_i \): weight of training example \( i \)</p>
+        <p>\( h_m(x) \): prediction of the \( m^{th} \) model</p>
+        <p>\( y_i \in \{-1, +1\} \): true label</p>
+      
+        <h5>Steps:</h5>
+        <ol>
+          <li>Initialize weights: \( w_i = \frac{1}{n} \)</li>
+          <li>For each model \( m = 1 \) to \( M \):</li>
+          <ul>
+            <li>Train \( h_m(x) \) on the weighted dataset</li>
+            <li>Compute error:<br>
+              \[
+              \epsilon_m = \sum_{i=1}^{n} w_i \cdot I(h_m(x_i) \ne y_i)
+              \]
+            </li>
+            <li>Compute model weight:<br>
+              \[
+              \alpha_m = \frac{1}{2} \ln\left(\frac{1 - \epsilon_m}{\epsilon_m}\right)
+              \]
+            </li>
+            <li>Update weights:<br>
+              \[
+              w_i \leftarrow w_i \cdot e^{-\alpha_m y_i h_m(x_i)}
+              \]
+            </li>
+            <li>Normalize weights so they sum to 1</li>
+          </ul>
+        </ol>
+      
+        <h5>Final Prediction:</h5>
+        <p>
+          \[
+          H(x) = \text{sign}\left(\sum_{m=1}^{M} \alpha_m h_m(x)\right)
+          \]
+        </p>
+      
+        <p><strong>Goal:</strong> Reduce bias and improve generalization.</p>
+      </div>
+      </section>
+
+    <section>
+      <h4>Stacking (Stacked Generalization)</h4>
+      <li> Stacking combines multiple diverse models and uses a <strong>meta-model</strong> to learn how to best combine their outputs.</li>
+      <li>Each model gets a say, and the meta-model makes the final decision.</li>
+
+      <h3>Mathematics of Stacking</h3>
+      <p>Let:</p>
+      <ul>
+        <li>\( h_1(x), h_2(x), \dots, h_M(x) \): base learners trained on the original dataset</li>
+        <li>\( x_i \): input sample</li>
+        <li>\( y_i \): true label of \( x_i \)</li>
+        <li>\( z_i = [h_1(x_i), h_2(x_i), \dots, h_M(x_i)] \): new feature vector from base learner predictions</li>
+        <li>\( h_{\text{meta}} \): meta-learner trained on \( z_i \) and corresponding \( y_i \)</li>
+      </ul>
+    
+      <p><strong>Final Prediction:</strong></p>
+      <p>\[
+        H(x) = h_{\text{meta}}(h_1(x), h_2(x), \dots, h_M(x))
+      \]</p>
+    
+      <p>The meta-learner learns how to best combine the outputs of the base learners to minimize error on validation data.</p>
+    
+      <p><strong>Goal:</strong> Improve generalization by learning an optimal combination of multiple models' outputs.</p>    
+    </section>    
+
+    <section>
+      <h4>Random Forest – A Forest of Decision Trees</h4>
+      <p>Random Forest is an ensemble method based on the <strong>Bagging technique</strong>. It builds a <strong>collection of decision trees</strong>, where each tree is trained on a different random sample of the data and features.</p>
+      <h4>How it Works:</h4>
+      <h5>1. Sampling:</h5>
+      <li>From the original dataset, several <strong>bootstrap samples</strong> are created.</li>
+      <li>Each sample trains one <strong>decision tree</strong>.</li>
+      <h5>2. Feature Randomness:</h5>
+      <li>At each node, a <strong>random subset of features</strong> is chosen for splitting, which introduces diversity in the trees.</li>
+      <h5>3. Prediction:</h5>
+      <p><strong>For classification:</strong> each tree gives a class label, and the forest chooses the <strong>majority vote</strong>.</p>
+      <p><strong>For regression:</strong> each tree gives a number, and the forest returns the <strong>average</strong>.</p>
+      <p><strong>Example:</strong>
+        <p>Let’s say you're trying to decide where to eat. You ask 10 friends. Even if some give odd suggestions, the most common choice is likely to be a **safe and popular** one. Similarly, a Random Forest makes a decision based on the majority of its trees.</p>
+
+        <div class="card">
+          <h3>Mathematics of Random Forest</h3>
+          <p>Let:</p>
+          <p>\( h_1(x), h_2(x), \dots, h_M(x) \): Predictions from \( M \) decision trees.</p>
+        
+          <h5>Construction:</h5>
+          <ul>
+            <li>Each tree is trained on a different bootstrap sample from the original dataset.</li>
+            <li>At each split, a random subset of features is considered.</li>
+          </ul>
+        
+          <h5>Classification:</h5>
+          <p>
+            \[
+            H(x) = \text{majority\_vote}(h_1(x), h_2(x), \dots, h_M(x))
+            \]
+          </p>
+        
+          <h5>Regression:</h5>
+          <p>
+            \[
+            H(x) = \frac{1}{M} \sum_{i=1}^{M} h_i(x)
+            \]
+          </p>
+        
+          <p><strong>Goal:</strong> Reduce variance and correlation between trees.</p>
+        </div>
+      </section>
+      <section>
+        <h4> Advantages of Ensemble Learning</h4>
+        <ul>
+          <li>Improves overall model performance by combining multiple learners.</li>
+          <li>Reduces overfitting (e.g., Bagging) and variance in predictions.</li>
+          <li>Boosting helps reduce bias and improves model generalization.</li>
+          <li>Robust to noisy data and outliers due to aggregation.</li>
+          <li>Works well in both classification and regression problems.</li>
+          <li>Often achieves higher accuracy than individual models.</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h4>Limitations of Ensemble Learning</h4>
+        <ul>
+          <li>Increased computational complexity and training time.</li>
+          <li>Harder to interpret compared to simple models.</li>
+          <li>May lead to overfitting if not properly tuned (especially in Boosting).</li>
+          <li>Requires more memory and processing power.</li>
+          <li>Difficult to implement in real-time applications with tight latency requirements.</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h4> Conclusion</h4>
+        <p>
+          Ensemble learning combines the strengths of multiple models to create a powerful predictive system. Techniques like Bagging, Boosting, Random Forest, and Stacking enhance accuracy, robustness, and generalization by mitigating the weaknesses of individual learners. Although they introduce computational overhead and complexity, the performance benefits often outweigh the trade-offs. Ensemble methods are widely used in various fields such as finance, healthcare, and image recognition, making them an essential tool in the machine learning toolbox.
+        </p>
+      </section>
+      
+      
+    </main>    
+  <footer>
+    <a href="ML_unit3.html" class="back-btn">← Back to Unit 5 Topics</a>
+  </footer>
+  
+</body>
+</html>
