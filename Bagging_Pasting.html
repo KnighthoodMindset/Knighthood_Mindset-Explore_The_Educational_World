@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction to ANNs with Keras | Tech Nexus</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+    <main>
+      <section>
+        <h3>Bagging and Pasting</h3>
+      </section>
+      <section>
+        <h4>What is Ensemble Learning?</h4>
+        <p>Ensemble learning combines multiple models (called base learners or weak learners) to create a more accurate and robust model. The idea is a group of weak models can produce a strong one when combined intelligently.</p>
+          <p>Two basic ensemble strategies for training these multiple models are:</p>
+        <li>Bagging(Bootstrap Aggregation)</li>
+        <li>pasting</li>
+        </section>
+        <section>
+          <h4>1. Bagging</h4>
+          <p><strong>Bagging</strong> stands for <strong>Bootstrap Aggregating</strong>. It is an ensemble method that trains multiple models on different random subsets of the training data. These subsets are generated using <strong>sampling with replacement</strong>.</p>
+          <p>This Means:</p>
+          <li>- Some data points may appear multiple times in a single subset.</li>
+          <li>Some may not appear at all.</li>
+          <p>Each model learns from a slightly different version of the data, which introduces diversity. This helps reduce variance, making the final prediction more stable and accurate.</p>
+        <h5>Process:</h5>
+        <p>1. Take multiple random samples <strong>with replacement</strong> from the original dataset.</p>
+        <p>2. Train a base model on each sample.</p>
+        <p>3.  Combine the predictions:</p>
+        <li><strong>Classification:</strong> Use majority voting</li>
+        <li><strong>Regression:</strong> Use average prediction</li>
+        </section>
+        
+        <section>
+          <h4>2. Pasting</h4>
+          <p><strong>Pasting is similar to Bagging, but it uses <strong>sampling without replacement</strong></p>
+          <p>This Means</p>
+          <li>Every data point can appear in only one subset.</li>
+          <li>Each base model is trained on distinct data, but still random subsets.</li>
+          <p>Pasting introduces less randomness than Bagging but still helps reduce <strong>overfitting</strong> by training on different subsets.</p>
+          <h5>Process:</h5>
+          <p>1.  Take multiple random samples <strong>without replacement</strong> from the original dataset.</p>
+          <p>Train a base model on each sample.</p>
+          <p>Combine the predictions (same as Bagging):</p>
+          <li><strong>Classification:</strong> Use majority voting</li>
+          <li><strong>Regression:</strong> Use average prediction</li>          
+        </section>
+
+        <section>
+          <h5>Differences between Bagging and Pasting</h5>
+          <table>
+            <tr>
+              <th>Feature</th>
+              <th>Bagging</th>
+              <th>Pasting</th>
+            </tr>
+            <tr>
+              <td>Sampling Method</td>
+              <td>With Replacement</td>
+              <td>Without Replacement</td>
+            </tr>
+            <tr>
+              <td>Data Overlap</td>
+              <td>Samples can overlap</td>
+              <td>Samples are Disjoint</td>
+            </tr>
+            <tr>
+              <td>Randomness</td>
+              <td>Higher</td>
+              <td>Lower</td>
+            </tr>
+            <tr>
+              <td>Use Case</td>
+              <td>When more Variance is used</td>
+              <td>When data size is limites</td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h4>Advantages</h4>
+          <li>Reduces overfitting (especially for high-variance models like decision trees)</li>
+          <li>Improves stability and accuracy</li>
+          <li>Can work well even with noisy data</li>
+          <li>Easy to implement and parallelize</li>
+        </section>
+        <section>
+          <h4>Applications</h4>
+          <li>Random Forests (based on Bagging + Decision Trees)</li>
+          <li>Medical prediction systems</li>
+          <li>Customer churn prediction</li>
+          <li>Fraud detection</li>
+        </section>
+        <section>
+          <h4>Limitations</h4>
+          <li>Can be computationally expensive (training multiple models)</li>
+          <li>Results depend on quality and diversity of base models</li>
+          <li>Pasting may be less effective if the data is small</li>
+          <li> Less interpretable than a single model</li>
+        </section>
+        <section>
+          <h4>Conclusion</h4>
+          <p> Both <strong>Bagging</strong> and <strong>Pasting</strong> aim to improve model performance by training multiple models on subsets of data. While <strong>Bagging</strong> uses sampling <strong>with replacement</strong> and introduces more randomness (better for high-variance models), <strong>Pasting</strong> uses <strong>without replacement</strong>, reducing repetition but still creating diverse models. These techniques are the **foundation of powerful ensemble models** like Random Forests and form a key part of modern machine learning.</p>
+        </section>
+     
+    </main>    
+    <footer>
+    <a href="ML_unit3.html" class="back-btn">← Back to Unit 5 Topics</a>
+    </footer>
+
+</body>
+</html>

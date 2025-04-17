@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction to ANNs with Keras | Tech Nexus</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+      <sectioon>
+        <h3>Random Forest</h3>
+      </sectioon>
+      <section>
+        <h4>What is Random Forest?</h4>
+        <p>**Random Forest** is an ensemble method that combines **multiple decision trees** to produce a more robust and accurate model. It belongs to the **bagging** family of techniques (i.e., Bootstrap Aggregating), where multiple base models (decision trees) are trained on different random subsets of the data, and their predictions are combined to improve accuracy.</p>
+        <p>Instead of relying on a single decision tree, which can overfit and be sensitive to noise, **Random Forest** creates an ensemble (or “forest”) of decision trees to average out the predictions and reduce overfitting.</p>
+      </section>
+      <section>
+        <h4>How does Random Forest Work?</h4>
+        <p>The Random Forest algorithm works by training **multiple decision trees** on different random subsets of the data. Then, the final prediction is made by aggregating the individual predictions of all trees.</p>
+        <p>it can be done in the following steps:</p>
+        <h5>1. Bootstrap Sampling(Bagging):</h5>
+        <p>Randomly sample the dataset **with replacement** to create multiple subsets of the data (called **bootstrap samples**). Each subset is used to train a separate decision tree.</p>
+        <h5>2. Random feature selection:</h5>
+        <p>For each decision tree, at each node, only a random subset of the features is considered when splitting the data (instead of considering all features). This introduces **more randomness** and helps create **diverse trees**, improving the generalization of the model.</p>
+        <h5>3. Training Decision Trees:</h5>
+        <p>Each decision tree is trained independently on its own bootstrap sample using **randomly selected features** at each split. These trees are typically **deep** and **overfit the training data**, but their errors are uncorrelated with one another.</p>
+        <h5>4. Aggregation:</h5>
+        <p>Once all decision trees are trained, the Random Forest aggregates the predictions:</p>
+        <li><strong>For Classification:</strong>Majority voting is used (the class predicted by most trees is the final prediction).</li>
+        <li><strong>For Regression:</strong>The average of the predictions from all trees is used.</li>
+      </section>
+      <section>
+        <h4>Advantages of Random Forest</h4>
+        <P><strong>1. Reduces overfitting:</strong>By averaging the predictions of multiple decision trees, Random Forest mitigates the overfitting problem seen with individual decision trees.</P>
+        <p><strong>2. Handles Missing Data:</strong>The random sampling and feature selection help improve model stability.</p>
+        <p><strong>3. Robust to noise:</strong>The random sampling and feature selection help improve model stability.</p>
+        <p><strong>4. Versatile:</strong>Works well for both classification and regression tasks</p>
+        <p><strong>5. Feature importance:</strong>Random Forest provides insights into the importance of different features for making predictions.</p>
+        <p><strong>5. Parallelize:</strong>Since trees are built independently, Random Forest is easily parallelizable.</p>
+
+      </section>
+      <section>
+        <h4>Applications of Random Forest</h4>
+        <p><strong>1. Healthcare:</strong>Random forests can be used in used in healthcare industry such as Predicting diseases, patient risk stratification etc.</p>
+        <p><strong>2. Finance:</strong>Random can be used in Fraud detection, credit scoring</p>
+        <p><strong>3. E-Commerce:</strong>Random forests are used for Customer segmentation, recommendation systems</p>
+        <p><strong>4. Marketing</strong>In marketing sector random forests can be used fto predicting customer churn and target marketing campaigns</p>
+      </section>
+      <section>
+        <h4>Limitations of Random Forest</h4>
+        <p><strong>1. Computationally Expensive:</strong>Random Forest require a lot of memory and computational power, especially when working with a large number of trees.</p>
+        <p><strong>2. Less interpretable:</strong>Unlike a single decision tree, the predictions from a Random Forest model are harder to interpret and visualize</p>
+        <p><strong>3. Slow Prediction:</strong>Making predictions with many trees can be slower, especially in real-time applications.</p>
+        <p><strong>4. Tuning Complexity:</strong>Random Forest has several hyperparameters (e.g., number of trees, maximum depth, etc.) that need to be tuned for optimal performance.</p>
+      </section>
+      <section>
+        <h4>Conclusion</h4>
+        <p><strong>Random Forest </strong>s one of the most powerful and widely used ensemble algorithms in machine learning. By creating multiple decision trees on random subsets of data and aggregating their predictions, it is able to achieve high accuracy, robustness, and generalization. It is especially useful when the data is complex and noisy. While it may not be as interpretable as a single decision tree, its accuracy and reliability make it a go-to model for many applications.</p>
+      </section>
+       
+  </main>    
+  <footer>
+    <a href="ML_unit3.html" class="back-btn">← Back to Unit 5 Topics</a>
+  </footer>
+  
+</body>
+</html>
