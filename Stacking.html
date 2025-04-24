@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>stacking in ensemble learning | Tech Nexus | Knighthood Mindset</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+  <section>
+    <h3>Stacking</h3>
+  </section>
+  <section>
+    <h4>What is Stacking</h4>
+    <p> <strong>Stacking</strong> (also known as Stacked generalization) is an ensemble learning technique that combines multiple models (base models) to improve overall predictive performance. Unlike methods like <strong>Bagging</strong> or <strong>Boosting</strong>, which combine predictions from multiple models, Stacking uses multiple models and then trains another model (called a meta-model) to learn how to combine the predictions of the base models optimally.</p>
+    <p>In simple terms, Stacking trains a meta-model that learns how to combine the predictions from multiple base models. The base models are trained on the dataset and generate predictions, which are then used as input for the meta-model. The meta-model's role is to learn the best way to combine these predictions to make the final prediction.</p>
+  </section>
+  <section>
+    <h4>How Does Stacking Work</h4>
+    <p>Stacking follows a multi-layer approach, where predictions from base models are combined using a meta-model.</p>
+    <p><strong>1. Base Model Training:</strong>Train multiple base models on the training dataset. These models could be different types of models (e.g., decision trees, logistic regression, support vector machines, etc.).</p>
+    <p><strong>2. Generate Predictions:</strong>Each base model generates predictions for each data point in the training set. These predictions are then used as input to train the meta-model.</p>
+    <p><strong>3. Meta-Model Training:</strong>A meta-model (which could be any machine learning model) is trained on the predictions of the base models. The meta-model learns the best way to combine the predictions from the base models to produce the final prediction.</p>
+    <p><strong>4. Final Prediction:</strong>When making predictions on new data, each base model generates its own prediction, and the meta-model combines them to produce the final output.</p>
+  </section>
+  <section>
+    <h4>Advantages of Stacking</h4>
+    <p><strong>1. Improved accuracy:</strong>By combining multiple models, Stacking often achieves better performance than any individual model</p>
+    <p><strong>2. Flexibility:</strong>The base models in Stacking can be of any type (e.g., decision trees, neural networks, SVMs), which allows for more diverse model combinations</p>
+    <p><strong>3. Meta-model learning</strong>The meta-model has the ability to learn the best combination of base models’ predictions, improving generalization.</p>
+    <p><strong>4. Handles bias-variance tradeoff</strong>By using multiple models, Stacking can reduce both bias and variance, leading to more robust predictions.</p>
+  </section>
+  <section>
+    <h4>Applications of Stacking</h4>
+    <p><strong>1. Kaggle Competitions:</strong>Stacking is widely used in machine learning competitions to combine multiple models and achieve top-tier performance.</p>
+    <p><strong>2. Financial prediction:</strong>Combining different financial models to predict stock prices, credit risk, etc.</p>
+    <p><strong>3. Image classification</strong>Using multiple models like CNNs and SVMs to classify images more accurately.</p>
+    <p><strong>4. Medical diagnostics:</strong>Stacking models can be used to predict disease diagnosis by combining the predictions of various models trained on patient data</p>
+    <p><strong>5. Natural Language Processing (NLP):</strong>Combining multiple NLP models to classify text, sentiment analysis, etc.</p>
+  </section>
+  <section>
+    <h4>Limitations of Stacking</h4>
+    <p><strong>1. Computationally expensive:</strong>Stacking requires training multiple models and a meta-model, which can be resource-intensive.</p>
+    <p><strong>2. Overfitting risk:</strong>If the base models are too complex or the meta-model is not carefully tuned, Stacking can overfit the training data.</p>
+    <p><strong>3. Interpretability</strong>Like Random Forest and Boosting, Stacking can be hard to interpret, as it combines the predictions of multiple models.</p>
+    <p><strong>4. Requires cross-validation</strong>To train the meta-model effectively, out-of-fold predictions (obtained through cross-validation) of the base models are often used. This adds additional computational complexity.</p>
+  </section>
+  <section>
+    <h4>Conclusion</h4>
+    <p><strong>Stacking</strong> is a powerful ensemble learning technique that combines the strengths of different base models by training a meta-model to learn how to optimally combine their predictions. It often leads to better performance than individual models by leveraging the diversity of multiple models. However, it comes with computational costs and requires careful tuning to avoid overfitting.</p>
+  </section>
+  
+
+  </main>    
+  <footer>
+    <a href="ML_unit3.html" class="back-btn">← Back to Unit 3 Topics</a>
+  </footer>
+  
+</body>
+</html>

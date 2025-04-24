@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boosting | Tech Nexus | Knighthood Mindset</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+   <section>
+      <h3>Boosting</h3>
+   </section>
+   <section>
+      <h4>What is Boosting?</h4>
+      <p><strong>Boosting</strong> is an ensemble learning method that focuses on improving the performance of weak learners by sequentially training models. Each new model corrects the errors made by the previous ones. The final model is a <strong>weighted combination</strong> of all the weak learners, where more importance is given to models that correct earlier errors.</p>
+      <p>The idea is to <strong>boost</strong> the model's accuracy by focusing more on the difficult-to-predict instances that previous models got wrong. Unlike Bagging, where models are trained independently, <strong>Boosting is a sequential process</strong>, where each new model attempts to correct the errors made by the previous ones.</p>
+   </section>
+   <section>
+      <h4>How Does Boosting Work</h4>
+      <p>The process of boosting can be done in the following steps:</p>
+      <h5>1. Initialize Weights:</h5>
+      <p> Assign equal weights to all the training instances at the start.</p>
+      <h5>2. Train a Weak Learner:</h5>
+      <p>Train the first model (usually a simple model like a decision stump, i.e., a decision tree with a single split).</p>
+      <h5>3. Calculate Errors:</h5>
+      <p>Evaluate the model’s performance and calculate the errors (incorrectly classified instances).</p>
+      <h5>4. Update Weights:</h5>
+      <p>Increase the weights of the misclassified instances, and decrease the weights of the correctly classified instances. This way, the next model will focus more on the difficult-to-classify instances</p>
+      <h5>5. Train the Next Learner:</h5>
+      <p>Train a new weak model using the updated weights. This model will try to correct the errors of the previous one</p>
+      <h5>6. Combine models:</h5>
+      <p>Combine all the weak learners into a strong learner. The final prediction is made by a weighted majority vote (for classification) or weighted average(for regression).</p>
+
+      <p>The idea is to iteratively improve the model by making each new model focus on the errors of the previous one, resulting in better overall performance.</p>
+   </section>
+   <section>
+      <h4>Types of Boosting Algorithms</h4>
+      <p>Several variations of Boosting exist. Some of the most commonly used are:</p>
+      <h5>1. AdaBoost (Adaptive Boosting)</h5>
+      <li>It is One of the first and most popular Boosting algorithms.</li>
+      <li>It focuses on misclassified examples, adjusting their weights, and adding models sequentially.</li>
+      <li>Commonly uses decision trees as weak learners</li>
+      <h5>2. Gradient Boosting</h5>
+      <li>A more general form of Boosting that uses the gradient descent algorithm to minimize the residual errors.</li>
+      <li>Models are trained to predict the residuals (the difference between the actual and predicted values) of the previous models.</li>
+      <h5>3. XGBoost (Extreme Gradient Boosting)</h5>
+      <li>A highly optimized and efficient implementation of gradient boosting.</li>
+      <li>Known for its speed and accuracy, commonly used in machine learning competitions.</li>
+      <h5>4. LightGBM (Light Gradient Boosting Machine)</h5>
+      <li>An implementation of Gradient Boosting that is faster and more memory-efficient, designed to handle large datasets.</li>
+   </section>
+   <section>
+      <h4>Advantages of Boosting</h4>
+      <p><strong>High Accuracy:</strong>Boosting can significantly improve the accuracy of weak models.</p>
+      <p><strong>Handles complex datasets:</strong>Boosting is great at modeling complex relationships, especially in imbalanced data or noisy datasets.</p>
+      <p><strong>Focus on difficult instances:</strong>The iterative process helps focus on instances that are hard to classify.</p>
+      <p><strong>Versatility:</strong>Boosting algorithms can be used for both classification and regression tasks.</p>
+   </section>
+   <section>
+      <h4>Appllications of Boosting</h4>
+      <li>Image classification</li>
+      <li>Spam email detection</li>
+      <li>Sentiment analysis of social media data</li>
+      <li>Stock market prediction</li>
+      <li>Medical diagnostics</li>
+      <li>Customer churn prediction in businesses</li>
+   </section>
+   <section>
+      <h4>Limitations of Boosting</h4>
+      <p><strong>1. Overfitting:</strong>If the model is too complex (too many boosting rounds), it can overfit the training data.</p>
+      <p><strong>2. Computationally expensive:</strong>Training multiple models sequentially can be slow and require significant computational resources.</p>
+      <p><strong>3. Sensitive to noisy data:</strong>Boosting might focus too much on noisy, outlier data points.</p>
+      <p><strong>4. Model interpretability:</strong>Like Random Forest, models generated by Boosting techniques are harder to interpret compared to simple models like decision trees.</p>
+   </section>
+   <section>
+      <h4>Conclusion</h4>
+      <p><strong>Boosting</strong> is an ensemble technique that enhances the power of weak learners by focusing on the mistakes made by previous models. By iteratively adding models and adjusting weights, Boosting creates a strong predictive model with high accuracy. While Boosting algorithms like <strong>AdaBoost</strong>, <strong>Gradient Boosting</strong>, and <strong>XGBoost</strong> are widely used in various domains, they require careful tuning to avoid overfitting.</p>
+   </section>
+   
+  </main>    
+  <footer>
+    <a href="ML_unit3.html" class="back-btn">← Back to Unit 3 Topics</a>
+  </footer>
+  
+</body>
+</html>
