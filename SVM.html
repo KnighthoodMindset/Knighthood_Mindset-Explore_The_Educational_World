@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support Vector Machines | Tech Nexus | Knighthood Mindset</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+   <section>
+      <h3>Support Vector Machines</h3>
+   </section>
+   <section>
+      <h4>What is Support Vector Machine (SVM) </h4>
+      <p>A <strong>Support Vector Machine (SVM)</strong> is a supervised learning algorithm that is primarily used for classification tasks, but it can also be applied to regression. The goal of an SVM is to find the hyperplane that best separates the data points into different classes in a high-dimensional space.</p>
+      <p>In a 2D space, the hyperplane is just a <strong>line</strong>, but in higher dimensions, it becomes a plane or hyperplane.</p>
+      <p>SVM focuses on finding the hyperplane that maximizes the margin between the two classes. The margin is the distance between the closest data points (known as support vectors) of the two classes. SVM aims to ensure that the margin is as large as possible to ensure good generalization and classification accuracy.</p>
+   </section>
+   <section>
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-24 144020.png">
+   </section>
+   <section>
+      <h4>How Does SVM Work</h4>
+      <p>SVM works by identifying the hyperplane that best separates data points of different classes.</p>
+      <h5>1. Linear Classification:</h5>
+      <li>SVM starts by trying to find a linear decision boundary (hyperplane) that separates the data points into two classes.</li>
+      <li>The best hyperplane is the one that maximizes the margin between the two classes. The margin is the distance between the closest points from either class to the hyperplane (the Support vectors).</li>
+      <h5>2. Support Vectors:</h5>
+      <li>The data points that are closest to the hyperplane and that influence its position are called support vectors.</li>
+      <li>These are the points that are most important in defining the optimal hyperplane. The SVM algorithm tries to position the hyperplane such that the margin (distance between the support vectors) is maximized.</li>
+      <h5>3. Maximizing the Margin</h5>
+      <li>SVM aims to maximize the margin between the classes. A larger margin means better separation and generally better performance on unseen data (generalization).</li>
+      <h5>4. Non-Linear Classification</h5>
+      <li>When data is not linearly separable (i.e., data cannot be separated by a straight line or hyperplane), SVM uses a kernel trick.</li>
+      <li>The kernel trick transforms the input data into a higher-dimensional space, where a hyperplane can be used to separate the classes. The kernel function computes the similarity between data points in the higher-dimensional space without actually transforming the data explicitly.</li>
+      <h5>5. Soft Margin Classification</h5>
+      <li>In practice, data is often not perfectly separable. So, SVM allows some misclassifications by introducing a soft margin. This involves introducing a penalty for misclassified points and finding a balance between maximizing the margin and minimizing classification errors.</li>
+   </section>
+   
+  <div class="container">
+      <h2> Mathematics of Support Vector Machines</h2>
+      <p>The goal of SVM is to find a hyperplane that best divides the data into two classes.</p>
+
+      <h4> Linear SVM</h4>
+      <p>In the case of <strong>linearly separable data</strong>, the SVM algorithm seeks to find a hyperplane \( H \) that separates the two classes such that the margin is maximized.</p>
+
+      <h5>1. Hyperplane Equation</h5>
+      <p>
+      A hyperplane in an \( n \)-dimensional space can be represented by the equation:
+      </p>
+      <p>
+      \[
+      w \cdot x + b = 0
+      \]
+      </p>
+      <ul>
+      <li>\( w \): the weight vector (normal to the hyperplane)</li>
+      <li>\( x \): the input feature vector</li>
+      <li>\( b \): the bias term</li>
+      </ul>
+
+      <h5>2. Margin</h5>
+      <p>
+      The margin is defined as the distance between the closest points from both classes (support vectors) and the hyperplane.
+      </p>
+      <p>
+      For a data point \( x_i \), the distance to the hyperplane is:
+      </p>
+      <p>
+      \[
+      \text{Distance} = \frac{|w \cdot x_i + b|}{\|w\|}
+      \]
+      </p>
+
+      <h5>3. Maximizing the Margin</h5>
+      <p>
+      The goal of SVM is to maximize this margin. This leads to the following optimization problem:
+      </p>
+      <p>
+      \[
+      \text{Maximize} \quad \frac{2}{\|w\|}
+      \]
+      </p>
+      <p>
+      Subject to:
+      </p>
+      <p>
+      \[
+      y_i(w \cdot x_i + b) \geq 1 \quad \text{for all } i
+      \]
+      </p>
+      <p>
+      where \( y_i \in \{-1, +1\} \) is the class label.
+      </p>
+
+      <h4> Non-Linear SVM (Using Kernels)</h4>
+      <p>
+      For <strong>non-linearly separable data</strong>, SVM uses kernel functions to project the data into a higher-dimensional space where it can be linearly separated.
+      </p>
+
+      <h5>Kernel Trick</h5>
+      <p>
+      Kernels compute the dot product in the transformed space without explicitly mapping the data. Common kernels:
+      </p>
+      <ul>
+      <li><strong>Linear Kernel:</strong> \( K(x, x') = x \cdot x' \)</li>
+      <li><strong>Polynomial Kernel:</strong> \( K(x, x') = (x \cdot x' + 1)^d \)</li>
+      <li><strong>Radial Basis Function (RBF) Kernel:</strong> \( K(x, x') = \exp(-\gamma \|x - x'\|^2) \)</li>
+      </ul>
+   </div>
+   <section>
+      <h4>Advantages of Support Vector Machines</h4>
+      <p><strong>1. Effective in High-Dimensional Spaces:</strong>SVM works well with data that has many features (high-dimensional data), such as text classification problems.</p>
+      <p><strong>2. Memory Efficient:</strong>Since SVM only uses a subset of training points (support vectors) to define the decision boundary, it is memory-efficient.</p>
+      <p><strong>3. Good Generalization:</strong>By maximizing the margin, SVM generally achieves good performance on unseen data and has strong generalization capabilities.</p>
+      <p><strong>4. Versatile:</strong>SVM can handle both linear and non-linear data and can be used for both classification and regression tasks.</p>
+   </section>
+   <section>
+      <h4>Applications of Support Vector Machines</h4>
+      <p><strong>1. Image Classification:</strong>SVM is widely used for classifying images, such as handwriting recognition, object detection, and face recognition.</p>
+      <p><strong>2. Text Classification:</strong>SVM is commonly applied in natural language processing (NLP) tasks like spam email detection, sentiment analysis, and document classification.</p>
+      <p><strong>3. Bioinformatics:</strong>SVM is used to classify proteins, genes, and disease prediction based on genomic data.</p>
+      <p><strong>4. Financial Forecasting:</strong>SVM can be used for stock market prediction and fraud detection.</p>
+      <p><strong>5. Medical Diagnostics</strong>SVM can help in predicting diseases based on medical data (e.g., cancer classification, tumor detection).</p>
+   </section>
+    <section>
+      <h4>Limitations of Support Vector Machines</h4>
+      <p><strong>1. Computationally Expensive:</strong>SVMs can be slow to train on large datasets because of the quadratic complexity involved in finding the optimal hyperplane.</p>
+      <p><strong>2. Choice of kernel:</strong>The performance of SVM heavily depends on the choice of the kernel and the corresponding parameters. This requires careful tuning.</p>
+      <p><strong>3. Not Suitable for Large Datasets:</strong></p>
+      <p><strong>4. Sensitive to Noise:</strong>For very large datasets, training an SVM can become impractical due to the computational cost.</p>
+      <p><strong>5. Difficult to Interpret:</strong>SVM models are not as interpretable as simpler models like decision trees or logistic regression.</p>
+    </section>    
+   <section>
+      <h4>Conclusion</h4>
+      <p><strong>Support Vector Machines</strong> (SVM) are a powerful class of supervised learning algorithms that work by finding the optimal hyperplane to separate different classes of data. SVMs are particularly effective for classification tasks in high-dimensional spaces and are known for their ability to generalize well, making them popular in a wide range of applications, from image classification to bioinformatics. However, SVMs come with computational challenges, especially when dealing with large datasets or noisy data.</p>
+   </section>
+   
+  </main>    
+  <footer>
+    <a href="ML_unit3.html" class="back-btn">← Back to Unit 3 Topics</a>
+  </footer>
+  
+</body>
+</html>
+
