@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Introduction to ANNs with Keras | Tech Nexus</title>
+  <title>Random Forests | Tech Nexus | Knighthood Mindset</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -15,23 +15,23 @@
   <main>
 
       <sectioon>
-        <h3>Random Forest</h3>
+        <h3>Random Forests</h3>
       </sectioon>
       <section>
         <h4>What is Random Forest?</h4>
-        <p>**Random Forest** is an ensemble method that combines **multiple decision trees** to produce a more robust and accurate model. It belongs to the **bagging** family of techniques (i.e., Bootstrap Aggregating), where multiple base models (decision trees) are trained on different random subsets of the data, and their predictions are combined to improve accuracy.</p>
-        <p>Instead of relying on a single decision tree, which can overfit and be sensitive to noise, **Random Forest** creates an ensemble (or “forest”) of decision trees to average out the predictions and reduce overfitting.</p>
+        <p><strong>Random Forest</strong> is an ensemble method that combines multiple decision trees to produce a more robust and accurate model. It belongs to the **bagging** family of techniques (i.e., Bootstrap Aggregating), where multiple base models (decision trees) are trained on different random subsets of the data, and their predictions are combined to improve accuracy.</p>
+        <p>Instead of relying on a single decision tree, which can overfit and be sensitive to noise, Random Forest creates an ensemble (or “forest”) of decision trees to average out the predictions and reduce overfitting.</p>
       </section>
       <section>
         <h4>How does Random Forest Work?</h4>
-        <p>The Random Forest algorithm works by training **multiple decision trees** on different random subsets of the data. Then, the final prediction is made by aggregating the individual predictions of all trees.</p>
+        <p>The Random Forest algorithm works by training multiple decision trees on different random subsets of the data. Then, the final prediction is made by aggregating the individual predictions of all trees.</p>
         <p>it can be done in the following steps:</p>
         <h5>1. Bootstrap Sampling(Bagging):</h5>
-        <p>Randomly sample the dataset **with replacement** to create multiple subsets of the data (called **bootstrap samples**). Each subset is used to train a separate decision tree.</p>
+        <p>Randomly sample the dataset with replacement to create multiple subsets of the data (called bootstrap samples). Each subset is used to train a separate decision tree.</p>
         <h5>2. Random feature selection:</h5>
-        <p>For each decision tree, at each node, only a random subset of the features is considered when splitting the data (instead of considering all features). This introduces **more randomness** and helps create **diverse trees**, improving the generalization of the model.</p>
+        <p>For each decision tree, at each node, only a random subset of the features is considered when splitting the data (instead of considering all features). This introduces more randomness and helps create diverse trees, improving the generalization of the model.</p>
         <h5>3. Training Decision Trees:</h5>
-        <p>Each decision tree is trained independently on its own bootstrap sample using **randomly selected features** at each split. These trees are typically **deep** and **overfit the training data**, but their errors are uncorrelated with one another.</p>
+        <p>Each decision tree is trained independently on its own bootstrap sample using randomly selected features at each split. These trees are typically deep and overfit the training dat, but their errors are uncorrelated with one another.</p>
         <h5>4. Aggregation:</h5>
         <p>Once all decision trees are trained, the Random Forest aggregates the predictions:</p>
         <li><strong>For Classification:</strong>Majority voting is used (the class predicted by most trees is the final prediction).</li>
@@ -68,7 +68,7 @@
        
   </main>    
   <footer>
-    <a href="ML_unit3.html" class="back-btn">← Back to Unit 5 Topics</a>
+    <a href="ML_unit3.html" class="back-btn">← Back to Unit 3 Topics</a>
   </footer>
   
 </body>
