@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support Vector Machine for Regression (SVR) | Tech Nexus | Knighthood Mindset</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Support Vector Machine for Regression (SVR)</h3>
+    </section>
+    <section>
+      <h4>What is Support Vector Machine for Regression (SVR)</h4>
+      <p><strong>Support Vector Machine for Regression (SVR)</strong> is an extension of the traditional <strong>Support Vector Machine (SVM)</strong> used for classification. While SVM aims to find the optimal hyperplane that separates data points into different classes, <strong>SVR</strong> is used for predicting continuous values or regression tasks.</p>
+      <p>SVR tries to find a hyperplane that fits the data within a specified margin, allowing for deviations within this margin. It is designed to minimize the error while keeping the model as simple as possible, avoiding overfitting.</p>
+    </section>
+    <section>
+      <h4>How Does SVR Work</h4>
+      <h5>1. Hyperplane in Regression:</h5>
+      <li>In classification, SVM tries to maximize the margin between different classes. In SVR, we aim to find a hyperplane that best fits the data points while allowing some deviations (errors) within a margin.</li>
+      <li>Instead of maximizing the margin between two classes, SVR aims to minimize the error (difference between predicted and actual values) within a certain tolerance (ε).</li>
+      <h5>2. Epsilon-Insensitive Tube:</h5>
+      <li>The key idea in SVR is the use of an epsilon-insensitive tube. This tube represents the area around the hyperplane where errors are not penalized. Data points that lie inside this tube are considered to be correctly predicted, as long as their error is within the predefined threshold (ε).</li>
+      <li>If the predicted value lies outside this tube, the model penalizes the error.</li>
+      <h5>3. Optimization Problem</h5>
+      <li>SVR seeks to find a function that predicts values as close as possible to the true values, while minimizing the complexity of the model.</li>    
+      <h5>Support Vector Regression: Optimization Problem</h5>
+      <p>The optimization problem is formulated as:</p>
+      <div class="math-block">
+        \[
+        \min_{w, b, \epsilon} \frac{1}{2} \|w\|^2
+        \]
+      </div>
+    
+      <p>subject to:</p>
+      <div class="math-block">
+        \[
+        |y_i - (w \cdot x_i + b)| \leq \epsilon \quad \text{for all} \quad i
+        \]
+      </div>
+    
+      <p>where:</p>
+      <ul>
+        <li><strong>\( w \)</strong> is the weight vector.</li>
+        <li><strong>\( b \)</strong> is the bias term.</li>
+        <li><strong>\( \epsilon \)</strong> is the threshold margin that allows errors within a certain range.</li>
+        <li><strong>\( y_i \)</strong> is the actual value of the data point.</li>
+        <li><strong>\( x_i \)</strong> is the feature vector.</li>
+      </ul>
+    
+      <h5>Penalty for Errors Beyond the Margin</h5>
+    
+      <p>If the error (the distance between the predicted value and the actual value) is greater than the margin \( \epsilon \), a penalty is introduced using slack variables.</p>
+    
+      <p>The modified optimization problem becomes:</p>
+    
+      <div class="math-block">
+        \[
+        \min_{w, b, \xi_i, \xi_i^*} \frac{1}{2} \|w\|^2 + C \sum_{i=1}^{n} (\xi_i + \xi_i^*)
+        \]
+      </div>
+    
+      <p>where:</p>
+      <ul>
+        <li><strong>\( C \)</strong> is a regularization parameter that controls the trade-off between model complexity and error tolerance.</li>
+        <li><strong>\( \xi_i \)</strong> and <strong>\( \xi_i^* \)</strong> are slack variables for the upper and lower bounds of the margin.</li>
+      </ul>
+
+    </section>
+    <section>
+      <h4>Mathematical Formulation of SVR</h4>
+
+      <p>Given the training data \( D = \{(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\} \), where:</p>
+      <ul>
+        <li>\( x_i \in \mathbb{R}^d \) is the input feature vector.</li>
+        <li>\( y_i \in \mathbb{R} \) is the continuous target value.</li>
+      </ul>
+
+      <p>The goal of <strong>SVR</strong> is to find a function \( f(x) \) that predicts \( y \) as closely as possible. The general equation of the function is:</p>
+
+      <div class="math-block">
+        \[
+        f(x) = w \cdot x + b
+        \]
+      </div>
+
+      <h5>1. Minimize Complexity</h5>
+      <p>Minimize model complexity by reducing the norm of \( w \):</p>
+      <div class="math-block">
+        \[
+        \frac{1}{2} \|w\|^2
+        \]
+      </div>
+
+      <h5>2. Minimize Prediction Error</h5>
+      <p>Penalize predictions that fall outside the \( \epsilon \)-tube using slack variables.</p>
+
+      <h5> Optimization Problem</h5>
+      <div class="math-block">
+        \[
+        \min_{w, b, \xi_i, \xi_i^*} \frac{1}{2} \|w\|^2 + C \sum_{i=1}^{n} (\xi_i + \xi_i^*)
+        \]
+      </div>
+
+      <p>Subject to:</p>
+
+      <div class="math-block">
+        \[
+        |y_i - (w \cdot x_i + b)| \leq \epsilon + \xi_i
+        \quad \text{and} \quad
+        |y_i - (w \cdot x_i + b)| \leq \epsilon + \xi_i^*
+        \]
+      </div>
+
+      <p>where:</p>
+      <ul>
+        <li>\( \xi_i \) and \( \xi_i^* \) are slack variables allowing errors beyond \( \epsilon \).</li>
+        <li>\( C \) is a regularization constant controlling the trade-off between margin size and tolerance to deviations.</li>
+      </ul>
+    </section>
+    <section>
+      <h4>Key Components of SVR</h4>
+      <ul>
+        <li>
+          <span class="term-title">Epsilon (\( \epsilon \)):</span>
+          The epsilon-insensitive margin that defines a region where errors are not penalized.
+        </li>
+    
+        <li>
+          <span class="term-title">Slack Variables (\( \xi_i \), \( \xi_i^* \)):</span>
+          These variables allow some data points to fall outside the epsilon-insensitive tube,
+          with penalties proportional to how far they deviate from the margin.
+        </li>
+    
+        <li>
+          <span class="term-title">Regularization Parameter (\( C \)):</span>
+          Controls the trade-off between minimizing the prediction error and reducing the model complexity.
+          A higher value of \( C \) places more importance on minimizing the training error, 
+          while a lower value allows for more margin violations in favor of generalization.
+        </li>
+    
+        <li>
+          <span class="term-title">Support Vectors:</span>
+          These are the data points that lie on or outside the epsilon margin.
+          They are critical in determining the position and shape of the regression function.
+        </li>
+      </ul>  
+    </section>
+    <section>
+      <h4>Advantages of SVR</h4>
+      <p><strong>1. Effective for High-Dimensional Data:</strong>SVR performs well in high-dimensional spaces, making it suitable for complex regression problems.</p>
+      <p><strong>2. Robust to Overfitting:</strong>The use of the margin and regularization prevents the model from overfitting, especially in cases where the data is noisy.</p>
+      <p><strong>3. Flexibility:</strong>With the kernel trick, SVR can handle non-linear regression problems, mapping data to higher-dimensional spaces where a linear regression model can be applied.</p>
+      <p><strong>4. Efficient for Small- to Medium-Sized Datasets:</strong>SVR is effective when the dataset is not too large, as it requires solving a quadratic optimization problem.</p>
+    </section>
+    <section>
+      <h4>Limitations of SVR</h4>
+      <p><strong>1. Computational Complexity:</strong>SVR can be computationally expensive, especially with large datasets, as it involves solving a quadratic optimization problem that grows with the number of data points.</p>
+      <p><strong>2. Choice of Hyperparameters:</strong>The performance of SVR is sensitive to the choice of hyperparameters.These need to be carefully tuned for optimal performance.</p>
+      <p><strong>3. Memory Intensive:</strong>Since the algorithm stores the entire kernel matrix, it can be memory-intensive, especially with large datasets.</p>
+      <p><strong>4. Not Ideal for Large Datasets:</strong>While SVR performs well on smaller datasets, it may not scale efficiently for very large datasets due to the quadratic complexity of the optimization problem.</p>
+    </section>
+    <section>
+      <h4>Applications of SVR</h4>
+      <p><strong>1. Stock Price Prediction:</strong>SVR is commonly used for predicting stock prices based on historical data, where the goal is to predict continuous future values.</p>
+      <p><strong>2. Weather Forecasting:</strong>SVR can be applied to predict continuous weather parameters such as temperature or rainfall over time.</p>
+      <p><strong>3. Energy Consumption Prediction:</strong>Predicting the future energy consumption based on historical data.</p>
+      <p><strong>4. Bioinformatics:</strong>SVR can be used in genomics to predict continuous values like gene expression levels or protein-protein interaction strengths.</p>
+      <p><strong>5. Engineering and Manufacturing:</strong>SVR is useful in process optimization tasks where continuous predictions are needed, such as predicting the outcome of manufacturing processes.</p>
+    </section>
+    <section>
+      <h4>Conclusion</h4>
+      <p><strong>Support Vector Machine for Regression (SVR)</strong> is a powerful technique for continuous value prediction that extends the principles of SVM to regression tasks. By using the <strong>epsilon-insensitive tube</strong> and the <strong>kernel trick</strong>, SVR can handle both linear and non-linear regression problems effectively. Although it is computationally expensive and requires careful hyperparameter tuning, SVR is a highly effective tool for regression tasks in various fields, including finance, weather forecasting, and bioinformatics. With its ability to minimize error while maintaining model simplicity, SVR is a reliable option for predictive modeling in many real-world applications.</p>
+    </section>
+
+  </main>    
+  <footer>
+    <a href="ML_unit3.html" class="back-btn">← Back to Unit 3 Topics</a>
+  </footer>
+  
+</body>
+</html>

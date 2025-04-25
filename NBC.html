@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Naive Bayes Classifiers | Tech Nexus | Knighthood Mindset</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Naive Bayes Classifiers</h3>
+    </section>
+    <section>
+      <h4>What is Naive Bayes</h4>
+      <p><strong>Naive Bayes</strong> is a family of simple probabilistic classifiers based on <strong>Bayes' Theorem</strong>, with the <strong>naive</strong> assumption of independence between the features. Despite its simplicity, it is effective for many real-world classification tasks. It is commonly used in text classification, spam filtering, sentiment analysis, and more.</p>
+    </section>
+    <section>
+    <section>
+      <h4>Bayes' Theorem</h4>
+      <p>Bayes' Theorem describes the probability of a class given the observed features. It can be expressed as:</p>
+      <p>\[ P(C_k | X) = \frac{P(X | C_k) P(C_k)}{P(X)} \]</p>
+      <ul>
+        <li><strong>\( P(C_k | X) \)</strong>: Posterior probability of class \( C_k \) given features \( X \).</li>
+        <li><strong>\( P(X | C_k) \)</strong>: Likelihood of features \( X \) given class \( C_k \).</li>
+        <li><strong>\( P(C_k) \)</strong>: Prior probability of class \( C_k \).</li>
+        <li><strong>\( P(X) \)</strong>: Evidence or marginal likelihood.</li>
+      </ul>
+      <p>The <strong>naive</strong> assumption is that features are conditionally independent given the class.</p>
+    </section>
+
+    <section>
+      <h4>Mathematics of Naive Bayes</h4>
+      <p>Given multiple features \( X = \{x_1, x_2, ..., x_n\} \), the goal is to calculate:</p>
+      <p>\[ P(C_k | X) = \frac{P(X | C_k) P(C_k)}{P(X)} \]</p>
+      <p>Using the naive assumption:</p>
+      <p>\[ P(X | C_k) = P(x_1, x_2, ..., x_n | C_k) = \prod_{i=1}^{n} P(x_i | C_k) \]</p>
+      <p>Therefore,</p>
+      <p>\[ P(C_k | X) = \frac{P(C_k) \prod_{i=1}^{n} P(x_i | C_k)}{P(X)} \]</p>
+      <p>Since \( P(X) \) is constant for all classes, we use:</p>
+      <p>\[ P(C_k | X) \propto P(C_k) \prod_{i=1}^{n} P(x_i | C_k) \]</p>
+    </section>
+
+    <section>
+      <h4>Types of Naive Bayes Models</h4>
+      <h5>1. Gaussian Naive Bayes</h5>
+      <p>Used for continuous features, assuming Gaussian distribution:</p>
+      <p>
+        \[ P(x_i | C_k) = \frac{1}{\sqrt{2\pi \sigma_k^2}} \exp \left( -\frac{(x_i - \mu_k)^2}{2 \sigma_k^2} \right) \]
+      </p>
+      <ul>
+        <li>\( \mu_k \): Mean of the feature for class \( C_k \).</li>
+        <li>\( \sigma_k^2 \): Variance of the feature for class \( C_k \).</li>
+      </ul>
+
+      <h5>2. Multinomial Naive Bayes</h5>
+      <p>Used for discrete features like word counts. Based on multinomial distribution.</p>
+
+      <h5>3. Bernoulli Naive Bayes</h5>
+      <p>Used for binary features:</p>
+      <p>
+        \[ P(x_i | C_k) = p^{x_i} (1 - p)^{1 - x_i} \]
+      </p>
+      <ul>
+        <li>\( p \): Probability that feature \( x_i = 1 \) given class \( C_k \).</li>
+      </ul>
+    </section>
+    </section>
+    <section>
+      <h4>Advantages of Naive Bayes</h4>
+      <p><strong>1. Simple and Fast:</strong>Naive Bayes is computationally efficient and easy to implement, especially when dealing with large datasets.</p>
+      <p><strong>2. Scalable:</strong>It can handle a large number of features and works well with high-dimensional data.</p>
+      <p><strong>3. Works Well With Small Datasets:</strong>Despite the simplifying assumptions, Naive Bayes can perform well even with relatively small datasets.</p>
+      <p><strong>4. Works with Both Continuous and Discrete Data:</strong>Different variations of Naive Bayes (Gaussian, Multinomial, Bernoulli) can handle different types of features (continuous, discrete, binary).</p>
+    </section> 
+    <section>
+      <h4>Limitations of Naive Bayes</h4>
+      <p><strong>1. Independence Assumption:</strong>The naive assumption that all features are conditionally independent is often unrealistic in real-world data, which may lead to suboptimal performance in some cases.</p>
+      <p><strong>2. Sensitive to Irrelevant Features:</strong>Adding irrelevant features can degrade the performance of Naive Bayes, as it treats all features equally without considering their relevance.</p>
+      <p><strong>3. Poor Performance with Highly Correlated Features:</strong>When features are highly correlated, Naive Bayes may perform poorly, as it assumes that features are independent.</p>
+      <p><strong>4. Requires Good Estimates for Probabilities:</strong>Naive Bayes requires good estimates of the prior probabilities and the conditional probabilities for the features, which may be difficult to obtain in some cases.</p>
+    </section>
+    <section>
+      <h4>Applications of Naive Bayes</h4>
+      <p><strong>1. Spam Filtering:</strong>Naive Bayes is widely used in email spam classification. Features like the presence of certain words or phrases can help determine whether an email is spam or not.</p>
+      <p><strong>2. Text Classification:</strong>Naive Bayes is commonly used for text classification tasks like sentiment analysis, topic classification, and language identification.</p>
+      <p><strong>3. Medical Diagnosis:</strong>Naive Bayes can be applied to medical diagnosis where features represent symptoms and the class represents a disease.</p>
+      <p><strong>4. Recommended Systems:</strong>It can be used to predict the preferences of users for certain items in a recommendation system.</p>
+      <p><strong>5. Document Classification:</strong>Naive Bayes is often used to classify documents into categories (e.g., news articles, reviews) based on the content.</p>
+    </section>
+    <section>
+      <h4>Conclusion</h4>
+      <p>Naive Bayes is a simple yet powerful classification algorithm based on probability theory and Bayes' Theorem. While it makes the assumption of independence between features (which is often not true), it can still perform well in many real-world problems, especially when the features are not highly correlated. Naive Bayes is particularly effective for text classification tasks and other applications where the features are independent or nearly independent. Despite its simplicity, Naive Bayes can often outperform more complex models in certain situations, especially when data is limited.</p>
+    </section>
+    
+  </main>    
+  <footer>
+    <a href="ML_unit4.html" class="back-btn">← Back to Unit 5 Topics</a>
+  </footer>
+  
+</body>
+</html>
