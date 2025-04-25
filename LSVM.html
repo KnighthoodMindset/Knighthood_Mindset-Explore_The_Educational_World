@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Linear Support Vector Machines | Tech Nexus | Knighthood Mindset</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Linear Support Vector Machines</h3>
+    </section>
+    <section>
+      <h4>What is Linear Supppoer Vector Machine</h4>
+      <p>A <strong>Linear Support Vector Machine</strong> is a special case of the general SVM algorithm that works when the data is <strong>separable</strong>. In a linear SVM, the goal is to find a <strong>hyperplane</strong> that separates the data points of different classes in such a way that the margin between them is maximized.</p>
+      <p>When we say the data is <strong>linearly separable</strong>, it means that the data can be separated into two classes using a straight line (in 2D), a plane (in 3D), or a hyperplane in higher dimensions.</p>
+    </section>
+    <section>
+      <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-24 144241.png">
+    </section>
+    <section>
+      <h4>How Does Linear SVM Work</h4>
+      <p>The process of training a linear SVM involves the following steps:</p>
+      <h5>1. Linearly Separable Data:</h5>
+      <li>Given a set of data points belonging to two classes (let's say Class +1 and Class -1), SVM will try to find a hyperplane that separates the points belonging to the two classes.</li>
+      <h5>2. Maximizing the Margin:</h5>
+      <li>The goal of SVM is to find the hyperplane that maximizes the margin, which is the distance between the hyperplane and the closest data points from either class. These closest points are called the support vectors.</li>
+      <li>A larger margin implies a more robust classifier that is less likely to make errors on unseen data.</li>
+
+      <h5>3. Mathematical Formulation:</h5>
+    <p>We need to find a hyperplane defined by the equation:</p>
+
+    <div class="math-block">
+        \[
+        w \cdot x + b = 0
+        \]
+    </div>
+
+    <p>where:</p>
+    <ul>
+        <li><strong>\( w \)</strong> is the weight vector perpendicular to the hyperplane.</li>
+        <li><strong>\( x \)</strong> is the input feature vector.</li>
+        <li><strong>\( b \)</strong> is the bias term (which shifts the hyperplane).</li>
+    </ul>
+
+    <p>The <strong>margin</strong> is the distance from the hyperplane to the closest point, and the goal is to maximize this margin.</p>
+    <p>The <strong>support vectors</strong> are the points that lie closest to the hyperplane and influence its position.</p>
+
+    </section>
+    <section>
+      <h4>Mathematical Representation of Linear SVM</h4>
+
+      <p>Let’s consider a training dataset 
+      \[
+      D = \{(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\}
+      \]
+      where:</p>
+      <ul>
+          <li>\( x_i \in \mathbb{R}^d \) represents the feature vectors.</li>
+          <li>\( y_i \in \{-1, +1\} \) is the class label.</li>
+      </ul>
+
+      <p>The goal is to find the hyperplane that separates the data points of the two classes.</p>
+
+      <h5>Objective:</h5>
+      <p>Maximize the margin 
+      \[
+      \text{Margin} = \frac{2}{\|w\|}
+      \]
+      which is equivalent to minimizing 
+      \[
+      \frac{1}{2} \|w\|^2
+      \]
+      while ensuring that all data points are correctly classified.</p>
+
+      <p>The constraints for the classification are:</p>
+      <div class="math-block">
+          \[
+          y_i (w \cdot x_i + b) \geq 1 \quad \text{for all} \quad i
+          \]
+      </div>
+      <p>This ensures that the data points are correctly classified, with the margin between the hyperplane and the points from either class being maximized.</p>
+
+      <h5>Optimization Problem:</h5>
+      <p>The optimization problem can be formulated as follows:</p>
+
+      <div class="math-block">
+          \[
+          \min_{w, b} \frac{1}{2} \|w\|^2
+          \]
+          subject to:
+          \[
+          y_i (w \cdot x_i + b) \geq 1, \quad \forall i
+          \]
+      </div>
+    <p>This is a <strong>convex optimization problem</strong>, and we can solve it using methods like 
+    <strong>quadratic programming</strong> or <strong>gradient descent</strong>.</p>
+    </section>
+    <section>
+      <h4>Key Components of Linear SVM</h4>
+      <p><strong>1. Support Vectors:</strong>The points that lie closest to the hyperplane are called support vectors. These are the most critical data points that help define the decision boundary.</p>
+      <p><strong>2. Margin:</strong>The margin is the distance between the closest support vector and the hyperplane. Maximizing this margin is the key objective of SVM.</p>
+      <p><strong>3. Hyperplane:</strong>The hyperplane is the decision boundary that separates the two classes</p>
+      <p><strong>4. Weight Vector:</strong>This vector is perpendicular to the hyperplane and determines the orientation of the hyperplane.</p>
+      <p><strong>5. Bias Term:</strong>This term allows the hyperplane to be shifted from the origin.</p>
+    </section>
+    <section>
+      <h4>Advantages of Linear SVM</h4>
+      <p><strong>1. High-demensional data:</strong>SVMs are particularly effective in high-dimensional spaces (i.e., when there are many features or attributes).</p>
+      <p><strong>2. Robust and Generalizes Well:</strong>By maximizing the margin, SVM tends to generalize well on unseen data, reducing the risk of overfitting.</p>
+      <p><strong>3. Effective in Non-Linear Spaces (with Kernel Trick):</strong>If the data isn’t linearly separable, you can use the kernel trick to map the data to a higher-dimensional space where linear separation is possible.</p>
+      <p><strong>4. Clear Decision Boundary:</strong>The decision boundary is clear and well-defined, making it interpretable for many use cases.</p>
+    </section>
+    <section>
+      <h4>Limitations of Linear SVM</h4>
+      <p><strong>1. Not Suitable for Noisy Data:</strong>SVM can be sensitive to outliers and noisy data because even a small change in a support vector can affect the position of the hyperplane.</p>
+      <p><strong>2. Computationally Expensive:</strong>Training an SVM can be computationally expensive, especially for large datasets, as the complexity grows with the number of data points.</p>
+      <p><strong>3. Linear Decision Boundary:</strong>Linear SVMs can only work well when the data is linearly separable. For non-linear data, you must use kernel functions, which can add complexity.</p>
+    </section>
+    <section>
+      <h4>Applications of Linear SVM</h4>
+      <p><strong>1. Image Classification:</strong>Linear SVM is often used in image recognition tasks, especially when the data is relatively simple and linearly separable.</p>
+      <p><strong>2. Text Classification:</strong>In natural language processing (NLP), Linear SVM is used for tasks like spam detection and sentiment analysis.</p>
+      <p><strong>3. Bioinformatics:</strong>Linear SVMs are used in fields like genomics and proteomics, where data might be high-dimensional but can still be linearly separable in many cases.</p>
+    </section>
+    <section>
+      <h4>Conclusion</h4>
+      <p>Linear SVM is a powerful and widely-used machine learning algorithm that can separate linearly separable data by finding the optimal hyperplane that maximizes the margin between classes. SVMs are highly effective in high-dimensional spaces, and they are known for their good generalization capabilities. While they have some limitations, such as sensitivity to noisy data and computational cost, Linear SVM remains a popular choice for many classification tasks, especially when the data is well-behaved and linearly separable.</p>
+    </section> 
+      
+  </main>    
+  <footer>
+    <a href="ML_unit3.html" class="back-btn">← Back to Unit 3 Topics</a>
+  </footer>
+  
+</body>
+</html>

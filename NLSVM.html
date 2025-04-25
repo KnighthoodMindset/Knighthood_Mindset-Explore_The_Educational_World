@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Non-Linear Support Vector Machines | Tech Nexus | Knighthood Mindset</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Non-Linear Support Vector Machines</h3>
+    </section>
+    <section>
+      <h4>What is Non-Linear SVM</h4>
+      <p>While Linear Support Vector Machine (SVM) works well when data is linearly separable, real-world datasets are often more complex and not linearly separable. In such cases, Non-Linear SVM comes into play. Non-linear SVM allows us to handle datasets where the two classes cannot be separated by a straight line or a hyperplane. This is done using the kernel trick, which transforms the data into a higher-dimensional space where a hyperplane can separate the classes.</p>
+    </section>
+    <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-24 144445.png">
+    <section>
+      <h4>How Does Non-Linear SVM Work</h4>
+      <p>In the case of non-linearly separable data, SVM performs the following:</p>
+      <h5>1. Feature Mapping:</h5>
+      <li>Non-linear SVM uses a kernel function to map the original data points into a higher-dimensional space where a hyperplane can separate the data. The kernel function computes the similarity between data points in the transformed space without explicitly mapping the points to that space, making the process computationally efficient.</li>
+      <li>By transforming the data into a higher-dimensional space, it becomes more likely that the data becomes linearly separable, allowing us to apply a linear hyperplane to separate the classes.</li>
+      <h5>2. Kernal Function:</h5>
+      <p>The kernel function allows SVM to create a non-linear decision boundary without having to directly calculate the transformation into higher-dimensional space. Some commonly used kernel functions are:</p>
+      <div class="kernel-type">
+          <strong>• Linear Kernel</strong>:<br>
+          <div class="math-block">
+              \[
+              K(x, x') = x \cdot x'
+              \]
+          </div>
+          <p>Used when the data is already linearly separable.</p>
+      </div> 
+      <div class="kernel-type">
+          <strong>• Polynomial Kernel</strong>:<br>
+          <div class="math-block">
+              \[
+              K(x, x') = (x \cdot x' + 1)^d
+              \]
+          </div>
+          <p>Suitable for datasets with non-linear boundaries.</p>
+      </div>
+      <div class="kernel-type">
+          <strong>• Radial Basis Function (RBF) Kernel / Gaussian Kernel</strong>:<br>
+          <div class="math-block">
+              \[
+              K(x, x') = \exp(-\gamma \|x - x'\|^2)
+              \]
+          </div>
+          <p>One of the most commonly used kernels, suitable for most real-world problems.</p>
+      </div>
+  
+      <div class="kernel-type">
+          <strong>• Sigmoid Kernel</strong>:<br>
+          <div class="math-block">
+              \[
+              K(x, x') = \tanh(\alpha \, x \cdot x' + \beta)
+              \]
+          </div>
+          <p>Used for certain types of data, inspired by neural networks.</p>
+      </div>
+      <h5>3. Hyperplane in Higher Dimensions:</h5>
+      <li>Once the kernel function is used to map the data into higher dimensions, a linear hyperplane is then applied to separate the data points. Although this hyperplane appears non-linear in the original input space, it is linear in the transformed feature space.</li>
+      <h5>4. Maximizing the Margin:</h5>
+      <p>Just like in the case of a linear SVM, Non-Linear SVM aims to maximize the margin between the classes. The support vectors are the data points that lie closest to the hyperplane in the transformed feature space, and these points define the decision boundary.</p>
+    </section>
+    <img src="c:\Users\SWEETY\OneDrive\Pictures\Screenshots\Screenshot 2025-04-25 151632.png">
+    <section>
+      
+    </section>       
+    <section>
+        <h4>Mathematics of Non-Linear SVM</h4>
+      
+        <p>The basic idea of <strong>Non-Linear SVM</strong> is to use a kernel function \( K(x, x') \) to transform the data into a higher-dimensional space where the data becomes linearly separable.</p>      
+        <h5>Optimization Problem:</h5>     
+        <p>
+          Given the training data \( D = \{(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\} \), where \( x_i \in \mathbb{R}^d \) and \( y_i \in \{-1, +1\} \), the non-linear SVM optimization problem can be written as:
+        </p>
+      
+        <div class="math-block">
+          \[
+          \min_{w, b} \frac{1}{2} \|w\|^2
+          \]
+        </div>
+      
+        <p>subject to:</p>
+      
+        <div class="math-block">
+          \[
+          y_i (w \cdot \phi(x_i) + b) \geq 1, \quad \forall i
+          \]
+        </div>
+      
+        <p>where:</p>
+        <ul>
+          <li>\( \phi(x_i) \) is the transformation function mapping the input space to a higher-dimensional space.</li>
+          <li>The decision boundary is defined as \( w \cdot \phi(x) + b = 0 \).</li>
+        </ul>
+      
+        <h5><strong>The Kernel Trick:</strong></h5>
+        <p>
+          Instead of explicitly calculating \( \phi(x) \), we use the kernel function to compute the dot product in the transformed space:
+        </p>
+      
+        <div class="math-block">
+          \[
+          w \cdot \phi(x) \longrightarrow K(x, x')
+          \]
+        </div>
+      
+        <p>
+          This allows the SVM to operate in higher dimensions without directly computing the transformation.
+        </p>
+        <p>The optimization problem using the kernel becomes:</p>
+        <div class="math-block">
+          \[
+          \min_{\alpha} \sum_{i=1}^{n} \alpha_i - \frac{1}{2} \sum_{i=1}^{n} \sum_{j=1}^{n} \alpha_i \alpha_j y_i y_j K(x_i, x_j)
+          \]
+        </div>
+      
+        <p>
+          where \( \alpha_i \) are the Lagrange multipliers and \( K(x_i, x_j) \) is the kernel function.
+        </p>    
+    </section>
+    <section>
+      <h4>Advantages of Non-Linear SVM</h4>
+      <p><strong>1. Handling Non-Linearly Separable Data:</strong>The kernel trick allows SVM to efficiently handle data that is not linearly separable in its original space.</p>
+      <p><strong>2. Flexible Decision Boundaries:</strong>Non-linear SVMs can create complex decision boundaries in the original feature space, allowing them to handle more complicated patterns in data.</p>
+      <p><strong>3. Effective in High Dimensions</strong>SVMs work well even with high-dimensional data, such as text data (TF-IDF features) or image data.</p>
+      <p><strong>4. Robust and Generalizes Well</strong>Like linear SVM, non-linear SVM is also good at generalizing to new data, as it tries to maximize the margin between the classes.</p>
+    </section>
+    <section>
+      <h4>Limitations of Non-Linear SVM</h4>
+      <p><strong>1. Computational Cost:</strong>Non-linear SVMs, especially with kernels like RBF, can be computationally expensive, particularly on large datasets, because calculating kernel functions between all pairs of data points requires a lot of computation.</p>
+      <p><strong>2. Memory Requirements:</strong>Since SVMs store and process kernel values for all pairs of data points, they can be memory-intensive.</p>
+      <p><strong>3. Kernel Selection:</strong>Choosing the right kernel is crucial for SVM performance. Selecting the wrong kernel can lead to poor performance or overfitting.</p>
+      <p><strong>4. Hard to Interpret:</strong>While the decision boundary is non-linear, the overall model may be harder to interpret compared to simpler models like decision trees or logistic regression.</p>
+    </section>
+    <section>
+      <h4>Applications of Non-Linear SVM</h4>
+      <p><strong>1. Image Recognition:</strong>Non-linear SVMs are often used in computer vision tasks, such as recognizing objects, faces, or handwriting in images.</p>
+      <p><strong>2. Text Classification</strong>Non-linear SVMs are highly effective for tasks like spam detection, sentiment analysis, and categorizing documents into topics.</p>
+      <p><strong>3. Bioinformatics</strong>In genomics, non-linear SVMs are used to classify genes, predict protein structures, and identify cancer types.</p>
+      <p><strong>4. Anomaly Detection</strong>Non-linear SVMs can be used for identifying rare events or outliers in data, such as fraud detection in financial transactions.</p>
+    </section>
+    <section>
+      <h4>Conclusion</h4>
+      <p><strong>Non-Linear Support Vector Machines (SVM)</strong> are a powerful and flexible machine learning algorithm that can handle complex, non-linearly separable data. By using the <strong>kernel trick</strong>, SVM can transform the input data into higher-dimensional spaces where linear separation becomes possible. While non-linear SVMs are computationally expensive and can be challenging to interpret, they are highly effective in many real-world applications, including image recognition, text classification, and bioinformatics. Choosing the appropriate kernel and tuning the parameters are key to making the most of SVM's capabilities.</p>
+    </section>
+  </main>    
+  <footer>
+    <a href="ML_unit4.html" class="back-btn">← Back to Unit 5 Topics</a>
+  </footer>
+  
+</body>
+</html>
