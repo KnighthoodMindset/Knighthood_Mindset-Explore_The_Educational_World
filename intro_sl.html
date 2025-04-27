@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction to Supervised Learning | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>Introduction to Supervised Learning</h3>
+    </section>
+    <section>
+        <h4>What is Supervised Learning</h4>
+        <p><strong>Supervised Learning</strong> is a type of machine learning where the model is trained using labeled data. In this approach, the dataset includes both the input (features) and the correct output (label or target). The main goal is for the model to learn the relationship between the inputs and outputs so that it can predict the output for new, unseen inputs.</p>
+        <p>Imagine you’re teaching a child to recognize fruits. You show them a picture of an apple and say, “This is an apple.” You do the same with a banana, an orange, and so on. Over time, the child learns to identify fruits on their own. This is similar to how supervised learning works — the model "learns" from examples where the answers are already known.</p>
+    </section>
+    <section>
+        <h4>How Does Supervised Learning</h4>
+        <p>The process of supervised learning involves several key steps:</p>
+        <h5>1. Collect and Prepare Labelled Data:</h5>
+        <li>A dataset is created where each example includes an input (like an image, text, or numerical data) and a known output (label).</li>
+        <p>Example: An image of a dog (input) labeled as “dog” (output).</p>
+        <h5>2. Split the Dataset:</h5>
+        <li>The dataset is divided into two parts: a training set and a test set.</li>
+        <li>The training set is used to teach the model, and the test set is used to evaluate how well the model performs on unseen data.</li>
+        <h5>3. Choose a Suitable Algorithm:</h5>
+        <li>Based on the problem (classification or regression), an appropriate algorithm is selected (like Decision Tree, K-NN, or Linear Regression).</li>
+        <h5>4. Train the Model:</h5>
+        <li>The model learns from the training data by finding patterns and relationships between inputs and outputs.</li>
+        <h5>5. Validate the Test:</h5>
+        <li>The trained model is tested on the test set to measure its accuracy and generalization ability.</li>
+        <h5>6. Make Predictions:</h5>
+        <li>Once trained and tested, the model can be used to make predictions on new data.</li>
+        <p>The key idea is that the model uses past examples to learn and make intelligent decisions about new examples.</p>
+    </section>
+    <section>
+        <h4>Types of Supervised Learning</h4>
+        <p>Supervised learning problems can be broadly classified into two main types:</p>
+
+        <h5>Classification</h5>
+        <p>Classification is used when the output variable is <strong>categorical</strong> — meaning the outcome falls into one of several classes or groups.</p>
+        <p>To learn a decision boundary that separates different classes and accurately assign new data to one of the predefined categories.</p>
+        <p><strong>Examples</strong></p>
+        <li>Email Spam Detection</li>
+        <li>Disease Diagnosis</li>
+        <li>Image Recognition</li>
+        <li>Handwriting Recognition</li>
+        <li>Sentiment Analysis</li>
+
+        <h5>Types of Classification:</h5>
+        <p><strong>1. Binary Classification:</strong>Only two possible classes</p>
+        <p>Example: Fraud detection</p>
+        <p><strong>2. Multiclass Classification:</strong>More than two classes</p>
+        <p>Example:  Classifying handwritten digits (0–9)</p>
+        <p><strong>3. Multilabel Classification:</strong>Each input can be assigned multiple labels</p>
+        <p>Example: Tagging a photo as "beach", "sunset", and "vacation"</p>
+
+        <h5>Regression</h5>
+        <p>Regression is used when the output variable is <strong>continuous</strong> — meaning it can take on any numeric value within a range.</p>
+        <p>To find the relationship between input features and a continuous output variable so predictions can be made with real values.</p>
+        <p><strong>Examples</strong></p>
+        <li>Predicting House Prices based on size, location, etc.</li>
+        <li>Forecasting Stock Prices or Sales</li>
+        <li>Estimating Temperature</li>
+        <li>Predicting the Age of a Person from a Photo</li>
+
+        <h5>Types of Regression:</h5>
+        <p><strong>1. Simple Linear Regression:</strong>One input variable</p>
+        <p>Example: Predicting salary based on experience.</p>
+        <p><strong>2. Multiple Linear Regression:</strong>Multiple input variables</p>
+        <p>Example: Predicting house price based on size, number of rooms, and location.</p>
+        <p><strong>3. Polynomial Regression:</strong>Input variables are raised to powers to capture non-linear relationships</p>
+        <p>Example: Predicting growth curves or trends in time-series data.</p>
+    </section>
+    <section>
+        <h4>Applications of Supervised Learning</h4>
+        <p>Supervised learning is widely used across industries due to its versatility and effectiveness. Some common applications include:</p>
+        <p><strong>1. Healthcare</strong>Predicting diseases based on symptoms or patient records.</p>
+        <p><strong>2. Finance:</strong>Credit scoring, fraud detection, and loan default prediction.</p>
+        <p><strong>3. Retail:</strong>Customer behavior analysis and sales forecasting.</p>
+        <p><strong>4. Marketing:</strong>Personalizing advertisements based on user behavior.</p>
+        <p><strong>5. Education:</strong>Predicting student performance or dropout risk.</p>
+        <p><strong>6. Security:</strong>Identifying suspicious activity or unauthorized access.</p>
+    </section>
+    <section>
+        <h4>Advantages of Supervised Learning</h4>
+        <p><strong>1. Accurate Results:</strong>When trained on quality data, it can achieve high accuracy.</p>
+        <p><strong>2. Clear Objectives:</strong>Since the outputs are known, the learning goals are clearly defined.</p>
+        <p><strong>3. Real-World Applications:</strong>Suitable for many practical problems with labeled data.</p>
+        <p><strong>4. Variety of Algorithms:</strong>A wide range of algorithms is available to choose from, depending on the nature of the task.</p>
+    </section>
+    <section>
+        <h4>Limitations of Supervised Learning</h4>
+        <p><strong>1. Requires Labeled Data:</strong>Collecting and labeling large datasets can be time-consuming and expensive.</p>
+        <p><strong>2. Limited GenereliZation:</strong>Models may not perform well on completely new or different data.</p>
+        <p><strong>3. Overfitting Risk:</strong>The model may memorize training data instead of learning patterns, reducing performance on new data.</p>
+        <p><strong>4. Scalability Issues:</strong>Performance can drop with very large or high-dimensional datasets without proper preprocessing.</p>
+    </section>
+    <section>
+        <h4>Conclusion</h4>
+        <p>Supervised Learning is one of the most fundamental and widely used approaches in machine learning. By learning from labeled data, it provides powerful tools for making predictions and decisions across various domains. However, it also comes with limitations, especially related to the availability and quality of labeled data. Despite this, its strengths make it an essential technique in the field of artificial intelligence and data science.</p>
+    </section>
+
+  </main>
+
+    <footer>
+    <a href="ML_unit2.html" class="back-btn">← Back to Unit 2 Topics</a>
+    </footer>
+
+ </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Naive Bayes | Tech Nexus | Knighthood Mindest</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Naive Bayes</h3>
+    </section>
+    <section>
+      <h4>What is Naive Byaes</h4>
+      <p><strong>Naive Bayes</strong> is a probabilistic classifier based on <strong>Bayes’ Theorem</strong>, with a “naive” assumption that all features are independent of each other.</p>
+      <p>Despite being a bit “naive,” it works surprisingly well in many real-world applications like spam detection, sentiment analysis, and medical diagnosis.</p>
+    </section>
+    <section>
+      <h4>Why Naive</h4>
+      <p>It assumes that all the features (inputs) are independent from each other — which is rarely true in real life.</p>
+      <p>Still, this simplification makes the computation easy and often gives good results.</p>
+    </section>  
+    <section>
+        <h4> Bayes' Theorem</h4>
+    
+        <p>Here's the <strong>basic formula</strong> of Bayes' Theorem:</p>
+    
+        <p>
+            \[
+            P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
+            \]
+        </p>
+    
+        <p>Where:</p>
+        <ul>
+            <li>\( P(A|B) \) = Probability of A given B (posterior)</li>
+            <li>\( P(B|A) \) = Probability of B given A (likelihood)</li>
+            <li>\( P(A) \) = Probability of A (prior)</li>
+            <li>\( P(B) \) = Probability of B (evidence)</li>
+        </ul>
+    
+        <p>In classification:</p>
+        <ul>
+            <li>\( A \) is a <strong>class label</strong> (e.g., "spam" or "not spam")</li>
+            <li>\( B \) is the <strong>observed features</strong> (e.g., words in the email)</li>
+        </ul>
+    
+        <hr>
+    
+        <h5> Naive Bayes Formula </h5>
+    
+        <p>For classification, we compute:</p>
+    
+        <p>
+            \[
+            P(\text{Class}|\text{Features}) \propto P(\text{Class}) \cdot P(F_1|\text{Class}) \cdot P(F_2|\text{Class}) \cdot \ldots \cdot P(F_n|\text{Class})
+            \]
+        </p>
+    
+        <p>We <strong>ignore</strong> \( P(\text{Features}) \) because it's the same for all classes.<br>
+        We choose the <strong>class</strong> with the <strong>highest probability</strong>.</p>
+    
+        <hr>
+    
+        <h5> Example: Spam Detection (Very Simple)</h5>
+    
+        <p>Let’s say we have:</p>
+        <ul>
+            <li>\( P(\text{Spam}) = 0.4 \)</li>
+            <li>\( P(\text{Not Spam}) = 0.6 \)</li>
+        </ul>
+    
+        <p>And the email contains the word “free.” You know:</p>
+        <ul>
+            <li>\( P(\text{“free”}|\text{Spam}) = 0.7 \)</li>
+            <li>\( P(\text{“free”}|\text{Not Spam}) = 0.1 \)</li>
+        </ul>
+    
+        <p>Then,</p>
+        <p>
+            \[
+            P(\text{Spam}|\text{“free”}) \propto 0.4 \times 0.7 = 0.28
+            \]
+            \[
+            P(\text{Not Spam}|\text{“free”}) \propto 0.6 \times 0.1 = 0.06
+            \]
+        </p>
+    
+        <p> So, the classifier picks <strong>Spam</strong>, because 0.28 &gt; 0.06.</p>
+    </section>
+    <section>
+      <h4>Types of Naive Byaes</h4>
+      <p><strong>1. Multinomial Naive Bayes:</strong>It is best for text data (word counts)</p>
+      <p><strong>2. Bernoulli Naive Bayes:</strong>Best for binary features </p>
+      <p><strong>3. Gaussian Naive Bayes:</strong>Best for continuous values (assumes normal distribution)</p>
+    </section>
+    <section>
+      <h4>Applications</h4>
+      <li>Email Spam Filtering</li>
+      <li>Text Classification (positive/negative reviews)</li>
+      <li>Medical Diagnosis (yes/no disease)</li>
+      <li>Document Categorization (news, sports, politics)</li>
+    </section>
+    <section>
+      <h4>Advantages</h4>
+      <li>Very simple and fast</li>
+      <li>Works welll with high-dimensional data</li>
+      <li>Needs less data to train</li>
+      <li>Works even with missing values</li>
+    </section>
+    <section>
+      <h4>Limitations</h4>
+      <li>Assumes independence between features</li>
+      <li>Can struggle with correlated features</li>
+      <li>Probability outputs are not always well-calibrated</li>
+    </section> 
+    <section>
+      <h4>Conclusion</h4>
+      <p>Naive Bayes is a simple yet powerful classification algorithm based on probability theory. It uses Bayes' Theorem to predict the most likely class of a given input, assuming that all input features are independent of each other (the "naive" part).</p>
+      <p>Despite this strong and unrealistic assumption, it performs well in real-world problems, especially in text classification, spam filtering, and sentiment analysis.</p>
+    </section>       
+  </main>
+
+    <footer>
+    <a href="ML_unit2.html" class="back-btn">← Back to Unit 2 Topics</a>
+    </footer>
+
+ </body>
+</html>

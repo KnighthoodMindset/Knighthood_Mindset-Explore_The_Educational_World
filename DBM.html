@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Distance-Based Methods in Machine Learning | Tech Nexus | Knighthood Mindset</title>
+  
+  <!-- MathJax Configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+
+  <!-- MathJax Library -->
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+    <h3>Distance-Based Methods in Machine Learning</h2>
+
+    <p>Distance-based methods rely on the idea that similar data points are "closer" together in a given feature space. These methods use distance metrics to measure similarity or dissimilarity between instances.</p>
+
+    <h4>1. Euclidean Distance</h4>
+    <p>Most commonly used metric (straight-line distance).</p>
+    <p><strong>Formula:</strong></p>
+    <p>
+      \[
+      d(x, y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2 + \dots + (x_n - y_n)^2}
+      \]
+    </p>
+
+    <h4>2. Manhattan Distance (Taxicab Distance)</h4>
+    <p>Measures the distance by summing the absolute differences of coordinates.</p>
+    <p><strong>Formula:</strong></p>
+    <p>
+      \[
+      d(x, y) = |x_1 - y_1| + |x_2 - y_2| + \dots + |x_n - y_n|
+      \]
+    </p>
+
+    <h4>3. Minkowski Distance</h4>
+    <p>A general form that includes both Euclidean and Manhattan distances.</p>
+    <p><strong>Formula:</strong></p>
+    <p>
+      \[
+      d(x, y) = \left( \sum_{i=1}^{n} |x_i - y_i|^p \right)^{1/p}
+      \]
+    </p>
+
+    <h4>4. Cosine Similarity</h4>
+    <p>Measures the angle between two vectors (used for text and sparse data).</p>
+    <p><strong>Formula:</strong></p>
+    <p>
+      \[
+      \text{Cosine Similarity} = \frac{x \cdot y}{\|x\|\|y\|} = \frac{\sum x_i y_i}{\sqrt{\sum x_i^2} \cdot \sqrt{\sum y_i^2}}
+      \]
+    </p>
+
+    <h4>5. Hamming Distance</h4>
+    <p>Used for categorical or binary data. Counts the number of positions with different values.</p>
+    <p><strong>Formula:</strong></p>
+    <p>
+      \[
+      d(x, y) = \sum_{i=1}^{n} \text{if } x_i \ne y_i \text{ then } 1 \text{ else } 0
+      \]
+    </p>
+
+    <h4>Comparison Table</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Distance Metric</th>
+          <th>Best For</th>
+          <th>Used In</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Euclidean</td>
+          <td>Continuous, scaled features</td>
+          <td>KNN, K-Means</td>
+        </tr>
+        <tr>
+          <td>Manhattan</td>
+          <td>High-dimensional or grid data</td>
+          <td>KNN, L1 Regularization</td>
+        </tr>
+        <tr>
+          <td>Minkowski</td>
+          <td>Customizable distance</td>
+          <td>Generalized KNN/K-Means</td>
+        </tr>
+        <tr>
+          <td>Cosine Similarity</td>
+          <td>Sparse/Text Data</td>
+          <td>NLP, Document Similarity</td>
+        </tr>
+        <tr>
+          <td>Hamming</td>
+          <td>Binary/Categorical</td>
+          <td>Genomics, Binary KNN</td>
+        </tr>
+      </tbody>
+    </table>
+    <section>
+        <h4>Applications of Distance-Based Methods</h4>
+        <li>Face and object recognition</li>
+        <li>Recommended systems (based on user similarity)</li>
+        <li>Fraud detection</li>
+        <li>Document similarity and clustering</li>
+        <li>Pattern and speech recognition</li>
+    </section>
+    <section>
+        <h4>Advantages</h4>
+        <li>Simple and intuitive</li>
+        <li>No assumptions about data distribution</li>
+        <li>Effective for small to medium-sized datasets</li>
+        <li>Useful in both classification and clustering</li>
+    </section>
+    <section>
+        <h4>Limitations</h4>
+        <li><strong>Sensitive to irrelevant or scaled features</strong> — feature selection and normalization are important</li>
+        <li><strong>Computationally expensive</strong> — especially for large datasets</li>
+        <li><strong>Struggles with high-dimensional data</strong> due to the "curse of dimensionality"</li>
+        <li><strong>Performance depends heavily</strong> on the choice of distance metric and parameters (like ‘k’ in KNN)</li>
+    </section>
+    <section>
+        <h4>Conclusion</h4>
+        <p>Distance-based methods play a foundational role in both supervised and unsupervised machine learning. They are especially useful in scenarios where similarity and grouping matter more than abstract data modeling. However, their effectiveness depends on proper data preprocessing and careful metric selection. Despite their simplicity, they remain powerful tools in a machine learning toolkit.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <a href="ML_unit2.html" class="back-btn">← Back to Unit 2 Topics</a>
+  </footer>
+</body>
+</html>
