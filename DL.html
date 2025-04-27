@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deep Learning | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>Deep Learning</h3>
+    </section>
+    <section>
+        <p><strong>Deep Learning</strong> is a subset of Machine Learning concerned with algorithms inspired by the structure and function of the human brain called Artificial Neural Networks.</p>
+        <p>It focuses on learning data representations automatically by passing information through multiple processing layers, allowing machines to model high-level abstractions and complex patterns.</p>
+        <p>In contrast to traditional machine learning techniques that rely heavily on manually engineered features, deep learning systems attempt to discover these features automatically during training.</p>
+    </section>
+    <section>
+        <h4>Key Concepts</h4>
+        <h5>Hierarchical Feature Learning:</h5>
+        <p>Data representations are learned at multiple levels of abstraction. Lower layers capture simple features (e.g., edges in an image), and higher layers capture complex concepts (e.g., faces, objects).</p>
+        <h5>Representation Learning:</h5>
+        <p>The core idea is to transform raw data into more useful internal representations through a sequence of transformations, optimizing the system’s ability to perform tasks like classification, prediction, or generation.</p>
+        <h5>Universal Approximation Theorem:</h5>
+        <p>A key theoretical result states that a sufficiently large neural network with even one hidden layer can approximate any continuous function under certain conditions. Deep networks, with many hidden layers, can achieve this approximation more efficiently and with fewer units per layer.</p>
+    </section>
+    <section>
+        <h4>Core Components of Deep Learning</h4>
+        <h5>Neurons:</h5>
+        <p>Fundamental computational units inspired by biological neurons. Each neuron computes a weighted sum of its inputs, applies an activation function, and passes the result to the next layer.</p>
+        <h5>Layers:</h5>
+        <p>Deep learning models are characterized by their depth — the number of layers between input and output. Layers can be:</p>
+        <li>Input layer</li>
+        <li>Hidden layers</li>
+        <li>Output layer</li>
+        <h5>Weights and Biases:</h5>
+        <p>Parameters that the learning process adjusts to minimize error in predictions.</p>
+        <h5>Activation Functions</h5>
+        <p>Non-linear functions (like ReLU, sigmoid, tanh) that allow networks to capture complex patterns and interactions between features.</p>
+        <h5>Loss Functions</h5>
+        <p>Mathematical functions that measure the difference between the predicted output and the actual target, guiding the optimization process.</p>
+        <h5>Optimization Algorithms:</h5>
+        <p>Methods like Gradient Descent and its variants (SGD, Adam) that adjust weights to minimize the loss function.</p>
+    </section>
+    <section>
+        <h4>Learning Process in Deep Learning</h4>
+        <p>The learning in deep networks involves:</p>
+        <p><strong>1. Forward Propagation:</strong>Data moves through the network, layer by layer, to produce an output prediction.</p>
+        <p><strong>2. Loss Computation:</strong>The error between the predicted output and the true value is measured.</p>
+        <p><strong>3. Backward Propagation (Backpropagation):</strong>Gradients of the loss with respect to each parameter are computed using the chain rule, flowing backward through the network.</p>
+        <p><strong>4. Parameter Update:</strong> Weights and biases are updated to reduce the error, typically using an optimization algorithm.</p>
+        <p>This iterative cycle repeats many times over the training dataset until the model's performance stabilizes or improves to a satisfactory level.</p>
+    </section>
+    <section>
+        <h4>Deep Architectures</h4>
+        <p>Over time, specialized deep learning architectures have emerged, tailored for different kinds of tasks:</p>
+        <p><strong>Feedforward Neural Networks (FNNs):</strong>Basic architecture where information moves only in one direction, from input to output.</p>
+        <p><strong>Convolutional Neural Networks (CNNs):</strong>Designed for processing grid-like data such as images, leveraging local spatial coherence.</p>
+        <p><strong>Recurrent Neural Networks (RNNs):</strong>Suited for sequential data (like text, time series) by maintaining a memory of previous inputs.</p>
+        <p><strong>Transformers:</strong>Highly efficient architectures for sequence modeling, relying entirely on attention mechanisms, replacing recurrence.</p>
+        <p><strong>Generative Adversarial Networks (GANs):</strong>Systems where two neural networks (a generator and a discriminator) are trained adversarially to produce realistic data samples.</p>
+    </section>
+    <section>
+        <h4>Applications</h4>
+        <h5>Computer Vision</h5>
+        <li>Image Classification</li>
+        <li>Object Detection</li>
+        <li>Image Segmentation</li>
+        <li>Facial Recognition</li>
+        <li>Medical Image Analysis</li>
+        <h5>Natural Language Processing(NLP)</h5>
+        <li>Machine Translation</li>
+        <li>Text Summarization</li>
+        <li>Sentiment Analysis</li>
+        <li>Speech Recognition</li>
+        <li>Chatbots and Virtual Assistanta</li>
+        <h5>Autonomous Vehicles</h5>
+        <li>Lane Detection</li>
+        <li>Traffic Sign Recognition</li>
+        <li>Obstacle Avoidance</li>
+        <li>End-to-End Driving Systems</li>
+        <h5>Healthcare and Biomedical Appllications</h5>
+        <li>Disease Prediction</li>
+        <li>Drug Discovery</li>
+        <li>Personalized Medicines</li>
+        <li>Medical Image Diagnosis</li>
+        <h5>Finance and Business Intelligence</h5>
+        <li>Fraud Detection</li>
+        <li>Algorithemic Trading</li>
+        <li>Credit Scoring</li>
+        <li>Customer Segmentation and personalization</li>
+    </section>
+    <section>
+        <h4>Challenges</h4>
+        <p><strong>1. Generalization:</strong>Understanding why deep networks, often heavily over-parameterized, generalize well to unseen data remains an open research question.</p>
+        <p><strong>2. Optimization Landscape:</strong></p>
+        <p><strong>3. Interpretability:</strong>Deep networks are often "black boxes," making it difficult to explain why they make certain decisions or to ensure their outputs are fair and unbiased.</p>
+        <p><strong>4. Robustness:</strong>Deep models can be sensitive to small, adversarial perturbations in input data, leading to incorrect predictions. This has implications for safety-critical applications.</p>
+    </section>
+    <section>
+        <h4>Conclusion</h4>
+        <p>Deep Learning is a powerful branch of artificial intelligence that enables machines to automatically learn complex patterns from data. It eliminates the need for manual feature extraction and achieves remarkable results across various fields. While it offers immense capabilities, challenges like interpretability and ethical concerns remain. Overall, Deep Learning continues to drive innovation and expand the horizons of AI.</p>
+    </section>
+
+
+  </main>
+
+    <footer>
+    <a href="ML_unit2.html" class="back-btn">← Back to Unit 2 Topics</a>
+    </footer>
+
+ </body>
+</html>
