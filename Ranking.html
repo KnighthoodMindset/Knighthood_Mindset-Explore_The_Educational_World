@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ranking | Tech Nexus | Knighthood Mindest</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Ranking</h3>
+    </section>
+    <section>
+      <p>Ranking in machine learning is the task of ordering items based on their relevance, importance, or preference.  </p>
+      <p>Instead of just predicting a label (classification) or a number (regression), the goal in ranking is to arrange items from the most relevant to the least relevant.</p>
+      <p>Ranking is the process of assigning an order to a list of items so that the most important or relevant items appear first.</p>
+    </section>
+    <section>
+      <h4>Why Ranking is Important?</h4>
+    <li> Search engines (Google ranks webpages by relevance).</li>
+    <li>E-commerce websites (Amazon ranks products by popularity or customer rating).</li>
+    <li>Recommender systems (Netflix ranks movies based on your preferences).</li>
+    <li>Job portals (LinkedIn ranks job candidates or opportunities).</li>
+    </section>
+    <section>
+      <h4> Types of Ranking Problems</h4>
+      <li><strong>Pointwise Ranking:</strong>Predict a score for each item individually and rank by scores. </li>
+      <li><strong>Pairwise Ranking:</strong>Compare two items at a time and learn which one should rank higher.</li>
+      <li><strong>Listwise Ranking:</strong>Directly optimize the entire list order during training.</li>
+    </section>
+    <section>
+      <h4>Techniques for Ranking</h4>
+      <li><strong>Learning to Rank:</strong>Machine learning models specifically trained to produce rankings (used by search engines).</li>
+      <li><strong>RankNet, LambdaRank, LambdaMART:</strong>Popular algorithms developed by Microsoft Research for ranking tasks.</li>
+      <li><strong>Gradient Boosted Decision Trees (GBDT):</strong>Can be adapted for ranking problems (e.g., LightGBM's ranking mode).</li>
+      <li><strong>Support Vector Machines for Ranking (Ranking SVM):</strong>SVMs adapted for pairwise ranking tasks.</li>
+    </section>
+    <section>
+      <h4> Applications of Ranking</h4>
+      <p><strong>1. Search engines:</strong>Ordering websites by relevance</p>
+      <p><strong>2. Online Shopping:</strong>Sorting products by customer preference.</p>
+      <p><strong>3. Social Media:</strong>Ranking posts and stories in your feed.</p>
+      <p><strong>4. Hiring Platforms:</strong>Ranking job applicants</p>
+      <p><strong>5. Music/video Streaming:</strong>Ranking songs and videos you might like.</p>
+    </section>
+    <section>
+      <h4> Challenges in Ranking</h4>
+      <p><strong>1. Data Imbalance:</strong>Most items might be irrelevant compared to a few important ones.</p>
+      <p><strong>2. Evaluation complexity:</strong>Need special metrics like NDCG (Normalized Discounted Cumulative Gain) or MAP (Mean Average Precision).</p>
+      <p><strong>3. User Preference Change:</strong>What is important today may not be tomorrow.</p>
+    </section>
+    <section>
+      <h4>Evaluation Metrics for Ranking</h4>
+      <li><strong>NDCG (Normalized Discounted Cumulative Gain):</strong>Measures the quality of the ranking, giving more weight to correct items at the top.</li>
+      <li><strong>MAP (Mean Average Precision):</strong>Measures the precision across multiple queries.</li>
+      <li><strong>Precision</strong>How many of the top results are relevant.</li>
+    </section>
+    <section>
+      <h4>Conclusion</h4>
+      <p>Ranking is a central task in modern machine learning applications, especially when ordering results is more important than just labeling them.</p>
+      <p>Good ranking models make products, content, and information easier and faster to find, leading to better user satisfaction and engagement.</p>
+      <p>Learning how to build and evaluate ranking models is essential if you want to work in fields like search engines, recommendation systems, and digital marketing.</p>
+    </section>
+  </main>
+
+    <footer>
+    <a href="ML_unit2.html" class="back-btn">← Back to Unit 2 Topics</a>
+    </footer>
+
+ </body>
+</html>
