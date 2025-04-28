@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multiclass / Structured Outputs | Tech Nexus | Knighthood Mindest</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Multiclass / Structured Outputs</h3>
+    </section>
+    <section>
+      <p>In machine learning, many problems go beyond simple binary classification (i.e., yes/no or 0/1 outcomes).</p>
+      <p>We often encounter situations where:</p>
+      <p>There are more than two classes to predict (multiclass outputs), Or, the outputs are complex and structured (like sequences, trees, or graphs).</p>
+      <p>This area is called Multiclass and Structured Outputs in Statistical Learning.</p>
+    </section>
+    <section>
+      <h4> Multiclass Outputs</h4>
+      <p>Multiclass output problems involve predicting one label from three or more possible classes.</p>
+      <h5>Examples</h5>
+      <li>Predicting the type of fruit: Apple, Banana, or Orange.</li>
+      <li>Classifying emails into Promotions, Updates, or Social.</li>
+      <li>Recognizing handwritten digits (0–9).</li>
+      <p>Instead of outputting just 0 or 1, the model must output one of multiple labels.</p>
+    </section>
+    <section>
+      <h4>Common Approaches to Multiclass Problems</h4>
+      <p><strong>1. One-vs-Rest (OvR):</strong>Train a separate binary classifier for each class. For a new input, choose the class with the highest score.</p>
+      <p><strong>2. One-vs-One (OvO):</strong>Train a binary classifier for every pair of classes and use majority voting.</p>
+      <p><strong>3. Softmax Regression:</strong>Generalizes logistic regression to multiple classes directly by using softmax activation.</p>
+    </section>
+    <section>
+      <h4>Structured Outputs</h4>
+      <p>Structured outputs involve predicting complex outputs that have internal dependencies or relationships among elements.</p>
+      <h5>Examples</h5>
+      <li>Predicting a sequence of words in a sentence (e.g., language translation, speech recognition).</li>
+      <li>Predicting trees (e.g., syntactic trees in natural language processing).</li>
+      <li>Predicting graphs (e.g., chemical molecule structures).</li>
+    </section>
+    <section>
+      <h4>Challenges with Structured Outputs</h4>
+      <p><strong>1. Dependencies between outputs:</strong>One prediction influences another.</p>
+      <p><strong>2. Large output space:</strong>Possible outputs can be huge (especially in sequences or graphs).</p>
+      <p><strong>3. Complex evaluation:</strong>Need specialized metrics (e.g., BLEU score for translation).</p>
+    </section>
+    <section>
+      <h4>Techniques for Structured Prediction</h4>
+      <li><strong>Conditional Random Fields (CRFs):</strong>For structured sequence labeling (e.g., named entity recognition).</li>
+      <li><strong>Recurrent Neural Networks (RNNs):</strong>For predicting sequences (e.g., time-series, text generation).</li>
+      <li><strong>Transformer models:</strong>Modern architectures for structured outputs (e.g., translation, summarization).</li>
+      <li><strong>Structured SVMs:</strong>Extending SVMs for structured outputs.</li>
+    </section>
+    <section>
+    <table>
+      <tr>
+        <th>Feature</th>
+        <th>Multiclass Output</th>
+        <th>Structured Output</th>
+      </tr>
+      <tr>
+        <td><strong>Nature of output</strong></td>
+        <td>Single label among multiple classes </td>
+        <td>Complex object (sequence, tree, graph)</td>
+      </tr>
+      <tr>
+        <td><strong>Independence</strong></td>
+        <td>Classes are independent</td>
+        <td>Predictions are interdependent </td>
+      </tr>
+      <tr>
+        <td><strong>Difficulty</strong></td>
+        <td>Moderate</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td><strong>Examples</strong></td>
+        <td>Image classification</td>
+        <td>Language translation, part-of-speech tagging</td>
+      </tr>
+    </table>
+    </section>
+    <section>
+      <h4> Applications of Multiclass and Structured Outputs</h4>
+      <h5>Multiclass Output</h5>
+      <li>Handwritten digit recognition(MNIST)</li>
+      <li>Medical diagnosis</li>
+      <li>Sentiment analysis</li>
+      <h5>Structures Outputs</h5>
+      <li>Machine translation (e.g., English to French).</li>
+      <li>Speech recognition</li>
+      <li>Image Captioning</li>
+      <li>Protein Structure Prediction</li>
+    </section>  
+    <section>
+      <h4>Conclusion</h4>
+      <p>Understanding Multiclass and Structured Outputs is crucial because real-world problems often involve more than just two outcomes or complex prediction structures. </p>
+      <p>Handling them requires advanced modeling techniques and smart strategies.</p>
+      <p>Understanding these concepts helps you build machine learning models that can work on diverse, challenging real-world tasks across fields like healthcare, finance, and artificial intelligence.</p>
+    </section>
+    
+  </main>
+
+  <footer>
+  <a href="ML_unit2.html" class="back-btn">← Back to Unit 2 Topics</a>
+  </footer>
+
+</body>
+</html>

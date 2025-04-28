@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logistic Regression | Tech Nexus | Knighthood Mindest</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>Logistic Regression</h3>
+    </section>
+    <section>
+        <p>Logistic Regression is a very popular and powerful classification algorithm used in Statistical Learning and Machine Learning.</p>
+        <p>Unlike linear regression, which predicts continuous values, logistic regression predicts categories (e.g., Yes/No, 0/1, Pass/Fail).</p>
+        <p>Logistic Regression models the probability that a given input belongs to a certain class.</p>
+        <p>It predicts outputs that are discrete (e.g., success or failure) by using a logistic (sigmoid) function to map any real-valued number into a value between 0 and 1.</p>
+    </section>
+    <section>
+        <h4>1. Why Not Use Linear Regression for Classification?</h4>
+        <p>If we used linear regression for classification:</p>
+        <li>The predicted values could be less than 0 or greater than 1, which makes no sense for probabilities.</li>
+        <li>Linear regression does not model probabilities naturally.</li>
+        <li>Thus, logistic regression is designed to handle classification problems correctly.</li>
+    </section>
+    <section>
+        <h4>How Logistic Regression Works</h4>
+
+        <p>Instead of directly fitting a line to predict values, logistic regression predicts the <b>log-odds</b> (logit) of an event occurring.</p>
+
+        <h5>Logistic (Sigmoid) Function</h5>
+
+        <p>The core idea is to use the <b>sigmoid function</b>:</p>
+
+        <p style="text-align: center;">
+        \[
+        \sigma(z) = \frac{1}{1 + e^{-z}}
+        \]
+        </p>
+
+        <p>where:</p>
+
+        <ul>
+            <li>\( z = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \ldots + \beta_p X_p \)</li>
+        </ul>
+
+        <p>The sigmoid squashes any real-valued number into the range <b>(0, 1)</b>, representing a probability.</p>
+
+        <ul>
+            <li>If \( \sigma(z) \approx 1 \), it predicts Class 1.</li>
+            <li>If \( \sigma(z) \approx 0 \), it predicts Class 0.</li>
+        </ul>
+
+        <hr>
+
+        <h4> Mathematical Model</h4>
+
+        <p>Logistic Regression models:</p>
+
+        <p style="text-align: center;">
+        \[
+        P(Y=1 \mid X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1X_1 + \beta_2X_2 + \ldots + \beta_pX_p)}}
+        \]
+        </p>
+
+        <p>where:</p>
+
+        <ul>
+            <li>\( P(Y=1 \mid X) \) = Probability of the positive class (e.g., disease present, customer will buy).</li>
+            <li>The parameters \( \beta \) are learned from the training data.</li>
+        </ul>
+
+        <p><b>Prediction Rule:</b></p>
+
+        <ul>
+            <li>If \( P(Y=1|X) > 0.5 \), predict <b>Class 1</b>.</li>
+            <li>Otherwise, predict <b>Class 0</b>.</li>
+        </ul>
+
+        <p>(Threshold can be adjusted depending on the problem.)</p>
+
+        <hr>
+
+        <h4>Loss Function: Cross-Entropy Loss</h4>
+
+        <p>In Logistic Regression, we do not minimize mean squared error like in linear regression.  
+        Instead, we minimize a different loss called the <b>Cross-Entropy Loss</b> (or <b>Log Loss</b>):</p>
+
+        <p style="text-align: center;">
+        \[
+        \text{Loss} = - \frac{1}{n} \sum_{i=1}^{n} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right]
+        \]
+        </p>
+
+        <p>where:</p>
+
+        <ul>
+            <li>\( y_i \) = Actual label (0 or 1),</li>
+            <li>\( \hat{y}_i \) = Predicted probability.</li>
+        </ul>
+
+        <p>Cross-entropy heavily penalizes wrong confident predictions.</p>
+
+    </section>
+    <section>
+        <h4>Assumptions of Logistic Regression</h4>
+        <li><strong>Linearity in the Logit:</strong>The log-odds are a linear combination of input variables.</li>
+        <li><strong>Independence:</strong>Observations are independent.</li>
+        <li><strong>No multicollinearity:</strong>Independent variables should not be highly correlated with each other.</li>
+        <li><strong>Large sample size:</strong>Provides more stable and reliable results.</li>
+    </section>
+    <section>
+        <h4>Advantages of Logistic Regression</h4>
+        <li>Simple to understand and implement</li>
+        <li>Computationally efficient</li>
+        <li>Outputs probability scores</li>
+        <li>Works well for linearly separable classes.</li>
+        <li>Interpretable coefficients: Each feature’s impact on odds can be clearly understood.</li>
+    </section>
+    <section>
+        <h4>Disadvantages of Logistic Regression</h4>
+        <li>Limited to linear decision boundaries (not good for complex relationships without feature engineering). </li>
+        <li>Limited to linear decision boundaries</li>
+        <li>Performance drops if classes are heavily imbalanced.</li>
+        <li>Requires relevant features (poor feature selection leads to poor performance).</li>
+    </section>
+    <section>
+        <h4>Applications of Logistic Regression</h4>
+        <p><strong>1. Medical diagnosis:</strong>predict whether a patient has a disease or not</p>
+        <p><strong>2. Credit Scoring:</strong>approve or deny loans.</p>
+        <p><strong>3. Spam detection:</strong>classify emails as spam or not spam</p>
+        <p><strong>4. Customer churn prediction:</strong>will a customer leave or stay?</p>
+        <p><strong>5. Marketing:</strong>predict if a customer will buy a product</p>
+    </section>
+    <section>
+        <h5>Real-World Example:</h5>
+        <p>Imagine a soccer coach predicting whether a player will score a goal based on distance from goal, angle, and shot power:</p>
+        <li> Logistic regression outputs a probability(e.g., 85% chance of scoring),</li>
+        <li>And makes a decision (likely goal or unlikely goal).</li>
+    </section>
+    <section>
+        <h4>Conclusion</h4>
+        <p>Logistic Regression** is a foundational classification technique in machine learning.</p>
+        <p>It combines simplicity, interpretability, and effectiveness for problems where the output is categorical.</p>
+        <p>Even though newer, more complex models exist (like Random Forests, Neural Networks), Logistic Regression remains a first choice for many practical applications because of its clarity and efficiency.</p>
+        <p>Mastering Logistic Regression builds a strong base for advanced classification techniques in Statistical Learning.</p>
+    </section>
+  </main>
+
+  <footer>
+  <a href="ML_unit2.html" class="back-btn">← Back to Unit 2 Topics</a>
+  </footer>
+
+</body>
+</html>

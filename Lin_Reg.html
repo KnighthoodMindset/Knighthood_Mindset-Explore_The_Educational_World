@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Linear Regression | Tech Nexus | Knighthood Mindest</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>Linear Regression</h3>
+    </section>
+    <section>
+        <p>Linear Regression is one of the simplest and most widely used techniques in Statistical Learning and Machine Learning.</p>
+        <p>It helps us predict the value of one variable based on the value(s) of other variable(s), assuming a linear relationship between them.</p>
+        <p>Linear regression models the relationship between a dependent variable (output) and one or more independent variables (inputs) by fitting a straight line (or hyperplane) through the data points.</p>
+    </section>
+    <section>
+        <hr>
+
+        <h4>1. Simple Linear Regression</h4>
+
+        <p>In <b>Simple Linear Regression</b>, we predict an output \( Y \) using <b>one input variable</b> \( X \).</p>
+
+        <h5>Mathematical Form:</h5>
+
+        <p style="text-align: center;">
+        \[
+        Y = \beta_0 + \beta_1 X + \epsilon
+        \]
+        </p>
+
+        <p>where:</p>
+
+        <ul>
+            <li>\( Y \) = Dependent variable (what we want to predict),</li>
+            <li>\( X \) = Independent variable (input),</li>
+            <li>\( \beta_0 \) = Intercept (value of \( Y \) when \( X = 0 \)),</li>
+            <li>\( \beta_1 \) = Slope (rate at which \( Y \) changes with \( X \)),</li>
+            <li>\( \epsilon \) = Random error term (captures noise in the data).</li>
+        </ul>
+
+        <p>The goal is to <b>find the best values</b> for \( \beta_0 \) and \( \beta_1 \) that minimize the prediction error.</p>
+
+        <hr>
+
+        <h4>2. Multiple Linear Regression</h4>
+
+        <p>When there are <b>two or more independent variables</b>, we use <b>Multiple Linear Regression</b>.</p>
+
+        <h5>Mathematical Form:</h5>
+
+        <p style="text-align: center;">
+        \[
+        Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \ldots + \beta_p X_p + \epsilon
+        \]
+        </p>
+
+        <p>where:</p>
+
+        <ul>
+            <li>\( X_1, X_2, ..., X_p \) are the input features (predictors),</li>
+            <li>Each \( \beta \) represents the effect of one predictor on the outcome.</li>
+        </ul>
+
+        <hr>
+            
+        <h4>3. How Linear Regression Works</h4>
+
+        <ul>
+            <li>The model <b>fits a line (or plane)</b> to minimize the <b>sum of squared errors</b> between actual and predicted values.</li>
+            <li>This technique is called <b>Ordinary Least Squares (OLS)</b>.</li>
+        </ul>
+
+        <h5>Objective (Loss Function)</h5>
+
+        <p>The model minimizes the <b>Mean Squared Error (MSE)</b>:</p>
+
+        <p style="text-align: center;">
+        \[
+        MSE = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2
+        \]
+        </p>
+
+        <p>where:</p>
+
+        <ul>
+            <li>\( y_i \) = Actual value,</li>
+            <li>\( \hat{y}_i \) = Predicted value.</li>
+        </ul>
+    </section>
+    <section>
+        <h4>Assumptions of Linear Regression</h4>
+        <p>For linear regression to work properly, the following assumptions should hold:</p>
+        <li><strong>Linearity:</strong>Relationship between input and output is linear.</li>
+        <li><strong>Independence:</strong>Observations are independent of each other.</li>
+        <li><strong>Homoscedasticity:</strong>Constant variance of errors across all levels of input.</li>
+        <li><strong>Normality:</strong>Errors (residuals) are normally distributed.</li>
+    </section>
+    <section>
+        <h4>Advantages of Linear Regression</h4>
+        <li>Simple and easy to understand</li>
+        <li>Fast to train and predict.</li>
+        <li>Interpretability: The effect of each feature on the output is clear.</li>
+        <li>Works well when the true relationship is approximately linear.</li>
+    </section>
+    <section>
+        <h4>Disadvantages of Linear Regression</h4>
+        <li>Cannot capture complex relationships (only linear patterns).</li>
+        <li>Sensitive to outliers (extreme values can distort the model).</li>
+        <li>Requires careful assumption checking.</li>
+        <li>Performance decreases if input features are highly correlated (multicollinearity).</li>
+    </section>
+    <section>
+        <h4> Applications of Linear Regression </h4>
+        <li>Predicting housing prices based on features like size, location, etc.</li>
+        <li>Estimating sales based on marketing spend.</li>
+        <li>Modeling risk factors in finance and insurance.</li>
+        <li>Forecasting population growth.</li>
+    </section>
+    <section>
+        <h5>Real-World Example:</h5>
+        <p>Imagine you want to predict a person’s salary based on years of experience:</p>
+        <p>If experience increases by 1 year and salary increases steadily by \$5,000, you can model this with a straight line.</p>
+        <p>Linear regression draws the best straight line through the data points!</p>
+    </section>
+    <section>
+        <h4>Conclusion</h4>
+        <p>Linear Regression is a fundamental method that forms the backbone of many advanced techniques in machine learning and statistics.</p>
+        <p>Although simple, it provides powerful insights and works surprisingly well when the assumptions are approximately satisfied.</p>
+        <p>By mastering linear regression, you build a strong foundation for tackling more complex algorithms in Statistical Learning and Data Science.</p>
+    </section>
+  </main>
+
+    <footer>
+    <a href="ML_unit2.html" class="back-btn">← Back to Unit 2 Topics</a>
+    </footer>
+
+ </body>
+</html>

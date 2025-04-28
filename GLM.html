@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Generalized Linear Models | Tech Nexus | Knighthood Mindest</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Generalized Linear Models</h3>
+    </section>
+    <section>
+      <p>Generalized Linear Models (GLMs) extend traditional linear regression to allow the modeling of a wider range of data types and relationships.  </p>
+      <p>They unify different statistical models like linear regression, logistic regression, and Poisson regression into a single framework.</p>
+      <p>A Generalized Linear Model is a flexible generalization of ordinary linear regression that allows for response variables to have error distribution models other than a normal distribution.</p>
+    </section>
+    <section>
+      <h4>Key Components of a Generalised Linear Models</h4>
+      <p>Every GLM has three main components:</p>
+      <li><strong>Random Component:</strong>The probability distribution of the response variable (e.g., Normal, Binomial, Poisson).</li>
+      <li><strong>Systematic Component:</strong>A linear combination of input variables (predictors).</li>
+      <li><strong>Link Function:</strong>A function that connects the mean of the response variable to the linear predictor.</li>
+    </section>
+    <section>
+    <h4> How GLMs Work</h4>
+
+    <p>In a GLM:</p>
+
+    <ul>
+        <li>The input features \( X_1, X_2, ..., X_p \) are <b>combined linearly</b>:</li>
+    </ul>
+
+    <p style="text-align: center;">
+    \[
+    \eta = \beta_0 + \beta_1X_1 + \beta_2X_2 + \ldots + \beta_pX_p
+    \]
+    </p>
+
+    <p>where \( \eta \) is called the <b>linear predictor</b>.</p>
+
+    <ul>
+        <li>The <b>link function</b> \( g(\mu) \) relates the expected value \( \mu = E(Y) \) to the linear predictor \( \eta \):</li>
+    </ul>
+
+    <p style="text-align: center;">
+    \[
+    g(\mu) = \eta
+    \]
+    </p>
+
+    <ul>
+        <li>Depending on the type of outcome, different <b>distributions</b> and <b>link functions</b> are used.</li>
+    </ul>
+
+    <hr>
+
+    <h4>3. Common Types of GLMs</h4>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Distribution</th>
+                <th>Link Function</th>
+                <th>Example Usage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>Linear Regression</b></td>
+                <td>Normal</td>
+                <td>\( \mu = \eta \)</td>
+                <td>Predicting house prices.</td>
+            </tr>
+            <tr>
+                <td><b>Logistic Regression</b></td>
+                <td>Binomial</td>
+                <td>\( \log\left(\frac{\mu}{1-\mu}\right) = \eta \)</td>
+                <td>Classifying email as spam or not.</td>
+            </tr>
+            <tr>
+                <td><b>Poisson Regression</b></td>
+                <td>Poisson</td>
+                <td>\( \log(\mu) = \eta \)</td>
+                <td>Predicting number of events (e.g., accidents).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    </section>
+
+    <section>
+      <h4> Advantages of GLMs</h4>
+      <li><strong>Flexibility:</strong>Can model a wide variety of data types (continuous, binary, count).</li>
+      <li><strong>Unified framework:</strong>Regression, classification, and count models all fit into GLMs.</li>
+      <li><strong>Interpretability:</strong>Coefficients still retain meaningful interpretations.</li>
+      <li><strong>Handles non-normal data:</strong>Unlike linear regression, GLMs are not restricted to normally distributed errors.</li>
+    </section>
+    <section>
+      <h4>Disadvantages of GLMs</h4>
+      <li><strong>Requires correct choice:</strong>Requires correct choice of distribution and link function — wrong choices can lead to poor models.</li>
+      <li><strong>Sensitive:</strong>May be sensitive to outliers</li>
+      <li><strong>More complex estimation:</strong>Sometimes requires iterative methods like Iteratively Reweighted Least Squares (IRLS).</li>
+      <li><strong>Interpretation of coefficients:</strong>Interpretation of coefficients depends on the link function (not always direct like in linear regression).</li>
+    </section>
+    <section>
+      <h4> Applications of GLMs</h4>
+      <li><strong>Medical research:</strong>Modeling patient survival (logistic or Poisson models).</li>
+      <li><strong>Insurance:</strong>Modeling claim counts (Poisson regression).</li>
+      <li><strong>Economics:</strong>Modeling yes/no consumer decisions (logistic regression).</li>
+      <li><strong>Engineering:</strong>Modeling failure rates of machines (Poisson regression).</li>
+    </section>
+    <section>
+      <h4>Conclusion</h4>
+      <p>Generalized Linear Models (GLMs) are an essential concept in Statistical Learning because they generalize the idea of linear models to handle different types of real-world data.</p>
+      <p>By mastering GLMs, you can confidently tackle a variety of modeling tasks — from predicting numbers to making yes/no decisions.</p>
+      <p>They form a bridge between basic regression techniques and more advanced modeling methods, making them a foundational tool for any machine learning or data science journey.</p>
+    </section>
+  </main>
+
+    <footer>
+    <a href="ML_unit2.html" class="back-btn">← Back to Unit 2 Topics</a>
+    </footer>
+
+</body>
+</html>
