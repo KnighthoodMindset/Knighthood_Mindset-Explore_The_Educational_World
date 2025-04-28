@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estimating Risk Statistics in Statistical Learning | Tech Nexus | Knighthood Mindest</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>Estimating Risk Statistics in Statistical Learning</h3>
+    </section>
+    <section>
+        <p>In Statistical Learning, a critical part of building predictive models is estimating how well a model will perform — not just on the training data, but on unseen data.</p>
+        <p>This performance measure is often referred to as the model’s risk.</p>
+        <p><strong>Risk</strong> = Expected prediction error of the model on new, unseen data.</p>
+        <p>Since we don't have access to all possible data, we need techniques to estimate the risk based on the available data.</p>
+        <p>This is where estimating risk statistics comes into play.</p>
+    </section>
+    <section>
+        <h4>What is Risk in Statistical Learning?</h4>
+        <p>True Risk (also called Expected Prediction Error) is the average loss a model would suffer across the entire population (all possible inputs and outputs).</p>
+        <p>Empirical Risk is the average loss computed over the training dataset.</p>
+        <p>However, we cannot directly calculate true risk, because we don’t have the entire population.</p>
+        <p>Thus, we estimate it using various techniques.</p>
+    </section>
+    <section>
+        <h4>2. Common Methods for Estimating Risk</h4>
+        <h5>1. Training Error</h5>
+        <p>The average loss on the training data.</p>
+        <p><strong>Usage:</strong>It’s easy to compute and gives a basic idea of model fit.</p>
+        <li>Limitation</li>
+        <p>Often underestimates true risk</p>
+        <p>If the model overfits, training error will be very low but test error will be high.</p>
+
+        <h5>2. Validation Error</h5>
+        <p>The loss on a separate validation set (a part of the data not used for training).</p>
+        <p><strong>Usage:</strong>Used during model selection and hyperparameter tuning</p>
+        <li>Helps to estimate the model’s ability to generalize.</li>
+
+        <h5>3. Cross-Validation (CV)</h5>
+        <p>A robust method where the data is split into multiple parts, the model is trained on some parts and tested on others, and the process is repeated.</p>
+        <p><strong>k-Fold Cross-Validation:</strong>Data is divided into <strong>K</strong> subsets; the model is trained <strong>K</strong> times, each time leaving out a different subset for validation.</p>
+        <p><strong>Leave-One-Out Cross-Validation (LOOCV):</strong>Special case where <strong>k = number of data points</strong> (train on all data except one point, repeat for all points).</p>
+        <p>Cross-validation gives a better estimate of true risk than using training error alone.</p>
+
+        <h5>4. Test Error Estimation</h5>
+        <p>After the model is trained and validated, it is tested on a completely new dataset called the test set.</p>
+        <p>It Provides an unbiased estimate of how well the model will perform on unseen data</p>
+        <p>Helps measure the final generalization performance of the model.</p>
+    </section>
+    <section>
+    <h4>3. Mathematical View: Risk Formula</h4>
+
+    <p>If we denote:</p>
+
+    <ul>
+        <li>\( X \) as the input,</li>
+        <li>\( Y \) as the true output,</li>
+        <li>\( \hat{f}(X) \) as the model prediction,</li>
+        <li>\( L(Y, \hat{f}(X)) \) as the loss function,</li>
+    </ul>
+
+    <p>Then the <b>true risk</b> is:</p>
+
+    <p style="text-align: center;">
+    \[
+    R(\hat{f}) = E[L(Y, \hat{f}(X))]
+    \]
+    </p>
+
+    <p>Where:</p>
+
+    <ul>
+        <li>\( E \) denotes the expected value (average over the data distribution).</li>
+    </ul>
+
+    <p>Since the true distribution is unknown, we estimate:</p>
+
+    <p style="text-align: center;">
+    \[
+    \text{Empirical Risk} = \frac{1}{n} \sum_{i=1}^n L(y_i, \hat{f}(x_i))
+    \]
+    </p>
+
+    <p>where \( n \) is the number of samples.</p>
+    </section>
+    <section>
+        <h4>Real-World Analogy</h4>
+        <p>Imagine you’re preparing for a math exam:</p>
+        <p><strong>Training error</strong> is like practicing questions you already know.</p>
+        <p><strong>Test error</strong> is how well you perform on questions you have never seen before in the actual exam.</p>
+        <p><strong>Cross-validation</strong> is like testing yourself on different random sets of practice problems to check your readiness.</p>
+    </section>
+    <section>
+        <h4>Conclusion</h4>
+        <p>Estimating risk statistics is fundamental in Statistical Learning.</p>
+        <p>It tells us how much error we can expect when the model encounters new data.</p>
+        <p>Using methods like cross-validation and test error evaluation, we can build models that not only perform well on training data but also generalize well to unseen scenarios.</p>
+        <p>Thus, risk estimation ensures that machine learning models are reliable, robust, and ready for the real world.</p>
+    </section> 
+    
+  </main>
+
+  <footer>
+  <a href="ML_unit1.html" class="back-btn">← Back to Unit 1 Topics</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Supervised and Unsupervised Learning | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Supervised and Unsupervised Learning</h3>
+    </section>
+    <section>
+      <h4>Supervised Learning</h4>
+      <p><strong>Supervised learning</strong> is a type of machine learning where the model is trained on labeled data. This means that the input data is paired with the correct output (label), and the model learns the relationship between them to make predictions on new, unseen data.</p>
+      <h5>How it Works</h5>
+      <p><strong>1. Training Data:</strong>The dataset consists of input-output pairs (features and labels).</p>
+      <p><strong>2. Model Training:</strong>The model uses this data to learn a mapping from inputs to outputs, adjusting its parameters based on the error between predicted and actual outputs.</p>
+      <p><strong>3. Prediction:</strong>Once trained, the model can predict the label (output) for new inputs.</p>
+      <h5>Example:</h5>
+      <p><strong>Input:</strong>The features might include height, weight, and age of a person.</p>
+      <p><strong>Output:</strong>The label could be the person's BMI category (Underweight, Normal weight, Overweight).</p>
+      <p>The model learns the relationship between the features (height, weight, etc.) and the output (BMI category) and can predict the BMI category for a new person based on their height and weight.</p>
+      <h5>Types of Supervised Learning</h5>
+      <p><strong>Regression:</strong>Predicts continuous output values.</p>
+      <li><strong>Example:</strong>Predicting house prices based on features like square footage, location, etc.</li>
+      <p><strong>Classification:</strong>Predicts categorical output labels.</p>
+      <li><strong>Example:</strong>Classifying emails as spam or not spam.</li>
+      <h5>Popular Algorithms</h5>
+      <li>Linear Regression</li>
+      <li>Logistic Regression</li>
+      <li>Support Vector Machines (SVM)</li>
+      <li>Decision Trees</li>
+      <li>Random Forests</li>
+      <li>K-Nearest Neighbors (KNN)</li>
+      <li>Neural Networks</li>
+      <h5>Advantages</h5>
+      <p><strong>1. Accurate predictions:</strong>when the data is labeled correctly.</p>
+      <p><strong>2. Interpretability:</strong>Some models (like linear regression or decision trees) are easy to understand.</p>
+      <p><strong>3. Widely used:</strong>Supervised learning is one of the most common approaches in machine learning.</p>
+      <h5>Disadvantages</h5>
+      <p><strong>1. Requires labeled data:</strong>Collecting and labeling data can be time-consuming and expensive.</p>
+      <p><strong>2. Overfitting</strong>The model can become too complex and may not generalize well to new data.</p>
+      <p><strong>3. Bias:</strong>If the data is biased or incomplete, the model will likely make inaccurate predictions.</p>
+    </section>
+    <section>
+      <h4>Unsupervised learning</h4>
+      <p>Unsupervised learning is a type of machine learning where the model is trained on unlabeled data. The goal is to find hidden patterns, structures, or relationships in the data without predefined labels.</p>
+      <h5>How it Works</h5>
+      <p><strong>1. Training Data:</strong>The dataset consists only of inputs (features), without any labeled outputs.</p>
+      <p><strong>2. Model Training:</strong>The model tries to identify patterns or structure in the data, such as grouping similar data points or reducing the dimensionality of the data.</p>
+      <p><strong>3. No Labels</strong>Since the data isn't labeled, the model uses techniques like clustering or dimensionality reduction to extract useful information.</p>
+      <h5>Example:</h5>
+      <p><strong>Input:</strong>A dataset of customer information with features like age, income, and spending habits.</p>
+      <p><strong>Output:</strong>The model tries to find clusters of customers who share similar characteristics, without knowing beforehand what those clusters might represent (e.g., high spenders, low spenders, etc.).</p>
+      <h5>Types of Unsupervised Learning</h5>
+      <p><strong>Clustering:</strong>Grouping data into clusters where similar data points are grouped together.</p>
+      <li><strong>Example:</strong>Customer segmentation, grouping people by purchasing behavior.</li>
+      <p><strong>Dimensionality Reduction:</strong>Reducing the number of variables in the dataset while retaining as much information as possible.</p>
+      <li><strong>Example:</strong>Principal Component Analysis (PCA) is used to reduce the number of features in a dataset.</li>
+      <h5>Popular Algorithms</h5>
+      <li>K-Means Clustering</li>
+      <li>Hierarchical Clustering</li>
+      <li>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</li>
+      <li>Principal Component Analysis (PCA)</li>
+      <li>Autoencoders (used in neural networks)</li>
+      <h5>Advantages</h5>
+      <p><strong>1. No labeled data required:</strong>It’s useful when labels are difficult or expensive to obtain.</p>
+      <p><strong>2. Finding hidden patterns:</strong>Unsupervised learning can uncover patterns or groupings that humans might miss.</p>
+      <p><strong>3. Flexible:</strong>It can be applied to a wide variety of problems, from data compression to anomaly detection.</p>
+      <h5>Disadvantages</h5>
+      <p><strong>1. Less interpretable:</strong>The results may be difficult to interpret, especially in the case of clustering.</p>
+      <p><strong>2. No guarantee of meaningful results:</strong>The model may find patterns that aren’t useful.</p>
+      <p><strong>3. Difficulty in evaluating performance:</strong>Since there’s no ground truth, it’s challenging to evaluate the success of unsupervised models.</p>
+    </section>
+    <section>
+      <h4>Conclusion</h4>
+      <p><strong>Supervised Learning</strong> is powerful when you have labeled data and know the output you want to predict. It's most useful for prediction tasks, both for regression and classification.</p>
+      <p><strong>Unsupervised Learning</strong> is great when you don't have labels and need to discover inherent structures or patterns in your data. It’s particularly useful for tasks like clustering, dimensionality reduction, and anomaly detection.</p>
+      <p>Both types have their strengths and weaknesses, and the choice between them depends on the availability of labeled data and the specific problem you are solving.</p>
+    </section>
+  </main>
+
+  <footer>
+  <a href="ML_unit1.html" class="back-btn">← Back to Unit 1 Topics</a>
+  </footer>
+
+</body>
+</html>

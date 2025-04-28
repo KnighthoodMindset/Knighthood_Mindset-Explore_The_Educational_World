@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tradeoffs in Statistical Learning | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Tradeoffs in Statistical Learning</h3>
+    </section>
+    <section>
+      <p>In Statistical Learning, designing a good model is not just about making predictions but about balancing multiple competing factors. These tradeoffs determine the model’s overall performance, generalizability, and practical usefulness.</p>
+    </section>
+    <section>
+      <h4>1. Bias-Variance Tradeoff</h4>
+      <p>Bias and Variance are two main sources of error in any machine learning model.</p>
+      <p>Bias refers to error due to overly simplistic assumptions in the learning algorithm. A model with high bias pays very little attention to the training data and oversimplifies the model, leading to underfitting.</p>
+      <p>Variance refers to error due to excessive complexity in the learning algorithm. A model with high variance pays a lot of attention to the training data (including noise), leading to overfitting.</p>
+      <h5>Tradeoff:</h5>
+      <li>Increasing model complexity reduces bias but increases variance.</li>
+      <li>Simplifying the model reduces variance but increases bias.</li>
+      <li>Increasing model complexity reduces bias but increases variance.</li>
+      <h5>Summary</h5>
+      <p>- High Bias, Low Variance → Underfitting</p>
+      <p>- Low Bias, High Variance → Overfitting</p>
+      <p>- Optimal Model → Balanced bias and variance</p>
+
+      <h4>2. Flexibility vs Interpretability Tradeoff</h4>
+      <p>Flexibility** refers to a model’s ability to fit a wide variety of possible relationships between input and output variables.</p>
+      <p>Interpretability** refers to how easily humans can understand the decisions made by the model.</p>
+      <h5>Tradeoff</h5>
+      <li>Highly flexible models (like deep neural networks) can capture complex patterns but are hard to interpret.</li>
+      <li>Simple models (like linear regression) are easy to interpret but may not capture complex relationships.</li>
+      <h5>Example:</h5>
+      <p>- A linear model is easy to understand but may miss non-linear patterns.</p>
+      <p>- A neural network can capture very complex behavior but is often a "black box."</p>
+
+      <h4>3. Training Error vs Test Error Tradeoff</h4>
+      <p>Training error is the error the model makes on the data it was trained on.</p>
+      <p>Test error is the error the model makes on new, unseen data.</p>
+      <h5>Tradeoff</h5>
+      <li>A model can achieve very low training error by memorizing the training data (overfitting), but this usually increases the test error.</li>
+      <li>Instead, we want a model that performs well on both the training and test data.</li>
+      <h5>Goal</h5>
+      <p><strong>Minimize test error</strong> — good real-world performance is more important than perfect training results</p>
+
+      <h4>4. Model Complexity vs Computation Time Tradeoff</h4>
+      <p>Complex models often require more computational resources (CPU, memory, time).</p>
+      <p>Simpler models may be computationally cheaper but less accurate.</p>
+      <h5>Tradeoff</h5>
+      <p>We often have to balance between building a highly accurate model and one that can make predictions quickly or work within limited computational budgets.</p>
+      <h5>Example:</h5>
+      <li>A deep learning model may take hours to train and predict.</li>
+      <li>A decision tree might be ready in minutes.</li>
+
+      <h4>5. Amount of Data vs Model Performance Tradeoff</h4>
+      <p>More training data usually improves model performance.</p>
+      <p>However, collecting, cleaning, and labeling large datasets can be expensive and time-consuming.</p>
+      <h5>Tradeoff</h5>
+      <p>You might achieve good enough performance with smaller datasets using simpler models, or better performance with large datasets and complex models — at the cost of time and resources.</p>
+    </section>
+    <section>
+      <h4>Conclusion</h4>
+      <p>Statistical learning is not just about finding a model that fits data perfectly — it's about making smart tradeoffs. </p>
+      <p>Choosing the right balance between bias and variance, complexity and interpretability, and other factors ensures that the model is both accurate and practical for real-world applications.</p>
+      <p>Mastering these tradeoffs is key to building models that perform well, generalize well, and serve real-world needs effectively.</p>
+    </section>     
+  </main>
+
+  <footer>
+  <a href="ML_unit1.html" class="back-btn">← Back to Unit 1 Topics</a>
+  </footer>
+
+</body>
+</html>

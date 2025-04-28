@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Empirical Risk Minimization  | Tech Nexus | Knighthood Mindest</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Empirical Risk Minimization</h3>
+    </section>
+    <section>
+      <p>In <strong>Statistical Learning</strong>, the goal is to find a function (or model) that performs well not just on the data we have seen but also on unseen data</p>
+      <p>Since we don't have access to all possible data points in the real world, we use the available data (training data) to estimate the model's performance.</p>
+      <p>This leads to the concept of Empirical Risk Minimization (ERM)</p>
+      <p><strong>Empirical Risk Minimization</strong> is a principle where we choose the model that minimizes the average loss (error) on the training data.</p>
+      <p>In simple terms, ERM tries to find the model that does the best on the sample data we currently have.</p>
+      <h5>1. Understanding Risk and Empirical Risk</h5> 
+      <ul>
+          <li><b>True Risk</b> (\( R(f) \)) 
+              <ul>
+                  <li>The expected loss over the entire data distribution (all possible data points).</li>
+              </ul>
+          </li>
+          <li><b>Empirical Risk</b> (\( \hat{R}(f) \)) 
+              <ul>
+                  <li>The average loss over the <b>training dataset</b>.</li>
+              </ul>
+          </li>
+      </ul>
+      
+      <p><b>Note:</b> Since we can't calculate <b>true risk</b> (because we don't know the full data distribution), we <b>approximate</b> it using <b>empirical risk</b>.</p>
+      
+      <hr>
+      
+      <h4>Mathematical Formulation</h4>
+      
+      <ul>
+          <li>Given:
+              <ul>
+                  <li>\( D = \{(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)\} \) &rarr; Training data</li>
+                  <li>\( L(y, f(x)) \) &rarr; Loss function (e.g., Mean Squared Error, Cross-Entropy)</li>
+              </ul>
+          </li>
+      </ul>
+      
+      <p><b>Empirical Risk:</b></p>
+      
+      <p style="text-align: center;">
+      \[
+      \hat{R}(f) = \frac{1}{n} \sum_{i=1}^n L(y_i, f(x_i))
+      \]
+      </p>
+      
+      <p><b>ERM Principle:</b></p>
+      
+      <p style="text-align: center;">
+      \[
+      f^* = \arg\min_f \hat{R}(f)
+      \]
+      </p>      
+    </section>
+    <section>
+      <h4>Steps in Empirical Risk Minimization</h4>
+      <li>1. Choose a loss function appropriate for your problem.</li>
+      <li>2. Compute the empirical risk (average loss on training data).</li>
+      <li>3. Find the model (function) that minimizes this empirical risk.</li>
+      <li>4. Evaluate the model's performance on unseen (test) data.</li>
+    </section>
+    <section>
+      <h4>Why ERM is Important</h4>
+      <p><strong>Foundational Idea:</strong>It forms the basis of many machine learning algorithms.</p>
+      <p><strong>Practical Approach:</strong>Since we can't minimize true risk directly, minimizing empirical risk is a realistic solution.</p>
+      <p><strong>Optimization:</strong>Training a model often means solving an optimization problem to minimize empirical risk.</p>
+    </section>
+    <section>
+      <h4>Limitations</h4>
+      <p>While ERM is a powerful idea, it has some important challenges:</p>
+      <li><strong>Overfitting:</strong>Minimizing training error too much can cause the model to fit noise in the data instead of true patterns.</li>
+      <li><strong>Poor Generalization:</strong>A model that is excellent on training data may perform poorly on new, unseen data.</li>
+      <li><strong>Model Complexity:</strong>Very complex models can achieve zero training error but have high test error.</li>
+      <p>To overcome these issues, methods like <strong>Regularization</strong> and <strong>Structural Risk Minimization (SRM)</strong> are used alongside ERM.</p>
+    </section>
+    <section>
+      <h4>Conclusion</h4>
+      <p>Empirical Risk Minimization is a core principle in machine learning and statistical learning.</p>
+      <p>It provides a practical way to train models by minimizing the average error over the training data.</p>
+      <p></p>
+    </section>    
+  </main>
+
+  <footer>
+  <a href="ML_unit1.html" class="back-btn">← Back to Unit 1 Topics</a>
+  </footer>
+
+</body>
+</html>

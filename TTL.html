@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Training and Test Loss | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Training and Test Loss</h3>
+    </section>
+    <section>
+      <p>In machine learning, loss refers to the difference between the predicted values and the actual target values (ground truth). The goal of training a model is to minimize this loss function.</p>
+    </section>
+    <section>
+      <h4>1. Training Loss</h4>
+      <p>Training loss is the error (or difference) between the predicted output and the actual output for the training data. It is calculated while the model is being trained and is used to update the model’s parameters (weights) through optimization techniques like gradient descent.</p>
+      <h5>How it Works</h5>
+      <li>During training, the model makes predictions on the training dataset.</li>
+      <li>The loss function measures how far the model’s predictions are from the true outputs (labels).</li>
+      <li>The training loss is used to adjust the model's parameters so that the model can make better predictions.</li>
+      <h5>Significance of Training Loss</h5>
+      <p><strong>Low Training Loss:</strong>Indicates that the model is making accurate predictions on the training data.</p>
+      <p><strong>High Training Loss:</strong>Indicates that the model is struggling to fit the training data, possibly due to underfitting, insufficient training data, or a poorly chosen model.</p>
+      <h5>Common Loss Functions:</h5>
+      <p><strong>Mean Squared Error (MSE):</strong>Often used for regression tasks.</p>
+      <p><strong>Cross-Entropy Loss:</strong>Common in classification tasks.</p>
+      <p><strong>Example:</strong>If you are training a model to predict house prices, the training loss measures the difference between the predicted house prices and the actual prices in the training dataset.</p>
+    </section>
+    <section>
+      <h4>2. Test Loss</h4>
+      <p>Test loss is the error (or difference) between the predicted output and the actual output for the test data. Unlike training loss, test loss is calculated on a separate dataset that the model has never seen during training. This is important because it allows us to evaluate how well the model generalizes to new, unseen data.</p>
+      <h5>How it Works</h5>
+      <li>After the model is trained on the training data, it is tested on the test data.</li>
+      <li>The test data is unseen data — it wasn’t used during training, so it serves as a proxy for how the model will perform on real-world data.</li>
+      <li>Test loss** helps to understand the model's performance outside the training set and evaluate if the model generalizes well.</li>
+      <h5>Significance of Test Loss</h5>
+      <p><strong>Low Test Loss:</strong>Indicates that the model generalizes well to new, unseen data and is likely to perform well in the real world.</p>
+      <p><strong>High Test Loss:</strong>Indicates that the model is not generalizing well, which could mean overfitting to the training data, or the model may be too complex or not properly trained.</p>
+      <p>Continuing with the house price prediction model, after training, the model is evaluated on a separate test set. The test loss indicates how well the model predicts house prices on new, unseen data.</p>
+    </section>
+    <section>
+      <h4>Overfitting and Underfitting</h4>
+      <p>Understanding training loss and test loss is essential for detecting overfitting and underfitting.</p>
+      <h5>Overfitting:</h5><p>Occurs when the model learns too much from the training data, including noise or random fluctuations.</p>
+      <p>This results in a very low training loss but a high test loss because the model is not generalizing well to unseen data.</p>
+      <h5>Example:</h5><p>The model memorizes the training data but struggles to predict new, unseen data correctly, resulting in a large test loss.</p>
+      <h5>Underfitting:</h5><p>Occurs when the model is too simple and cannot capture the underlying patterns in the training data.</p>
+      <p>This results in both high training and test loss.</p>
+      <h5>Example:</h5><p>The model doesn't perform well on the training data itself, and its predictions on the test set are also poor.</p>
+    </section>
+    <section>
+      <p>When training a model, it's common to plot the training loss and test loss over epochs (iterations of training). The graph typically looks like this:</p>
+      <p><strong>In overfitting:</strong>Training loss keeps decreasing, but test loss increases after a certain point.</p>
+      <p><strong>In underfitting:</strong>Both training loss and test loss are high and remain close to each other.</p>
+      <p><strong>In ideal case:</strong>Both training loss and test loss decrease and stabilize over time.</p>
+    </section>
+    <section>
+      <h4> Optimizing Model Performance</h4>
+      <p>To improve the model's performance and avoid overfitting/underfitting:</p>
+      <li><strong>Cross-validation:</strong>Split the data into multiple subsets, training on some and testing on others to get a better estimate of test performance.</li>
+      <li><strong>Early Stopping:</strong>Stop training when the test loss starts to increase, preventing overfitting.</li>
+      <li><strong>Regularization:</strong>Techniques like L1 and L2 regularization help prevent overfitting by penalizing overly complex models.</li>
+      <li><strong>More Data:</strong>Collecting more data can help improve model generalization, reducing overfitting.</li>
+    </section> 
+    <section>
+      <h4>Conclusion</h4>
+      <p><strong>Training loss</strong>reflects how well the model is fitting the training data.</p>
+      <p><strong>Test loss</strong>reflects how well the model is generalizing to new, unseen data.</p>
+      <p>Monitoring both losses is crucial to ensure that the model is not overfitting or underfitting.</p>
+      <p>Proper techniques like cross-validation, regularization, and early stopping can help balance both losses for better generalization.</p>
+    </section> 
+
+     
+  </main>
+
+    <footer>
+    <a href="ML_unit1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+</body>
+</html>

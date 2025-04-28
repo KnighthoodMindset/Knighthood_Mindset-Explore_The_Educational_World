@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sampling Distribution of an Estimator | Tech Nexus | Knighthood Mindest</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+      <section>
+        <h3>Sampling Distribution of an Estimator</h3>
+      </section>
+      <section>
+        <p>In Statistical Learning, when we estimate a quantity (like the mean, variance, or prediction accuracy) based on a sample of data, the estimate will vary depending on which data points we happened to get.  </p>
+        <p>This leads to the idea of a sampling distribution</p>
+        <p>The sampling distribution of an estimator is the probability distribution of the estimator when repeated samples are drawn from the population.</p>
+        <p>In simple words:</p>
+        <li>If you repeat the experiment many times (collect new samples each time),</li>
+        <li>calculate the estimate each time (like mean, variance, accuracy),</li>
+        <li>the pattern of all these estimates forms a sampling distribution.</li>
+      </section>
+      <section>
+        <h4>Why Sampling Distribution Matters</h4>
+        <p>An estimator is random because it depends on the random sample.</p>
+        <p>The sampling distribution tells us how much the estimator might vary from sample to sample.</p>
+        <p>It helps in:</p>
+        <li>Measuring the accuracy of an estimate.</li>
+        <li>Constructing confidence intervals.</li>
+        <li>Performing hypothesis testing</li>
+      </section>
+      <section>
+        <h4>Important Properties of Sampling Distribution</h4>
+        <p><strong>Mean of Sampling Distribution:</strong>If the estimator is unbiased, the mean of the sampling distribution equals the true parameter.</p>
+        <p><strong>Variance of Sampling Distribution:</strong>Indicates how much the estimator varies between samples. Smaller variance means more reliable estimates.</p>
+        <p><strong>Standard Error (SE):</strong>The standard deviation of the sampling distribution. It measures the precision of the estimator.</p>
+        <p><strong>Shape:</strong>For large samples, the Central Limit Theorem tells us the sampling distribution tends to be **normal (bell-shaped)** even if the population is not normal.</p>
+      </section>
+      <section>
+        <h4>3. Key Concept: Standard Error (SE)</h4>
+
+        <p>The <b>Standard Error</b> is very important:</p>
+
+        <p style="text-align: center;">
+        \[
+        \text{Standard Error (SE)} = \sqrt{\text{Variance of the estimator}}
+        \]
+        </p>
+
+        <ul>
+            <li>A small SE means the estimator doesn’t vary much from sample to sample — it’s <b>more stable</b>.</li>
+            <li>A large SE means the estimator can vary a lot — it’s <b>less stable</b>.</li>
+        </ul>
+
+        <p><b>Example:</b></p>
+
+        <p>If we are estimating the sample mean \( \bar{x} \), the standard error is:</p>
+
+        <p style="text-align: center;">
+        \[
+        SE(\bar{x}) = \frac{\sigma}{\sqrt{n}}
+        \]
+        </p>
+
+        <p>where:</p>
+
+        <ul>
+            <li>\( \sigma \) is the population standard deviation,</li>
+            <li>\( n \) is the sample size.</li>
+        </ul>
+
+        <p>Thus, <b>larger samples</b> lead to <b>smaller standard error</b> (more precise estimates).</p>
+
+      </section>
+      <section>
+        <h4>Example</h4>
+        <p>Imagine you want to estimate the average height of college students:</p>
+        <li>You randomly select 100 students → Calculate the average height.</li>
+        <li>Repeat this process 1,000 times → Each time you get a slightly different average.</li>
+        <p>Plotting all these 1,000 averages gives you the sampling distribution of the sample mean!</p>
+        <p>If the sample size is large, this distribution will look like a normal bell curve, even if individual heights are not perfectly normal.</p>
+      </section>  
+      <section>
+        <h5> Relation to Model Evaluation</h5>
+        <p>In machine learning or statistical modeling:</p>
+        <li>Suppose you evaluate model accuracy based on one sample of data.</li>
+        <li>If you had different samples, your accuracy would be slightly different each time.</li>
+        <li>The sampling distribution of model accuracy tells you how stable your accuracy estimate is.</li>
+        <p>Thus, sampling distributions are key for understanding the uncertainty in model evaluation.</p>
+      </section>
+      <section>
+        <h4>Conclusion</h4>
+        <p>The sampling distribution of an estimator is the foundation for understanding uncertainty in any estimation process.</p>
+        <p>It shows how much variability we should expect in our estimates when sampling randomly from the population.</p>
+        <p>Mastering this concept helps us:</p>
+        <li>Build confidence intervals</li>
+        <li>Perform hypothesis tests</li>
+        <li>And make more reliable decisions based on sample data.</li>
+        <p>In statistical learning, understanding sampling distributions leads to more trustworthy and robust models.</p>
+      </section>
+
+   </main>
+
+    <footer>
+    <a href="ML_unit1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>
