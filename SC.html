@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Structure of a Compiler | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>Structure of a Compiler</h3>
+    </section>
+    <section>
+        <p>The structure of a compiler refers to the different phases through which a source program passes to be translated into machine code. Each phase performs a specific task and passes the output to the next phase. This modular design allows easier debugging, optimization, and maintenance.</p>
+        <p>A typical compiler consists of two main parts:</p>
+        <li>Analysis Phase (Front-End)</li>
+        <li>Synthesis Phase (Back-End)</li>
+    </section>
+    <section>
+        <h5>1. Lexical Analysis(Scanner)</h5>
+        <li><strong>Purpose: </strong>Breaks the source code into tokens.</li>
+        <li><strong>Input: </strong>Source code.</li>
+        <li><strong>Output: </strong>Tokens (like `if`, `x`, `;`, `=`, etc.).</li>
+        <li><strong>Example: </strong>Converts 'int x = 5;' into tokens: 'int', 'x', '=', '5', ';'.</li>
+        <p>It removes whitespace and comments and identifies keywords, identifiers, literals, etc.</p>
+
+        <h5>2. Syntax Analysis (Parser)</h5>
+        <li><strong>Purpose: </strong>Checks whether the token sequence follows the correct grammar.</li>
+        <li><strong>Input: </strong>Tokens from lexical analysis.</li>
+        <li><strong>Output: </strong>Parse tree or syntax tree.</li>
+        <li><strong>Example: </strong>Verifies that 'if (x == 5)' has matching parentheses and valid structure.</li>
+        <p>Detects syntactic errors like missing semicolons or unmatched braces.</p>
+
+        
+        <h5>3. Semantic Analysis</h5>
+        <li><strong>Purpose: </strong>Checks for meaning-related correctness.</li>
+        <li><strong>Input: </strong>Parse tree and symbol table.</li>
+        <li><strong>Output: </strong>Annotated syntax tree.</li>
+        <li><strong>Example: </strong>Ensures variables are declared before use and types match.</li>
+        <p>Catches errors like using a float in place of a boolean condition.</p>
+        
+        <h5>4. Intermediate Code Generation</h5>
+        <li><strong>Purpose: </strong>Converts the syntax tree into a simplified, platform-independent code.</li>
+        <li><strong>Input: </strong>Syntax Tree</li>
+        <li><strong>Output: </strong>Intermediate code (e.g., three-address code).</li>
+        <li><strong>Example: </strong>Converts 'a = b + c' into:</li>
+        <p>t1 = b+c</p>
+        <p>a = t1</p>
+        <p>This makes the next steps easier and enables optimization.</p>
+        
+        <h5>5. Code Optimization</h5>
+        <li><strong>Purpose: </strong>Improves the intermediate code for better performance.</li>
+        <li><strong>Input: </strong>Intermediate code.</li>
+        <li><strong>Output: </strong>Optimized intermediate code.</li>
+        <li><strong>Example: </strong>Removes redundant calculations, reorders statements for efficiency.</li>
+        <p>Helps reduce execution time and memory usage.</p>
+
+        <h5>6. Code Generation</h5>
+        <li><strong>Purpose: </strong>Translates optimized intermediate code into target machine code.</li>
+        <li><strong>Input: </strong>Optimized code.</li>
+        <li><strong>Output: </strong>Assembly or machine code.</li>
+        <li><strong>Example: </strong> Converts to instructions like 'MOV', 'ADD', 'JMP'.</li>
+        <p>The result is low-level code ready to be run by the system.</p>
+
+        <h5>7. Code Linking and Assembly</h5>
+        <li><strong>Purpose: </strong>Combines all machine code, external libraries, and resolves addresses.</li>
+        <li><strong>Input: </strong>Machine code</li>
+        <li><strong>Output: </strong>Executable file</li>
+        <li><strong>Example: </strong>Produces '.exe' or '.out' file.</li>
+        <p>Final step before execution — it ensures all parts of the program are correctly connected.</p>
+    </section>
+    <img src="c:\Users\SWEETY\OneDrive\Pictures\CD_steps.png">
+    <section>
+        <h4>Symbol Table & Error Handler</h4>
+        <h5>Symbol Table</h5>
+        <li>A data structure used to store identifiers, their types, scopes, and other attributes.</li>
+        <li>Used by almost every phase of the compiler.</li>
+        <h5>Error Handler</h5>
+        <li>Detects and reports errors (lexical, syntax, semantic, runtime).</li>
+        <li>Attempts error recovery to continue compiling when possible.</li>
+    </section>
+    <section>
+        <h4>Conclusion</h4>
+        <p>The compiler structure is a well-organized flow of phases that work together to transform high-level source code into machine-level executable code. Each phase handles a specific part of the process — from tokenization to optimization — ensuring the final output is correct, efficient, and ready to run.</p>
+    </section>
+        
+    
+   </main>
+
+    <footer>
+    <a href="CD_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>
