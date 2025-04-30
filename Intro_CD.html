@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction to Compiler Design | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>Introduction to Compiler Design</h3>
+    </section>
+    <section>
+        <p><strong>Compiler Design</strong> is a fundamental area in computer science that focuses on developing software (compilers) that translates programs written in high-level programming languages into low-level machine code that a computer can execute.</p>
+        <p>A compiler is a special program that processes statements written in a programming language and converts them into machine code or an intermediate code for execution by a computer.</p>
+        <h5>Example:</h5>
+        <p>Converting a C program into assembly or binary code.</p>
+        <h5>Need for a Compiler</h5>
+        <p>A compiler is essential for converting high-level programming languages into machine-level code that a computer can understand and execute. It ensures that the written code is syntactically correct by detecting and reporting errors before execution. Compilers also optimize the source code, making the final program more efficient in terms of speed and memory usage. They allow the same program to run on different platforms through platform-specific compilation, thus enabling portability. Additionally, compiled programs execute faster than interpreted ones since they are pre-translated into machine code. Overall, a compiler plays a critical role in software development by enhancing performance, correctness, and cross-platform compatibility.</p>
+    </section>
+    <section>
+        <h4>Phases of Compiler Design</h4>
+        <p>A compiler operates in several phases:</p>
+        <p><strong>1. Lexical Analysis:</strong> Scans source code and converts it into tokens.</p>
+        <p><strong>2. Syntax Analysis (Parsing):</strong> Checks grammar and creates a parse tree.</p>
+        <p><strong>3. Semantic Analysis:</strong> Ensures meaningfulness, like type checking.</p>
+        <p><strong>4. Intermediate Code Generation:</strong> Produces intermediate code for optimization.</p>
+        <p><strong>5. Code Optimization:</strong> Enhances performance without changing output.</p>
+        <p><strong>6. Code Generation:</strong> Converts to target machine code.</p>
+        <p><strong>7. Code Linking and Assembly:</strong> Links different modules and creates executable code.</p>
+    </section>
+    <section>
+        <img src="c:\Users\SWEETY\OneDrive\Pictures\CD_steps.png">
+    </section>
+    <section>
+        <h5>1. Lexical Analysis(Scanner)</h5>
+        <li><strong>Purpose: </strong>Breaks the source code into tokens.</li>
+        <li><strong>Input: </strong>Source code.</li>
+        <li><strong>Output: </strong>Tokens (like `if`, `x`, `;`, `=`, etc.).</li>
+        <li><strong>Example: </strong>Converts 'int x = 5;' into tokens: 'int', 'x', '=', '5', ';'.</li>
+        <p>It removes whitespace and comments and identifies keywords, identifiers, literals, etc.</p>
+
+        <h5>2. Syntax Analysis (Parser)</h5>
+        <li><strong>Purpose: </strong>Checks whether the token sequence follows the correct grammar.</li>
+        <li><strong>Input: </strong>Tokens from lexical analysis.</li>
+        <li><strong>Output: </strong>Parse tree or syntax tree.</li>
+        <li><strong>Example: </strong>Verifies that 'if (x == 5)' has matching parentheses and valid structure.</li>
+        <p>Detects syntactic errors like missing semicolons or unmatched braces.</p>
+
+        
+        <h5>3. Semantic Analysis</h5>
+        <li><strong>Purpose: </strong>Checks for meaning-related correctness.</li>
+        <li><strong>Input: </strong>Parse tree and symbol table.</li>
+        <li><strong>Output: </strong>Annotated syntax tree.</li>
+        <li><strong>Example: </strong>Ensures variables are declared before use and types match.</li>
+        <p>Catches errors like using a float in place of a boolean condition.</p>
+        
+        <h5>4. Intermediate Code Generation</h5>
+        <li><strong>Purpose: </strong>Converts the syntax tree into a simplified, platform-independent code.</li>
+        <li><strong>Input: </strong>Syntax Tree</li>
+        <li><strong>Output: </strong>Intermediate code (e.g., three-address code).</li>
+        <li><strong>Example: </strong>Converts 'a = b + c' into:</li>
+        <p>t1 = b+c</p>
+        <p>a = t1</p>
+        <p>This makes the next steps easier and enables optimization.</p>
+        
+        <h5>5. Code Optimization</h5>
+        <li><strong>Purpose: </strong>Improves the intermediate code for better performance.</li>
+        <li><strong>Input: </strong>Intermediate code.</li>
+        <li><strong>Output: </strong>Optimized intermediate code.</li>
+        <li><strong>Example: </strong>Removes redundant calculations, reorders statements for efficiency.</li>
+        <p>Helps reduce execution time and memory usage.</p>
+
+        <h5>6. Code Generation</h5>
+        <li><strong>Purpose: </strong>Translates optimized intermediate code into target machine code.</li>
+        <li><strong>Input: </strong>Optimized code.</li>
+        <li><strong>Output: </strong>Assembly or machine code.</li>
+        <li><strong>Example: </strong> Converts to instructions like 'MOV', 'ADD', 'JMP'.</li>
+        <p>The result is low-level code ready to be run by the system.</p>
+
+        <h5>7. Code Linking and Assembly</h5>
+        <li><strong>Purpose: </strong>Combines all machine code, external libraries, and resolves addresses.</li>
+        <li><strong>Input: </strong>Machine code</li>
+        <li><strong>Output: </strong>Executable file</li>
+        <li><strong>Example: </strong>Produces '.exe' or '.out' file.</li>
+        <p>Final step before execution — it ensures all parts of the program are correctly connected.</p>
+    </section>
+    <section>
+        <h4>Types of Compilers</h4>
+        <p>Compilers can be classified based on how they translate and execute code.</p>
+
+        <h5>1. Single-Pass Compiler</h5>
+        <li>Scans the source code only once.</li>
+        <li><strong>Example: </strong>Early Pascal compilers.</li>
+
+        <h5>2. Mullti-pass Compiler</h5>
+        <li>Scans the source code multiple times </li>
+        <li><strong>Example: </strong> GCC (GNU Compiler Collection).</li>
+
+        <h5>3. Cross Compiler</h5>
+        <li>Generates machine code for a platform different from the one the compiler runs on.</li>
+        <li><strong>Example: </strong>'arm-gcc' for compiling code to run on ARM devices.</li>
+
+        <h5>4. Bootstrap Compiler</h5>
+        <li>A compiler written in the source language it is intended to compile.</li>
+        <li><strong>Example: </strong>Early versions of C compilers written in C.</li>
+
+        <h5>5. Just-In-Time (JIT) Compiler</h5>
+        <li>Compiles code at runtime (when the program is running).</li>
+        <li><strong>Example: JVM (Java Virtual Machine), .NET CLR.</strong></li>
+        
+        <h5>6. Incremental Compiler</h5>
+        <li>Only recompiles parts of the code that were changed.</li>
+        <li><strong>Example: </strong>Used in IDEs like Eclipse, IntelliJ.</li>
+        
+        <h5>7. Threaded Code Compiler</h5>
+        <li>Produces code where control flow is handled via jump tables or threaded calls.</li>
+        <li><strong>Example: </strong>Typically used in interpreters or stack-based virtual machines.</li>
+        
+        <h5>8. Ahead-of-Time (AOT) Compiler</h5>
+        <li>Compiles high-level code into machine code before execution (opposite of JIT).</li>
+        <li><strong>Example: </strong>Angular uses AOT for compiling HTML and TypeScript before browser loads it.</li>
+    </section>
+    <section>
+        <h4>Differences between compiler ana interpreter</h4>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Compiler</th>
+                <th>Interpreter</th>
+            </tr>
+            <tr>
+                <td><strong>Definition</strong></td>
+                <td>A compiler translates the entire source code into machine code at once.</td>
+                <td>An interpreter translates source code line-by-line into machine code.</td>
+            </tr>
+            <tr>
+                <td><strong>Execution Time</strong></td>
+                <td>Faster execution after compilation is complete.</td>
+                <td>Slower execution due to real-time translation.</td>
+            </tr>
+            <tr>
+                <td><strong>Error Detection</strong></td>
+                <td>Detects and reports all syntax errors after full code analysis.</td>
+                <td>Detects errors one line at a time, stopping when one is found.</td>
+            </tr>
+            <tr>
+                <td><strong>Intermediate File</strong></td>
+                <td>Generates a separate intermediate file (object or executable).</td>
+                <td>Does not generate an intermediate file.</td>
+            </tr>
+            <tr>
+                <td><strong>Usage in Development</strong></td>
+                <td>Suitable for production where performance matters.</td>
+                <td>Useful in debugging and scripting due to real-time feedback.</td>
+            </tr>
+            <tr>
+                <td><strong>Reusability</strong></td>
+                <td>Once compiled, can be run multiple times without recompilation.</td>
+                <td>Must be interpreted every time it is run.</td>
+            </tr>
+            <tr>
+                <td><strong>Optimization</strong></td>
+                <td>Performs extensive code optimization during compilation.</td>
+                <td>Performs minimal or no optimization.</td>
+            </tr>
+            <tr>
+                <td><strong>Platform Dependence</strong></td>
+                <td>Platform-dependent — needs recompilation for each OS.</td>
+                <td>More platform-independent with the right interpreter installed.</td>
+            </tr>
+            <tr>
+                <td><strong>Examples of Languages</strong></td>
+                <td>C, C++, Rust, Go, Swift, Fortran</td>
+                <td>Python, JavaScript, Ruby, MATLAB, Perl</td>
+            </tr>
+            <tr>
+                <td><strong>Execution Environment</strong></td>
+                <td>Machine code is executed by the CPU directly.</td>
+                <td>Each line is executed by the interpreter.</td>
+            </tr>
+            <tr>
+                <td><strong>Translation Type</strong></td>
+                <td>Converts entire source code at once before running.</td>
+                <td>Converts one instruction at a time during execution.</td>
+            </tr>
+            <tr>
+                <td><strong>Ideal For</strong></td>
+                <td>Performance-critical systems and applications.</td>
+                <td>Scripting, education, and quick prototyping.</td>
+            </tr>
+        </table>
+    </section>
+    <section>
+        <h4>Applications of Compiler Design</h4>
+        <li>Programming language development</li>
+        <li>Code optimization for performance</li>
+        <li>Error detection tools</li>
+        <li>Embedded systems and operating systems</li>
+        <li>Virtual machines (e.g., JVM)</li>
+    </section>
+   </main>
+
+    <footer>
+    <a href="CD_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+</body>
+</html>
