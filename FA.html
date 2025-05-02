@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finite Automata | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>Finite Automata</h3>
+    </section>
+    <section>
+        <p>Finite Automata (FA) are abstract mathematical models used to recognize patterns in input strings. In compiler design, they play a vital role in lexical analysis, where they help the lexical analyzer recognize tokens based on regular expressions.</p>
+        <p>Finite automata are used to implement lexical analyzers because they can efficiently match character sequences (lexemes) to patterns (tokens).</p>
+    </section>
+    <section>
+        <h4>What is a Finite Automaton?</h4>
+        <p>A finite automaton is a machine that:</p>
+        <li>Reads input one symbol at a time.</li>
+        <li>Changes states based on the input.</li>
+        <li>Accepts or rejects strings based on final state status.</li>
+    </section>
+    <section>
+        <h4>Types of Finite Automata</h4>
+        <p><strong>1. DFA(Deterministic Finite Automaton): </strong>For each state and input symbol, there is only one transition. No ambiguity.</p>
+        <p><strong>2. NFA(Nondeterministic Finite Automaton): </strong>A state can have zero, one, or multiple transitions for a given input. Includes ε (epsilon) transitions.</p>
+        <p>Every NFA can be converted into an equivalent DFA.</p>
+    </section>
+    <section>
+        <h4>Components of Finite Automata</h4>
+        <p>A finite automaton (FA) has **5-tuples**:</p>
+        <p>FA = (Q, Σ, δ, q₀, F)</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>Q</code></td>
+                    <td>A finite set of <strong>states</strong></td>
+                </tr>
+                <tr>
+                    <td><code>Σ</code></td>
+                    <td>A finite set of <strong>input symbols (alphabet)</strong></td>
+                </tr>
+                <tr>
+                    <td><code>δ</code></td>
+                    <td>A <strong>transition function</strong> <code>δ: Q × Σ → Q</code> (for DFA)</td>
+                </tr>
+                <tr>
+                    <td><code>q₀</code></td>
+                    <td>A <strong>start state</strong>, where the automaton begins</td>
+                </tr>
+                <tr>
+                    <td><code>F</code></td>
+                    <td>A set of <strong>accepting (final) states</strong></td>
+                </tr>
+            </tbody>
+        </table>        
+    </section>
+    <section>
+        <h4>DFA Example</h4>
+        
+        <p>Let's build a DFA that accepts all strings over <code>{0,1}</code> ending with <code>01</code>.</p>
+        
+        <h5>States:</h5>
+        <ul>
+            <li><code>q0</code>: Start</li>
+            <li><code>q1</code>: Last input was <code>0</code></li>
+            <li><code>q2</code>: Last two inputs were <code>01</code> (Accepting state)</li>
+        </ul>
+
+        <h5>Transition Table:</h5>
+        <table>
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>0</th>
+                    <th>1</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>q0</code></td>
+                    <td><code>q1</code></td>
+                    <td><code>q0</code></td>
+                </tr>
+                <tr>
+                    <td><code>q1</code></td>
+                    <td><code>q1</code></td>
+                    <td><code>q2</code></td>
+                </tr>
+                <tr>
+                    <td><code>q2</code></td>
+                    <td><code>q1</code></td>
+                    <td><code>q0</code></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>Start state:</strong> <code>q0</code></p>
+        <p><strong>Final state:</strong> <code>q2</code></p>
+        <blockquote>
+            <p>Input: <code>1101</code> → Accepted</p>
+        </blockquote>
+        
+        <hr>
+
+        <h4> <strong>NFA Example</strong></h4>
+
+        <p>An NFA that accepts strings containing either <code>a</code> or <code>b</code>:</p>
+
+        <h5>States:</h5>
+        <ul>
+            <li><code>q0</code> (start)</li>
+            <li><code>q1</code> (final)</li>
+        </ul>
+
+        <h5>Transitions:</h5>
+        <ul>
+            <li><code>q0 → q1</code> on <code>a</code></li>
+            <li><code>q0 → q1</code> on <code>b</code></li>
+        </ul>
+
+        <p>In NFA, from <code>q0</code> on input <code>a</code>, the automaton <strong>can</strong> go to <code>q1</code>, but it could also have other transitions or stay in <code>q0</code>.</p>
+    </section>
+    <section>
+        <h4>Application in Lexical Analysis</h4>
+        <li>Regular expressions used to define tokens are converted into NFAs.</li>
+        <li>NFAs are converted to DFAs for implementation.</li>
+        <li>DFA is then used by the lexer to scan source code and recognize tokens.</li>
+    </section>
+    <section>
+        <h4>Conclusion</h4>
+        <li>Finite Automata are key tools in building lexical analyzers.</li>
+        <li>DFA: Simple, deterministic, efficient — preferred for real lexer implementation.</li>
+        <li>NFA: Easier to build, more expressive — often used in intermediate stages.</li>
+        <li>They process input strings and decide whether a string matches a pattern, forming the foundation for token recognition in compilers.</li>
+    </section>
+    
+    
+    </main>
+
+    <footer>
+    <a href="CD_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>

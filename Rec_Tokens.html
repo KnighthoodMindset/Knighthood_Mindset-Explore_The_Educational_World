@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recognition of Tokens | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+   <section>
+      <h3>Recognition of Tokens</h3>
+   </section>
+   <section>
+      <p>Recognition of tokens is the process by which the lexical analyzer (lexer) identifies and classifies lexemes (the actual character strings in source code) as valid tokens. This process is crucial because it transforms raw input into structured data the compiler can understand.</p>
+   </section>
+   <section>
+      <h4>What is Token Recognition?</h4>
+      <p>When a program is written, it's just a stream of characters. The lexical analyzer reads this stream and tries to match substrings (lexemes) to patterns defined for different token types (like identifiers, keywords, numbers, etc.).</p>
+      <h5>Example:</h5>
+      <p>For example, given the input:</p>
+      <p>The lexer recognizes:</p>
+      <li>`int` as a keyword</li>
+      <li>`count` as an identifier</li>
+      <li>`=` as an operator</li>
+      <li>`10` as a constant</li>
+      <li>`;` as a separator</li>
+   </section>
+   <section>
+      <h4>How Are Tokens Recognized?</h4>
+      <h5>1. Patterns Are Defined Using Regular Expressions</h5>
+      <li>Each token type has a pattern (e.g., identifiers: '[a-zA-Z_][a-zA-Z0-9_]').</li>
+      <h5>2. Finite Automata Are Constructed</h5>
+      <li>Regular expressions are converted into Deterministic Finite Automata (DFA).</li>
+      <li>DFAs are used to scan the input efficiently.</li>
+      <h5>3. Lexical Analyzer Uses a DFA to Match Tokens</h5>
+      <li>The DFA reads input characters one at a time and transitions between states.</li>
+      <li> When a final (accepting) state is reached, a token is recognized.</li>
+      <h5>4. Maximal Munch Rule</h5>
+      <li>The lexer always chooses the longest matching string that forms a valid token.</li>
+      <li>E.g., in 'intelligence', it recognizes 'intelligence' as an identifier, not 'int'.</li>
+      <h5>5. Lookahead and Backtracking</h5>
+      <li>If multiple matches are possible, lookahead may be used to decide.</li>
+      <li>If a match fails, backtracking resets the pointer to try a different match.</li>
+   </section> 
+   <section>
+      <h4>Token Recognition Example:</h4>
+      <p>sum = total + 42;</p>
+      <table>
+         <thead>
+             <tr>
+                 <th>Lexeme</th>
+                 <th>Pattern</th>
+                 <th>Token Type</th>
+             </tr>
+         </thead>
+         <tbody>
+             <tr>
+                 <td><code>sum</code></td>
+                 <td><code>[a-zA-Z_][a-zA-Z0-9_]*</code></td>
+                 <td>Identifier</td>
+             </tr>
+             <tr>
+                 <td><code>=</code></td>
+                 <td><code>=</code></td>
+                 <td>Operator</td>
+             </tr>
+             <tr>
+                 <td><code>total</code></td>
+                 <td><code>[a-zA-Z_][a-zA-Z0-9_]*</code></td>
+                 <td>Identifier</td>
+             </tr>
+             <tr>
+                 <td><code>+</code></td>
+                 <td><code>+</code></td>
+                 <td>Operator</td>
+             </tr>
+             <tr>
+                 <td><code>42</code></td>
+                 <td><code>[0-9]+</code></td>
+                 <td>Constant</td>
+             </tr>
+             <tr>
+                 <td><code>;</code></td>
+                 <td><code>;</code></td>
+                 <td>Separator</td>
+             </tr>
+         </tbody>
+     </table>     
+   </section>
+   <section>
+      <h4>Tools for Token Recognition</h4>
+      <p>Lexical analyzers are often built using tools like:</p>
+      <p><strong>1. Lex/Flex:</strong> Generates lexer code from regular expression patterns.</p>
+      <p><strong>2. ANTLR: </strong>Supports both lexers and parsers.</p>
+   </section>
+   <section>
+      <h4>Conclusion</h4>
+      <p>Token recognition is the core job of the lexical analyzer where:</p>
+      <li>Input characters are matched against defined patterns.</li>
+      <li>Recognized tokens are passed to the syntax analyzer.</li>
+      <li>This is done using regular expressions and finite automata.</li>
+      <p>Efficient and correct token recognition is essential for the accurate parsing and execution of programs.</p>
+   </section>
+  </main>
+
+  <footer>
+  <a href="CD_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Lexical Analyzer Generator</h3>
+    </section>
+    <section>
+      <p>A Lexical Analyzer Generator is a tool or software system that automatically generates the code for a lexical analyzer (scanner) from a set of token definitions described using regular expressions.</p>
+      <p>Rather than manually writing the lexical analyzer, compiler developers describe the token patterns, and the generator produces an efficient lexical analysis module in a target programming language (like C or Java).</p>
+    </section>
+    <section>
+      <h4>Purpose of a Lexical Analyzer Generator</h4>
+      <li>To automate the process of writing a lexer.</li>
+      <li>To reduce development time and avoid manual errors.</li>
+      <li>To ensure that the lexer is optimized and based on standard compiler techniques.</li>
+    </section>
+    <section>
+      <h4>How it Works</h4>
+      <h5>Input</h5>
+      <p>A file containing regular expressions and associated token actions.</p>
+      <h5>Processing</h5>
+      <p>The generator converts the regular expressions into a Deterministic Finite Automaton (DFA).</p>
+      <p>It then produces source code that simulates this DFA to recognize tokens.</p>
+      <h5>Output</h5>
+      <p>A lexer source code file (in C, Java, etc.) that reads input and returns **\<token, attribute-value>** pairs.</p>
+    </section>
+    <section>
+      <h4>Popular Lexical Analyzer Generators</h4>
+      <table>
+        <thead>
+            <tr>
+                <th>Tool</th>
+                <th>Language Support</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Lex</strong> / <strong>Flex</strong></td>
+                <td>C/C++</td>
+                <td>The most widely used generator for lexers.</td>
+            </tr>
+            <tr>
+                <td><strong>JLex</strong> / <strong>JavaCC</strong></td>
+                <td>Java</td>
+                <td>Lexical analyzers for Java applications.</td>
+            </tr>
+            <tr>
+                <td><strong>ANTLR</strong></td>
+                <td>Multiple</td>
+                <td>A powerful lexer and parser generator.</td>
+            </tr>
+            <tr>
+                <td><strong>PLY (Python Lex-Yacc)</strong></td>
+                <td>Python</td>
+                <td>Lex and yacc implementation for Python.</td>
+            </tr>
+        </tbody>
+      </table>    
+    </section>
+    <section>
+      <h5>Example: Lex Program</h5>
+      <pre><code>%{
+        #include &lt;stdio.h&gt;
+        %}
+        
+        %%
+        [0-9]+      { printf("NUMBER\n"); }
+        [a-zA-Z_]+  { printf("IDENTIFIER\n"); }
+        "+"         { printf("PLUS\n"); }
+        .           { /* ignore other characters */ }
+        %%
+        
+        int main() {
+            yylex();
+            return 0;
+        }
+        </code></pre>
+        <li>The '%%' sections separate definitions, rules, and user code.</li>
+        <li>Each pattern is linked to an action (e.g., print "NUMBER" for digits).</li>
+        <li>'yylex()' is the entry point of the generated lexer.</li>
+    </section>
+    <section>
+      <h4>Advantages</h4>
+      <li>Saves time and effort in lexer development.</li>
+      <li>Generates highly optimized code.</li>
+      <li>Makes the lexer easier to maintain and update.</li>
+      <li>Supports complex regular expression patterns.</li>
+    </section>
+    <section>
+      <h4>Limitations</h4>
+      <li>Requires understanding of the generator's syntax.</li>
+      <li>May not offer full control over the code structure.</li>
+      <li>Complex error handling might need to be added manually.</li>
+    </section>
+    <section>
+      <h4>Conclusion</h4>
+      <p>A <strong>Lexical Analyzer Generator</strong> automates the creation of lexical analyzers by transforming <strong>regular expressions into executable scanning code</strong>. Tools like <strong>Lex, Flex, and ANTLR</strong> are widely used in compiler construction to recognize tokens efficiently and systematically.</p>
+    </section>
+
+  </main>
+
+  <footer>
+  <a href="CD_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+  </footer>
+
+</body>
+</html>

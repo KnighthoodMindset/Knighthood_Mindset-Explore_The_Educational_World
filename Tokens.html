@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tokens | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Tokens</h3>
+    </section>
+    <section>
+      <p>In compiler design, a <strong>token</strong> is the <strong>smallest unit of a program</strong> that has meaning to the compiler. Tokens are produced by the lexical analyzer (scanner) during the first phase of compilation and are passed to the syntax analyzer for further processing.</p>
+      <p>Tokens represent the building blocks of source code, such as keywords, identifiers, operators, constants, and symbols.</p>
+    </section>
+    <section>
+      <p>A token is a pair: <Token-name, Attribute-value></Token-name></p>
+      <li><strong>Token-name: </strong>Category of the token (e.g., 'IDENTIFIER', 'NUMBER', 'PLUS').</li>
+      <li><strong>Attribute-value: </strong>Extra information needed to understand the token (e.g., the name of a variable, the actual number).</li>
+    </section>
+    <section>
+      <table>
+        <thead>
+            <tr>
+                <th>Token Type</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Keywords</strong></td>
+                <td>Reserved words with special meaning in a language</td>
+                <td><code>if</code>, <code>while</code>, <code>int</code></td>
+            </tr>
+            <tr>
+                <td><strong>Identifiers</strong></td>
+                <td>Names given to variables, functions, arrays, etc.</td>
+                <td><code>sum</code>, <code>count</code></td>
+            </tr>
+            <tr>
+                <td><strong>Constants</strong></td>
+                <td>Literal values like integers, floating-point numbers, chars</td>
+                <td><code>10</code>, <code>'a'</code>, <code>3.14</code></td>
+            </tr>
+            <tr>
+                <td><strong>Operators</strong></td>
+                <td>Symbols that perform operations</td>
+                <td><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code></td>
+            </tr>
+            <tr>
+                <td><strong>Separators</strong></td>
+                <td>Punctuation symbols used to separate code elements</td>
+                <td><code>,</code>, <code>;</code>, <code>{</code>, <code>}</code></td>
+            </tr>
+            <tr>
+                <td><strong>Strings</strong></td>
+                <td>Sequence of characters enclosed in double quotes</td>
+                <td><code>"Hello"</code></td>
+            </tr>
+            <tr>
+                <td><strong>Comments</strong></td>
+                <td>Non-executable notes in code, ignored by the compiler</td>
+                <td><code>// comment</code></td>
+            </tr>
+        </tbody>
+      </table>
+    </section>  
+    <section>
+      <h4>Example Code and Corresponding Tokens</h4>
+      <p>int x = 5 + y;</p>
+      <table>
+        <thead>
+            <tr>
+                <th>Code Element</th>
+                <th>Token</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>int</code></td>
+                <td>&lt;KEYWORD, int&gt;</td>
+            </tr>
+            <tr>
+                <td><code>x</code></td>
+                <td>&lt;IDENTIFIER, x&gt;</td>
+            </tr>
+            <tr>
+                <td><code>=</code></td>
+                <td>&lt;OPERATOR, =&gt;</td>
+            </tr>
+            <tr>
+                <td><code>5</code></td>
+                <td>&lt;CONSTANT, 5&gt;</td>
+            </tr>
+            <tr>
+                <td><code>+</code></td>
+                <td>&lt;OPERATOR, +&gt;</td>
+            </tr>
+            <tr>
+                <td><code>y</code></td>
+                <td>&lt;IDENTIFIER, y&gt;</td>
+            </tr>
+            <tr>
+                <td><code>;</code></td>
+                <td>&lt;SEPARATOR, ;&gt;</td>
+            </tr>
+        </tbody>
+      </table>  
+    </section>
+    <section>
+      <h4>Role of Tokens in Compilation</h4>
+      <li>Tokens are the input for the syntax analyzer(parser).</li>
+      <li>They simplify the grammar by reducing the number of raw character rules.</li>
+      <li>They represent lexemes that conform to defined patterns in the language.</li>
+    </section>
+    <section>
+      <h4>Token vs Lexeme vs Pattern</h4>
+      <li><strong>Token: </strong>Symbol that represents a set of strings (e.g., 'IDENTIFIER')</li>
+      <li><strong>Lexeme: </strong>Actual string in the source code that matches the pattern (e.g., 'x')</li>
+      <li><strong>Pattern: </strong>Rule describing what a lexeme should look like (e.g., '[a-zA-Z]+')</li>
+    </section>
+    <section>
+      <h4>Conclusion</h4>
+      <p>Tokens are the basic symbols recognized by the lexical analyzer, and they serve as the foundation of the source program’s structure. They help in efficient parsing and semantic analysis and are essential to bridge human-readable code and machine-level understanding.</p>
+    </section>
+  </main>
+
+  <footer>
+  <a href="CD_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+  </footer>
+
+</body>
+</html>

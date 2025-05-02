@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Role of Lexical Analyzer | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Role of Lexical Analyzer</h3>
+    </section>
+    <section>
+      <p>The Lexical Analyzer, also called the scanner, is the first phase of a compiler. Its primary role is to process the raw source code and convert it into a structured form a sequence of tokens that can be easily analyzed by later phases of the compiler. It acts as the interface between the source code and the syntax analyzer.</p>
+    </section>
+    <section>
+      <h4>Key Responsibilities of the Lexical Analyzer</h4>
+
+      <h5>1. Token Generation</h5>
+      <li>Converts a stream of characters from the source code into a sequence of tokens.</li>
+      <li>A token represents a logical unit, such as a keyword, identifier, operator, literal, or punctuation symbol.</li>
+      <li><strong>Example: </strong>In 'int a = 10;' → tokens would be 'INT', 'ID(a)', 'ASSIGN', 'NUM(10)', 'SEMICOLON'.</li>
+
+      <h5>2. Removal of White Spaces and Comments</h5>
+      <p>Ignores irrelevant characters such as spaces, tabs, newlines, and comments that are not needed for further compilation.</p>
+      <p>Helps streamline code for the next phases.</p>
+
+      <h5>3. Error Detection</h5>
+      <p>Detects lexical errors like:</p>
+      <li>Use of invalid characters ('@', '$' in identifiers),</li>
+      <li>Misspelled keywords</li>
+      <li>Unclosed string literals or comments.</li>
+      <p>Reports these errors to the user with appropriate messages.</p>
+
+      <h5>4. Symbol Table Management</h5>
+      <p>Helps create and update the symbol table.</p>
+      <p>The symbol table stores information about identifiers, such as:</p>
+      <li>Variable names</li>
+      <li>Data types</li>
+      <li>Scope and memory locations</li>
+      <p>This is crucial for semantic analysis and code generation phases.</p>
+
+      <h5>5. Interface with syntax analyzer</h5>
+      <li>The lexical analyzer provides the stream of tokens to the syntax analyzer (parser).</li>
+      <li>It abstracts the complexity of character-level analysis, allowing the parser to focus only on grammar rules and structure.</li>
+    </section>
+    <section>
+      <h4>Benefits of Lexical Analysis</h4>
+      <li>Simplifies the job of syntax analysis.</li>
+      <li>Detects errors early in the compilation process.</li>
+      <li>Enhances modularity and separation of concerns in compiler design.</li>
+      <li>Allows reuse of lexical analysis tools (e.g., LEX) across multiple languages.</li>
+    </section> 
+    <section>
+      <h4>Conclusion</h4>
+      <p>The Lexical Analyzer plays a vital role in bridging human-readable source code and the internal processing done by compilers. It breaks down complex character streams into manageable tokens, removes unnecessary content, handles errors, and prepares data for the next phases. It ensures that the source code is syntactically clean and structured for efficient compilation.</p>
+    </section> 
+  
+    
+  </main>
+
+    <footer>
+    <a href="CD_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>

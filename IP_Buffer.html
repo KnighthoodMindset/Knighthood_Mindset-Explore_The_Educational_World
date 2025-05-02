@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Input Buffering in Compiler Design | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Input Buffering</h3>
+    </section>
+    <section>
+      <p><strong>Input Buffering</strong> is a technique used in the <strong>Lexical Analysis phase</strong> of a compiler to efficiently <strong>read characters</strong> from the source code file. Since source code can be large, and reading one character at a time is slow, buffering helps reduce the number of <strong>disk I/O operations</strong> and speeds up the compilation process.</p>
+    </section>
+    <sectioon>
+      <h4>Purpose of Input Buffering</h4>
+      <li>To improve efficiency while reading input from source code.</li>
+      <li>To support backtracking (moving the pointer backward when needed).</li>
+      <li>To minimize the overhead of repeated input function calls </li>
+      <li>To ensure smooth and fast lexeme scanning by the lexical analyzer.</li>
+      <p>The most commonly used method is the two-buffer scheme.</p>
+    </sectioon>
+    <section>
+      <h4>Structure:</h4>
+      <li>The buffer is divided into two equal halves.</li>
+      <li>Each half can hold n characters.</li>
+      <li>A sentinel (EOF or a special marker) is placed at the end of each half to detect the end of the buffer.</li>
+      <table border="1" cellspacing="0" cellpadding="10">
+        <tr>
+            <th>Buffer 1</th>
+            <th>Buffer 2</th>
+        </tr>
+        <tr>
+            <td>char<sub>0</sub>, char<sub>1</sub>, ..., char<sub>n</sub></td>
+            <td>char<sub>n+1</sub>, ..., char<sub>2n</sub></td>
+        </tr>
+        <tr>
+            <td><strong>EOF</strong></td>
+            <td><strong>EOF</strong></td>
+        </tr>
+        </table>    
+    </section>
+    <section>
+      <h4>Pointers Used:</h4>
+      <li><strong>Lexeme begin: </strong>Points to the start of the current lexeme.</li>
+      <li><strong>Forward: </strong>Moves forward one character at a time to identify tokens.</li>
+      <p>When 'forward' reaches the end of one buffer, the next buffer is automatically loaded, allowing seamless reading across large source files.</p>
+    </section>
+    <section>
+      <h4>Working of Input Buffering</h4>
+      <p>1. Both buffers are initially empty.</p>
+      <p>2. Fill Buffer 1 → process characters using 'forward' pointer.</p>
+      <p>3. When EOF of Buffer 1 is reached → fill Buffer 2 automatically.</p>
+      <p>4. If a token boundary is detected, 'lexemeBegin' is reset.</p>
+      <p>5. If backtracking is needed, 'forward' moves back, even across buffers.</p>
+    </section>
+    <section>
+      <h5>Example Scenario</h5>
+      <p>Suppose the source code is:</p>
+      <p>while (x < 10) x++;</p>
+      <p>As characters are read using the buffer, the analyzer looks for patterns like "while" as a keyword. If the match fails at some point, backtracking helps reset 'forward' to 'lexemeBegin'.</p>
+    </section>
+    <section>
+      <h4>Advantages of Input Buffering</h4>
+      <li>Faster compilation due to reduced I/O calls.</li>
+      <li>Smooth scanning even with large programs.</li>
+      <li>Supports lookahead and backtracking in lexical analysis.</li>
+      <li>Handles large files efficiently without loading the whole file into memory.</li>
+    </section>
+    <section>
+      <h4>Limitation</h4>
+      <li>Needs extra memory for buffers.</li>
+      <li>Requires careful handling of pointer logic and buffer boundaries.</li>
+    </section>
+    <section>
+      <h4>Conclusion</h4>
+      <p>Input Buffering enhances the speed and performance of lexical analysis by using two buffers that are loaded alternately. This method supports lookahead, backtracking, and efficient file reading, which are essential for token recognition in modern compilers.</p>
+    </section>
+  </main>
+
+    <footer>
+    <a href="CD_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+</body>
+</html>

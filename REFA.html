@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Regular Expressions and Finite Automata | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>Regular Expressions and Finite Automata</h3>
+    </section>
+    <section>
+        <p>Regular Expressions and Finite Automata are foundational concepts in the lexical analysis phase of compiler design. They are used together to define and recognize lexical patterns in source code, such as identifiers, keywords, numbers, and operators.</p>
+    </section>
+    <section>
+        <h4>What are Regular Expressions?</h4>
+        <p>A regular expression (regex) is a symbolic notation used to describe sets of strings. These strings are defined based on specific patterns, and regular expressions provide a concise and flexible way to match them.</p>
+        <h5>Examples</h5>
+        <table border="1" cellspacing="0" cellpadding="8">
+        <thead>
+            <tr>
+            <th>Pattern</th>
+            <th>Regular Expression</th>
+            <th>Matches</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>Digits</td>
+            <td><code>[0-9]+</code></td>
+            <td><code>0</code>, <code>45</code>, <code>2024</code></td>
+            </tr>
+            <tr>
+            <td>Identifiers</td>
+            <td><code>[a-zA-Z_][a-zA-Z0-9_]*</code></td>
+            <td><code>x</code>, <code>name_1</code>, <code>_value</code></td>
+            </tr>
+            <tr>
+            <td>Keywords</td>
+            <td><code>if | else | while</code></td>
+            <td><code>if</code>, <code>else</code>, <code>while</code></td>
+            </tr>
+        </tbody>
+        </table>
+    </section>
+    <section>
+        <h4>Whatis Finite Automata</h4>
+        <p>A Finite Automaton(FA) is a state machine that reads input characters one at a time and changes its state according to a defined transition function.</p>
+        <p>There are two main types:</p>
+        <li><strong>DFA(Deterministic Finite Automaton): </strong>exactly one transition per symbol.</li>
+        <li><strong>NFA(Nondeterministic Finite Automaton): </strong>can have multiple or zero transitions.</li>
+    </section>
+    <section>
+        <h4>Relationship between Regular Expressions and Finite Automata</h4>
+        <p>Any language that can be described by a regular expression can also be recognized by a finite automaton, and vice versa.</p>
+        <h5>Conversion Process</h5>
+        <li> Regular expressions are used to describe token patterns.</li>
+        <li>These expressions are converted to NFAs using Thompson’s construction.</li>
+        <li>The NFA is converted to DFA using the subset construction algorithm.</li>
+        <li>The DFA is minimized and used in the lexical analyzer to recognize tokens.</li>
+    </section>
+    <section>
+        <h5>Why This Matters in Compiler Design</h5>
+        <table>
+            <thead>
+                <tr>
+                    <th>Concept</th>
+                    <th>Role in Compiler Design</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Regular Expression</strong></td>
+                    <td>Defines the <strong>rules</strong> for what valid tokens look like.</td>
+                </tr>
+                <tr>
+                    <td><strong>Finite Automaton</strong></td>
+                    <td>Provides a <strong>mechanism</strong> to match those patterns during scanning.</td>
+                </tr>
+                <tr>
+                    <td><strong>Lexical Analyzer</strong></td>
+                    <td>Uses the <strong>DFA</strong> (from regex) to tokenize the input code.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <sectio0n>
+        <h4>Tools That Use This</h4>
+        <p><strong>1. Lex/Flex: </strong>Use regex patterns to generate lexical analyzers.</p>
+        <p><strong>2. ANTLR: </strong>Uses regex-like syntax for token definitions.</p>
+        <p><strong>3. Regex engines: </strong>Built on finite automata.</p>
+    </sectio0n>
+    <section>
+        <h4>Conclusion</h4>
+        <p>Regular expressions and finite automata are interchangeable in expressive power. Together, they form the backbone of token recognition in compiler frontends. Understanding this relationship is essential for building or understanding lexical analyzers.</p>
+    </section> 
+
+    
+   </main>
+
+    <footer>
+    <a href="CD_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>

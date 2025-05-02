@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Design of a Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+        <h3>Design of a Lexical Analyzer Generator</h3>
+    </section>
+    <section>
+       <p>A <strong>Lexical Analyzer Generator</strong> is a tool that automatically produces a lexical analyzer (lexer) from a formal specification of tokens. Instead of writing the lexer manually, compiler designers define patterns (usually using regular expressions), and the generator creates the lexer code that can recognize and categorize tokens from source code.</p>
+       <p>Tools like <strong>Lex</strong>, <strong>Flex</strong>, and <strong>JLex</strong> follow this design strategy.</p>
+       <h5>Objectives</h5>
+       <li>Automatically generate optimized lexers</li>
+       <li>Simplify the process of token recognition</li>
+       <li>Use a well-defined, formal approach using regular expressions and finite automata</li>
+    </section>
+    <section>
+        <h4>Key Steps in the Design Process</h4>
+        <h5>1. Inout Specification</h5>
+        <p>The generator takes token definitions as input:</p>
+        <li>Each token is specified using a regular expression</li>
+        <li>Optionally includes associated actions (e.g., return token type, print token, etc.)</li>
+        <h5>2. Convert Regex to NFA (Thompson’s Construction)</h5>
+        <p>Each regular expression is converted into a Nondeterministic Finite Automaton (NFA).</p>
+        <li>This NFA may have ε (epsilon) transitions.</li>
+        <li>It's a conceptual representation used for further processing.</li>
+        <h5>3. Convert NFA to DFA (Subset Construction)</h5>
+        <p>The NFAs are combined and transformed into a single Deterministic Finite Automaton (DFA).</p>
+        <li>DFA has <strong>no ε transitions</strong> and exactly one move for each input symbol from a given state.</li>
+        <li>This makes the automaton efficient and easy to implement in code.</li>
+        <h5>4. Minimize the DFA</h5>
+        <p>The DFA is then minimized to remove redundant states, leading to:</p>
+        <li>Faster Scanning</li>
+        <li>Lower memory usage</li>
+        <h5>5. Generate Transition Tables</h5>
+        <p>The minimized DFA is used to build transition tables:</p>
+        <li>These tables map current state + input to next state</li>
+        <li>These are embedded into the final lexer code</li>
+        <h5>6. Generate Lexer Code</h5>
+        <p>The generator produces the source code (usually in C, C++, or Java) that:</p>
+        <li>Reads the input string one character at a time</li>
+        <li>Uses the transition table to determine state transitions</li>
+        <li>Identifies when a token is matched</li>
+        <li>Returns the \<token, lexeme> pair</li>
+    </section>    
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tool</th>
+                    <th>Language</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Lex</strong></td>
+                    <td>C</td>
+                    <td>Classic lexical analyzer generator</td>
+                </tr>
+                <tr>
+                    <td><strong>Flex</strong></td>
+                    <td>C</td>
+                    <td>Faster, more flexible Lex variant</td>
+                </tr>
+                <tr>
+                    <td><strong>JLex</strong></td>
+                    <td>Java</td>
+                    <td>Lexical analyzer for Java programs</td>
+                </tr>
+                <tr>
+                    <td><strong>ANTLR</strong></td>
+                    <td>Java/C++/Python</td>
+                    <td>Lexer + parser generator for modern compilers</td>
+                </tr>
+            </tbody>
+        </table>        
+    </section> 
+    <section>
+        <h4>Conclusion</h4>
+        <p>The design of a lexical analyzer generator streamlines the process of tokenizing source code by transforming regular expressions into efficient finite automata. Tools like Lex, Flex, JLex, and ANTLR automate this process, enabling the creation of robust lexical analyzers that serve as the first critical phase in the compiler design pipeline.</p>
+    </section>
+    
+    
+  </main>
+
+    <footer>
+    <a href="CD_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>
