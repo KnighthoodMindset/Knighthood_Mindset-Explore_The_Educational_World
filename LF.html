@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Left Factoring | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+   <section>
+      <h3>Left Factoring</h3>
+   </section>
+   <section>
+      <p>Left factoring is a grammar transformation technique used in compiler design to refactor a grammar in a way that it becomes suitable for top-down parsers, particularly LL parsers. The purpose of left factoring is to remove ambiguity and refactor the grammar so that the parser can decide the next step based on a single symbol, without backtracking.</p>
+      <p>Left factoring occurs when a production has multiple alternatives that begin with the same symbol. In such cases, the grammar is factored by extracting the common prefix and creating a new non-terminal to handle the rest of the production rules.</p>
+   </section>
+   <section>
+      <h5>Left Factoring: The Problem</h5>
+      <p>Consider the following grammar:</p>
+      <p>A → αβ | αγ</p>
+      <p>In this case, both alternatives for `A` start with the same symbol `α`, which creates ambiguity for parsers. The parser is unable to decide whether to apply the production `A → αβ` or `A → αγ` just by looking at the first token. This ambiguity is problematic for top-down parsers such as LL(1) parsers, which need to make a single decision at each step.</p>
+   </section>
+   <section>
+      <h4>Left Factoring Transformation</h4>
+      <p>To solve this problem, we factor out the common prefix `α` and introduce a new non-terminal, say `A'`, to handle the rest of the alternatives. The transformed grammar looks like this:</p>
+      <p>A → αA'</p>
+      <p>A' → β | γ</p>
+      <p>how the transformation works:</p>
+      <p>The common prefix `α` is factored out into the new production `A → αA'`.</p>
+      <p>The remaining parts of the original alternatives (`β` and `γ`) are placed in the new non-terminal `A'`.</p>
+      <p>Now, the parser can decide whether to continue with `A → αA'` and apply `β` or `γ` without ambiguity, because the decision is made after consuming `α`.</p>
+   </section>
+   <section>
+      <h4>Why Left Factoring is Important</h4>
+      <p><strong>1. Prevents Ambiguity: </strong>Left factoring removes ambiguity caused by having multiple alternatives starting with the same symbol, which is crucial for parsers like LL(1) parsers, which require deterministic decisions based on a single symbol of lookahead.</p>
+      <p><strong>2. Improves Parser Efficiency: </strong>Left factoring helps parsers avoid backtracking by ensuring that the lookahead symbol is enough to determine which production to apply.</p>
+      <p><strong>3. Makes Grammar LL(1)-Compatible: </strong>LL(1) parsers require that for any non-terminal, the first symbols of its alternative productions must be distinct. Left factoring ensures this condition is met, making the grammar LL(1)-compatible.</p>
+   </section>
+   <section>
+      <h4>Example of Left Factoring</h4>
+      <h5>Example 1: Basic Left Factoring</h5>
+      <p>A → αβ | αγ</p>
+      <p>To apply left factoring, factor out the common prefix `α`:</p>
+      <p>A → αA'</p>
+      <p>A' → β | γ</p>
+      <p>The grammar is now suitable for an LL(1) parser because the first symbol of each alternative of `A'` (`β` and `γ`) is distinct.</p>
+      <h5>Example 2: Left Factoring with Multiple Non-terminals</h5>
+      <p>Consider a more complex grammar:</p>
+      <p>A → αB | αC</p>
+      <p>B → b | c</p>
+      <p>C → d | e</p>
+      <p>Factor out the common prefix `α` from the productions of `A`:</p>
+      <p>A → αA'</p>
+      <p>A' → B | C</p>
+      <p>B → b | c</p>
+      <p>C → d | e</p>
+      <p>In this example:</p>
+      <li>We factor out the common prefix `α` into `A → αA'`.</li>
+      <li>The remaining parts `B` and `C` are placed in the new non-terminal `A'`.</li>
+      <li>The definitions of `B` and `C` remain unchanged.</li>
+   </section>
+   <section>
+      <h4>Applications of Left Factoring</h4>
+      <p><strong>1. LL(1) Parsing: </strong>LL(1) parsers are top-down parsers that make decisions based on a single lookahead symbol. Left factoring ensures that a grammar is suitable for LL(1) parsing by eliminating ambiguity where two alternatives start with the same symbol.</p>
+      <p><strong>2. Recursive Descent Parsers: </strong>Recursive descent parsers are a type of top-down parser that benefits from left factoring. Left factoring helps to eliminate ambiguity, enabling these parsers to parse the input correctly without the need for backtracking.</p>
+      <p><strong>3. Compiler Design: </strong>Left factoring is a critical step in optimizing context-free grammars for use in compilers. It simplifies the grammar, making it easier to create efficient parsers that perform well during compilation.</p>
+      <p><strong>4. Predictive Parsing: </strong>In predictive parsing, which is a type of LL parsing, left factoring ensures that the parser can predict which production to apply based on the first symbol of the lookahead, without needing to backtrack.</p>
+      <p><strong>5. Language Processing: </strong>Left factoring plays a role in other language processing tasks, such as syntax tree generation and code generation, by ensuring the grammar is simple and unambiguous.</p>
+   </section>
+   <section>
+      <h4>Advantages of Left Factoring</h4>
+      <li><strong>Prevents Ambiguity: </strong>Left factoring removes ambiguity from the grammar, making it easier for parsers to predict the correct production without backtracking.</li>
+      <li><strong>Ensures LL(1) Compatibility: </strong>Left factoring ensures that the grammar is compatible with LL(1) parsers, which are efficient and widely used.</li>
+      <li><strong>Simplifies Parsing: </strong>The transformed grammar is simpler to parse, as the parser no longer needs to look ahead multiple tokens or perform complex backtracking.</li>
+   </section>
+   <section>
+      <h4>Challenges of Left Factoring</h4>
+      <li><strong>Grammar Size Increase: </strong>In some cases, left factoring can increase the number of non-terminals and production rules, making the grammar larger.</li>
+      <li><strong>Complexity in Factoring: </strong>Left factoring can be complex in grammars with more complicated structures or indirect recursion. Careful analysis is needed to identify common prefixes and properly refactor the grammar.</li>
+      <li><strong>Not Always Applicable: </strong>Some grammars, particularly those with left recursion or highly irregular structures, may require additional transformations or different approaches to make them suitable for LL parsing.</li>
+   </section>
+   <section>
+      <h4>Conclusion</h4>
+      <p> Left factoring is a crucial grammar transformation technique in compiler design that helps make a grammar suitable for top-down parsers, especially LL(1) parsers. By eliminating ambiguity and refactoring common prefixes, left factoring simplifies the grammar and ensures efficient parsing. While left factoring provides significant benefits, it can increase grammar size and complexity, and may not always be applicable in every scenario. However, for many grammars, left factoring is an essential technique for optimizing the parsing process.</p>
+   </section>  
+  </main>
+
+  <footer>
+  <a href="CD_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+  </footer>
+
+</body>
+</html>

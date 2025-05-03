@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Context-Free Grammar (CFG) | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+      <h3>Context-Free Grammar (CFG)</h3>
+    </section>
+    <section>
+      <p>A Context-Free Grammar (CFG) is a formal rule set used to define the syntax of programming languages and other formal languages. It consists of a collection of rules or productions that describe how the symbols in a language can be replaced or rewritten to generate strings in that language.</p>
+      <p>In simpler terms, a Context-Free Grammar defines the structure of valid statements in a programming language, dictating how syntax should be arranged. The most important characteristic of a CFG is that it is "context-free," meaning that the replacement rules for non-terminal symbols are independent of the context in which they appear.</p>
+    </section>
+    <section>
+      <h4>Key Components of a CFG</h4>
+      <p>A Context-Free Grammar is defined by the following components:</p>
+      <h5>1. Non-Terminals:</h5>
+      <p>These are symbols used to represent syntactic categories in the grammar. Non-terminals are placeholders that can be further expanded into other non-terminals or terminal symbols. They are typically represented by uppercase letters like <strong>S</strong>, <strong>A</strong>, <strong>B</strong>.</p>
+      <h5>2. Terminals:</h5>
+      <p>The terminal symbols are the basic symbols of the language (like keywords, operators, identifiers) that cannot be replaced further. These are the actual symbols that will appear in the language strings.</p>
+      <h5>3. Production Rules:</h5>
+      <p>These are the rules that define how non-terminals can be replaced by combinations of terminals and other non-terminals. Each rule is of the form:</p>
+      <p>Non-Terminal → Combination of Terminals and Non-Terminals</p>
+      <h5>4. Start Symbol:</h5>
+      <p>The start symbol is a special non-terminal symbol from which the derivation of strings begins. It's usually represented by <strong>S</strong>.</p>
+    </section>
+    <section>
+      <h4>Example of Context-Free Grammar</h4>
+      <p>Consider the following simple CFG that generates expressions of numbers and basic arithmetic operations (addition and multiplication):</p>
+      <p>E → E + T | T</p>
+      <p>T → T * F | F</p>
+      <p>F → (E) | id</p>
+      <p>Here:</p>
+      <li>E - is an expression.</li>
+      <li>T - is a term.</li>
+      <li>F - is a factor.</li>
+      <li>id - represents an identifier (like a number or a variable).</li>
+      <p>This grammar can generate expressions like:</p>
+      <p>'a + b * c'</p>
+      <p>'(a + b) * c'</p>
+      <p>In this case:</p>
+      <li>The rule `E → E + T` states that an expression is formed by another expression followed by a `+` and a term.</li>
+      <li>The rule `T → T * F` says that a term can be another term followed by a `*` and a factor.</li>
+      <li>The rule `F → (E)` indicates that a factor can be an expression enclosed in parentheses, or simply an identifier (`id`).</li>
+    </section>
+    <section>
+      <h4>Importance of Context-Free Grammars</h4>
+      <p>Context-Free Grammars are crucial in compiler design for syntax analysis (parsing). They are used to:</p>
+      <li>Define the syntactic structure of a programming language.</li>
+      <li>Guide the parser in checking whether the source code is grammatically correct according to the rules of the language.</li>
+      <li>Generate the structure (e.g., a parse tree) that will be used for further analysis (like semantic analysis and code generation).</li>
+      <p>In compilers, CFGs help break down complex programming constructs (such as expressions, loops, conditionals, etc.) into simpler, more manageable pieces, enabling the compiler to process the code more efficiently.</p>
+    </section>
+    <section>
+      <h4>Derivations in CFG</h4>
+      <p>In a CFG, the derivation process is the method of applying production rules to replace non-terminals with other non-terminals or terminals until a string of terminals (the final program or expression) is obtained.</p>
+      <p>For example, with the above CFG, we can derive the string 'a + b * c' as follows:</p>
+      <p>1. Start with <strong>E</strong> (the start symbol).</p>
+      <p>2. Apply the rule <strong>E → E + T</strong>: 'E + T'</p>
+      <p>3. Apply the rule <strong>E → T</strong>: 'T + T'</p>
+      <p>4. Apply the rule <strong>T → F</strong> for both occurrences of <strong>T</strong>: 'F + F'</p>
+      <p>5. Apply the rule <strong>F → id</strong> for both occurrences of <strong>F</strong>: 'id + id'</p>
+      <p>6. Now, we have the string `a + b * c`, which is a valid expression according to the CFG.</p>
+    </section>
+    <section>
+      <h4>Ambiguity in CFGs</h4>
+      <p>An important challenge when working with Context-Free Grammars is ambiguity. A grammar is ambiguous if there is more than one way to derive a string (i.e., it can have more than one valid parse tree).</p>
+      <p>For example, consider the following ambiguous CFG for arithmetic expressions:</p>
+      <p>E → E + E | E * E | (E) | id</p>
+      <p>The expression `a + b * c` can be parsed in two ways:</p>
+      <li>1. Left-associative (with the addition happening first): '(a + b) * c'</li>
+      <li>2. Right-associative (with the multiplication happening first): 'a + (b * c)'</li>
+      <p>Ambiguity can cause problems for parsers, as they cannot decide which rule to apply. To handle this, grammars should ideally be unambiguous.</p>
+    </section>
+    <section>
+      <h4>Advantages of Context-Free Grammar</h4>
+      <li><strong>Flexibility: </strong>CFGs can describe a wide range of language constructs, from simple arithmetic expressions to more complex programming language syntax.</li>
+      <li><strong>Foundation for Parsing: </strong>CFGs provide a clear and systematic way to guide parsers in analyzing and validating code.</li>
+      <li><strong>Formalism: </strong>CFGs allow for precise, formal descriptions of language syntax, making them easy to manipulate and apply in compiler construction.</li>
+    </section> 
+    <section>
+      <h4>Limitations</h4>
+      <li><strong>Ambiguity: </strong>As mentioned earlier, some CFGs can be ambiguous, which makes it difficult for parsers to resolve conflicts.</li>
+      <li><strong>Complexity: </strong>Writing and managing large CFGs can be challenging, especially when the language being described is complex.</li>
+      <li><strong>Efficiency: </strong>Some parsing techniques for CFGs, especially those for ambiguous or highly complex grammars, may not be the most efficient in terms of time or space.</li>
+    </section>
+    <section>
+      <h4>Conclusion</h4>
+      <p>Context-Free Grammars are fundamental to compiler design as they provide a structured way to define the syntax of programming languages. By using CFGs, a parser can validate and understand the source code, ensuring it adheres to the correct syntactic rules. However, challenges such as ambiguity and complexity need to be managed to ensure efficient and effective parsing in compilers.</p>
+    </section>
+  </main>
+
+  <footer>
+  <a href="CD_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+  </footer>
+
+</body>
+</html>
