@@ -32,16 +32,16 @@
     
 <p><strong>How it works</strong>: The compiler identifies instructions within a basic block that are not contributing to any final result (i.e., those whose outputs are never used) and removes them.</p>
     
-<h6>Example</h6>
+<p><strong></strong>Example:</strong>
     
          
-      <p>a = 10  // Dead code</p>
+      a = 10  // Dead code</p>
       <p>b = 20</p>
          
     
       <p> Here, a = 10 is dead because its value is never used, and it can be eliminated.</p>
     
-<h6>Benefits</h6><p>Reduces the size of the program and improves execution time by removing redundant calculations.</p>
+      <p><strong>Benefits:</strong>Reduces the size of the program and improves execution time by removing redundant calculations.</p>
     
  <h5>   2. Constant Folding and Propagation</h5>
     
@@ -49,14 +49,14 @@
     
 <p><strong>How it works</strong>: The compiler detects expressions with constant values (like '3 + 5') and computes the result ('8') at compile time. If a variable always holds a constant value, that value is propagated through the program to simplify further calculations.</p>
     
-<h6>Example</h6>
+<p><strong>Example:</strong>
     
          
-     <p> x = 3 + 5  // Constant folding</p>
+      x = 3 + 5  // Constant folding</p>
       <p>y = x * 2  // Constant propagation -> y = 16</p>
         
     
-<h6>Benefits</h6><p>Speeds up execution by replacing runtime calculations with precomputed values.</p>
+      <p><strong>Benefits:</strong>Speeds up execution by replacing runtime calculations with precomputed values.</p>
     
 <h5>3.Strength Reduction</h5>
     
@@ -64,14 +64,14 @@
     
 <p><strong>How it works</strong> A common scenario is replacing a multiplication by a constant with an addition or a bit shift. This reduces computational cost and improves runtime performance.</p>
     
-<h6>Example</h6>
+<p><strong>Example:</strong>
     
          
-<p>i = i * 8  // Strength reduction</p>
+i = i * 8  // Strength reduction</p>
        <p> i = i << 3  // Replaced with bit shift, which is faster </p>
         
     
-<h6>Benefits</h6><p> Reduces the number of expensive operations, improving execution speed.</p>
+<p><strong>Benefits:</strong> Reduces the number of expensive operations, improving execution speed.</p>
     
   <h4>4.Instruction Combining</h4>
     
@@ -79,10 +79,10 @@
     
 <p><strong>How it works</strong>: The compiler identifies adjacent or consecutive instructions that can be combined into one instruction without changing the semantics of the program.</p>
     
- <h6>  Example</h6>
+<p><strong>Example:</strong>
     
          
-       <p>  a = b + c</p>
+         a = b + c</p>
        <p>  d = a + e</p>
         
     
@@ -92,7 +92,7 @@
        <p>  d = (b + c) + e</p>
 
     
-<h6>Benefits</h6><p> Reduces the number of instructions, making the code more efficient.</p>
+       <p><strong>Benefits:</strong> Reduces the number of instructions, making the code more efficient.</p>
     
  <h5>5.Loop Invariant Code Motion</h4>
     
@@ -100,10 +100,10 @@
     
 <p><strong>How it works</strong>: The compiler identifies expressions within a loop that do not change on every iteration (invariant expressions), then moves them outside the loop to reduce the number of operations.</p>
     
-<h6>Example</h6>
+<p><strong>Example:</strong>
     
          
-        <p> for i = 1 to 10:</p>
+         for i = 1 to 10:</p>
            <p> f  x = 2 + 3</p>
            <p> f  y = x + i</p>
        
@@ -116,7 +116,7 @@
            <p>  y = x + i</p>
         
     
-<h6>Benefits</h6><p> Reduces redundant computations and improves execution time.</p>
+           <p><strong>Benefits:</strong> Reduces redundant computations and improves execution time.</p>
     
  <h5>6.Common Subexpression Elimination (CSE)</h5>
     
@@ -124,10 +124,10 @@
     
 <p> <strong>How it works:</strong> The compiler looks for subexpressions (like `a + b`), which are evaluated more than once in the same block, and computes them just once, storing the result in a temporary variable.</p>
     
-<h6>Example</h6>
+<p><strong>Example:</strong>
     
          
-         <p>a = x + y</p>
+         a = x + y</p>
         <p> b = x + y</p>
         
     
@@ -139,7 +139,7 @@
         <p> b = t</p>
          
     
-<h6>Benefits</h6><p>Reduces redundant calculations and decreases execution time.</p>
+        <p><strong>Benefits:</strong>Reduces redundant calculations and decreases execution time.</p>
     
  <h5>7.Register Allocation and Spilling</h5>
     
@@ -147,11 +147,11 @@
     
 <p><strong>How it works</strong>: The compiler tries to assign variables to registers efficiently. When there are not enough registers, it spills variables to memory, but this can reduce performance. Optimizing register allocation is critical for performance.</p>
     
-<h6>Example</h6>
+<p><strong>Example:</strong>
     
-         <p> If 'a', 'b', and 'c' are all used in computations, the compiler tries to assign them to available registers, reducing memory access time.</p>
+          If 'a', 'b', and 'c' are all used in computations, the compiler tries to assign them to available registers, reducing memory access time.</p>
     
-<h6>Benefits</h6> <p>Faster variable access by minimizing memory access.</p>
+          <p><strong>Benefits:</strong>Faster variable access by minimizing memory access.</p>
 </section>
     
 <section>
