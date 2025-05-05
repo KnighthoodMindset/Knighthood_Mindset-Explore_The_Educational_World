@@ -32,7 +32,7 @@
     
 <p><strong>How it works</strong>: The compiler identifies instructions within a basic block that are not contributing to any final result (i.e., those whose outputs are never used) and removes them.</p>
     
-<p><strong></strong>Example:</strong>
+<p><strong></strong>Example:</strong><br>
     
          
       a = 10  // Dead code</p>
@@ -49,7 +49,7 @@
     
 <p><strong>How it works</strong>: The compiler detects expressions with constant values (like '3 + 5') and computes the result ('8') at compile time. If a variable always holds a constant value, that value is propagated through the program to simplify further calculations.</p>
     
-<p><strong>Example:</strong>
+<p><strong>Example:</strong><br>
     
          
       x = 3 + 5  // Constant folding</p>
@@ -64,7 +64,7 @@
     
 <p><strong>How it works</strong> A common scenario is replacing a multiplication by a constant with an addition or a bit shift. This reduces computational cost and improves runtime performance.</p>
     
-<p><strong>Example:</strong>
+<p><strong>Example:</strong><br>
     
          
 i = i * 8  // Strength reduction</p>
@@ -79,7 +79,7 @@ i = i * 8  // Strength reduction</p>
     
 <p><strong>How it works</strong>: The compiler identifies adjacent or consecutive instructions that can be combined into one instruction without changing the semantics of the program.</p>
     
-<p><strong>Example:</strong>
+<p><strong>Example:</strong><br>
     
          
          a = b + c</p>
@@ -100,7 +100,7 @@ i = i * 8  // Strength reduction</p>
     
 <p><strong>How it works</strong>: The compiler identifies expressions within a loop that do not change on every iteration (invariant expressions), then moves them outside the loop to reduce the number of operations.</p>
     
-<p><strong>Example:</strong>
+<p><strong>Example:</strong><br>
     
          
          for i = 1 to 10:</p>
@@ -124,7 +124,7 @@ i = i * 8  // Strength reduction</p>
     
 <p> <strong>How it works:</strong> The compiler looks for subexpressions (like `a + b`), which are evaluated more than once in the same block, and computes them just once, storing the result in a temporary variable.</p>
     
-<p><strong>Example:</strong>
+<p><strong>Example:</strong><br>
     
          
          a = x + y</p>
@@ -147,7 +147,7 @@ i = i * 8  // Strength reduction</p>
     
 <p><strong>How it works</strong>: The compiler tries to assign variables to registers efficiently. When there are not enough registers, it spills variables to memory, but this can reduce performance. Optimizing register allocation is critical for performance.</p>
     
-<p><strong>Example:</strong>
+<p><strong>Example:</strong><br>
     
           If 'a', 'b', and 'c' are all used in computations, the compiler tries to assign them to available registers, reducing memory access time.</p>
     
