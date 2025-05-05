@@ -23,55 +23,55 @@
    <section>   
     
     
-<h3> Techniques for Optimizing Basic Blocks</h3>
+<h4> Techniques for Optimizing Basic Blocks</h4>
 
    
-   <h4> 1. Dead Code Elimination (DCE)</h4>
+   <h5> 1. Dead Code Elimination (DCE)</h5>
     
 <p>Dead code refers to instructions that do not affect the final output of the program. This can happen when a variable is computed but never used, or when conditional branches make parts of the code unreachable.</p>
     
 <p><strong>How it works</strong>: The compiler identifies instructions within a basic block that are not contributing to any final result (i.e., those whose outputs are never used) and removes them.</p>
     
-<h5>Example</h5>:
+<h6>Example</h6>:
     
-         ```plaintext
-         a = 10  // Dead code
-         b = 20
-         ```
+         
+      <p>a = 10  // Dead code</p>
+      <p>b = 20</p>
+         
     
-         Here, `a = 10` is dead because its value is never used, and it can be eliminated.
+      <p> Here, `a = 10` is dead because its value is never used, and it can be eliminated.</p>
     
-<h5>Benefits</h5>: Reduces the size of the program and improves execution time by removing redundant calculations.
+<h6>Benefits</h6><p>Reduces the size of the program and improves execution time by removing redundant calculations.</p>
     
- <h4>   2. Constant Folding and Propagation</h4>
+ <h5>   2. Constant Folding and Propagation</h5>
     
      <p>Constant folding is an optimization where constant expressions are evaluated at compile time rather than at runtime. Similarly, constant propagation involves replacing variables that hold constant values with those constant values.</p>
     
-<p><strong>How it works</strong>: The compiler detects expressions with constant values (like `3 + 5`) and computes the result (`8`) at compile time. If a variable always holds a constant value, that value is propagated through the program to simplify further calculations.</p>
+<p><strong>How it works</strong>: The compiler detects expressions with constant values (like '3 + 5') and computes the result ('8') at compile time. If a variable always holds a constant value, that value is propagated through the program to simplify further calculations.</p>
     
-<h5>Example</h5>:
+<h6>Example</h6>:
     
-         ```plaintext
-         x = 3 + 5  // Constant folding
-         y = x * 2  // Constant propagation -> y = 16
-         ```
+         
+     <p> x = 3 + 5  // Constant folding</p>
+      <p>y = x * 2  // Constant propagation -> y = 16</p>
+        
     
-<h5>Benefits</h5>: Speeds up execution by replacing runtime calculations with precomputed values.
+<h6>Benefits</h6>: Speeds up execution by replacing runtime calculations with precomputed values.
     
-<h4>3.Strength Reduction</h4>
+<h5>3.Strength Reduction</h5>
     
      <p>  Strength reduction replaces costly operations (like multiplication or division) with simpler and faster operations (like addition or bit shifts).</p>
     
-<p><strong>How it works</strong>: A common scenario is replacing a multiplication by a constant with an addition or a bit shift. This reduces computational cost and improves runtime performance.</p>
+<p><strong>How it works</strong> A common scenario is replacing a multiplication by a constant with an addition or a bit shift. This reduces computational cost and improves runtime performance.</p>
     
-<h5>Example</h5>:
+<h6>Example</h6>:
     
-         ```plaintext
-         i = i * 8  // Strength reduction
-         i = i << 3  // Replaced with bit shift, which is faster
-         ```
+         
+<p>i = i * 8  // Strength reduction</p>
+       <p> i = i << 3  // Replaced with bit shift, which is faster </p>
+        
     
-<h5>Benefits</h5>: Reduces the number of expensive operations, improving execution speed.
+<h5>Benefits</h5><p> Reduces the number of expensive operations, improving execution speed.</p>
     
   <h4>4.Instruction Combining</h4>
     
@@ -79,90 +79,90 @@
     
 <p><strong>How it works</strong>: The compiler identifies adjacent or consecutive instructions that can be combined into one instruction without changing the semantics of the program.</p>
     
- <h5>   Example</h5>:
+ <h6>  Example</h6>:
     
-         ```plaintext
-         a = b + c
-         d = a + e
-         ```
+         
+       <p>  a = b + c</p>
+       <p>  d = a + e</p>
+        
     
-         Here, the two instructions can be combined into one:
+        <p>Here, the two instructions can be combined into one:</p>
     
-         ```plaintext
-         d = (b + c) + e
-         ```
+        
+       <p>  d = (b + c) + e</p>
+
     
-</h5>Benefits</h5>: Reduces the number of instructions, making the code more efficient.
+<h6>Benefits</h6><p> Reduces the number of instructions, making the code more efficient.</p>
     
- <h4>5.Loop Invariant Code Motion</h4>
+ <h5>5.Loop Invariant Code Motion</h4>
     
     <p>   Loop invariant code motion moves code that does not depend on the loop variable out of the loop, preventing it from being recomputed on every iteration.</p>
     
 <p><strong>How it works</strong>: The compiler identifies expressions within a loop that do not change on every iteration (invariant expressions), then moves them outside the loop to reduce the number of operations.</p>
     
-<h5>Example:</h5>
+<h6>Example:</h6>
     
-         ```plaintext
-         for i = 1 to 10:
-             x = 2 + 3
-             y = x + i
-         ```
+         
+        <p> for i = 1 to 10:</p>
+           <p> f  x = 2 + 3</p>
+           <p> f  y = x + i</p>
+       
     
-         Here, `x = 2 + 3` can be moved outside the loop because it doesn't change with each iteration.
+       <p>  Here, `x = 2 + 3` can be moved outside the loop because it doesn't change with each iteration.</p>
     
-         ```plaintext
-         x = 2 + 3
-         for i = 1 to 10:
-             y = x + i
-         ```
+         
+        <p> x = 2 + 3</p>
+        <p> for i = 1 to 10:</p>
+           <p>  y = x + i</p>
+        
     
-<h5>Benefits</h5>: Reduces redundant computations and improves execution time.
+<h6>Benefits</h6><p> Reduces redundant computations and improves execution time.</p>
     
- <h4>6.Common Subexpression Elimination (CSE)</h4>
+ <h5>6.Common Subexpression Elimination (CSE)</h5>
     
     <p>   Common subexpression elimination identifies expressions that are computed multiple times within a basic block and replaces the redundant computations with a single computation.</p>
     
 <p> <strong>How it works:</strong> The compiler looks for subexpressions (like `a + b`), which are evaluated more than once in the same block, and computes them just once, storing the result in a temporary variable.</p>
     
-<h5>Example</h5>:
+<h6>Example</h6>:
     
-         ```plaintext
-         a = x + y
-         b = x + y
-         ```
+         
+         <p>a = x + y</p>
+        <p> b = x + y</p>
+        
     
-         Here, the expression `x + y` is computed twice. The compiler can eliminate the redundancy:
+        <p> Here, the expression 'x + y' is computed twice. The compiler can eliminate the redundancy:</p>
     
-         ```plaintext
-         t = x + y
-         a = t
-         b = t
-         ```
+        
+        <p> t = x + y</p>
+        <p> a = t</p>
+        <p> b = t</p>
+         
     
-<h5>Benefits</h5>: Reduces redundant calculations and decreases execution time.
+<h6>Benefits</h6><p>Reduces redundant calculations and decreases execution time.</p>
     
- <h4>7.Register Allocation and Spilling</h4>
+ <h5>7.Register Allocation and Spilling</h5>
     
     <p> Register allocation involves assigning variables to machine registers to speed up access. If the number of variables exceeds the number of available registers, **spilling** occurs, where some variables are stored in memory instead of registers.</p>
     
 <p><strong>How it works</strong>: The compiler tries to assign variables to registers efficiently. When there are not enough registers, it spills variables to memory, but this can reduce performance. Optimizing register allocation is critical for performance.</p>
     
-<h5>Example</h5>:
+<h6>Example</h6>:
     
-         * If `a`, `b`, and `c` are all used in computations, the compiler tries to assign them to available registers, reducing memory access time.
+         <p> If 'a', 'b', and 'c' are all used in computations, the compiler tries to assign them to available registers, reducing memory access time.</p>
     
-<h5>Benefits:</h5> Faster variable access by minimizing memory access.
+<h6>Benefits:</h6> <p>Faster variable access by minimizing memory access.</p>
 </section>
     
 <section>
     
-<h3>Applications of Basic Block Optimization</h3>
+<h5>Applications of Basic Block Optimization</h5>
     
 <h4>1.Improved Execution Speed:</h4>
     
 <p> Optimizing basic blocks directly improves the execution time by eliminating redundant operations, reducing the number of instructions, and optimizing memory usage.</p>
     
-<h4>2.Reduced Code Size:</h4>
+<h5>2.Reduced Code Size:</h5>
     
 <p>Through techniques like dead code elimination and common subexpression elimination, the overall size of the compiled code is reduced, leading to smaller programs that take up less memory and are faster to load and execute.</p>
     
@@ -177,7 +177,7 @@
 </section>
 <section>
     
-<h3>Advantages of Optimizing Basic Blocks</h3>
+<h4>Advantages of Optimizing Basic Blocks</h4>
     
  <p><strong>1.Improves Code Performance:</strong> Reducing redundant instructions and simplifying operations leads to faster execution.</p>
   <p><strong>2.Reduces Resource Consumption</strong>: Optimizations help in reducing memory usage, disk space, and CPU cycles.</p>
@@ -187,7 +187,7 @@
 </section>
 <section>
     
-<h3>Limitations of Basic Block Optimization</h3>
+<h4>Limitations of Basic Block Optimization</h4>
     
  <p><strong>1.Increased Compilation Time</strong>: Optimization techniques can increase the time taken for the compiler to process the program, especially in large programs.</p>
  <p><strong>2.Complexity in Analysis:</strong> Some optimization techniques, such as **register allocation**, require in-depth analysis, making the compiler more complex.</p>
@@ -196,7 +196,7 @@
 </section>
 <section>
     
-<h3>Conclusion</h3>
+<h4>Conclusion</h4>
     
 <p>Optimizing basic blocks is a crucial step in enhancing the efficiency and performance of programs during the compilation process. By reducing redundant calculations, simplifying instructions, and making better use of resources, basic block optimization helps in generating smaller, faster, and more efficient machine code. Although it adds complexity to the compiler design, the benefits of faster execution and reduced resource consumption make it a vital part of modern compiler optimization strategies.</p>
 </section>
