@@ -112,4 +112,27 @@ h3{
   .feature-card.nursing {
     border: 3px solid palevioletred;
   }
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    padding-top: 1rem;
+  }
+
+  .nav-links li {
+    padding: 0.5rem 0;
+  }
+
+  .logo-container {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
   
