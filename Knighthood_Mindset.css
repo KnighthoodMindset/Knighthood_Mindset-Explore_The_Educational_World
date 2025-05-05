@@ -46,10 +46,7 @@ h3{
 }
 
 .nav-links a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  color: white !important;
 }
 
 .nav-links a:hover {
