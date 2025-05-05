@@ -19,7 +19,12 @@ header {
   background: linear-gradient(90deg, #6dd5fa, #840a94, #e926cf); /* skyblue to pink */
   color: white;
   padding: 1rem 2rem;
-  flex-wrap: nowrap;
+}
+h2{
+    color:#e926cf
+}
+h3{
+    color:#840a94
 }
 
 .logo-container {
@@ -40,14 +45,14 @@ header {
   gap: 1.5rem;
 }
 
-.nav-links li a {
+.nav-links a {
   text-decoration: none;
   color: white;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
-.nav-links li a:hover {
+.nav-links a:hover {
   color: #ffe8fa;
 }
 
@@ -56,64 +61,55 @@ header {
   text-align: center;
 }
 
-h2 {
-  color: #e926cf;
-  margin-bottom: 1rem;
-}
-
-h3 {
-  color: #840a94;
-}
-
-/* Feature Cards */
-.feature-boxes {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 40px;
-  flex-wrap: wrap;
-}
-
-.feature-card {
-  background: white;
-  width: 250px;
-  height: 180px;
-  text-align: center;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-decoration: none;
-  color: #333;
-}
-
-.feature-card h3 {
-  margin-bottom: 10px;
-  font-size: 1.4rem;
-  color: #444;
-}
-
-.feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
-}
-
-.feature-card.tech {
-  border: 3px solid skyblue;
-}
-
-.feature-card.nursing {
-  border: 3px solid palevioletred;
-}
-
-/* Footer */
 .footer {
-  position: fixed;
-  bottom: 10px;
-  right: 20px;
-  font-size: 0.9rem;
-  color: #555;
-  background-color: transparent;
-  padding: 5px 10px;
-  z-index: 1000;
-}
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    font-size: 0.9rem;
+    color: #555;
+    background-color: transparent;
+    padding: 5px 10px;
+    z-index: 1000;
+  }
+  
+.feature-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .feature-card {
+    background: white;
+    width: 250px;
+    height: 180px;
+    text-align: center;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .feature-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: #444;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Themed background accents */
+  .feature-card.tech {
+    border: 3px solid skyblue;
+  }
+  
+  .feature-card.nursing {
+    border: 3px solid palevioletred;
+  }
+  
