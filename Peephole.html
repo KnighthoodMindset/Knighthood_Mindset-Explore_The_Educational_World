@@ -107,11 +107,11 @@ SHL R1, R2, 2     ; Shift left by 2 bits (equivalent to multiplying by 4)
     </section>
     <section>
         <h4>Algorithm for Peephole Optimization</h4>
-        <p>    Peephole optimization is typically applied using a **sliding window** approach over the intermediate code. Here's how it works:<br>
-            Step 1: Examine a small portion of the code (typically the current instruction and its neighbors).<br>
-    Step 2: Apply optimization patterns to this small code segment. If a known pattern (like constant folding or redundant load/store) is found, optimize the code.<br>
-    Step 3: Repeat the process by sliding the window and continuing to apply optimizations.<br>
-    Step 4: Continue iterating until no further optimizations can be applied to any part of the code.<br>
+        <p>    Peephole optimization is typically applied using a sliding window approach over the intermediate code. Here's how it works:<br>
+          <strong>Step 1: </strong>  Examine a small portion of the code (typically the current instruction and its neighbors).<br>
+    <strong>Step 2: </strong>Apply optimization patterns to this small code segment. If a known pattern (like constant folding or redundant load/store) is found, optimize the code.<br>
+    <strong>Step 3:</strong> Repeat the process by sliding the window and continuing to apply optimizations.<br>
+     <strong>Step 4: </strong>Continue iterating until no further optimizations can be applied to any part of the code.<br>
     This process is repeated until no more improvements can be made, ensuring that the code is as efficient as possible locally.
 
         </p>
