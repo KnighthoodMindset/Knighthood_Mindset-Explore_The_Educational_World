@@ -80,14 +80,14 @@ The exit node represents the point at which the program terminates or exits.
 </section>
 <section>
     <h4>Flow Graph Construction Example</h4>
-    <pre>Consider a simple program with a conditional structure:<br><br>
+    <p>Consider a simple program with a conditional structure:<br><br>
     
     
-        if (x > 0) {<br>
+      <pre>if (x > 0) {<br>
             a = b + c;<br>
         } else {<br>
             a = b - c;<br>
-        }<br><br>
+        }<br><br></pre>
         
         
         The flow graph for this program would consist of two basic blocks:<br>
@@ -101,7 +101,7 @@ The exit node represents the point at which the program terminates or exits.
          From Basic Block 1 to Basic Block 2 (if the condition is true).<br>
          From Basic Block 1 to Basic Block 3 (if the condition is false).<br>
          Both Basic Block 2 and Basic Block 3 would converge into a common exit node, where the program terminates or proceeds to the next statement.
-        </pre>
+        </p>
 </section>
 <section><h4>Properties of Flow Graphs</h4>
     <ul>
