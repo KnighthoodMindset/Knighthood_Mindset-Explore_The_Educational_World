@@ -39,20 +39,6 @@ h3{
   border-radius: 50%;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links a {
-  color: white !important;
-}
-
-.nav-links a:hover {
-  color: #ffe8fa;
-}
-
 .hero {
   padding: 4rem 2rem;
   text-align: center;
