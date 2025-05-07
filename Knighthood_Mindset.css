@@ -95,4 +95,17 @@ h3{
   .feature-card.nursing {
     border: 3px solid rgb(73, 91, 221);
   }
-  
+  .feature-card.agriculture {
+    border: 3px solid rgb(9, 120, 20);
+  }
+    
+  .feature-card.degree {
+     border: 3px solid #1713f3; 
+    }
+  .feature-card.school { 
+    border: 3px solid #d04ae7; 
+  }
+  .feature-card.intermediate {
+     border: 3px solid #ba86f2; 
+    }
+
