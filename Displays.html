@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    
+     
+    Here is a **detailed long answer** for the topic **"Displays"** — tailored for your **Tech Nexus – Compiler Design** notes (Unit: Runtime Environments):
+
+    ---
+    
+    ## 📘 Displays
+    
+    In **compiler design**, particularly in the **runtime environment**, a **display** is a data structure used to efficiently access **non-local variables** in **block-structured programming languages** such as Pascal, Ada, and older versions of Algol.
+    
+    When a language supports **nested functions or procedures**, a subprogram can access variables declared in its enclosing scopes. The **display technique** is one approach to managing these **non-local variable references**.
+    
+    ---
+    
+    ### 🧠 Why Do We Need Displays?
+    
+    In nested procedures, a function can refer to variables not declared in its own scope but in some outer (enclosing) scope. For example:
+    
+    ```pascal
+    procedure A;
+      var x: integer;
+      procedure B;
+        procedure C;
+        begin
+          x := 10;  // C accesses x from A's scope
+        end;
+      end;
+    end;
+    ```
+    
+    Here, `C` accesses `x` defined in `A`. A **display** helps efficiently resolve such references.
+    
+    ---
+    
+    ### 🧱 What is a Display?
+    
+    A **display** is essentially an **array of pointers** (or addresses), where each element points to the **activation record** of a currently active **lexical level** (i.e., scope level).
+    
+    * If a procedure at level `k` wants to access a variable at level `j` (`j < k`), it can do so by referencing the `j`-th entry in the display.
+    * This is more efficient than following a chain of static links (another technique for non-local access).
+    
+    ---
+    
+    ### 📌 Structure of a Display
+    
+    A **display array** is maintained at runtime. Each entry in the display corresponds to a **lexical nesting level** and points to the **base of the activation record** for the current invocation of that level.
+    
+    #### Example:
+    
+    | Display Index (Level) | Pointer (Address)              |
+    | --------------------- | ------------------------------ |
+    | 0                     | Global scope activation record |
+    | 1                     | Activation record of `A`       |
+    | 2                     | Activation record of `B`       |
+    | 3                     | Activation record of `C`       |
+    
+    ---
+    
+    ### 🔁 Working of a Display
+    
+    #### 1. **Procedure Call**
+    
+    * When a procedure at nesting level `k` is called:
+    
+      * The current display entry for level `k` is saved.
+      * The new activation record for this call is installed at index `k`.
+    
+    #### 2. **Variable Access**
+    
+    * If a variable declared at level `j` is accessed from a deeper level, the variable can be found at:
+    
+      ```
+      display[j] + offset_of_variable
+      ```
+    
+    #### 3. **Procedure Return**
+    
+    * When the procedure returns:
+    
+      * The previous display pointer (saved earlier) is restored.
+    
+    ---
+    
+    ### 💡 Comparison: Displays vs Static Links
+    
+    | Feature           | Static Links                            | Displays                                  |
+    | ----------------- | --------------------------------------- | ----------------------------------------- |
+    | Access Time       | Proportional to nesting depth (slower)  | Constant time (faster)                    |
+    | Space Requirement | No central table needed                 | Requires display table                    |
+    | Complexity        | Simple to implement                     | Slightly more complex                     |
+    | Preferred In      | Functional languages (e.g., Scheme, ML) | Block-structured languages (e.g., Pascal) |
+    
+    ---
+    
+    ### ✅ Applications of Displays
+    
+    * **Efficient access to non-local variables** in languages with **lexical scoping** and **nested procedures**.
+    * Commonly used in **Pascal-style compilers**.
+    * Helps in **optimizing runtime performance** by avoiding repeated traversal of static links.
+    * Forms part of **runtime memory organization** strategies in advanced compilers.
+    
+    ---
+    
+    ### ❌ Limitations / Challenges
+    
+    * Requires additional **data structure (display array)**.
+    * Must carefully manage **saving/restoring** display pointers during **procedure calls and returns**.
+    * Becomes more complex in presence of **coroutines or concurrency**.
+    
+    ---
+    
+    ### 🧾 Conclusion
+    
+    **Displays** are an efficient mechanism for accessing non-local variables in nested scopes. By maintaining direct pointers to the activation records of enclosing scopes, they allow for **constant-time access** to variables from outer procedures. While more complex to manage than static links, displays provide **faster variable lookup** and are ideal for **block-structured languages**.
+    
+    ---
+    
+    Let me know if you'd like the next topic: **"Accessing Non-local Names in Nested Procedures"** or any specific topic from the next unit!
+    
+
+  </main>
+
+  <footer>
+  <a href="CD_UNIT4.html" class="back-btn">← Back to Unit 4 Topics</a>
+  </footer>
+
+</body>
+</html>

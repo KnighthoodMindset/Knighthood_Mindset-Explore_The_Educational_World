@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    
+    Here's a **detailed long answer** for the topic **"Activation Records"**, ideal for your Compiler Design notes in Tech Nexus:
+
+---
+
+## 📘 Activation Records
+
+An **Activation Record**, also known as a **stack frame**, is a data structure that stores information about a single execution of a procedure or function. Whenever a function is called, a new activation record is **pushed** onto the call stack, and when the function returns, the activation record is **popped** off the stack.
+
+This mechanism is crucial for **run-time support** in programming languages that allow **recursion, nested function calls, and parameter passing**.
+
+---
+
+### 🧱 Structure of an Activation Record
+
+A typical activation record contains several fields:
+
+1. **Return Address**:
+
+   * This stores the address of the instruction to which control should return after the function execution is completed.
+
+2. **Actual Parameters (Arguments)**:
+
+   * These are the values passed from the caller to the callee function.
+
+3. **Control Link**:
+
+   * A pointer to the activation record of the **caller** function. This helps the control return to the correct context.
+
+4. **Access Link** (optional):
+
+   * Points to the activation record of the **enclosing** (lexically outer) function in languages with nested scopes (like Pascal or inner functions in JavaScript).
+
+5. **Saved Machine Status**:
+
+   * Stores temporary information like register values, flags, etc., which need to be restored after the function call returns.
+
+6. **Local Variables**:
+
+   * Holds space for the local variables defined within the function.
+
+7. **Temporaries**:
+
+   * Stores intermediate results of expressions computed during function execution.
+
+---
+
+### 🧭 Layout of an Activation Record
+
+```
++----------------------+
+| Temporaries          |
++----------------------+
+| Local Variables      |
++----------------------+
+| Saved Machine Status |
++----------------------+
+| Access Link (opt)    |
++----------------------+
+| Control Link         |
++----------------------+
+| Actual Parameters    |
++----------------------+
+| Return Address       |
++----------------------+
+```
+
+Each new function call creates a new activation record, and it is placed on top of the runtime stack.
+
+---
+
+### 🔁 Activation Record and Recursion
+
+In **recursive function calls**, each recursive call creates a new activation record on the stack, even if the function is the same. This allows each recursive call to maintain its **own copy** of local variables and return address.
+
+For example:
+
+```c
+int factorial(int n) {
+    if (n == 0) return 1;
+    return n * factorial(n - 1);
+}
+```
+
+Each call to `factorial(n)` has a separate activation record with its own `n` and return value, enabling proper computation without interfering with other calls.
+
+---
+
+### ⚙️ Role in Compiler Design
+
+* **Supports Function Calls**: Activation records help manage the flow of control and data during function invocations.
+* **Handles Nested Scopes**: Using access links, compilers can implement **lexical scoping** rules efficiently.
+* **Stack-Based Execution Model**: Most compilers generate stack-based code where activation records are manipulated using push/pop operations.
+
+---
+
+### ✅ Applications
+
+* **Runtime Stack Implementation**
+* **Memory Allocation for Procedures**
+* **Support for Recursion**
+* **Access to Non-local Variables in Nested Functions**
+* **Backtracking and State Restoration**
+
+---
+
+### 🧾 Conclusion
+
+An **Activation Record** is essential for managing function calls, especially in languages that support **recursion, parameters, and local variables**. By storing the return address, parameters, control information, and local data, it provides the runtime environment with the context needed to execute functions correctly and efficiently.
+
+Understanding activation records is fundamental to understanding **procedure calls, recursion handling, and memory management** in compiler design.
+
+---
+
+Would you like the next topic: **"Accessing Non-local Variables"**?
+
+     
+  </main>
+
+  <footer>
+  <a href="CD_UNIT4.html" class="back-btn">← Back to Unit 4 Topics</a>
+  </footer>
+
+</body>
+</html>
