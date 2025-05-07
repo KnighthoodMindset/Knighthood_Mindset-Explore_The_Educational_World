@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nursing Study Hub</title>
+    <link rel="stylesheet" href="Nursing_hub.css">
+</head>
+<body>
+    <header>
+        <h1>Nursing Study Hub</h1>
+        <input type="text" id="searchBar" placeholder="Search topics..." onkeyup="searchTopics()">
+    </header>
+    
+    <main>
+        <section id="subjects">
+            <h2>Subjects</h2>
+            <ul id="subjectList">
+                <li><a href="#" onclick="loadTopics('Midwifery & Obstetrical Nursing – I')">Midwifery & Obstetrical Nursing-I</a></li>
+                <li><a href="#" onclick="loadTopics('Child Health Nursing')">child Health Nursing</a></li>
+                <li><a href="#" onclick="loadTopics('Mental Health Nursing')">Mental Health Nursing</a></li>
+                <li><a href="#" onclick="loadTopics('Medical Surgical Nursing – II')">Medical Surgical Nursing-II</a></li>
+            </ul>
+        </section>
+    </main>
+    
+    <script src="nursing_hub.js"></script>
+</body>
+</html>
