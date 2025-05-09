@@ -1,10 +1,29 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <title>Code Generation| Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
+  <head>
+  <title>Code Generation Table</title>
+  <style>
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-family: Arial, sans-serif;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
 </head>
 <body>
   <div class="top-banner">
@@ -13,144 +32,164 @@
   </div>
 
   <main>
-    Here is a **detailed long answer** for the topic **“Code Generation”** — suitable for your **Tech Nexus – Compiler Design (Unit: Code Generation)** notes:
-
----
-
-## 📘 Code Generation
-
-**Code Generation** is the final major phase in a compiler where the intermediate representation (IR) of the source program is translated into **target machine code** or **assembly code**. This phase transforms a high-level, architecture-independent form of code into **machine-specific instructions** that can be executed by the hardware.
+    <section>
+        <h3>Code Generation</h3>
+        <p>Code Generation is the final major phase in a compiler where the intermediate representation (IR) of the source program is translated into target machine code or assembly code. This phase transforms a high-level, architecture-independent form of code into machine-specific instructions that can be executed by the hardware.
 
 It plays a crucial role in the overall performance and correctness of the compiled program.
 
----
+</p>
+    </section>
+    <section>
+        <h4>Objectives of Code Generation</h4>
+        <ul>
+            <li>Translate intermediate code into machine code or assembly.
+</li>
+            <li>Ensure the semantics of the original program are preserved.
+</li>
+            <li>Optimize the output for efficiency (speed, memory usage).
+</li>
+            <li>Handle register allocation and instruction selection.
+</li>
+            <li>Generate correct jump, call, return, and branching code.
+</li>
+            <li>Ensure that data types and addressing modes are properly managed.
+</li>
+        </ul>
+    </section>
+    <section>
+        <h4>Key Tasks Performed in Code Generation</h4>
+        <ol>
+            <li><strong>Instruction Selection
+</strong><br><ul><li>Convert IR operations into machine instructions.
+</li>
+<li>Choose the most efficient instruction patterns for each operation.
+</li></ul></li>
+            <li><strong>Register Allocation and Assignment
+</strong><br><ul><li>Determine which variables or temporary values will be stored in CPU registers.
+</li>
+<li>Minimize memory access by using registers efficiently.
+</li>
+<li>Use techniques like graph coloring or linear scan for allocation.
+</li></ul></li>
+            <li><strong>Address and Offset Computation
+</strong><br><ul><li>Calculate addresses of variables, parameters, arrays, and structures.
+</li>
+<li>Manage frame pointers, stack offsets, and base registers.
+</li></ul></li>
+            <li><strong>Instruction Ordering
+</strong><br><ul><li>Arrange machine instructions in an order that reduces delays and improves cache use.
+</li>
+<li>May involve peephole optimization or instruction scheduling.
+</li></ul></li>
+            <li><strong>Handling Control Flow
+</strong><br><ul><li>Translate IR for if-else, loops, goto, and switch into machine-level branching.
+</li>
+<li>Generate labels, jump instructions, and conditional branches.
+</li></ul></li>
+        </ol>
+    </section>
+    <section>
+        <h4>Input and Output</h4>
+        <table>
+    <thead>
+      <tr>
+        <th>Input</th>
+        <th>Output</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Intermediate Representation (Three-Address Code, Quadruples, Syntax Trees)</td>
+        <td>Target code (Assembly or Machine Code)</td>
+      </tr>
+    </tbody>
+  </table>
 
-### 🧭 Objectives of Code Generation
+    </section>
+    <section>
+        <h4>Code Generation Example</h4>
 
-* Translate intermediate code into **machine code or assembly**.
-* Ensure the **semantics** of the original program are preserved.
-* Optimize the output for **efficiency** (speed, memory usage).
-* Handle **register allocation** and **instruction selection**.
-* Generate correct **jump, call, return**, and **branching** code.
-* Ensure that **data types** and **addressing modes** are properly managed.
-
----
-
-### 🔨 Key Tasks Performed in Code Generation
-
-1. **Instruction Selection**
-
-   * Convert IR operations into **machine instructions**.
-   * Choose the most efficient instruction patterns for each operation.
-
-2. **Register Allocation and Assignment**
-
-   * Determine which **variables or temporary values** will be stored in **CPU registers**.
-   * Minimize **memory access** by using registers efficiently.
-   * Use techniques like **graph coloring** or **linear scan** for allocation.
-
-3. **Address and Offset Computation**
-
-   * Calculate **addresses** of variables, parameters, arrays, and structures.
-   * Manage **frame pointers**, **stack offsets**, and **base registers**.
-
-4. **Instruction Ordering**
-
-   * Arrange machine instructions in an order that **reduces delays** and **improves cache use**.
-   * May involve **peephole optimization** or **instruction scheduling**.
-
-5. **Handling Control Flow**
-
-   * Translate IR for **if-else**, **loops**, **goto**, and **switch** into machine-level **branching**.
-   * Generate **labels**, **jump instructions**, and **conditional branches**.
-
----
-
-### 🧾 Input and Output
-
-| **Input**                                                                        | **Output**                             |
-| -------------------------------------------------------------------------------- | -------------------------------------- |
-| Intermediate Representation (Three-Address Code, Quadruples, Syntax Trees, etc.) | Target code (Assembly or Machine Code) |
-
----
-
-### 🏗️ Code Generation Example
-
-**Intermediate Code (Three-Address Code):**
-
-```
+<h5>Intermediate Code (Three-Address Code):</h5>
+<pre>
 t1 = a + b
 t2 = t1 * c
 d = t2
-```
+</pre>
 
-**Corresponding Assembly Code:**
-
-```asm
-MOV R1, a
+<h5>Corresponding Assembly Code:</h5>
+<pre>MOV R1, a
 ADD R1, b
 MUL R1, c
-MOV d, R1
-```
+MOV d, R1</pre>
+    </section>
+    <section>
+        <h4>Code Generation Techniques</h4>
+        <ol>
+            <li><strong>Template-Based Translation
+</strong><br>Use templates to translate patterns of IR code into machine instructions.
+</li>
+<li><strong>Tree Matching Algorithms
+</strong><br>Use pattern matching on syntax trees or DAGs to select optimal instructions.
+</li>
+<li><strong>Table-Driven Code Generation
+</strong><br>A table maps IR operations and operand types to assembly code templates.
+</li>
+        </ol>
+    </section>
+    <section>
+        <h4>Challenges in Code Generation</h4>
+        <ul>
+            <li><strong>Instruction Set Complexity: </strong>Each processor architecture (x86, ARM, etc.) has unique constraints.
+</li>
+            <li><strong>Register Pressure:</strong> Limited number of CPU registers can result in spilling to memory.
+</li>
+            <li><strong>alling Conventions: </strong>CMust follow ABI standards for function calls and returns.
+</li>
+            <li><strong>Machine-Level Optimizations:</strong> Such as loop unrolling, instruction scheduling, branch prediction, etc.
+</li>
+        </ul>
+    </section>
+    <section>
+        <h4>Applications of Code Generation</h4>
+        <ul>
+            <li><strong>Compiler Backends:</strong> Used by compilers like GCC, LLVM to produce executable binaries.
+</li>
+            <li><strong>Just-In-Time (JIT) Compilation:</strong>Just-In-Time (JIT) Compilation: Used in Java, .NET, and modern browsers for runtime code generation.
+</li>
+            <li><strong>Embedded Systems:</strong> Efficient code generation is crucial where resources are constrained.
+</li>
+            <li><strong>Game Engines and Simulations:</strong> Performance-critical systems benefit from optimized code output.
+</li>
+        </ul>
+    </section>
+    <section>
+        <h4>Relationship with Optimization</h4>
+        <p>While code generation is concerned with correctness and translation, it often includes low-level optimizations such as:
+</p>
+<ul>
+    <li>Removing redundant instructions
+</li>
+     <li>Register reuse
+</li>
+      <li>Combining multiple IR instructions into a single machine instruction
+</li>
+</ul>
+<p>For more aggressive optimization, the compiler includes a separate code optimization phase before or during code generation.
+</p>
+    </section>
+    <section>
+        <h4>Conclusion</h4>
+        <p>Code Generation is a core part of the compiler backend, converting high-level, abstract IR into concrete, executable machine code. It ensures that the final output not only preserves the program’s semantics but also executes efficiently on the target machine. A robust code generator must be able to balance correctness, performance, and architecture-specific constraints.
+</p>
 
----
+    </section>
 
-### 📊 Code Generation Techniques
 
-1. **Template-Based Translation**
-   Use templates to translate patterns of IR code into machine instructions.
-
-2. **Tree Matching Algorithms**
-   Use **pattern matching** on syntax trees or DAGs to select optimal instructions.
-
-3. **Table-Driven Code Generation**
-   A table maps IR operations and operand types to assembly code templates.
-
----
-
-### 💡 Challenges in Code Generation
-
-* **Instruction Set Complexity**: Each processor architecture (x86, ARM, etc.) has unique constraints.
-* **Register Pressure**: Limited number of CPU registers can result in **spilling** to memory.
-* **Calling Conventions**: Must follow ABI standards for function calls and returns.
-* **Machine-Level Optimizations**: Such as **loop unrolling**, **instruction scheduling**, **branch prediction**, etc.
-
----
-
-### ✅ Applications of Code Generation
-
-* **Compiler Backends**: Used by compilers like GCC, LLVM to produce executable binaries.
-* **Just-In-Time (JIT) Compilation**: Used in Java, .NET, and modern browsers for runtime code generation.
-* **Embedded Systems**: Efficient code generation is crucial where resources are constrained.
-* **Game Engines & Simulations**: Performance-critical systems benefit from optimized code output.
-
----
-
-### 🔄 Relationship with Optimization
-
-While **code generation** is concerned with **correctness and translation**, it often includes **low-level optimizations** such as:
-
-* Removing redundant instructions
-* Register reuse
-* Combining multiple IR instructions into a single machine instruction
-
-For more aggressive optimization, the compiler includes a separate **code optimization phase** before or during code generation.
-
----
-
-### 🧾 Conclusion
-
-**Code Generation** is a core part of the compiler backend, converting high-level, abstract IR into concrete, executable machine code. It ensures that the final output not only preserves the program’s semantics but also executes efficiently on the target machine. A robust code generator must be able to balance **correctness**, **performance**, and **architecture-specific constraints**.
-
----
-
-Would you like the next topic to be **"Issues in Code Generation"** or **"Register Allocation Strategies"**?
-
-     
   </main>
 
   <footer>
-  <a href="CD_UNIT4.html" class="back-btn">← Back to Unit 4 Topics</a>
+  <a href="CD_UNIT5.html" class="back-btn">← Back to Unit 5 Topics</a>
   </footer>
 
 </body>
