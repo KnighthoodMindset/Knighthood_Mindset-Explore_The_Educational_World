@@ -6,6 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Activation Records | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
+  <style>
+    .activation-record {
+        width: 260px;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        border: 4px solid #000; /* Outer border */
+    }
+    .activation-record td {
+        border: 2px solid #000; /* Cell borders */
+        padding: 10px;
+        text-align: center;
+        background-color: #f9f9f9;
+    }
+    .activation-record caption {
+        font-weight: bold;
+        margin-bottom: 10px;
+        caption-side: top;
+        font-size: 1.2em;
+    }
+</style>
 </head>
 <body>
   <div class="top-banner">
@@ -53,17 +74,20 @@
          </ol>
       </section>
       <section>
-        <h4>Layout of an Activation Record</h4>
-        <table>
-            <td>Temporaries</td>
-            <td>Local Variables  </td>
-            <td>Saved Machine Status</td>
-            <td>Access Link (opt)</td>
-            <td>Control Link   </td>
-            <td>Actual Parameters</td>
-            <td>Return Address </td>
-            
-        </table>
+        <h4>Layout of an Activation Record</h4><br>
+        
+        <table class="activation-record">
+            <tr><td>Temporaries</td></tr>
+            <tr><td>Local Variables</td></tr>
+            <tr><td>Saved Machine Status</td></tr>
+            <tr><td>Access Link (opt)</td></tr>
+            <tr><td>Control Link</td></tr>
+            <tr><td>Actual Parameters</td></tr>
+            <tr><td>Return Address</td></tr>
+        </table><br>
+        
+        
+        
         <p>    Each new function call creates a new activation record, and it is placed on top of the runtime stack.
         </p>
       </section>
