@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <title> Procedure Calls| Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -13,147 +14,172 @@
   </div>
 
   <main>
-    
-     
-    Here is a **detailed long answer** for the topic **"Procedure Calls"** — perfect for your **Tech Nexus – Compiler Design** notes:
+    <section>
+        <h3>Procedure Calls</h3>
+        <p>In programming languages, a procedure call (or function call) is a mechanism that transfers control from one part of the program to a subroutine or function. When the procedure finishes executing, control returns to the point immediately after the call. In compiler design, handling procedure calls efficiently and correctly is vital for supporting modularity, recursion, and nested scopes.
+</p>
+    </section>
+    <section>
+        <h4>Purpose of Procedure Calls</h4>
+        <p>Procedure calls serve several important purposes:
+         <ul>
+            <li><strong>Modularization:</strong> Divide the program into manageable parts.
+</li>
+<li><strong>Code Reusability:</strong> Use a procedure multiple times with different arguments.
+</li>
+<li><strong>Abstraction:</strong> Hide internal details of a task.
+</li>
+<li><strong>Recursion:</strong> Solve problems through self-calling routines.
+</li>
+         </ul>
 
-    ---
-    
-    ## 📘 Procedure Calls
-    
-    In programming languages, a **procedure call** (or function call) is a mechanism that **transfers control** from one part of the program to a **subroutine or function**. When the procedure finishes executing, control returns to the point immediately after the call. In **compiler design**, handling procedure calls efficiently and correctly is vital for supporting **modularity, recursion, and nested scopes**.
-    
-    ---
-    
-    ### 🧠 Purpose of Procedure Calls
-    
-    Procedure calls serve several important purposes:
-    
-    * **Modularization**: Divide the program into manageable parts.
-    * **Code Reusability**: Use a procedure multiple times with different arguments.
-    * **Abstraction**: Hide internal details of a task.
-    * **Recursion**: Solve problems through self-calling routines.
-    
-    ---
-    
-    ### 🔁 Key Components of a Procedure Call
-    
-    When a procedure is called, the compiler and runtime system handle several operations:
-    
-    1. **Parameter Passing**
-    
-       * Actual parameters are mapped to formal parameters.
-       * Can be by value, by reference, by result, by name, or by copy-restore.
-    
-    2. **Control Transfer**
-    
-       * The program counter (PC) is updated to jump to the procedure’s code.
-    
-    3. **Storage Allocation**
-    
-       * Space for local variables and temporaries is allocated using an **activation record**.
-    
-    4. **Saving Calling Environment**
-    
-       * Return address and caller state are saved to resume execution after the call.
-    
-    5. **Returning Results**
-    
-       * The return value (if any) is passed back to the caller.
-    
-    ---
-    
-    ### 📦 Runtime Actions During a Procedure Call
-    
-    #### 🔸 Before the Call
-    
-    * Evaluate the actual parameters.
-    * Save the caller’s execution state (return address, registers).
-    * Allocate an activation record for the callee.
-    * Transfer control to the callee procedure.
-    
-    #### 🔹 During the Call
-    
-    * Execute the body of the procedure.
-    * Use the activation record to access local variables and parameters.
-    
-    #### 🔸 After the Call
-    
-    * Retrieve the return value (if any).
-    * Restore the caller’s state.
-    * Resume execution at the return address.
-    
-    ---
-    
-    ### 🧾 Example in C
-    
-    ```c
-    int add(int x, int y) {
-        return x + y;
-    }
-    
-    int main() {
-        int result = add(3, 4);
-    }
-    ```
-    
-    At runtime:
-    
-    * Parameters `3` and `4` are passed to `x` and `y`.
-    * Return address is saved.
-    * Activation record is created for `add()`.
-    * After computing `x + y`, control returns to `main()` with the result.
-    
-    ---
-    
-    ### ⚙️ Procedure Call Implementation in Compiler
-    
-    * **Code Generation Phase** handles the instruction to jump to procedures and return.
-    * **Activation Records** are used to maintain context.
-    * **Symbol Tables** help link formal and actual parameters.
-    * **Calling Conventions** define how parameters are passed (stack, registers).
-    
-    ---
-    
-    ### 📚 Calling Conventions (Examples)
-    
-    1. **Caller-Saves**: The caller saves temporary values before the call.
-    2. **Callee-Saves**: The callee saves necessary registers and restores them before returning.
-    3. **Stack-Based Convention**: Parameters and return address are pushed onto the stack.
-    
-    ---
-    
-    ### ✅ Applications
-    
-    * **Supports modular programming** by enabling reusable, isolated procedures.
-    * **Allows recursion**, both direct and indirect.
-    * **Enables nested function support** with static and dynamic links.
-    * Forms the basis of **intermediate code generation** in compilers.
-    
-    ---
-    
-    ### ❌ Challenges
-    
-    * Handling **recursive and nested procedures** efficiently.
-    * Managing **parameter passing modes**.
-    * Maintaining the **runtime stack correctly** during deep calls or errors.
-    * Providing meaningful **debug information** (e.g., stack traces).
-    
-    ---
-    
-    ### 🧾 Conclusion
-    
-    **Procedure calls** are a fundamental concept supported by the compiler to enable modular, structured, and reusable code. A compiler must carefully manage the **activation records**, **parameter passing**, **return addresses**, and **runtime stack** to ensure correct and efficient execution. Understanding procedure calls is crucial for designing robust **runtime environments** and generating correct **intermediate and target code**.
-    
-    ---
-    
-    Would you like the next topic: **"Accessing Non-local Variables"**?
-    
+        </p>
+    </section>
+    <section>
+        <h4>Key Components of a Procedure Call</h4>
+        <p>When a procedure is called, the compiler and runtime system handle several operations:
+          <ol>
+            <li><strong>Parameter Passing
+</strong>
+<br><ul><li>Actual parameters are mapped to formal parameters.
+</li>
+<li>Can be by value, by reference, by result, by name, or by copy-restore.
+</li></ul></li>
+     <li><strong>Control Transfer
+</strong><br>
+    <ul><li>The program counter (PC) is updated to jump to the procedure’s code.
+</li></ul></li>
+<li><strong>Storage Allocation
+</strong><br>
+<ul><li>Space for local variables and temporaries is allocated using an activation record.
+</li></ul></li>
+<li><strong>Saving Calling Environment
+</strong><br>
+<ul><li>Return address and caller state are saved to resume execution after the call.
+</li></ul></li>
+<li><strong>Returning Results
+</strong><br>
+<ul><li>The return value (if any) is passed back to the caller.
+</li></ul></li>
+          </ol>
+                </p>
+    </section>
+    <section>
+        <h4>Runtime Actions During a Procedure Call</h4>
+        <h5>Before the Call
+</h5>
+<ul>
+    <li>Evaluate the actual parameters.
+</li>
+<li>Save the caller’s execution state (return address, registers).
+</li>
+<li>Allocate an activation record for the callee.
+</li>
+<li>Transfer control to the callee procedure.
+</li>
+</ul>
+<h5>During the Call</h5>
+<ul>
+    <li>Execute the body of the procedure.
+</li>
+    <li>Use the activation record to access local variables and parameters.
+</li>
+</ul>
+<h5>After the Call</h5>
+<ul>
+    <li>Retrieve the return value (if any).
+</li>
+    <li>Restore the caller’s state.
+</li>
+    <li>Resume execution at the return address.
+</li>
+</ul>
+    </section>
+    <section>
+        <h4>Example in C</h4>
+        <pre>int add(int x, int y) {
+    return x + y;
+}
+
+int main() {
+    int result = add(3, 4);
+}</pre><br>
+  <p>At runtime:
+    <ul>
+        <li>Parameters 3 and 4 are passed to x and y.
+</li>
+        <li>Return address is saved.
+</li>
+        <li>Activation record is created for add().
+</li>
+        <li>After computing x + y, control returns to main() with the result.
+</li>
+    </ul>
+  </p>
+    </section>
+    <section>
+        <h4>Procedure Call Implementation in Compiler</h4>
+        <ol>
+            <li>Code Generation Phase handles the instruction to jump to procedures and return.
+</li>
+            <li>Activation Records are used to maintain context.
+</li>
+            <li>Symbol Tables help link formal and actual parameters.
+</li>
+<li>Calling Conventions define how parameters are passed (stack, registers).
+</li>
+        </ol>
+    </section>
+    <section>
+        <h4>Calling Conventions (Examples)</h4>
+        <ol>
+            <li><strong>Caller-Saves:</strong> The caller saves temporary values before the call.
+</li>
+            <li><strong>Callee-Saves:</strong> The callee saves necessary registers and restores them before returning.
+</li>
+            <li><strong>Stack-Based Convention:</strong> Parameters and return address are pushed onto the stack.
+</li>
+        </ol>
+    </section>
+    <section>
+        <h4>Applications</h4>
+        <ul>
+            <li>Supports modular programming by enabling reusable, isolated procedures.
+</li>
+            <li>Allows recursion, both direct and indirect.
+</li>
+            <li>Enables nested function support with static and dynamic links.
+</li>
+            <li>Forms the basis of intermediate code generation in compilers.
+</li>
+        </ul>
+    </section>
+    <section>
+        <h4>Challenges</h4>
+        <ul>
+            <li>Handling recursive and nested procedures efficiently.
+</li>
+            <li>Managing parameter passing modes.
+</li>
+            <li>Maintaining the runtime stack correctly during deep calls or errors.
+</li>
+            <li>Providing meaningful debug information (e.g., stack traces).
+</li>
+        </ul>
+    </section>
+    <section>
+        <h4>Conclusion</h4>
+        <p>Procedure calls are a fundamental concept supported by the compiler to enable modular, structured, and reusable code. A compiler must carefully manage the activation records, parameter passing, return addresses, and runtime stack to ensure correct and efficient execution. Understanding procedure calls is crucial for designing robust runtime environments and generating correct intermediate and target code.
+</p>
+    </section>
+
+
+
 
   </main>
 
   <footer>
-  <a href="CD_UNIT4.html" class="back-btn">← Back to Unit 4 Topics</a>
+  <a href="CD_UNIT5.html" class="back-btn">← Back to Unit 5 Topics</a>
   </footer>
 
 </body>
