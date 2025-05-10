@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <title>Code Generation Algorithm | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -12,72 +13,65 @@
     <h2>Your Study Companion</h2>
   </div>
 
-  <main>
-    
+  <main><section>
+    <h3> Code Generation Algorithm</h3>
 
-    Here is a **detailed long answer** for the topic **“Code Generation Algorithm”** — suitable for your **Tech Nexus – Compiler Design (Unit: Code Generation)** notes:
+  <p>
+    The code generation algorithm is the final phase of a compiler, responsible for converting the intermediate representation of the source code into target machine code. This phase transforms the structured, architecture-independent code such as three address code or syntax tree into efficient, executable code specific to a target machine architecture like x86 or ARM.
+  </p>
+  <p>
+    The goal is not only to generate correct machine-level code but also to generate optimized and efficient code for execution.
+  </p></section>
+  <section></section>
 
----
+  <h4> Objectives of Code Generation</h4>
+  <ul>
+    <li>Translate intermediate code into machine code</li>
+    <li>Use limited CPU registers efficiently</li>
+    <li>Optimize runtime performance</li>
+    <li>Handle memory access and addressing modes</li>
+    <li>Generate code that correctly implements control structures (if, loops, etc.)</li>
+  </ul></section>
+  <section>
 
-## 📘 Code Generation Algorithm
+  <h4> Input to Code Generation</h4>
+  <ul>
+    <li>Intermediate code such as three address code or syntax tree</li>
+    <li>Symbol table with type and memory information</li>
+    <li>Machine description including target architecture instructions and constraints</li>
+  </ul></section><section>
 
-The **Code Generation Algorithm** is the **final phase of a compiler**, responsible for converting the intermediate representation of the source code into **target machine code**. This phase transforms the structured, architecture-independent code (like **Three Address Code** or **Syntax Tree**) into efficient, executable code specific to a **target machine architecture** (e.g., x86, ARM).
+  <h4> Key Components of Code Generation</h4>
 
-The goal is not only to generate **correct** machine-level code but also to generate **optimized and efficient** code for execution.
+  <h5>1. Instruction Selection</h5>
+  <ul>
+    <li>Choose the most appropriate machine instruction for a given intermediate code</li>
+    <li>Use pattern matching to map intermediate operations to machine instructions</li>
+  </ul>
 
----
+  <h5>2. Register Allocation and Assignment</h5>
+  <ul>
+    <li>Assign variables to registers</li>
+    <li>Optimize usage of limited registers</li>
+    <li>Use memory (stack) when registers are full</li>
+  </ul>
 
-## 🎯 Objectives of Code Generation
+  <h5>3. Instruction Ordering</h5>
+  <ul>
+    <li>Arrange instructions for optimal pipeline usage and minimal latency</li>
+    <li>Avoid redundant operations and reordering that breaks semantics</li>
+  </ul>
 
-* Translate intermediate code into machine code.
-* Use **limited CPU registers** efficiently.
-* Optimize **runtime performance**.
-* Handle **memory access** and **addressing modes**.
-* Generate code that correctly implements **control structures** (if, loops, etc.).
+  <h5>4. Address and Label Management</h5>
+  <ul>
+    <li>Assign memory addresses to variables</li>
+    <li>Generate jump labels for loops, branches, and function calls</li>
+  </ul></section>
+  <section>
 
----
-
-## 🧠 Input to Code Generation
-
-The input to the code generator includes:
-
-* **Intermediate code** (e.g., three address code or syntax tree).
-* **Symbol table** with type and memory information.
-* **Machine description**: Target architecture instructions and constraints.
-
----
-
-## 🔧 Key Components of Code Generation
-
-### 1. **Instruction Selection**
-
-* Choose the most appropriate machine instruction for a given intermediate code.
-* Use **pattern matching** to map intermediate operations to machine instructions.
-
-### 2. **Register Allocation and Assignment**
-
-* Assign variables to registers.
-* Optimize usage of limited registers.
-* Use memory (stack) when registers are full.
-
-### 3. **Instruction Ordering**
-
-* Arrange instructions for optimal pipeline usage and minimal latency.
-* Avoid redundant operations and reordering that breaks semantics.
-
-### 4. **Address and Label Management**
-
-* Assign memory addresses to variables.
-* Generate jump labels for loops, branches, and function calls.
-
----
-
-## ⚙️ General Code Generation Algorithm
-
-Here’s a simplified generic code generation algorithm using a **postorder traversal of the syntax tree**:
-
-```plaintext
-CodeGeneration(Node)
+  <h4>General Code Generation Algorithm</h4>
+  <p>Here’s a simplified generic code generation algorithm using a postorder traversal of the syntax tree:<br>CodeGeneration(Node)</p>
+<pre>
 1. If Node is a leaf:
       a. Generate code to load constant or variable value into a register.
 2. Else:
@@ -86,89 +80,83 @@ CodeGeneration(Node)
       c. Recursively call CodeGeneration on the right subtree.
       d. Generate the code for the operation at Node using the results of left and right.
       e. Store the result in a register or memory.
-3. Return the location (register or memory) where result is stored.
-```
+3. Return the location (register or memory) where result is stored.<br>
+</pre>
 
-> This algorithm can be extended with target-specific optimizations and register management.
+  <p>This algorithm can be extended with target-specific optimizations and register management.</p>
 
----
+  <h4> Example</h4>
 
-## 📌 Example
+  <h5>Input: </h5>
+  <p>t1 = a + b</p>
 
-### Input: `t1 = a + b`
+ <h5>Intermediate Code (3AC):</h5> 
+  <pre><code>t1 = a + b</code></pre></p>
 
-### Intermediate Code (3AC):
-
-```
-t1 = a + b
-```
-
-### Generated Assembly (x86-style):
-
-```
-MOV R1, a     ; Load a into R1
+  <h5>Generated Assembly (x86-style):</h5>
+  <pre><code>MOV R1, a     ; Load a into R1
 ADD R1, b     ; Add b to R1
-MOV t1, R1    ; Store result in t1
-```
+MOV t1, R1    ; Store result in t1</code></pre>
+</section>
+<section>
 
----
+  <h4> Register Allocation Strategies</h4>
+  <ul>
+    <li>Naive approach: Assign new register for each variable</li>
+    <li>Graph coloring: Model register assignment as graph coloring problem</li>
+    <li>Linear scan allocation: Efficient for JIT compilers</li>
+    <li>Spilling: Store variable in memory if registers are full</li>
+  </ul></section>
+  <section>
 
-## 🧾 Register Allocation Strategies
+  <h4> Tools and Techniques</h4>
+  <ul>
+    <li>DAG (Directed Acyclic Graph): Used for eliminating common subexpressions</li>
+    <li>Peephole optimization: Optimize small windows of code after generation</li>
+    <li>Template matching: Match IR patterns to machine instructions</li>
+  </ul></section>
+  <section>
 
-* **Naive Approach**: Assign new register for each variable.
-* **Graph Coloring**: Model register assignment as graph coloring problem.
-* **Linear Scan Allocation**: Efficient for JIT compilers.
-* **Spilling**: Store variable in memory if registers are full.
+  <h4> Applications</h4>
+  <ul>
+    <li>Used in compilers for languages like C, C++, Java, etc.</li>
+    <li>Crucial in JIT compilers such as JVM and .NET CLR</li>
+    <li>Applied in embedded systems where efficient machine code is critical</li>
+    <li>Plays a role in binary translation and emulators</li>
+  </ul></section>
+  <section>
 
----
+  <h4>Advantages</h4>
+  <ul>
+    <li>Produces executable or assembly code</li>
+    <li>Bridges the gap between high-level and machine-level representation</li>
+    <li>Improves program performance via optimization techniques</li>
+  </ul></section>
+  <section>
 
-## 🧰 Tools and Techniques
+  <h4> Challenges</h4>
+  <ul>
+    <li>Managing limited number of registers</li>
+    <li>Generating efficient rather than just correct code</li>
+    <li>Target-dependent: Must consider specific CPU instruction sets</li>
+    <li>Handling control flow and nested expressions</li>
+  </ul></section>
 
-* **DAG (Directed Acyclic Graph)**: Used for eliminating common subexpressions.
-* **Peephole Optimization**: Optimize small windows of code after generation.
-* **Template Matching**: Match IR patterns to machine instructions.
+  <h4>Conclusion</h4>
+  <p>
+    The code generation algorithm is a crucial step in the compiler that transforms the intermediate representation into efficient and executable code. It requires a careful balance of correctness, optimization, and target architecture awareness. A well-designed code generator significantly affects the speed and reliability of compiled programs.
+  </p>
 
----
+    
 
-## 💡 Applications
 
-* Used in **compilers** for languages like C, C++, Java, etc.
-* Crucial in **JIT compilers** (e.g., JVM, .NET CLR).
-* Applied in **embedded systems** where efficient machine code is critical.
-* Plays a role in **binary translation** and **emulators**.
 
----
-
-## ✅ Advantages
-
-* Produces executable or assembly code.
-* Bridges the gap between high-level and machine-level representation.
-* Improves program performance via optimization techniques.
-
----
-
-## ❌ Challenges
-
-* Managing **limited number of registers**.
-* Generating **efficient** rather than just correct code.
-* **Target-dependent**: Must consider specific CPU instruction sets.
-* Handling **control flow** and nested expressions.
-
----
-
-## 🧾 Conclusion
-
-The **code generation algorithm** is a crucial step in the compiler that transforms the intermediate representation into **efficient and executable code**. It requires a careful balance of correctness, optimization, and target architecture awareness. A well-designed code generator significantly affects the **speed and reliability** of compiled programs.
-
----
-
-Would you like a detailed explanation of **Register Allocation and Assignment** next?
 
      
   </main>
 
   <footer>
-  <a href="CD_UNIT4.html" class="back-btn">← Back to Unit 4 Topics</a>
+  <a href="CD_UNIT5.html" class="back-btn">← Back to Unit 5 Topics</a>
   </footer>
 
 </body>
