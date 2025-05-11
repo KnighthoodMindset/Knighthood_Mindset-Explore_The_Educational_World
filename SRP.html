@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    Here is a **detailed long answer** for **"Shift-Reduce Parsing"**, suitable for your **Tech Nexus – Compiler Design Unit 1**:
+
+    ---
+    
+    ## 📘 Shift-Reduce Parsing
+    
+    **Shift-Reduce Parsing** is a fundamental technique used in **bottom-up parsing**. It is the basis for many **LR parsers** like **SLR(1)**, **LALR(1)**, and **CLR(1)**. The name "Shift-Reduce" reflects the two main operations that take place during the parsing process:
+    
+    1. **Shift**: Move an input symbol onto the stack.
+    2. **Reduce**: Replace a sequence of symbols on the stack with a non-terminal using a production rule.
+    
+    The parser works by **shifting** tokens from the input to the stack and **reducing** sequences of tokens to non-terminals according to the grammar rules until the input is completely parsed.
+    
+    ---
+    
+    ### 🧭 Key Operations in Shift-Reduce Parsing
+    
+    1. **Shift**:
+    
+       * The parser moves a symbol from the **input** to the **stack**.
+       * The input symbol is the next token in the input stream, and it is pushed onto the stack.
+    
+    2. **Reduce**:
+    
+       * The parser replaces a sequence of symbols on the stack with a non-terminal.
+       * This is based on the grammar's production rules.
+       * The reduction is applied when a **right-hand side** of a production matches the top elements of the stack.
+    
+    3. **Accept**:
+    
+       * Once the entire input is parsed, and the stack contains only the start symbol of the grammar, the parsing process **accepts** the input as valid.
+    
+    4. **Error**:
+    
+       * If neither shift nor reduce is possible, the parser reports a **syntax error**.
+    
+    ---
+    
+    ### 🔍 Example of Shift-Reduce Parsing
+    
+    Given the grammar:
+    
+    ```
+    E → E + T
+    E → T
+    T → id
+    ```
+    
+    For the input `id + id + id`, the parser follows these steps:
+    
+    * **Step 1**: Start with an empty stack and input: `id + id + id`.
+    * **Step 2**: Shift `id` onto the stack → Stack: `[id]`, Input: `+ id + id`.
+    * **Step 3**: Reduce using `T → id` → Stack: `[T]`, Input: `+ id + id`.
+    * **Step 4**: Shift `+` onto the stack → Stack: `[T, +]`, Input: `id + id`.
+    * **Step 5**: Shift `id` onto the stack → Stack: `[T, +, id]`, Input: `+ id`.
+    * **Step 6**: Reduce using `T → id` → Stack: `[T, +, T]`, Input: `+ id`.
+    * **Step 7**: Reduce using `E → E + T` → Stack: `[E]`, Input: `+ id`.
+    * **Step 8**: Shift `+` onto the stack → Stack: `[E, +]`, Input: `id`.
+    * **Step 9**: Shift `id` onto the stack → Stack: `[E, +, id]`, Input: \`\` (empty).
+    * **Step 10**: Reduce using `T → id` → Stack: `[E, +, T]`, Input: \`\`.
+    * **Step 11**: Reduce using `E → E + T` → Stack: `[E]`, Input: \`\` (parsing completed).
+    
+    ---
+    
+    ### 🔧 Advantages of Shift-Reduce Parsing
+    
+    1. **Simple Concept**: The operations (shift and reduce) are conceptually simple and efficient to implement.
+    2. **Bottom-Up Parsing**: This method works well for **bottom-up parsers** where derivation starts from the leaves (tokens) and moves toward the root (start symbol).
+    3. **Efficiency**: For many deterministic context-free grammars, shift-reduce parsing is **efficient** with **linear time complexity**.
+    4. **Applicable for LR Parsers**: It forms the foundation of **LR parsing** algorithms like **SLR(1)**, **LALR(1)**, and **CLR(1)**.
+    
+    ---
+    
+    ### 🔄 Challenges of Shift-Reduce Parsing
+    
+    1. **Conflicts in Parsing Table**:
+    
+       * **Shift-Reduce Conflict:**
+    
+         * Occurs when both **shift** and **reduce** actions are possible for the same input.
+         * Example: In the grammar `E → E + T | T`, the parser encounters an ambiguity between shifting a `+` and reducing a `T` to an `E`.
+       * **Reduce-Reduce Conflict:**
+    
+         * Occurs when there are multiple reductions that can be applied.
+         * Example: If a rule like `A → B | C` is in the grammar, the parser may face difficulty choosing between reducing by `A → B` or `A → C`.
+    
+    2. **Error Recovery**: Handling errors can be tricky, as the parser may need to backtrack or discard parts of the input to recover and continue parsing.
+    
+    3. **Size of Parsing Table**: As the number of states in a shift-reduce parser increases, the size of the parsing table grows. This can result in higher memory consumption.
+    
+    ---
+    
+    ### 🔍 Shift-Reduce Parsing vs. Other Parsing Techniques
+    
+    | Feature               | **Shift-Reduce Parsing**        | **Top-Down Parsing**       | **Recursive Descent Parsing**  |
+    | --------------------- | ------------------------------- | -------------------------- | ------------------------------ |
+    | **Parsing Direction** | Bottom-up (left to right)       | Top-down (left to right)   | Top-down (left to right)       |
+    | **Lookahead**         | 1 symbol                        | 1 symbol                   | 1 symbol                       |
+    | **Complexity**        | Linear time (with no conflicts) | May backtrack              | Recursive and backtracking     |
+    | **Grammar Coverage**  | Can handle all **LR grammars**  | Can handle **LL grammars** | Limited by recursive structure |
+    
+    ---
+    
+    ### ✅ Applications of Shift-Reduce Parsing
+    
+    1. **Used in Compiler Design**:
+    
+       * Widely used in **compiler construction**, especially in the **backend** of compilers to generate intermediate representations.
+    
+    2. **Parser Generators**:
+    
+       * Tools like **YACC** and **Bison** use shift-reduce parsing for generating **efficient parsers** for programming languages.
+    
+    3. **Language Processing Tools**:
+    
+       * Shift-reduce parsers are implemented in **syntax analyzers** used in **interpreters** and **compilers** for languages like C, C++, and Java.
+    
+    ---
+    
+    ## 🧾 Conclusion
+    
+    **Shift-Reduce Parsing** is a powerful **bottom-up parsing technique** widely used in practical compilers and tools for **syntactic analysis**. Despite its simplicity, it can handle complex grammars and supports efficient parsing of context-free languages. By shifting and reducing symbols, the parser gradually constructs the parse tree, allowing for error detection and correction as the input is processed.
+    
+    ---
+    
+    Let me know if you need further details on **Shift-Reduce Parsing**, or if you want to explore other topics like **Parsing Table Construction**, **LR(1) items**, or **Operator Precedence Parsing**!
+    
+
+
+  </main>
+
+  <footer>
+  <a href="CD_UNIT2.html" class="back-btn">← Back to Unit 2 Topics</a>
+  </footer>
+
+</body>
+</html>

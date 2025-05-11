@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+    Here is a **detailed long answer** for **“Non-Recursive Predictive Parsing”**, suitable for your **Tech Nexus – Compiler Design Unit 1**, including explanation, example, working steps, and applications.
+
+    ---
+    
+    ## 📘 Non-Recursive Predictive Parsing
+    
+    **Non-recursive predictive parsing** is a **table-driven, top-down parsing technique** that does **not use recursion**. Instead of recursive function calls for grammar rules, it uses a **stack and a parsing table** to guide the parsing process.
+    
+    It is based on **LL(1) grammars** and is a practical and efficient method to implement **predictive parsers** without writing complex recursive code.
+    
+    ---
+    
+    ### 🧭 Key Characteristics
+    
+    * **Top-down approach**: Parses from the start symbol and moves toward the input.
+    * **Non-recursive**: Avoids using function recursion; uses an explicit stack.
+    * **LL(1)**: Uses one token of lookahead.
+    * **Deterministic**: Parsing decisions are made using a **parsing table**.
+    
+    ---
+    
+    ### 🧱 Components of a Non-Recursive Predictive Parser
+    
+    1. **Input Buffer**: Holds the string to be parsed.
+    2. **Parsing Stack**: Holds grammar symbols (terminals and non-terminals).
+    3. **Parsing Table (LL(1) Table)**: Guides which production to apply.
+    4. **Output (Optional)**: May produce a parse tree or derivation sequence.
+    
+    ---
+    
+    ### ⚙️ Algorithm / Working of Non-Recursive Predictive Parsing
+    
+    #### Step-by-step Procedure:
+    
+    1. **Initialize** the stack with the start symbol and `$` at the bottom.
+    2. **Read** the input from left to right using an input buffer.
+    3. **Repeat** until the stack is empty:
+    
+       * Let **X** be the symbol on top of the stack.
+       * Let **a** be the current input symbol.
+       * If **X == a** and both are terminals, **match and pop**.
+       * If **X** is a non-terminal, use the **parsing table** to find the production **X → α** based on input symbol **a**, and **replace X** with **α** in the stack.
+       * If no matching entry exists, it’s a **syntax error**.
+    4. If both the stack and input buffer contain only `$`, the **input is accepted**.
+    
+    ---
+    
+    ### ✏️ Example
+    
+    **Grammar (LL(1) compatible):**
+    
+    ```
+    E  → T E'
+    E' → + T E' | ε
+    T  → F T'
+    T' → * F T' | ε
+    F  → ( E ) | id
+    ```
+    
+    **Parsing Table (Sample rows):**
+    
+    | Non-Terminal | id       | +           | \*           | (         | )      | \$     |
+    | ------------ | -------- | ----------- | ------------ | --------- | ------ | ------ |
+    | E            | E → T E′ |             |              | E → T E′  |        |        |
+    | E′           |          | E′ → + T E′ |              |           | E′ → ε | E′ → ε |
+    | T            | T → F T′ |             |              | T → F T′  |        |        |
+    | T′           |          | T′ → ε      | T′ → \* F T′ |           | T′ → ε | T′ → ε |
+    | F            | F → id   |             |              | F → ( E ) |        |        |
+    
+    **Input:** `id + id * id`
+    
+    **Parsing Stack Trace:**
+    
+    | Stack         | Input            | Action       |
+    | ------------- | ---------------- | ------------ |
+    | \$ E          | id + id \* id \$ | E → T E′     |
+    | \$ E′ T       | id + id \* id \$ | T → F T′     |
+    | \$ E′ T′ F    | id + id \* id \$ | F → id       |
+    | \$ E′ T′ id   | id + id \* id \$ | Match id     |
+    | \$ E′ T′      | + id \* id \$    | T′ → ε       |
+    | \$ E′         | + id \* id \$    | E′ → + T E′  |
+    | \$ E′ T +     | + id \* id \$    | Match +      |
+    | \$ E′ T       | id \* id \$      | T → F T′     |
+    | \$ E′ T′ F    | id \* id \$      | F → id       |
+    | \$ E′ T′ id   | id \* id \$      | Match id     |
+    | \$ E′ T′      | \* id \$         | T′ → \* F T′ |
+    | \$ E′ T′ F \* | \* id \$         | Match \*     |
+    | \$ E′ T′ F    | id \$            | F → id       |
+    | \$ E′ T′ id   | id \$            | Match id     |
+    | \$ E′ T′      | \$               | T′ → ε       |
+    | \$ E′         | \$               | E′ → ε       |
+    | \$            | \$               | Accepted     |
+    
+    ✅ Input is successfully parsed.
+    
+    ---
+    
+    ### 📚 Advantages
+    
+    * **Efficient**: Avoids recursion; useful in low-resource environments.
+    * **Easy to debug**: Stack trace is easy to follow.
+    * **Deterministic**: Clear decisions based on a parsing table.
+    * **Faster** than recursive descent when implemented with proper data structures.
+    
+    ---
+    
+    ### ❌ Limitations
+    
+    * Only works for **LL(1) grammars**.
+    * Requires correct computation of **FIRST and FOLLOW** sets.
+    * Difficult to use for **ambiguous** or **complex** grammars.
+    
+    ---
+    
+    ### 🛠 Applications
+    
+    | Field                | Application                                                  |
+    | -------------------- | ------------------------------------------------------------ |
+    | **Compilers**        | Parsing phase in lightweight compilers and interpreters.     |
+    | **Syntax checkers**  | Grammar validators and syntax analyzers.                     |
+    | **Education**        | Teaching parsing and compiler theory.                        |
+    | **Embedded devices** | Parsing configuration or mini-languages with limited memory. |
+    | **DSL interpreters** | Parsing user-defined languages for tools or scripting.       |
+    
+    ---
+    
+    ### 🧾 Conclusion
+    
+    **Non-recursive predictive parsing** is a powerful and practical method for syntax analysis of **LL(1) grammars**. It replaces recursive calls with a **stack-driven mechanism**, making it suitable for deterministic and efficient parsing. This method is widely used in **language design**, **interpreters**, and **compiler construction tools** due to its **simplicity**, **clarity**, and **predictability**.
+    
+    ---
+    
+    Would you like the next topic to be **FIRST and FOLLOW sets**, or something else from your list?
+    
+
+  </main>
+
+  <footer>
+  <a href="CD_UNIT2.html" class="back-btn">← Back to Unit 2 Topics</a>
+  </footer>
+
+</body>
+</html>
