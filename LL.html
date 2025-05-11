@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <title>LL(1) Grammars in Compiler Design | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -14,131 +14,180 @@
 
   <main>
 
-    Here is a **detailed long answer** for **“LL(1) Grammars”**, as part of **Tech Nexus – Compiler Design Unit 1**, complete with explanation, examples, and applications:
 
-    ---
-    
-    ## 📘 LL(1) Grammars in Compiler Design
-    
-    An **LL(1) Grammar** is a special type of context-free grammar used in **top-down parsing**, specifically in **predictive parsers**. It allows parsers to **determine the correct production rule using only one lookahead token**, without backtracking.
-    
-    The term **LL(1)** stands for:
-    
-    * **L**: Left-to-right scanning of the input.
-    * **L**: Leftmost derivation.
-    * **1**: One token of lookahead.
-    
-    ---
-    
-    ### 🧭 Purpose and Importance
-    
-    LL(1) grammars are designed to make **parsing fast, simple, and deterministic**. They allow parsers to decide which rule to apply by **looking at only the current token**, avoiding ambiguity and backtracking.
-    
-    This makes them ideal for building **predictive parsers**, especially **recursive descent parsers without backtracking**.
-    
-    ---
-    
-    ### 🧠 Characteristics of LL(1) Grammars
-    
-    1. **Deterministic parsing** with one-token lookahead.
-    2. **No ambiguity** – only one production applies at any point.
-    3. **No left recursion** – left-recursive rules must be removed.
-    4. **Left factored** – common prefixes in rules are factored out.
-    
-    ---
-    
-    ### ✏️ Example Grammar (LL(1))
-    
-    ```
-    E  → T E'
-    E' → + T E' | ε
-    T  → F T'
-    T' → * F T' | ε
-    F  → ( E ) | id
-    ```
-    
-    In this grammar:
-    
-    * It has no **left recursion**.
-    * It is **left factored**.
-    * With FIRST and FOLLOW sets calculated properly, **parsing decisions** can be made using a **single token**.
-    
-    ---
-    
-    ### 🔍 FIRST and FOLLOW Sets
-    
-    To build an LL(1) parser, we use **FIRST** and **FOLLOW** sets:
-    
-    * **FIRST(A)**: The set of terminals that begin strings derivable from A.
-    * **FOLLOW(A)**: The set of terminals that can appear immediately after A.
-    
-    ### LL(1) Condition
-    
-    For a non-terminal with multiple productions like:
-    
-    ```
-    A → α | β
-    ```
-    
-    The grammar is LL(1) **if and only if**:
-    
-    1. **FIRST(α) ∩ FIRST(β) = ∅**
-    2. If **ε ∈ FIRST(α)**, then **FIRST(β) ∩ FOLLOW(A) = ∅**, and vice versa.
-    
-    ---
-    
-    ### 📊 LL(1) Parsing Table
-    
-    An **LL(1) parsing table** is constructed using FIRST and FOLLOW sets. Each entry in the table tells the parser **which production to use** based on the current input symbol and the current non-terminal.
-    
-    #### Sample Table (for E → T E′)
-    
-    | Non-Terminal | id       | +           | \*           | (         | )      | \$     |
-    | ------------ | -------- | ----------- | ------------ | --------- | ------ | ------ |
-    | E            | E → T E′ |             |              | E → T E′  |        |        |
-    | E′           |          | E′ → + T E′ |              |           | E′ → ε | E′ → ε |
-    | T            | T → F T′ |             |              | T → F T′  |        |        |
-    | T′           |          | T′ → ε      | T′ → \* F T′ |           | T′ → ε | T′ → ε |
-    | F            | F → id   |             |              | F → ( E ) |        |        |
-    
-    ---
-    
-    ### ✅ Advantages of LL(1) Grammars
-    
-    * **Simple to parse** – ideal for fast and lightweight compilers.
-    * **Efficient** – no need for backtracking.
-    * **Deterministic** – parsing table provides clear choices.
-    * **Easy error detection** – mismatches are immediately identifiable.
-    
-    ---
-    
-    ### ❌ Limitations
-    
-    * **Not all grammars are LL(1)** – some require transformation (eliminating left recursion and factoring).
-    * **Cannot handle ambiguity** – ambiguous grammars are not LL(1).
-    * **One-token lookahead** can be limiting for complex structures.
-    
-    ---
-    
-    ### ⚙️ Applications of LL(1) Grammars
-    
-    | Application Domain             | Use of LL(1) Grammar                            |
-    | ------------------------------ | ----------------------------------------------- |
-    | **Educational Tools**          | Common in compilers built for teaching.         |
-    | **Embedded Systems**           | Lightweight parsers with minimal memory.        |
-    | **Interpreter Development**    | For small scripting or DSL interpreters.        |
-    | **Custom Language Prototypes** | Quick and deterministic grammar implementation. |
-    
-    ---
-    
-    ### 🧾 Conclusion
-    
-    **LL(1) grammars** are fundamental to the construction of **predictive parsers**. They allow **fast and error-free** parsing by ensuring that **each parsing decision is based solely on the next input token**. While not suitable for all languages, when applicable, LL(1) grammars result in clean, efficient, and easy-to-debug compilers.
-    
-    ---
-    
-    Would you like to continue with **"Predictive Parsing"** next or a different topic from your list?
-    
+  <h3>LL(1) Grammars in Compiler Design</h3>
+
+  <section>
+    <p>An LL(1) Grammar is a special type of context-free grammar used in top-down parsing, specifically in predictive parsers. It allows parsers to determine the correct production rule using only one lookahead token, without backtracking.</p>
+
+    <p>The term LL(1) stands for:</p>
+    <ul>
+      <li>L: Left-to-right scanning of the input</li>
+      <li>L: Leftmost derivation</li>
+      <li>1: One token of lookahead</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>Purpose and Importance</h4>
+    <p>LL(1) grammars are designed to make parsing fast, simple, and deterministic. They allow parsers to decide which rule to apply by looking at only the current token, avoiding ambiguity and backtracking.</p>
+    <p>This makes them ideal for building predictive parsers, especially recursive descent parsers without backtracking.</p>
+  </section>
+
+  <section>
+    <h4>Characteristics of LL(1) Grammars</h4>
+    <ul>
+      <li>Deterministic parsing with one-token lookahead</li>
+      <li>No ambiguity – only one production applies at any point</li>
+      <li>No left recursion – left-recursive rules must be removed</li>
+      <li>Left factored – common prefixes in rules are factored out</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>Example Grammar (LL(1))</h4>
+    <pre>
+E  → T E'
+E' → + T E' | ε
+T  → F T'
+T' → * F T' | ε
+F  → ( E ) | id
+    </pre>
+    <p>This grammar has no left recursion, is left factored, and supports parsing decisions using a single token.</p>
+  </section>
+
+  <section>
+    <h4>FIRST and FOLLOW Sets</h4>
+    <p>FIRST(A): The set of terminals that begin strings derivable from A.</p>
+    <p>FOLLOW(A): The set of terminals that can appear immediately after A.</p>
+
+    <h5>LL(1) Condition</h5>
+    <pre>
+A → α | β
+    </pre>
+    <p>The grammar is LL(1) if and only if:</p>
+    <ol>
+      <li>FIRST(α) ∩ FIRST(β) = ∅</li>
+      <li>If ε ∈ FIRST(α), then FIRST(β) ∩ FOLLOW(A) = ∅, and vice versa</li>
+    </ol>
+  </section>
+
+  <section>
+    <h4>LL(1) Parsing Table</h4>
+    <p>An LL(1) parsing table is constructed using FIRST and FOLLOW sets. Each entry tells the parser which production to use.</p>
+
+    <h5>Sample Table (for E → T E′)</h5>
+    <table>
+      <tr>
+        <th>Non-Terminal</th>
+        <th>id</th>
+        <th>+</th>
+        <th>*</th>
+        <th>(</th>
+        <th>)</th>
+        <th>$</th>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td>E → T E′</td>
+        <td></td>
+        <td></td>
+        <td>E → T E′</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>E′</td>
+        <td></td>
+        <td>E′ → + T E′</td>
+        <td></td>
+        <td></td>
+        <td>E′ → ε</td>
+        <td>E′ → ε</td>
+      </tr>
+      <tr>
+        <td>T</td>
+        <td>T → F T′</td>
+        <td></td>
+        <td></td>
+        <td>T → F T′</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>T′</td>
+        <td></td>
+        <td>T′ → ε</td>
+        <td>T′ → * F T′</td>
+        <td></td>
+        <td>T′ → ε</td>
+        <td>T′ → ε</td>
+      </tr>
+      <tr>
+        <td>F</td>
+        <td>F → id</td>
+        <td></td>
+        <td></td>
+        <td>F → ( E )</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h4>Advantages of LL(1) Grammars</h4>
+    <ul>
+      <li>Simple to parse – ideal for fast and lightweight compilers</li>
+      <li>Efficient – no need for backtracking</li>
+      <li>Deterministic – parsing table provides clear choices</li>
+      <li>Easy error detection – mismatches are immediately identifiable</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>Limitations</h4>
+    <ul>
+      <li>Not all grammars are LL(1) – some require transformation</li>
+      <li>Cannot handle ambiguity – ambiguous grammars are not LL(1)</li>
+      <li>One-token lookahead can be limiting for complex structures</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>Applications of LL(1) Grammars</h4>
+    <table>
+      <tr>
+        <th>Application Domain</th>
+        <th>Use of LL(1) Grammar</th>
+      </tr>
+      <tr>
+        <td>Educational Tools</td>
+        <td>Common in compilers built for teaching</td>
+      </tr>
+      <tr>
+        <td>Embedded Systems</td>
+        <td>Lightweight parsers with minimal memory</td>
+      </tr>
+      <tr>
+        <td>Interpreter Development</td>
+        <td>For small scripting or DSL interpreters</td>
+      </tr>
+      <tr>
+        <td>Custom Language Prototypes</td>
+        <td>Quick and deterministic grammar implementation</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h4>Conclusion</h4>
+    <p>LL(1) grammars are fundamental to the construction of predictive parsers. They allow fast and error-free parsing by ensuring that each parsing decision is based solely on the next input token. While not suitable for all languages, when applicable, LL(1) grammars result in clean, efficient, and easy-to-debug compilers.</p>
+  </section>
+
+</body>
+</html>
+
 
   </main>
 
