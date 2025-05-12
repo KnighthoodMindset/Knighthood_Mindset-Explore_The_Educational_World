@@ -1,25 +1,42 @@
-<section>
-    <h3>📘 Construction of SLR Parsing Tables</h3>
-    <p>The <strong>SLR(1) parser</strong> (Simple LR parser) relies on <strong>two essential parsing tables</strong>: the <strong>Action Table</strong> and the <strong>Goto Table</strong>. These tables help the parser decide the appropriate action to take (shift, reduce, accept, or error) based on the current input and the state of the stack.</p>
-    <p>The <strong>SLR parsing tables</strong> are constructed based on a given <strong>context-free grammar (CFG)</strong>. The goal is to create a parser that can analyze the syntax of a program by referencing these tables during the parsing process.</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Construction of SLR Parsing Tables | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+   <section>
+    <h3>Construction of SLR Parsing Tables</h3>
+    <p>The SLR(1) parser (Simple LR parser) relies on two essential parsing tables: the Action Table and the Goto Table. These tables help the parser decide the appropriate action to take (shift, reduce, accept, or error) based on the current input and the state of the stack.</p>
+    <p>The SLR parsing tables are constructed based on a given context-free grammar (CFG). The goal is to create a parser that can analyze the syntax of a program by referencing these tables during the parsing process.</p>
 </section>
 
 <section>
-    <h4>🧭 Steps for Constructing SLR Parsing Tables</h4>
+    <h4> Steps for Constructing SLR Parsing Tables</h4>
     <ol>
-        <li><strong>Augment the Grammar</strong>: The first step is to <strong>augment the grammar</strong> by adding a new start production to the grammar. This helps create a unique start symbol for the parse process.
+        <li><strong>Augment the Grammar</strong>:<br> The first step is to augment the grammar by adding a new start production to the grammar. This helps create a unique start symbol for the parse process.
             <p>For example, if the original grammar is:</p>
             <pre>E → E + T | T</pre>
             <p>The augmented grammar becomes:</p>
             <pre>S → E<br>E → E + T<br>E → T<br>T → id</pre>
         </li>
-        <li><strong>Construct the Canonical Collection of LR(0) Items</strong>: <br> The <strong>LR(0) items</strong> represent a state of the parser where the parser has read up to a certain position in the production rules. The collection of <strong>LR(0) items</strong> is constructed by generating <strong>closures</strong> of each set of items.
+        <li><strong>Construct the Canonical Collection of LR(0) Items</strong>: <br> The LR(0) items represent a state of the parser where the parser has read up to a certain position in the production rules. The collection of LR(0) items is constructed by generating closures of each set of items.
             <p>Closure of a set of items: The closure operation adds all items that can be derived from the non-terminal being processed.</p>
             <p>Goto of a set of items: The goto operation represents the transition to another state after processing a specific input symbol.</p>
         </li>
-        <li><strong>Create the States</strong>: The parser will create <strong>states</strong> based on these <strong>LR(0) items</strong>. A <strong>state</strong> represents a configuration in the parsing process. We begin with the initial set of items (the closure of <strong>S' → .E</strong>) and continue by applying <strong>Goto</strong> on each item by reading the appropriate symbols (e.g., <strong>E</strong>, <strong>+</strong>, <strong>id</strong>).
-        </li>
-        <li><strong>Construct the Action Table</strong>: The <strong>Action Table</strong> defines the action (shift, reduce, accept, or error) for each combination of state and terminal symbol.
+        <li><strong>Create the States</strong>:<br> The parser will create states based on these LR(0) items. A state represents a configuration in the parsing process. We begin with the initial set of items (the closure of <strong>S' → .E</strong>) and continue by applying Goto on each item by reading the appropriate symbols (e.g., <strong>E</strong>, <strong>+</strong>, <strong>id</strong>).
+        </li><br>
+        <li><strong>Construct the Action Table</strong>:<br> The Action Table defines the action (shift, reduce, accept, or error) for each combination of state and terminal symbol.
             <p><strong>Shift</strong>: If the current symbol is a terminal (like <strong>id</strong> or <strong>+</strong>), the parser will shift and move to a new state.</p>
             <p><strong>Reduce</strong>: If the current symbol matches the right-hand side of a production, the parser will reduce the production (i.e., replace the symbols with the corresponding non-terminal).</p>
             <p><strong>Accept</strong>: If the start symbol has been reduced and the input is consumed, the parsing process is accepted.</p>
@@ -34,7 +51,7 @@
                 | 3     | R3 | R3 | R3  |</pre>
         </li>
         <li><strong>Construct the Goto Table</strong>: The <strong>Goto Table</strong> defines transitions between non-terminal symbols based on the current state.
-            <p>If the current state contains a production <strong>A → α. B β</strong>, then <strong>Goto</strong> on <strong>B</strong> will move the parser to a new state based on the items obtained by the closure and the Goto operation.</p>
+            <p>If the current state contains a production <strong>A → α. B β</strong>, then Goto on <strong>B</strong> will move the parser to a new state based on the items obtained by the closure and the Goto operation.</p>
             <pre>Goto Table Format:
                 | State | E | T |
                 | ----- | - | - |
@@ -46,7 +63,7 @@
 </section>
 
 <section>
-    <h4>📊 Example of Constructing an SLR Parsing Table</h4>
+    <h4> Example of Constructing an SLR Parsing Table</h4>
     <p>Consider the following simple grammar:</p>
     <pre>S → E<br>E → E + T<br>E → T<br>T → id</pre>
 
@@ -86,15 +103,25 @@
 </section>
 
 <section>
-    <h4>🔧 Advantages of Constructing SLR Parsing Tables</h4>
+    <h4> Advantages of Constructing SLR Parsing Tables</h4> 
     <ul>
-        <li><strong>Efficient</strong>: SLR parsing tables are compact and easy to construct, especially when compared to more complex parsing techniques like <strong>LALR</strong> or <strong>CLR</strong> parsers.</li>
-        <li><strong>Faster Parsing</strong>: The <strong>SLR parser</strong> can process input more quickly due to its smaller parsing tables and the <strong>1-symbol lookahead</strong> technique.</li>
-        <li><strong>Simplicity</strong>: The process of creating the <strong>SLR parsing table</strong> is more straightforward compared to more advanced parsing algorithms, making it ideal for simple and moderate grammars.</li>
+        <li><strong>Efficient</strong>: SLR parsing tables are compact and easy to construct, especially when compared to more complex parsing techniques like LALR or CLR parsers.</li>
+        <li><strong>Faster Parsing</strong>: The SLR parser can process input more quickly due to its smaller parsing tables and the 1-symbol lookahead technique.</li>
+        <li><strong>Simplicity</strong>: The process of creating the SLR parsing table is more straightforward compared to more advanced parsing algorithms, making it ideal for simple and moderate grammars.</li>
     </ul>
 </section>
 
 <section>
-    <h4>✅ Conclusion</h4>
-    <p>Constructing <strong>SLR parsing tables</strong> involves a sequence of steps starting with augmenting the grammar and proceeding through creating the <strong>LR(0) items</strong>, followed by the construction of the <strong>action</strong> and <strong>goto tables</strong>. The <strong>SLR(1)</strong> technique, while being <strong>simple</strong> and <strong>efficient</strong>, is limited in its ability to handle more complex grammars and conflicts. It is suitable for many practical applications where <strong>grammar complexity is moderate</strong>.</p>
+    <h4> Conclusion</h4>
+    <p>Constructing SLR parsing tables involves a sequence of steps starting with augmenting the grammar and proceeding through creating the LR(0) items, followed by the construction of the action and goto tables. The SLR(1 technique, while being simple and efficient, is limited in its ability to handle more complex grammars and conflicts. It is suitable for many practical applications where grammar complexity is moderate.</p>
 </section>
+
+
+  </main>
+
+  <footer>
+  <a href="CD_UNIT2.html" class="back-btn">← Back to Unit 2 Topics</a>
+  </footer>
+
+</body>
+</html>
