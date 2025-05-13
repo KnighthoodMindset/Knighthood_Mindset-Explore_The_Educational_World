@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+    Here is a **detailed and long explanation** of **"Evaluation Orders for SDDs (Syntax-Directed Definitions)"**, tailored for your **Tech Nexus – Compiler Design Unit 1** notes.
+
+    ---
+    
+    ## 📘 Evaluation Orders for SDDs (Syntax-Directed Definitions)
+    
+    Once a **Syntax-Directed Definition (SDD)** is specified using a grammar and a set of attributes with semantic rules, the next important step is determining **how and when** to **evaluate** these attributes. This process is called **attribute evaluation**, and the **order** in which attributes are computed is referred to as the **evaluation order**.
+    
+    Correct evaluation order is essential for ensuring that:
+    
+    * All **dependent attributes** are evaluated before they are needed.
+    * There are **no cycles** in attribute dependencies.
+    * The **semantic meaning** of the program is correctly captured.
+    
+    ---
+    
+    ### 🧠 Why Evaluation Order Matters
+    
+    Imagine an attribute rule like:
+    
+    ```
+    E → E1 + T   { E.val = E1.val + T.val }
+    ```
+    
+    Here, `E.val` depends on `E1.val` and `T.val`. If we try to evaluate `E.val` *before* evaluating the others, we get an error. Thus, we must compute values in a **dependency-respecting** order.
+    
+    ---
+    
+    ## 🔍 Key Concepts
+    
+    ### 1. **Dependency Graph**
+    
+    A **dependency graph** is used to determine the evaluation order:
+    
+    * **Nodes** represent attributes.
+    * **Edges** point from one attribute to another if the first is needed to compute the second.
+    
+    If a valid **topological ordering** of this graph exists (i.e., no cycles), we can evaluate attributes **in that order**.
+    
+    ---
+    
+    ## 🧱 Evaluation Orders Based on Attribute Types
+    
+    ### 🔹 1. **S-Attributed Evaluation Order**
+    
+    * Involves **only synthesized attributes**
+    * Evaluation is **bottom-up** (i.e., child nodes first, then parent)
+    * Works well with **bottom-up parsing** (like LR parsers)
+    * Parse tree is evaluated in **post-order traversal**
+    
+    #### ✅ Example:
+    
+    For the rule:
+    
+    ```
+    E → E1 + T   { E.val = E1.val + T.val }
+    ```
+    
+    We compute:
+    
+    1. `E1.val`
+    2. `T.val`
+    3. Then `E.val`
+    
+    ---
+    
+    ### 🔸 2. **L-Attributed Evaluation Order**
+    
+    * Involves both **synthesized and inherited attributes**
+    * Evaluation is done **left-to-right** along the production
+    * Ideal for **top-down parsing** (like LL parsers)
+    * Requires that **inherited attributes** of a symbol only depend on:
+    
+      * Attributes of symbols **to its left**
+      * Attributes of the **parent** node
+    
+    #### ✅ Example:
+    
+    ```
+    A → B C D  
+    ```
+    
+    If:
+    
+    * `C.in` = `B.out`
+    * `D.in` = `C.out`
+    
+    The order of evaluation would be:
+    
+    1. Evaluate `B.out`
+    2. Then `C.in`, `C.out`
+    3. Then `D.in`, `D.out`
+    4. Finally `A.val`
+    
+    ---
+    
+    ### 🔄 General Evaluation Strategies
+    
+    #### 🔹 **Post-order Traversal**
+    
+    Used for **S-attributed definitions**:
+    
+    * Children evaluated before the parent
+    * Common in **bottom-up parsing**
+    
+    #### 🔸 **Pre-order or Left-to-right Traversal**
+    
+    Used for **L-attributed definitions**:
+    
+    * Parent and left-side siblings evaluated first
+    * Common in **top-down parsing**
+    
+    ---
+    
+    ## ⚠️ Handling Circular Dependencies
+    
+    In some grammars, attribute rules might create **cycles** (e.g., A depends on B, and B depends on A). This leads to:
+    
+    * **Circular dependency**
+    * **No valid evaluation order**
+    
+    **Solution:**
+    
+    * Use **dependency graphs** to detect cycles
+    * Rewrite the grammar or rules to remove the cycles
+    
+    ---
+    
+    ## 💡 Applications of Evaluation Orders
+    
+    | 📌 Task              | 🛠️ Role of Evaluation Order                          |
+    | -------------------- | ----------------------------------------------------- |
+    | ✅ Type Checking      | Ensures correct type propagation                      |
+    | 🧱 AST Construction  | Builds structured representations from leaves up      |
+    | 🧠 Semantic Analysis | Ensures all semantic conditions are respected         |
+    | ⚙️ Code Generation   | Enables consistent order of operations and evaluation |
+    
+    ---
+    
+    ## ✅ Advantages
+    
+    * Ensures semantic rules are evaluated in **correct order**
+    * Prevents **undefined attribute access**
+    * Optimizes **compiler performance**
+    * Supports **modular implementation** of compiler phases
+    
+    ---
+    
+    ## ❌ Challenges
+    
+    * Evaluating **inherited attributes** is often tricky
+    * Complex SDDs may introduce **dependency cycles**
+    * Requires accurate **dependency analysis**
+    
+    ---
+    
+    ## 🧾 Conclusion
+    
+    **Evaluation order** in Syntax-Directed Definitions is essential for **correct semantic analysis** in a compiler. By using **dependency graphs** and understanding **attribute flow**, compilers can correctly and efficiently evaluate all the necessary semantic information. A proper evaluation strategy not only ensures correctness but also enhances the **compiler’s robustness and maintainability**.
+    
+    ---
+    
+    Would you like the next topic — **Syntax Directed Translation Schemes (SDTs)** — in the same detailed format?
+    
+
+    
+  </main>
+
+  <footer>
+  <a href="CD_UNIT2.html" class="back-btn">← Back to Unit 2 Topics</a>
+  </footer>
+
+</body>
+</html>
