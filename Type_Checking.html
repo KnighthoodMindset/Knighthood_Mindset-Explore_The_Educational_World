@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+
+    Here is a **detailed long answer** for **“Type Checking”** — suitable for your **Tech Nexus – Compiler Design Unit 1**:
+
+    ---
+    
+    ## 📘 Type Checking in Compiler Design
+    
+    **Type checking** is an essential phase in the compilation process that ensures the **semantic correctness** of the program. In simple terms, type checking verifies that the operations in the source code are performed on **compatible data types**. It checks for **type errors** such as trying to add a string to an integer or dividing a number by a string. Type checking helps ensure that the program behaves as intended and prevents runtime errors related to type mismatches.
+    
+    ---
+    
+    ### 🧩 What is Type Checking?
+    
+    Type checking involves verifying that the **data types** of variables, functions, and expressions in a program are used consistently and according to the rules of the programming language. It ensures that **operands** involved in operations (such as arithmetic, relational, and logical operators) are of **compatible types**, and that variables are **assigned** appropriate types.
+    
+    In many programming languages, type checking can be done either at **compile-time** (statically typed languages) or at **runtime** (dynamically typed languages).
+    
+    ---
+    
+    ### 🔧 Role of Type Checking
+    
+    1. **Type Safety**: Type checking prevents **type errors** that would otherwise lead to unpredictable behavior or crashes at runtime.
+    2. **Semantic Analysis**: After the syntactic correctness is ensured through parsing, type checking guarantees that the operations on variables, expressions, and function calls are semantically valid.
+    3. **Error Detection**: Type checking helps in identifying mismatches in data types early in the compilation process, saving time and effort by avoiding runtime errors.
+    
+    ---
+    
+    ### 🧱 Types of Type Checking
+    
+    Type checking can be divided into two major categories based on when the types are checked:
+    
+    1. **Static Type Checking** (Compile-time)
+    
+       * Type errors are detected at **compile-time**.
+       * The compiler checks whether variables and expressions conform to the specified types.
+       * Languages like **Java**, **C**, and **C++** are **statistically typed** languages that rely heavily on static type checking.
+    
+       **Example**:
+    
+       ```java
+       int a = 10;
+       String b = "hello";
+       a = b;  // Type error: cannot assign a String to an int variable
+       ```
+    
+    2. **Dynamic Type Checking** (Runtime)
+    
+       * Type errors are detected at **runtime**.
+       * Languages like **Python**, **JavaScript**, and **Ruby** use dynamic type checking, where types are determined during program execution.
+    
+       **Example**:
+    
+       ```python
+       a = 10
+       b = "hello"
+       a = b  # Type error at runtime: cannot assign a string to an integer
+       ```
+    
+    ---
+    
+    ### 🧩 Key Type Checking Operations
+    
+    1. **Assignment Checking**:
+    
+       * Type checking verifies whether the variable on the left-hand side of an assignment is compatible with the type of the expression on the right-hand side.
+       * Example:
+    
+         ```c
+         int a = 5;
+         a = "hello";  // Error: incompatible types (int and string)
+         ```
+    
+    2. **Expression Type Checking**:
+    
+       * Verifies whether operands in expressions are of compatible types.
+       * Example:
+    
+         ```java
+         int result = 5 + "hello";  // Error: cannot add integer and string
+         ```
+    
+    3. **Function Call Type Checking**:
+    
+       * Ensures that the function arguments match the expected parameter types.
+       * Example:
+    
+         ```c
+         int add(int x, int y) {
+             return x + y;
+         }
+    
+         add("5", 10);  // Error: incompatible type (string and int)
+         ```
+    
+    4. **Return Type Checking**:
+    
+       * Verifies that the return type of a function matches the expected type.
+       * Example:
+    
+         ```c
+         float divide(int a, int b) {
+             return a / b;  // Okay, return type is float
+         }
+    
+         int divide(int a, int b) {
+             return a / b;  // Error: function expected to return int, but it returns float
+         }
+         ```
+    
+    ---
+    
+    ### 🔧 How Type Checking Works in Compilers
+    
+    1. **Type Tables**:
+    
+       * A **type table** is used by the compiler to store information about the types of variables, functions, and expressions in the program.
+       * The **symbol table** (generated during the lexical analysis phase) may contain information about variable names, types, and scopes.
+    
+    2. **Type Rules**:
+    
+       * The compiler follows the **type rules** of the programming language to determine whether types are compatible.
+       * For example, a language might specify that **integers** can only be added to **integers** and **floating-point numbers** to **floating-point numbers**.
+    
+    3. **Type Inference**:
+    
+       * Some compilers perform **type inference** to automatically deduce the types of variables and expressions based on their usage.
+       * This is common in languages like **Haskell** and **TypeScript**, where you don't have to explicitly declare types for every variable or function.
+    
+    4. **Error Handling**:
+    
+       * If a type mismatch is detected, the compiler produces a **type error message**.
+       * The error message typically includes the line number and a description of the error, allowing the developer to correct the issue.
+    
+    ---
+    
+    ### 🔄 Type Checking Examples
+    
+    * **Example 1: Static Type Checking**
+    
+      ```c
+      int add(int a, int b) {
+          return a + b;
+      }
+    
+      float x = 3.5;
+      add(x, 4);  // Error: expected int arguments, but received float
+      ```
+    
+    * **Example 2: Dynamic Type Checking**
+    
+      ```python
+      def add(a, b):
+          return a + b
+    
+      print(add(2, 3))  # Works fine, adds numbers
+    
+      print(add(2, "hello"))  # Error: can't add int and string
+      ```
+    
+    ---
+    
+    ### ⚙️ Type Checking Strategies
+    
+    1. **Single-Pass Checking**:
+    
+       * The compiler processes the program in a single pass, checking types as it goes.
+       * Simple and fast, but might not catch certain type errors in complex programs.
+    
+    2. **Two-Pass Checking**:
+    
+       * The compiler performs two passes: one for **declaration analysis** (ensuring variables are declared with the correct types) and one for **usage analysis** (ensuring types are compatible during operations).
+       * More accurate, but slower than single-pass checking.
+    
+    3. **Constraint-Based Type Checking**:
+    
+       * Used in languages that support **type inference**, the compiler generates constraints based on the usage of variables and expressions and solves them to infer types.
+    
+    ---
+    
+    ### 📜 Applications of Type Checking
+    
+    | **Application**     | **Purpose**                                                                       |
+    | ------------------- | --------------------------------------------------------------------------------- |
+    | **Error Detection** | Detects type errors early during compilation.                                     |
+    | **Optimization**    | Helps identify opportunities for optimizations (e.g., type coercion).             |
+    | **Code Generation** | Assists in generating machine code based on type-safe operations.                 |
+    | **Language Design** | Aids in defining and enforcing consistent type systems for programming languages. |
+    | **Debugging**       | Type errors can be caught during compilation, reducing runtime bugs.              |
+    
+    ---
+    
+    ### ✅ Advantages of Type Checking
+    
+    * **Early Error Detection**: Catches type errors during compilation rather than at runtime.
+    * **Ensures Correctness**: Prevents mismatched operations, ensuring the program behaves as expected.
+    * **Optimizations**: Type information can help with optimization strategies in later compiler stages (e.g., dead code elimination, constant folding).
+    * **Improved Program Safety**: Helps ensure that certain classes of errors (e.g., invalid operations) do not occur.
+    
+    ---
+    
+    ### ❌ Limitations of Type Checking
+    
+    * **Complexity in Dynamic Languages**: Type checking in dynamic languages (e.g., Python, JavaScript) can be more difficult and might lead to more runtime errors.
+    * **Performance Overhead**: Extensive type checking may introduce performance overhead during compilation.
+    * **Inflexibility in Some Languages**: Strict type systems in languages like C++ or Java can sometimes lead to limitations in expressiveness or flexibility.
+    
+    ---
+    
+    ### 🧾 Conclusion
+    
+    **Type checking** is a crucial part of the compilation process that ensures programs adhere to the type constraints defined by the programming language. It helps in detecting errors early, optimizing code, and ensuring that the program executes safely and correctly. Depending on whether the language is statically or dynamically typed, type checking can be performed either at **compile-time** or **runtime**, offering different trade-offs in terms of safety and flexibility.
+    
+    ---
+    
+    Let me know if you'd like more detailed explanations on **type inference** or any other topics!
+    
+    
+  </main>
+
+  <footer>
+  <a href="CD_UNIT2.html" class="back-btn">← Back to Unit 2 Topics</a>
+  </footer>
+
+</body>
+</html>

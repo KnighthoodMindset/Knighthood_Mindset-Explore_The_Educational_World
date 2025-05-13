@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+
+    Here is a **detailed long answer** for **“Three Address Code (TAC)”**, perfectly suited for your **Tech Nexus – Compiler Design Unit 1** notes:
+
+    ---
+    
+    ## 📘 Three Address Code (TAC)
+    
+    ### 🧩 Introduction
+    
+    **Three Address Code (TAC)** is a form of **intermediate representation (IR)** used in the process of compiling high-level programming languages into machine code. As the name suggests, each instruction in TAC can contain at most **three addresses (or operands)**. These addresses may be **variables, constants, or temporary names** created by the compiler.
+    
+    TAC serves as a bridge between the **source code and target machine code**, providing a structured yet simplified way of expressing computations.
+    
+    ---
+    
+    ## 🔧 Structure of TAC
+    
+    Each instruction in Three Address Code typically follows one of the formats below:
+    
+    ```
+    x = y op z     → binary operation  
+    x = op y       → unary operation  
+    x = y          → assignment  
+    goto label     → unconditional jump  
+    if x relop y goto label  → conditional jump  
+    ```
+    
+    Here:
+    
+    * `x`, `y`, `z` are variables or temporary variables
+    * `op` is an operator (+, -, \*, /, etc.)
+    * `relop` is a relational operator (==, !=, >, <, etc.)
+    
+    ---
+    
+    ## 🧠 Purpose and Importance
+    
+    * TAC allows compilers to **perform optimizations** easily.
+    * It simplifies complex expressions into **smaller steps**.
+    * It enables **target-independent** analysis and transformation.
+    * It forms the basis for **code generation** and **register allocation**.
+    
+    ---
+    
+    ## 📌 Examples
+    
+    ### Example 1: Arithmetic Expression
+    
+    For the expression:
+    
+    ```c
+    a = b + c * d
+    ```
+    
+    The equivalent TAC might be:
+    
+    ```text
+    t1 = c * d  
+    t2 = b + t1  
+    a = t2
+    ```
+    
+    ### Example 2: If-Else Statement
+    
+    ```c
+    if (a < b)  
+       x = y + z;
+    else  
+       x = y - z;
+    ```
+    
+    TAC:
+    
+    ```text
+    if a < b goto L1  
+    goto L2  
+    L1: x = y + z  
+    goto L3  
+    L2: x = y - z  
+    L3:
+    ```
+    
+    ---
+    
+    ## 💠 Types of TAC Instructions
+    
+    | Type               | Example            |
+    | ------------------ | ------------------ |
+    | Assignment         | `x = y`            |
+    | Unary operation    | `x = -y`           |
+    | Binary operation   | `x = y + z`        |
+    | Conditional jump   | `if x < y goto L1` |
+    | Unconditional jump | `goto L2`          |
+    | Procedure call     | `call p, n`        |
+    | Return             | `return x`         |
+    | Label definition   | `L1:`              |
+    
+    ---
+    
+    ## 🏗 Temporary Variables
+    
+    * Temporaries (`t1`, `t2`, ...) are used to store **intermediate results**.
+    * They simplify complex expressions and aid in **optimization** and **code generation**.
+    
+    ---
+    
+    ## 🚀 Applications of TAC
+    
+    | Area                            | Purpose                                                           |
+    | ------------------------------- | ----------------------------------------------------------------- |
+    | **Intermediate Representation** | Acts as a bridge between source code and machine code             |
+    | **Optimization**                | Enables easy application of optimization techniques               |
+    | **Code Generation**             | Translates naturally to assembly-like target code                 |
+    | **Semantic Checking**           | Helps perform type checking, expression validation                |
+    | **Register Allocation**         | Temporaries in TAC correspond to registers in target machine code |
+    
+    ---
+    
+    ## ✅ Advantages of TAC
+    
+    * **Simple and flexible** representation
+    * Easy to **generate and transform**
+    * Supports **machine-independent optimizations**
+    * Ideal for **data flow analysis**, **constant folding**, **common subexpression elimination**, etc.
+    
+    ---
+    
+    ## ❌ Limitations
+    
+    * Still **abstract**, so must eventually be lowered to target assembly
+    * Not always optimal in size or performance
+    * Requires additional effort for **register assignment**
+    
+    ---
+    
+    ## 🧾 Conclusion
+    
+    **Three Address Code (TAC)** is a powerful and widely-used intermediate form in compilers. It strikes a balance between **human-readability and machine-efficiency**, offering a versatile way to represent and manipulate programs. By breaking complex expressions and constructs into simpler steps, TAC enables effective optimization and easier translation to machine code.
+    
+    ---
+    
+    Would you like to proceed with **Types of Intermediate Representations** next, or go into **Code Optimization techniques**?
+    
+    
+  </main>
+
+  <footer>
+  <a href="CD_UNIT2.html" class="back-btn">← Back to Unit 2 Topics</a>
+  </footer>
+
+</body>
+</html>

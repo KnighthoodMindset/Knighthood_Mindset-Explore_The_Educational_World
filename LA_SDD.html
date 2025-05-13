@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+
+    Here is a **detailed long answer** for **“Implementing L-Attributed SDDs (Syntax-Directed Definitions)”**, tailored for your **Tech Nexus – Compiler Design Unit 1** notes:
+
+    ---
+    
+    ## 📘 Implementing L-Attributed Syntax-Directed Definitions (SDDs)
+    
+    **L-attributed SDDs** are a class of **Syntax-Directed Definitions** in compiler design where the evaluation of attributes can be done in a **left-to-right traversal** of the parse tree. These are especially suitable for **top-down parsing** methods such as **recursive descent** and **LL parsers**, because they allow for semantic rule evaluation as the parser proceeds through the input.
+    
+    ---
+    
+    ### 🧠 What Are L-Attributed SDDs?
+    
+    An **SDD** associates attributes and rules with the grammar of a language. An **L-attributed SDD** is one where:
+    
+    * **Inherited attributes** of a non-terminal on the **right-hand side (RHS)** of a production can depend only on:
+    
+      * The **inherited attributes** of the left-hand side (LHS).
+      * The **attributes of the symbols to its left** in the RHS.
+    * **Synthesized attributes** are evaluated as usual from children to parent.
+    
+    ✅ This ensures that **attribute evaluation can be done in a single left-to-right pass**, making it efficient and practical for **implementation with top-down parsing**.
+    
+    ---
+    
+    ### 🧾 Formal Conditions
+    
+    For a production `A → X₁ X₂ ... Xn`, a definition is **L-attributed** if:
+    
+    * Each **inherited attribute** of `Xi` (1 ≤ i ≤ n) depends only on:
+    
+      * Synthesized attributes of `X1` to `Xi−1`
+      * Inherited attributes of `A` (the LHS non-terminal)
+    
+    ---
+    
+    ## 🎯 Why Use L-Attributed SDDs?
+    
+    | Feature                        | Benefit                                                      |
+    | ------------------------------ | ------------------------------------------------------------ |
+    | 🧭 Left-to-right evaluation    | Matches recursive descent parsing                            |
+    | 🪄 No need for multiple passes | Attributes are computed during parsing                       |
+    | 🔄 Simplicity                  | Easier to implement than more general SDDs                   |
+    | 🔧 Flexible                    | Can implement expressions, declarations, type-checking, etc. |
+    
+    ---
+    
+    ## 📌 Example: Expression with Type Checking
+    
+    Consider a grammar that parses an assignment like `id : int = 5` and ensures type consistency:
+    
+    ### Grammar:
+    
+    ```
+    S → id : T = E
+    T → int | float
+    E → num
+    ```
+    
+    ### Attributes:
+    
+    * `T.type`: Synthesized attribute indicating type of T
+    * `E.type`: Synthesized attribute indicating type of E
+    * `S.ok`: Synthesized attribute to check type match
+    
+    ### Semantic Rules (L-Attributed):
+    
+    ```
+    S → id : T = E
+        {
+            S.ok = (T.type == E.type)
+        }
+    
+    T → int
+        {
+            T.type = "int"
+        }
+    
+    T → float
+        {
+            T.type = "float"
+        }
+    
+    E → num
+        {
+            E.type = typeof(num)   // e.g., "int"
+        }
+    ```
+    
+    ✔️ `T.type` and `E.type` are synthesized
+    ✔️ `S.ok` is computed from already available attributes
+    ✔️ Evaluation can proceed **left-to-right** ⇒ **L-attributed**
+    
+    ---
+    
+    ## 🔧 Implementation Strategy in Top-Down Parsers
+    
+    When implementing L-attributed SDDs using **recursive descent** or **predictive parsers**, the **semantic actions** are executed **within the parsing functions** as follows:
+    
+    ### Implementation Steps:
+    
+    1. **Pass inherited attributes** as parameters to parsing functions.
+    2. **Return synthesized attributes** as function return values.
+    3. **Execute semantic rules** at the correct point in the function to maintain order.
+    
+    ---
+    
+    ### 🛠️ Example in Pseudocode
+    
+    ```c
+    Type parseT() {
+        if (lookahead == "int") {
+            match("int");
+            return "int";
+        } else if (lookahead == "float") {
+            match("float");
+            return "float";
+        }
+    }
+    
+    Type parseE() {
+        if (isNum(lookahead)) {
+            Type t = typeof(lookahead);
+            match(lookahead);
+            return t;
+        }
+    }
+    
+    void parseS() {
+        match("id");
+        match(":");
+        Type t = parseT();      // Synthesized: T.type
+        match("=");
+        Type e = parseE();      // Synthesized: E.type
+        if (t == e) {
+            print("Type check passed");
+        } else {
+            print("Type mismatch error");
+        }
+    }
+    ```
+    
+    ---
+    
+    ## 🧠 Applications of L-Attributed SDDs
+    
+    | Application                          | Role                                                               |
+    | ------------------------------------ | ------------------------------------------------------------------ |
+    | 📌 Type Checking                     | Validate type consistency during declarations and expressions      |
+    | 🏷️ Symbol Table Management          | Inherited attributes can carry symbol table references             |
+    | 🧾 Code Generation                   | Pass context (like register or label) through inherited attributes |
+    | 🧱 Abstract Syntax Tree Construction | Tree nodes can be built and returned using synthesized attributes  |
+    | 📤 Parameter Passing                 | Useful in function calls and parameter matching                    |
+    
+    ---
+    
+    ## ✅ Advantages
+    
+    * **Efficient** for single-pass parsers.
+    * **Compatible** with recursive-descent and LL(1) parsing.
+    * **Supports real-time semantic checks** during parsing.
+    * **Easy to implement and debug**.
+    
+    ---
+    
+    ## ❌ Limitations
+    
+    * Cannot handle **arbitrary dependencies** between attributes.
+    * More general SDDs (e.g., S-attributed or circular) may be needed for complex language features.
+    * Not suitable for **bottom-up parsing** unless rewritten.
+    
+    ---
+    
+    ## 🧾 Conclusion
+    
+    **L-attributed SDDs** are a crucial subclass of syntax-directed definitions that can be evaluated efficiently during **top-down parsing**. They enable compilers to **perform semantic actions** such as type checking, symbol table updates, and intermediate code generation during parsing. By restricting attribute dependencies, L-attributed SDDs strike a balance between **expressiveness and implementability**, making them an essential concept in compiler design.
+    
+    ---
+    
+    Would you like the next topic to be **S-attributed SDDs** or move on to **Intermediate Code Generation**?
+    
+    
+  </main>
+
+  <footer>
+  <a href="CD_UNIT2.html" class="back-btn">← Back to Unit 2 Topics</a>
+  </footer>
+
+</body>
+</html>
