@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <title>Evaluation Orders for SDDs (Syntax-Directed Definitions) | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -14,170 +15,176 @@
 
   <main>
 
-    Here is a **detailed and long explanation** of **"Evaluation Orders for SDDs (Syntax-Directed Definitions)"**, tailored for your **Tech Nexus – Compiler Design Unit 1** notes.
+    
+    <section>
+        <h3>Evaluation Orders for SDDs (Syntax-Directed Definitions)</h3>
+        <p>Once a Syntax-Directed Definition (SDD) is specified using a grammar and a set of attributes with semantic rules, the next important step is determining how and when to evaluate these attributes. This process is called attribute evaluation, and the order in which attributes are computed is referred to as the evaluation order.</p>
+        <p>Correct evaluation order is essential for ensuring that:</p>
+        <ul>
+            <li>All dependent attributes are evaluated before they are needed.</li>
+            <li>There are no cycles in attribute dependencies.</li>
+            <li>The semantic meaning of the program is correctly captured.</li>
+        </ul>
+    </section>
 
-    ---
-    
-    ## 📘 Evaluation Orders for SDDs (Syntax-Directed Definitions)
-    
-    Once a **Syntax-Directed Definition (SDD)** is specified using a grammar and a set of attributes with semantic rules, the next important step is determining **how and when** to **evaluate** these attributes. This process is called **attribute evaluation**, and the **order** in which attributes are computed is referred to as the **evaluation order**.
-    
-    Correct evaluation order is essential for ensuring that:
-    
-    * All **dependent attributes** are evaluated before they are needed.
-    * There are **no cycles** in attribute dependencies.
-    * The **semantic meaning** of the program is correctly captured.
-    
-    ---
-    
-    ### 🧠 Why Evaluation Order Matters
-    
-    Imagine an attribute rule like:
-    
-    ```
-    E → E1 + T   { E.val = E1.val + T.val }
-    ```
-    
-    Here, `E.val` depends on `E1.val` and `T.val`. If we try to evaluate `E.val` *before* evaluating the others, we get an error. Thus, we must compute values in a **dependency-respecting** order.
-    
-    ---
-    
-    ## 🔍 Key Concepts
-    
-    ### 1. **Dependency Graph**
-    
-    A **dependency graph** is used to determine the evaluation order:
-    
-    * **Nodes** represent attributes.
-    * **Edges** point from one attribute to another if the first is needed to compute the second.
-    
-    If a valid **topological ordering** of this graph exists (i.e., no cycles), we can evaluate attributes **in that order**.
-    
-    ---
-    
-    ## 🧱 Evaluation Orders Based on Attribute Types
-    
-    ### 🔹 1. **S-Attributed Evaluation Order**
-    
-    * Involves **only synthesized attributes**
-    * Evaluation is **bottom-up** (i.e., child nodes first, then parent)
-    * Works well with **bottom-up parsing** (like LR parsers)
-    * Parse tree is evaluated in **post-order traversal**
-    
-    #### ✅ Example:
-    
-    For the rule:
-    
-    ```
-    E → E1 + T   { E.val = E1.val + T.val }
-    ```
-    
-    We compute:
-    
-    1. `E1.val`
-    2. `T.val`
-    3. Then `E.val`
-    
-    ---
-    
-    ### 🔸 2. **L-Attributed Evaluation Order**
-    
-    * Involves both **synthesized and inherited attributes**
-    * Evaluation is done **left-to-right** along the production
-    * Ideal for **top-down parsing** (like LL parsers)
-    * Requires that **inherited attributes** of a symbol only depend on:
-    
-      * Attributes of symbols **to its left**
-      * Attributes of the **parent** node
-    
-    #### ✅ Example:
-    
-    ```
-    A → B C D  
-    ```
-    
-    If:
-    
-    * `C.in` = `B.out`
-    * `D.in` = `C.out`
-    
-    The order of evaluation would be:
-    
-    1. Evaluate `B.out`
-    2. Then `C.in`, `C.out`
-    3. Then `D.in`, `D.out`
-    4. Finally `A.val`
-    
-    ---
-    
-    ### 🔄 General Evaluation Strategies
-    
-    #### 🔹 **Post-order Traversal**
-    
-    Used for **S-attributed definitions**:
-    
-    * Children evaluated before the parent
-    * Common in **bottom-up parsing**
-    
-    #### 🔸 **Pre-order or Left-to-right Traversal**
-    
-    Used for **L-attributed definitions**:
-    
-    * Parent and left-side siblings evaluated first
-    * Common in **top-down parsing**
-    
-    ---
-    
-    ## ⚠️ Handling Circular Dependencies
-    
-    In some grammars, attribute rules might create **cycles** (e.g., A depends on B, and B depends on A). This leads to:
-    
-    * **Circular dependency**
-    * **No valid evaluation order**
-    
-    **Solution:**
-    
-    * Use **dependency graphs** to detect cycles
-    * Rewrite the grammar or rules to remove the cycles
-    
-    ---
-    
-    ## 💡 Applications of Evaluation Orders
-    
-    | 📌 Task              | 🛠️ Role of Evaluation Order                          |
-    | -------------------- | ----------------------------------------------------- |
-    | ✅ Type Checking      | Ensures correct type propagation                      |
-    | 🧱 AST Construction  | Builds structured representations from leaves up      |
-    | 🧠 Semantic Analysis | Ensures all semantic conditions are respected         |
-    | ⚙️ Code Generation   | Enables consistent order of operations and evaluation |
-    
-    ---
-    
-    ## ✅ Advantages
-    
-    * Ensures semantic rules are evaluated in **correct order**
-    * Prevents **undefined attribute access**
-    * Optimizes **compiler performance**
-    * Supports **modular implementation** of compiler phases
-    
-    ---
-    
-    ## ❌ Challenges
-    
-    * Evaluating **inherited attributes** is often tricky
-    * Complex SDDs may introduce **dependency cycles**
-    * Requires accurate **dependency analysis**
-    
-    ---
-    
-    ## 🧾 Conclusion
-    
-    **Evaluation order** in Syntax-Directed Definitions is essential for **correct semantic analysis** in a compiler. By using **dependency graphs** and understanding **attribute flow**, compilers can correctly and efficiently evaluate all the necessary semantic information. A proper evaluation strategy not only ensures correctness but also enhances the **compiler’s robustness and maintainability**.
-    
-    ---
-    
-    Would you like the next topic — **Syntax Directed Translation Schemes (SDTs)** — in the same detailed format?
-    
+    <section>
+        <h4>Why Evaluation Order Matters</h4>
+        <p>Imagine an attribute rule like:</p>
+        <pre>
+E → E1 + T   { E.val = E1.val + T.val }
+        </pre>
+        <p>Here, <code>E.val</code> depends on <code>E1.val</code> and <code>T.val</code>. If we try to evaluate <code>E.val</code> before evaluating the others, we get an error. Thus, we must compute values in a dependency-respecting order.</p>
+    </section>
+
+    <section>
+        <h4>Key Concepts</h4>
+
+        <h5>1. Dependency Graph</h5>
+        <p>A dependency graph is used to determine the evaluation order:</p>
+        <ul>
+            <li>Nodes represent attributes.</li>
+            <li>Edges point from one attribute to another if the first is needed to compute the second.</li>
+        </ul>
+        <p>If a valid topological ordering of this graph exists (i.e., no cycles), we can evaluate attributes in that order.</p>
+    </section>
+
+    <section>
+        <h4>Evaluation Orders Based on Attribute Types</h4>
+
+        <h5>1. S-Attributed Evaluation Order</h5>
+        <ul>
+            <li>Involves only synthesized attributes</li>
+            <li>Evaluation is bottom-up (i.e., child nodes first, then parent)</li>
+            <li>Works well with bottom-up parsing (like LR parsers)</li>
+            <li>Parse tree is evaluated in post-order traversal</li>
+        </ul>
+
+        <h5>Example:</h5>
+        <p>For the rule:</p>
+        <pre>
+E → E1 + T   { E.val = E1.val + T.val }
+        </pre>
+        <p>We compute:</p>
+        <ol>
+            <li>E1.val</li>
+            <li>T.val</li>
+            <li>Then E.val</li>
+        </ol>
+
+        <h5>2. L-Attributed Evaluation Order</h5>
+        <ul>
+            <li>Involves both synthesized and inherited attributes</li>
+            <li>Evaluation is done left-to-right along the production</li>
+            <li>Ideal for top-down parsing (like LL parsers)</li>
+            <li>Requires that inherited attributes of a symbol only depend on:
+                <ul>
+                    <li>Attributes of symbols to its left</li>
+                    <li>Attributes of the parent node</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h5>Example:</h5>
+        <pre>
+A → B C D  
+        </pre>
+        <p>If:</p>
+        <ul>
+            <li>C.in = B.out</li>
+            <li>D.in = C.out</li>
+        </ul>
+        <p>The order of evaluation would be:</p>
+        <ol>
+            <li>Evaluate B.out</li>
+            <li>Then C.in, C.out</li>
+            <li>Then D.in, D.out</li>
+            <li>Finally A.val</li>
+        </ol>
+    </section>
+
+    <section>
+        <h4>General Evaluation Strategies</h4>
+
+        <h5>Post-order Traversal</h5>
+        <ul>
+            <li>Used for S-attributed definitions</li>
+            <li>Children evaluated before the parent</li>
+            <li>Common in bottom-up parsing</li>
+        </ul>
+
+        <h5>Pre-order or Left-to-right Traversal</h5>
+        <ul>
+            <li>Used for L-attributed definitions</li>
+            <li>Parent and left-side siblings evaluated first</li>
+            <li>Common in top-down parsing</li>
+        </ul>
+    </section>
+
+    <section>
+        <h4>Handling Circular Dependencies</h4>
+        <p>In some grammars, attribute rules might create cycles (e.g., A depends on B, and B depends on A). This leads to:</p>
+        <ul>
+            <li>Circular dependency</li>
+            <li>No valid evaluation order</li>
+        </ul>
+        <p>Solution:</p>
+        <ul>
+            <li>Use dependency graphs to detect cycles</li>
+            <li>Rewrite the grammar or rules to remove the cycles</li>
+        </ul>
+    </section>
+
+    <section>
+        <h4>Applications of Evaluation Orders</h4>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <tr>
+                <th>Task</th>
+                <th>Role of Evaluation Order</th>
+            </tr>
+            <tr>
+                <td>Type Checking</td>
+                <td>Ensures correct type propagation</td>
+            </tr>
+            <tr>
+                <td>AST Construction</td>
+                <td>Builds structured representations from leaves up</td>
+            </tr>
+            <tr>
+                <td>Semantic Analysis</td>
+                <td>Ensures all semantic conditions are respected</td>
+            </tr>
+            <tr>
+                <td>Code Generation</td>
+                <td>Enables consistent order of operations and evaluation</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h4>Advantages</h4>
+        <ul>
+            <li>Ensures semantic rules are evaluated in correct order</li>
+            <li>Prevents undefined attribute access</li>
+            <li>Optimizes compiler performance</li>
+            <li>Supports modular implementation of compiler phases</li>
+        </ul>
+    </section>
+
+    <section>
+        <h4>Challenges</h4>
+        <ul>
+            <li>Evaluating inherited attributes is often tricky</li>
+            <li>Complex SDDs may introduce dependency cycles</li>
+            <li>Requires accurate dependency analysis</li>
+        </ul>
+    </section>
+
+    <section>
+        <h4>Conclusion</h4>
+        <p>Evaluation order in Syntax-Directed Definitions is essential for correct semantic analysis in a compiler. By using dependency graphs and understanding attribute flow, compilers can correctly and efficiently evaluate all the necessary semantic information. A proper evaluation strategy not only ensures correctness but also enhances the compiler’s robustness and maintainability.</p>
+    </section>
+
+
 
     
   </main>
