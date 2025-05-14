@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <title>Syntax-Directed Translation Schemes| Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -15,153 +15,151 @@
   <main>
 
 
-    Here is a **detailed long answer** for **“Syntax Directed Translation Schemes (SDT Schemes)”**, crafted to match the standard and depth required for your **Tech Nexus – Compiler Design Unit 1** notes:
+<section>
+    <h3>Syntax-Directed Translation Schemes</h3>
+    <p>A Syntax-Directed Translation Scheme (SDT Scheme) is a formal mechanism for specifying how semantic rules or actions can be interleaved with grammar productions to perform translation during parsing. Unlike syntax-directed definitions (SDDs), where semantic actions are associated with attributes, SDT schemes allow embedding actual semantic actions directly within the right-hand side of production rules.</p>
 
-    ---
-    
-    ## 📘 Syntax-Directed Translation Schemes
-    
-    A **Syntax-Directed Translation Scheme (SDT Scheme)** is a formal mechanism for specifying how **semantic rules or actions** can be **interleaved with grammar productions** to perform translation during parsing. Unlike syntax-directed definitions (SDDs), where semantic actions are associated with attributes, SDT schemes allow embedding actual **semantic actions** directly within the **right-hand side** of production rules.
-    
-    In essence, SDT Schemes combine **context-free grammars** with **executable actions**, helping compilers to **translate** source code into intermediate code, perform semantic checks, or build abstract syntax trees — **as part of the parsing process**.
-    
-    ---
-    
-    ### 🎯 Key Goals of SDT Schemes
-    
-    * Attach **meaning** to syntactic structures.
-    * Integrate **parsing and translation** into one process.
-    * Perform **semantic actions** such as code generation, symbol table handling, type checking, etc.
-    * Allow **inline execution** of translation actions during parsing.
-    
-    ---
-    
-    ## 🧱 Components of an SDT Scheme
-    
-    An **SDT Scheme** includes:
-    
-    1. **Grammar rules** (productions) of a context-free grammar.
-    2. **Embedded semantic actions** written in a programming language (usually inside curly braces `{}`).
-    3. A parsing method to **execute** the embedded actions in the correct order (top-down or bottom-up parsing).
-    
-    ---
-    
-    ### ✍️ Example of SDT Scheme
-    
-    Let’s take a grammar for arithmetic expressions:
-    
-    ```
-    E → E + T { print('+'); }
-    E → T
-    T → T * F { print('*'); }
-    T → F
-    F → (E)
-    F → id { print(id.name); }
-    ```
-    
-    In this example:
-    
-    * The grammar rules define how expressions are structured.
-    * The `{ print(...) }` parts are **semantic actions** embedded into the production.
-    * These actions will be executed during parsing to generate **postfix notation** (also known as Reverse Polish Notation).
-    
-    ---
-    
-    ### 🧭 Types of SDT Schemes
-    
-    There are **two main types** of SDT schemes:
-    
-    ---
-    
-    ### 1. **Postfix SDT (Bottom-Up Parsing Based)**
-    
-    * All actions are placed **at the end of the production**.
-    * Actions are executed **after** all the grammar symbols on the right-hand side have been recognized.
-    * Suitable for **bottom-up parsing**, especially **LR parsing**.
-    
-    ✅ *Example*:
-    
-    ```
-    E → E T + { print('+'); }
-    ```
-    
-    ---
-    
-    ### 2. **General SDT (Top-Down or Mixed)**
-    
-    * Actions may appear **anywhere** in the production.
-    * Suitable for **top-down parsers** like recursive descent parsers.
-    * Requires careful ordering of actions to maintain consistency.
-    
-    ✅ *Example*:
-    
-    ```
-    E → { action1(); } T { action2(); } + E
-    ```
-    
-    ---
-    
-    ## ⚙️ How SDT Schemes Work During Parsing
-    
-    ### 🧶 Top-Down Parsing:
-    
-    * Traverse the parse tree from **root to leaves**.
-    * Execute actions **in the order they appear** in the production.
-    * Common in **recursive-descent parsers**.
-    
-    ### 🧵 Bottom-Up Parsing:
-    
-    * Build the tree from **leaves to root**.
-    * Execute actions when a production is **reduced** (i.e., when RHS symbols are matched).
-    * Common in **LR parsers** and **YACC**-style tools.
-    
-    ---
-    
-    ## 📌 Applications of SDT Schemes
-    
-    | Area                            | Purpose                                                        |
-    | ------------------------------- | -------------------------------------------------------------- |
-    | 🎯 Intermediate Code Generation | Generate 3-address or assembly code during parsing.            |
-    | 🔍 Type Checking                | Enforce semantic correctness for operations and expressions.   |
-    | 🧱 AST Construction             | Build Abstract Syntax Trees in a bottom-up or top-down manner. |
-    | 🧠 Code Optimization            | Perform early optimizations like constant folding.             |
-    | 📊 Symbol Table Handling        | Insert and update variable/function information dynamically.   |
-    | 🔁 Loop Translation             | Translate high-level loop constructs into target-machine code. |
-    
-    ---
-    
-    ## ✅ Advantages
-    
-    * **Modularity:** Embeds semantics in grammar in a clean and structured way.
-    * **Efficiency:** Enables translation while parsing, saving extra passes.
-    * **Flexibility:** Supports many types of language features and translation requirements.
-    * **Compiler Automation:** Used by tools like YACC and Bison for automatic parser generation.
-    
-    ---
-    
-    ## ❌ Limitations
-    
-    * **Action Placement Matters:** Incorrect ordering of actions may produce wrong translations.
-    * **Error-Prone in Complex Grammars:** Complex SDTs are hard to debug and maintain.
-    * **Limited to Parsing Strategy:** Not all SDT schemes are compatible with both top-down and bottom-up parsing.
-    
-    ---
-    
-    ## 🧾 Conclusion
-    
-    **Syntax-Directed Translation Schemes** are a powerful tool in compiler construction. They allow us to specify **what actions should be taken** when a specific grammar rule is applied. By combining parsing and translation into a unified framework, SDT schemes help simplify the compiler’s design while enabling features like **syntax tree construction**, **intermediate code generation**, and **semantic analysis**.
-    
-    Whether you are building a basic calculator or a full compiler, SDT schemes form the **backbone of meaningful translation** in syntax analysis.
-    
-    ---
-    
-    Would you like the next topic to be **Postfix Notation** or continue with **Syntax Trees and Abstract Syntax Trees**?
-    
+    <p>In essence, SDT Schemes combine context-free grammars with executable actions, helping compilers to translate source code into intermediate code, perform semantic checks, or build abstract syntax trees — as part of the parsing process.</p>
+</section>
+
+<section>
+    <h4>Key Goals of SDT Schemes</h4>
+    <ul>
+        <li>Attach meaning to syntactic structures.</li>
+        <li>Integrate parsing and translation into one process.</li>
+        <li>Perform semantic actions such as code generation, symbol table handling, type checking, etc.</li>
+        <li>Allow inline execution of translation actions during parsing.</li>
+    </ul>
+</section>
+
+<section>
+    <h4>Components of an SDT Scheme</h4>
+    <p>An SDT Scheme includes:</p>
+    <ol>
+        <li>Grammar rules (productions) of a context-free grammar.</li>
+        <li>Embedded semantic actions written in a programming language (usually inside curly braces <code>{}</code>).</li>
+        <li>A parsing method to execute the embedded actions in the correct order (top-down or bottom-up parsing).</li>
+    </ol>
+</section>
+
+<section>
+    <h4>Example of SDT Scheme</h4>
+    <p>Let’s take a grammar for arithmetic expressions:</p>
+    <pre>
+E → E + T { print('+'); }
+E → T
+T → T * F { print('*'); }
+T → F
+F → (E)
+F → id { print(id.name); }
+    </pre>
+    <p>The <code>{ print(...) }</code> parts are semantic actions executed during parsing to generate postfix notation.</p>
+</section>
+
+<section>
+    <h4>Types of SDT Schemes</h4>
+
+    <h5>1. Postfix SDT (Bottom-Up Parsing Based)</h5>
+    <ul>
+        <li>All actions are placed at the end of the production.</li>
+        <li>Actions are executed after all the grammar symbols on the right-hand side have been recognized.</li>
+        <li>Suitable for bottom-up parsing, especially LR parsing.</li>
+    </ul>
+    <p><strong>Example:</strong></p>
+    <pre>E → E T + { print('+'); }</pre>
+
+    <h5>2. General SDT (Top-Down or Mixed)</h5>
+    <ul>
+        <li>Actions may appear anywhere in the production.</li>
+        <li>Suitable for top-down parsers like recursive descent parsers.</li>
+        <li>Requires careful ordering of actions to maintain consistency.</li>
+    </ul>
+    <p><strong>Example:</strong></p>
+    <pre>E → { action1(); } T { action2(); } + E</pre>
+</section>
+
+<section>
+    <h4>How SDT Schemes Work During Parsing</h4>
+
+    <h5>Top-Down Parsing</h5>
+    <ul>
+        <li>Traverse the parse tree from root to leaves.</li>
+        <li>Execute actions in the order they appear in the production.</li>
+    </ul>
+
+    <h5>Bottom-Up Parsing</h5>
+    <ul>
+        <li>Build the tree from leaves to root.</li>
+        <li>Execute actions when a production is reduced.</li>
+    </ul>
+</section>
+
+<section>
+    <h4>Applications of SDT Schemes</h4>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Area</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td>Intermediate Code Generation</td>
+            <td>Generate 3-address or assembly code during parsing.</td>
+        </tr>
+        <tr>
+            <td>Type Checking</td>
+            <td>Enforce semantic correctness for operations and expressions.</td>
+        </tr>
+        <tr>
+            <td>AST Construction</td>
+            <td>Build Abstract Syntax Trees in a bottom-up or top-down manner.</td>
+        </tr>
+        <tr>
+            <td>Code Optimization</td>
+            <td>Perform early optimizations like constant folding.</td>
+        </tr>
+        <tr>
+            <td>Symbol Table Handling</td>
+            <td>Insert and update variable/function information dynamically.</td>
+        </tr>
+        <tr>
+            <td>Loop Translation</td>
+            <td>Translate high-level loop constructs into target-machine code.</td>
+        </tr>
+    </table>
+</section>
+
+<section>
+    <h4>Advantages</h4>
+    <ul>
+        <li>Modularity: Embeds semantics in grammar in a clean and structured way.</li>
+        <li>Efficiency: Enables translation while parsing, saving extra passes.</li>
+        <li>Flexibility: Supports many types of language features and translation requirements.</li>
+        <li>Compiler Automation: Used by tools like YACC and Bison for automatic parser generation.</li>
+    </ul>
+</section>
+
+<section>
+    <h4>Limitations</h4>
+    <ul>
+        <li>Action Placement Matters: Incorrect ordering of actions may produce wrong translations.</li>
+        <li>Error-Prone in Complex Grammars: Complex SDTs are hard to debug and maintain.</li>
+        <li>Limited to Parsing Strategy: Not all SDT schemes are compatible with both top-down and bottom-up parsing.</li>
+    </ul>
+</section>
+
+<section>
+    <h4>Conclusion</h4>
+    <p>Syntax-Directed Translation Schemes are a powerful tool in compiler construction. They allow us to specify what actions should be taken when a specific grammar rule is applied. By combining parsing and translation into a unified framework, SDT schemes help simplify the compiler’s design while enabling features like syntax tree construction, intermediate code generation, and semantic analysis.</p>
+
+    <p>Whether you are building a basic calculator or a full compiler, SDT schemes form the backbone of meaningful translation in syntax analysis.</p>
+</section>
+
+
     
   </main>
 
   <footer>
-  <a href="CD_UNIT2.html" class="back-btn">← Back to Unit 2 Topics</a>
+  <a href="CD_UNIT3.html" class="back-btn">← Back to Unit 3 Topics</a>
   </footer>
 
 </body>
