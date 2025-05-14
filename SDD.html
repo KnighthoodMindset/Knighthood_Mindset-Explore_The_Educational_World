@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lexical Analyzer Generator | Tech Nexus | Knighthood Mindest</title>
+  <title>Syntax-Directed Definitions (SDDs) | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -15,152 +16,166 @@
   <main>
 
 
-    Here is a **detailed long answer** on **“Syntax-Directed Definitions (SDDs)”** — ideal for your **Tech Nexus – Compiler Design Unit 1** notes:
 
-    ---
-    
-    ## 📘 Syntax-Directed Definitions (SDDs)
-    
-    **Syntax-Directed Definitions (SDDs)** are formal systems used in **compiler design** to define how **semantic information** is associated with syntactic constructs of a programming language. They combine **context-free grammar** with **attributes** and **semantic rules**, guiding the compiler to perform tasks such as **type checking**, **intermediate code generation**, and **symbol table construction**.
-    
-    In simple terms:
-    
-    > SDDs define how to compute information (like types or values) from the structure of a program.
-    
-    ---
-    
-    ### 🧠 What Makes Up an SDD?
-    
-    A **Syntax-Directed Definition** consists of:
-    
-    1. **A context-free grammar (CFG)**
-       This defines the syntax of the language.
-    
-    2. **Attributes**
-       Associated with grammar symbols to hold semantic information.
-    
-    3. **Semantic Rules**
-       These rules describe how to compute the value of each attribute using:
-    
-       * Other attributes in the grammar production
-       * Auxiliary functions
-    
-    ---
-    
-    ### 🔍 Types of Attributes
-    
-    There are two main kinds of attributes used in SDDs:
-    
-    #### 1. **Synthesized Attributes**
-    
-    * Computed from **children nodes** in the parse tree.
-    * Flow of information is **bottom-up**.
-    * Commonly used with **bottom-up parsers (LR parsers)**.
-    
-    #### 2. **Inherited Attributes**
-    
-    * Computed from **parent or sibling nodes** in the parse tree.
-    * Flow of information is **top-down or lateral**.
-    * Used in **top-down parsers (LL parsers)**.
-    
-    ---
-    
-    ### 🔢 Example of an SDD
-    
-    Consider the simple expression grammar:
-    
-    ```
-    E → E1 + T  
-    E → T  
-    T → id
-    ```
-    
-    We can define attributes and semantic rules like this:
-    
-    ```
-    E → E1 + T     { E.val = E1.val + T.val }
-    E → T          { E.val = T.val }
-    T → id         { T.val = lookup(id) }
-    ```
-    
-    Here:
-    
-    * `val` is a synthesized attribute
-    * `lookup(id)` retrieves the value of `id` from a symbol table
-    
-    ---
-    
-    ### 🧱 Types of Syntax-Directed Definitions
-    
-    SDDs can be classified into two main types based on the kind of attributes they use:
-    
-    #### 1. **S-Attributed Definitions**
-    
-    * Use **only synthesized attributes**
-    * Easier to implement
-    * Well-suited for **bottom-up parsing**
-    * Example: Code generation from arithmetic expressions
-    
-    #### 2. **L-Attributed Definitions**
-    
-    * Use **both synthesized and inherited attributes**
-    * Can be evaluated in **left-to-right** order
-    * Suitable for **top-down parsing**
-    * Supports more flexible semantic modeling (e.g., passing type info from parent to child)
-    
-    ---
-    
-    ### 🔧 Evaluation of Attributes
-    
-    To evaluate attributes in an SDD:
-    
-    * Construct the **parse tree**
-    * Traverse the tree in an order that respects **attribute dependencies**
-    
-      * For synthesized attributes: post-order traversal
-      * For inherited attributes: pre-order traversal
-    
-    This ensures that the values needed to compute each attribute are available when needed.
-    
-    ---
-    
-    ### 💡 Applications of Syntax-Directed Definitions
-    
-    | 🔧 Application                  | 💬 Description                                                              |
-    | ------------------------------- | --------------------------------------------------------------------------- |
-    | ✅ Type Checking                 | Verifying that variables and expressions follow correct type rules          |
-    | 🏗️ Syntax Tree Construction    | Building abstract or annotated syntax trees                                 |
-    | 💡 Intermediate Code Generation | Creating three-address code or other intermediate formats                   |
-    | 🧠 Semantic Analysis            | Validating meaning based on types, scope, and declarations                  |
-    | 📋 Symbol Table Management      | Storing variable/function info for later use in code generation or analysis |
-    | 🔍 Constant Folding             | Simplifying constant expressions during compilation                         |
-    
-    ---
-    
-    ### ✅ Advantages
-    
-    * Encourages **modular compiler design**
-    * Makes grammar-based **semantic processing** more systematic
-    * Useful for building tools like **interpreters**, **type checkers**, and **translators**
-    
-    ---
-    
-    ### ❌ Limitations
-    
-    * Handling **inherited attributes** can be complex and hard to implement in some parsers
-    * **Circular attribute dependencies** can cause evaluation issues
-    * Some grammars need to be rewritten to be compatible with SDD constraints
-    
-    ---
-    
-    ### 🧾 Conclusion
-    
-    **Syntax-Directed Definitions** provide a framework for integrating **syntax** and **semantics** in compiler design. They enable the compiler to process semantic information as part of parsing by using attributes and rules. Understanding SDDs is essential for building efficient, maintainable, and correct compilers or interpreters.
-    
-    ---
-    
-    Would you like the next topic — *Syntax-Directed Translation Schemes (SDTs)* — in the same format?
-    
+    <section>
+        <h3>Syntax-Directed Definitions (SDDs)</h3>
+        <p>Syntax-Directed Definitions (SDDs) are formal systems used in compiler design to define how semantic information is associated with syntactic constructs of a programming language. They combine context-free grammar with attributes and semantic rules, guiding the compiler to perform tasks such as type checking, intermediate code generation, and symbol table construction.</p>
+        <p>In simple terms:</p>
+        <blockquote>
+            SDDs define how to compute information (like types or values) from the structure of a program.
+        </blockquote>
+    </section>
+
+    <section>
+        <h4>What Makes Up an SDD?</h4>
+        <p>A Syntax-Directed Definition consists of:</p>
+        <ol>
+            <li><strong>A context-free grammar (CFG)</strong><br>This defines the syntax of the language.</li>
+            <li><strong>Attributes</strong><br>Associated with grammar symbols to hold semantic information.</li>
+            <li><strong>Semantic Rules</strong><br>These rules describe how to compute the value of each attribute using:
+                <ul>
+                    <li>Other attributes in the grammar production</li>
+                    <li>Auxiliary functions</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <section>
+        <h4>Types of Attributes</h4>
+        <p>There are two main kinds of attributes used in SDDs:</p>
+
+        <h5>1. Synthesized Attributes</h5>
+        <ul>
+            <li>Computed from children nodes in the parse tree.</li>
+            <li>Flow of information is bottom-up.</li>
+            <li>Commonly used with bottom-up parsers (LR parsers).</li>
+        </ul>
+
+        <h5>2. Inherited Attributes</h5>
+        <ul>
+            <li>Computed from parent or sibling nodes in the parse tree.</li>
+            <li>Flow of information is top-down or lateral.</li>
+            <li>Used in top-down parsers (LL parsers).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h4>Example of an SDD</h4>
+        <p>Consider the simple expression grammar:</p>
+        <pre>
+E → E1 + T  
+E → T  
+T → id
+        </pre>
+        <p>We can define attributes and semantic rules like this:</p>
+        <pre>
+E → E1 + T     { E.val = E1.val + T.val }
+E → T          { E.val = T.val }
+T → id         { T.val = lookup(id) }
+        </pre>
+        <p>Here:</p>
+        <ul>
+            <li><code>val</code> is a synthesized attribute</li>
+            <li><code>lookup(id)</code> retrieves the value of <code>id</code> from a symbol table</li>
+        </ul>
+    </section>
+
+    <section>
+        <h4>Types of Syntax-Directed Definitions</h4>
+        <p>SDDs can be classified into two main types based on the kind of attributes they use:</p>
+
+        <h5>1. S-Attributed Definitions</h5>
+        <ul>
+            <li>Use only synthesized attributes</li>
+            <li>Easier to implement</li>
+            <li>Well-suited for bottom-up parsing</li>
+            <li>Example: Code generation from arithmetic expressions</li>
+        </ul>
+
+        <h5>2. L-Attributed Definitions</h5>
+        <ul>
+            <li>Use both synthesized and inherited attributes</li>
+            <li>Can be evaluated in left-to-right order</li>
+            <li>Suitable for top-down parsing</li>
+            <li>Supports more flexible semantic modeling (e.g., passing type info from parent to child)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h4>Evaluation of Attributes</h4>
+        <p>To evaluate attributes in an SDD:</p>
+        <ul>
+            <li>Construct the parse tree</li>
+            <li>Traverse the tree in an order that respects attribute dependencies:
+                <ul>
+                    <li>For synthesized attributes: post-order traversal</li>
+                    <li>For inherited attributes: pre-order traversal</li>
+                </ul>
+            </li>
+        </ul>
+        <p>This ensures that the values needed to compute each attribute are available when needed.</p>
+    </section>
+
+    <section>
+        <h4>Applications of Syntax-Directed Definitions</h4>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <tr>
+                <th>Application</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Type Checking</td>
+                <td>Verifying that variables and expressions follow correct type rules</td>
+            </tr>
+            <tr>
+                <td>Syntax Tree Construction</td>
+                <td>Building abstract or annotated syntax trees</td>
+            </tr>
+            <tr>
+                <td>Intermediate Code Generation</td>
+                <td>Creating three-address code or other intermediate formats</td>
+            </tr>
+            <tr>
+                <td>Semantic Analysis</td>
+                <td>Validating meaning based on types, scope, and declarations</td>
+            </tr>
+            <tr>
+                <td>Symbol Table Management</td>
+                <td>Storing variable/function info for later use in code generation or analysis</td>
+            </tr>
+            <tr>
+                <td>Constant Folding</td>
+                <td>Simplifying constant expressions during compilation</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h4>Advantages</h4>
+        <ul>
+            <li>Encourages modular compiler design</li>
+            <li>Makes grammar-based semantic processing more systematic</li>
+            <li>Useful for building tools like interpreters, type checkers, and translators</li>
+        </ul>
+    </section>
+
+    <section>
+        <h4>Limitations</h4>
+        <ul>
+            <li>Handling inherited attributes can be complex and hard to implement in some parsers</li>
+            <li>Circular attribute dependencies can cause evaluation issues</li>
+            <li>Some grammars need to be rewritten to be compatible with SDD constraints</li>
+        </ul>
+    </section>
+
+    <section>
+        <h4>Conclusion</h4>
+        <p>Syntax-Directed Definitions provide a framework for integrating syntax and semantics in compiler design. They enable the compiler to process semantic information as part of parsing by using attributes and rules. Understanding SDDs is essential for building efficient, maintainable, and correct compilers or interpreters.</p>
+    </section>
+
+
+
     
   </main>
 
