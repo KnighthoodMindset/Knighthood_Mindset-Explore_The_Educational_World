@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(to bottom right, #1f81ab, #a0b9c1, #2c5364);
+  background: linear-gradient(to bottom right, #20baba, #96d5d3, #12b2b8);
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -12,6 +12,15 @@ h1 {
   text-align: center;
   padding: 30px 20px 10px;
   font-size: 2.5rem;
+  color:black;
+}
+h2 {
+  padding: 30px 20px 10px;
+  font-size: 1.5rem;
+  color:rgb(46, 12, 108);
+}
+h3 {
+  color:rgb(11, 9, 103);
 }
 
 .units-section {
@@ -36,8 +45,8 @@ h1 {
 
 /* Unit link box with more transparency */
 .unit-link {
-  background-color: rgba(255, 255, 255, 0.08); /* Increased transparency */
-  color: white;
+  background-color: rgba(9, 7, 118, 0.08); /* Increased transparency */
+  color: rgb(7, 6, 90);
   padding: 12px 24px;
   border-radius: 12px;
   text-decoration: none;
@@ -47,6 +56,6 @@ h1 {
 }
 
 .unit-link:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(83, 24, 161, 0.15);
   transform: scale(1.05);
 }
