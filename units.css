@@ -1,94 +1,52 @@
-/* Body and Background */
 body {
+  background: linear-gradient(to bottom right, #1f81ab, #a0b9c1, #2c5364);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom right, #b7d7e4, #dcdeed, #edd7f1);
-  color: white;
-  perspective: 1000px;
+  min-height: 100vh; /* Ensures full height background */
+  background-attachment: fixed; /* Keeps background smooth and fixed */
 }
 
-/* Headings */
 h1 {
   text-align: center;
-  font-size: 3rem;
-  margin-top: 30px;
-  color: #2036de;
-  text-shadow: 0 0 10px #abd8d3, 0 0 20px #00c0a8;
+  padding: 30px 20px 10px;
+  font-size: 2.5rem;
 }
 
-h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin: 10px 0 40px;
-  color: #720bcc;
+.units-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
 }
 
-h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #0a1e9e;
-  text-shadow: 0 0 5px rgba(255,255,255,0.2);
+.subject-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
-/* Layout for Topic Sections */
-ul {
-  list-style: none;
-  text-align: center;
-  padding: 20px;
-  margin: 0 auto 30px;
-  width: 90%;
-  max-width: 900px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transform-style: preserve-3d;
-  transform: rotateX(2deg);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+.units-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
 
-ul:hover {
-  transform: rotateX(0deg) scale(1.02);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
-}
-
-/* Individual Links */
-a {
-  display: block;
-  padding: 12px 20px;
-  margin: 10px 0;
-  background: linear-gradient(to right, #9cc2d8);
+/* Unit link box with more transparency */
+.unit-link {
+  background-color: rgba(255, 255, 255, 0.08); /* Increased transparency */
+  color: white;
+  padding: 12px 24px;
   border-radius: 12px;
-  color: black;
   text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-a:hover {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
-  background: linear-gradient(to right, #807bce, #7fbfb3);
+.unit-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
 }
-
-/* Responsive Design */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  ul {
-    padding: 15px;
-  }
-
-  a {
-    font-size: 0.95rem;
-    padding: 10px 15px;
-  }
-}
-  
