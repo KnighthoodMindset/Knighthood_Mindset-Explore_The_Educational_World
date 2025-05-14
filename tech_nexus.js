@@ -20,6 +20,14 @@ function showUnits(subject) {
     document.getElementById('ooadUnitsContainer').style.display = 'flex';
   } else if (subject === 'MEAN Stack Development') {
     document.getElementById('meanUnitsContainer').style.display = 'flex';
+  }else if (subject === 'Ethical Hacking') {
+    document.getElementById('EHUnitsContainer').style.display = 'flex';
+  }else if (subject === 'Basic electronics') {
+    document.getElementById('BEUnitsContainer').style.display = 'flex';
+  }else if (subject === 'Cloud Computing') {
+    document.getElementById('CCUnitsContainer').style.display = 'flex';
+  }else if (subject === 'Internet Of Things') {
+    document.getElementById('IOTUnitsContainer').style.display = 'flex';
   }
 }
 
@@ -62,6 +70,14 @@ function backToUnits() {
   } else if (currentSubject === 'OOAD') {
     document.getElementById('ooadUnitsContainer').style.display = 'flex';
   } else if (currentSubject === 'MEAN Stack Development') {
+    document.getElementById('EHUnitsContainer').style.display = 'flex';
+  }else if (currentSubject === 'Ethical Hacking') {
+    document.getElementById('BEContainer').style.display = 'flex';
+  }else if (currentSubject === 'Basic Electronics') {
+    document.getElementById('CCUnitsContainer').style.display = 'flex';
+  }else if (currentSubject === 'Cloud Computing') {
+    document.getElementById('IOTUnitsContainer').style.display = 'flex';
+  }else if (currentSubject === 'Internet Of Things') {
     document.getElementById('meanUnitsContainer').style.display = 'flex';
   }
 
