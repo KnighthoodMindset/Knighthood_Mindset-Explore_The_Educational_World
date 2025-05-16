@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+Here's a detailed theoretical answer for the topic **"Using ping and nslookup commands in Windows Command Line"** under **Ethical Hacking**:
+
+---
+
+### **Using `ping` and `nslookup` Commands in Windows Command Line**
+
+In the world of **ethical hacking** and **network diagnostics**, two fundamental tools included in every Windows operating system are the `ping` and `nslookup` commands. These tools help ethical hackers and IT professionals perform **basic reconnaissance, verify connectivity**, and resolve **DNS-related queries**. They are especially useful during the **footprinting** and **reconnaissance** phases of penetration testing.
+
+---
+
+## **1. `ping` Command**
+
+### **Definition and Purpose**
+
+The `ping` command is used to test the **reachability** of a host on an Internet Protocol (IP) network. It also measures the **round-trip time** for messages sent from the source host to a destination computer.
+
+### **Syntax**
+
+```bash
+ping [hostname or IP address]
+```
+
+### **How it Works**
+
+* Sends **ICMP Echo Request** messages to the destination.
+* If the target is reachable, it replies with **ICMP Echo Reply** messages.
+* Displays the **time taken**, **packet loss**, and **TTL (Time to Live)**.
+
+### **Example**
+
+```bash
+ping google.com
+```
+
+#### **Output Sample**
+
+```
+Pinging google.com [142.250.182.238] with 32 bytes of data:
+Reply from 142.250.182.238: bytes=32 time=20ms TTL=117
+...
+Ping statistics for 142.250.182.238:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 19ms, Maximum = 22ms, Average = 20ms
+```
+
+### **Key Indicators**
+
+| Term      | Meaning                                     |
+| --------- | ------------------------------------------- |
+| **bytes** | Packet size sent                            |
+| **time**  | Time taken for round trip                   |
+| **TTL**   | Maximum hops allowed (decreases per router) |
+| **loss**  | Packet loss percentage                      |
+
+### **Uses in Ethical Hacking**
+
+* To check **host availability**
+* To determine **network latency**
+* To detect **network downtime**
+* To perform **initial reconnaissance**
+
+### **Limitations**
+
+* Some servers or firewalls may **block ICMP requests**
+* Not a foolproof method to determine host unavailability
+
+---
+
+## **2. `nslookup` Command**
+
+### **Definition and Purpose**
+
+`nslookup` (Name Server Lookup) is a command-line utility used to **query Domain Name System (DNS)** to obtain **domain name or IP address mappings** and other DNS records. It is a powerful tool for identifying **DNS misconfigurations**, subdomains, and hidden services.
+
+### **Syntax**
+
+```bash
+nslookup [hostname]
+```
+
+### **Basic Example**
+
+```bash
+nslookup google.com
+```
+
+#### **Output Sample**
+
+```
+Server:  UnKnown
+Address:  192.168.1.1
+
+Non-authoritative answer:
+Name:    google.com
+Addresses:  142.250.182.238
+```
+
+### **Advanced Usage**
+
+* **Query a specific record type (A, MX, NS, TXT):**
+
+```bash
+nslookup -type=MX gmail.com
+```
+
+* **Use a specific DNS server:**
+
+```bash
+nslookup google.com 8.8.8.8
+```
+
+* **Interactive Mode (for multiple queries):**
+
+```bash
+nslookup
+> set type=any
+> microsoft.com
+```
+
+### **Common DNS Record Types**
+
+| Type      | Description                       |
+| --------- | --------------------------------- |
+| **A**     | IPv4 address record               |
+| **AAAA**  | IPv6 address record               |
+| **MX**    | Mail exchange server              |
+| **NS**    | Name server                       |
+| **CNAME** | Canonical name (alias)            |
+| **TXT**   | Text records (used in SPF, DMARC) |
+
+### **Uses in Ethical Hacking**
+
+* Find **IP addresses** of targets
+* Discover **subdomains** and **hidden services**
+* Identify **email servers (MX records)** for phishing simulations
+* Reveal **DNS misconfigurations**
+
+---
+
+### **Comparing `ping` and `nslookup`**
+
+| Feature    | `ping`                     | `nslookup`                     |
+| ---------- | -------------------------- | ------------------------------ |
+| Function   | Tests connectivity         | Resolves domain names          |
+| Protocol   | ICMP                       | DNS                            |
+| Purpose    | Network status and latency | Domain info and DNS records    |
+| Common Use | Check if host is online    | Find IP address or DNS entries |
+
+---
+
+### **Conclusion**
+
+The `ping` and `nslookup` commands are essential tools for ethical hackers and network administrators. While simple, they provide **critical insights during the footprinting phase**, helping to map out the **network landscape**, identify **active hosts**, and **reveal DNS configurations**. Mastery of these tools is a fundamental skill in ethical hacking, enabling deeper analysis and aiding in the discovery of potential attack surfaces.
+
+---
+
+Would you like this explanation in HTML format next?
+
+
+
+
+   </main>
+
+    <footer>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>
