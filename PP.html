@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <title>Introduction to Ports and Protocols | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -14,163 +14,149 @@
 
   <main>
 
+<section>
+    <h3>Introduction to Ports and Protocols</h3>
+    <p>In the world of computer networking and cybersecurity, ports and protocols play a fundamental role in enabling devices to communicate with one another across local and global networks. Every online service you access—whether browsing a website, sending an email, or streaming a video—relies on these elements to function seamlessly. Understanding ports and protocols is crucial for ethical hackers, network administrators, and cybersecurity professionals to protect systems and ensure smooth communication.</p>
+</section>
+
+<section>
+    <h5>What are Protocols?</h5>
+    <p>A protocol is a set of rules and conventions that define how data is formatted, transmitted, and received over a network. Protocols ensure that devices—regardless of manufacturer or system—can communicate effectively. They operate at different layers of the OSI (Open Systems Interconnection) model and the TCP/IP model, dictating how information travels across networks.</p>
+
+    <h5>Examples of Common Protocols:</h5>
+    <table border="1" cellpadding="6">
+        <tr>
+            <th>Protocol</th>
+            <th>Full Form</th>
+            <th>Purpose</th>
+        </tr>
+        <tr><td>HTTP</td><td>HyperText Transfer Protocol</td><td>Used for web page communication</td></tr>
+        <tr><td>HTTPS</td><td>HTTP Secure</td><td>Secure version of HTTP (with SSL/TLS)</td></tr>
+        <tr><td>FTP</td><td>File Transfer Protocol</td><td>Transfers files between systems</td></tr>
+        <tr><td>SMTP</td><td>Simple Mail Transfer Protocol</td><td>Sends email</td></tr>
+        <tr><td>POP3</td><td>Post Office Protocol v3</td><td>Retrieves email</td></tr>
+        <tr><td>IMAP</td><td>Internet Message Access Protocol</td><td>Accesses email on servers</td></tr>
+        <tr><td>DNS</td><td>Domain Name System</td><td>Resolves domain names to IPs</td></tr>
+        <tr><td>DHCP</td><td>Dynamic Host Configuration</td><td>Assigns IP addresses to devices</td></tr>
+        <tr><td>SSH</td><td>Secure Shell</td><td>Secure remote command-line access</td></tr>
+        <tr><td>Telnet</td><td>Terminal Network</td><td>Remote text-based interface</td></tr>
+    </table>
+</section>
+
+<section>
+    <h5>What are Ports?</h5>
+    <p>A port is a logical access channel or endpoint used by protocols to communicate. It identifies specific processes or services on a device so that data is delivered to the correct destination.</p>
+
+    <h5>Port Categories:</h5>
+    <table border="1" cellpadding="6">
+        <tr>
+            <th>Port Range</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr><td>0 – 1023</td><td>Well-known Ports</td><td>Assigned to common services (e.g., HTTP, FTP, SSH)</td></tr>
+        <tr><td>1024 – 49151</td><td>Registered Ports</td><td>Used by user applications and software</td></tr>
+        <tr><td>49152 – 65535</td><td>Dynamic/Private</td><td>Used temporarily (ephemeral) for client-side connections</td></tr>
+    </table>
+</section>
+
+<section>
+    <h5>How Ports and Protocols Work Together</h5>
+    <p>When a device communicates over a network:</p>
+    <ul>
+        <li>It uses a protocol to define the rules.</li>
+        <li>It uses a port number to define the specific service or application.</li>
+    </ul>
+    <p><strong>Example:</strong> If you open your browser and visit <em>http://example.com</em>:</p>
+    <ul>
+        <li>Your computer uses the HTTP protocol</li>
+        <li>It sends the request to port 80 of the server</li>
+        <li>The server responds using the same port</li>
+    </ul>
+</section>
+
+<section>
+    <h5>Common Protocols and Their Port Numbers</h5>
+    <table border="1" cellpadding="6">
+        <tr>
+            <th>Protocol</th>
+            <th>Port Number</th>
+            <th>Description</th>
+        </tr>
+        <tr><td>HTTP</td><td>80</td><td>Web traffic</td></tr>
+        <tr><td>HTTPS</td><td>443</td><td>Secure web traffic</td></tr>
+        <tr><td>FTP</td><td>20, 21</td><td>File transfer</td></tr>
+        <tr><td>SSH</td><td>22</td><td>Secure remote access</td></tr>
+        <tr><td>Telnet</td><td>23</td><td>Unsecured remote access</td></tr>
+        <tr><td>SMTP</td><td>25</td><td>Email sending</td></tr>
+        <tr><td>DNS</td><td>53</td><td>Domain name resolution</td></tr>
+        <tr><td>DHCP</td><td>67, 68</td><td>IP address assignment</td></tr>
+        <tr><td>POP3</td><td>110</td><td>Email receiving</td></tr>
+        <tr><td>IMAP</td><td>143</td><td>Email access</td></tr>
+        <tr><td>SNMP</td><td>161</td><td>Network management</td></tr>
+        <tr><td>RDP</td><td>3389</td><td>Remote Desktop Protocol</td></tr>
+    </table>
+</section>
+
+<section>
+    <h5>Importance in Ethical Hacking</h5>
+    <ul>
+        <li><strong>Vulnerability Detection:</strong> Many services run on default ports. Scanning reveals exposed services.</li>
+        <li><strong>Exploitation:</strong> Tools like Nmap and Netcat are used to find and exploit vulnerable services.</li>
+        <li><strong>Defense Mechanisms:</strong> Firewalls and IDS rely on ports/protocols to filter traffic.</li>
+    </ul>
+</section>
+
+<section>
+    <h5>Port Scanning (Ethical and Malicious Use)</h5>
+    <p>Ethical hackers often perform port scanning to test which ports are open and what services are running on them.</p>
+
+    <h5>Common Tools:</h5>
+    <ul>
+        <li>Nmap</li>
+        <li>Netcat</li>
+        <li>Zenmap</li>
+    </ul>
+
+    <h5>Scanning Techniques:</h5>
+    <table border="1" cellpadding="6">
+        <tr>
+            <th>Technique</th>
+            <th>Description</th>
+        </tr>
+        <tr><td>TCP Connect</td><td>Complete connection made to port</td></tr>
+        <tr><td>SYN Scan</td><td>Half-open scanning, faster and stealthier</td></tr>
+        <tr><td>UDP Scan</td><td>Checks for UDP-based services</td></tr>
+        <tr><td>ACK Scan</td><td>Used to determine firewall rules</td></tr>
+    </table>
+</section>
+
+<section>
+    <h5>Advantages of Understanding Ports and Protocols</h5>
+    <ul>
+        <li>Helps secure systems by identifying unnecessary open ports</li>
+        <li>Assists in incident response and forensics</li>
+        <li>Aids in firewall and security device configuration</li>
+        <li>Enables vulnerability testing of networks and servers</li>
+    </ul>
+</section>
+
+<section>
+    <h5>Disadvantages/Risks</h5>
+    <ul>
+        <li>Open ports can be exploited if not secured</li>
+        <li>Misconfigured protocols may expose sensitive data</li>
+        <li>Default ports are often targeted by attackers</li>
+        <li>Requires constant monitoring and updating</li>
+    </ul>
+</section>
 
 
-Sure! Here’s a **detailed theoretical explanation** of the topic:
+<section>
+    <h5>Conclusion</h5>
+    <p>Ports and protocols form the foundation of digital communication. They allow systems to communicate, exchange data, and offer services—but also serve as entry points for cyber threats. For ethical hackers, mastering the structure and function of these components is vital to identifying vulnerabilities and fortifying systems against attacks.</p>
+</section>
 
----
-
-## **Introduction to Ports and Protocols**
-
-In the world of computer networking and cybersecurity, **ports** and **protocols** play a fundamental role in enabling devices to communicate with one another across local and global networks. Every online service you access—whether browsing a website, sending an email, or streaming a video—relies on these elements to function seamlessly. Understanding ports and protocols is crucial for ethical hackers, network administrators, and cybersecurity professionals to protect systems and ensure smooth communication.
-
----
-
-### 🔹 **What are Protocols?**
-
-A **protocol** is a **set of rules and conventions** that define how data is formatted, transmitted, and received over a network. Protocols ensure that devices—regardless of manufacturer or system—can communicate effectively. They operate at different layers of the **OSI (Open Systems Interconnection)** model and the **TCP/IP model**, dictating how information travels across networks.
-
-#### ✅ **Examples of Common Protocols:**
-
-| Protocol | Full Form                     | Purpose                               |
-| -------- | ----------------------------- | ------------------------------------- |
-| HTTP     | HyperText Transfer Protocol   | Used for web page communication       |
-| HTTPS    | HTTP Secure                   | Secure version of HTTP (with SSL/TLS) |
-| FTP      | File Transfer Protocol        | Transfers files between systems       |
-| SMTP     | Simple Mail Transfer Protocol | Sends email                           |
-| POP3     | Post Office Protocol v3       | Retrieves email                       |
-| IMAP     | Internet Message Access Prot. | Accesses email on servers             |
-| DNS      | Domain Name System            | Resolves domain names to IPs          |
-| DHCP     | Dynamic Host Configuration    | Assigns IP addresses to devices       |
-| SSH      | Secure Shell                  | Secure remote command-line access     |
-| Telnet   | Terminal Network              | Remote text-based interface           |
-
-Each protocol defines:
-
-* **Data structure**: How messages are formatted.
-* **Communication rules**: How devices start, maintain, and end conversations.
-* **Error handling**: What to do when communication fails.
-
----
-
-### 🔹 **What are Ports?**
-
-A **port** is a **logical access channel or endpoint** used by protocols to communicate. It identifies **specific processes or services** on a device so that data is delivered to the correct destination. Think of an IP address as the street address of a device, and ports as the apartment numbers where specific services live.
-
-There are **65,536** ports in total, ranging from **0 to 65535**.
-
-#### 📌 **Port Categories:**
-
-| Port Range    | Name             | Description                                              |
-| ------------- | ---------------- | -------------------------------------------------------- |
-| 0 – 1023      | Well-known Ports | Assigned to common services (e.g., HTTP, FTP, SSH)       |
-| 1024 – 49151  | Registered Ports | Used by user applications and software                   |
-| 49152 – 65535 | Dynamic/Private  | Used temporarily (ephemeral) for client-side connections |
-
----
-
-### 🔹 **How Ports and Protocols Work Together**
-
-When a device communicates over a network:
-
-* It uses a **protocol** to define the rules.
-* It uses a **port number** to define the specific service or application.
-
-#### 📶 **Example:**
-
-If you open your browser and visit `http://example.com`:
-
-* Your computer uses the **HTTP protocol**
-* It sends the request to **port 80** of the server (default port for HTTP)
-* The server responds using the same port to communicate with your browser
-
----
-
-### 🔹 **Common Protocols and Their Port Numbers**
-
-| Protocol | Port Number | Description             |
-| -------- | ----------- | ----------------------- |
-| HTTP     | 80          | Web traffic             |
-| HTTPS    | 443         | Secure web traffic      |
-| FTP      | 20, 21      | File transfer           |
-| SSH      | 22          | Secure remote access    |
-| Telnet   | 23          | Unsecured remote access |
-| SMTP     | 25          | Email sending           |
-| DNS      | 53          | Domain name resolution  |
-| DHCP     | 67, 68      | IP address assignment   |
-| POP3     | 110         | Email receiving         |
-| IMAP     | 143         | Email access            |
-| SNMP     | 161         | Network management      |
-| RDP      | 3389        | Remote Desktop Protocol |
-
----
-
-### 🔹 **Importance in Ethical Hacking**
-
-Understanding ports and protocols is essential in ethical hacking because:
-
-#### 🔍 **1. Vulnerability Detection**
-
-* Many services run on default ports. If not secured, attackers can target these ports.
-* Scanning for **open ports** can reveal which services are exposed.
-
-#### 🛠️ **2. Exploitation**
-
-* Attackers use tools like Nmap or Netcat to discover and exploit vulnerable ports or misconfigured protocols.
-
-#### 🔐 **3. Defense Mechanisms**
-
-* Firewalls and intrusion detection systems (IDS) use ports and protocols to allow or block traffic.
-* Port filtering helps secure a network from unwanted or harmful communication.
-
----
-
-### 🔹 **Port Scanning (Ethical and Malicious Use)**
-
-Ethical hackers often perform **port scanning** to test which ports are open and what services are running on them.
-
-#### Common Tools:
-
-* **Nmap**
-* **Netcat**
-* **Zenmap**
-
-#### Scanning Techniques:
-
-| Technique   | Description                               |
-| ----------- | ----------------------------------------- |
-| TCP Connect | Complete connection made to port          |
-| SYN Scan    | Half-open scanning, faster and stealthier |
-| UDP Scan    | Checks for UDP-based services             |
-| ACK Scan    | Used to determine firewall rules          |
-
----
-
-### 🔹 **Advantages of Understanding Ports and Protocols**
-
-* Helps secure systems by identifying unnecessary open ports
-* Assists in incident response and forensics
-* Aids in firewall and security device configuration
-* Enables vulnerability testing of networks and servers
-
----
-
-### 🔹 **Disadvantages/Risks**
-
-* **Open ports** can be exploited if not secured
-* **Misconfigured protocols** may expose sensitive data
-* **Default ports** are often targeted by attackers
-* Requires constant monitoring and updating
-
----
-
-### 🔹 **Conclusion**
-
-Ports and protocols form the **foundation of digital communication**. They allow systems to communicate, exchange data, and offer services—but also serve as entry points for cyber threats. For ethical hackers, mastering the structure and function of these components is vital to identifying vulnerabilities and fortifying systems against attacks. Whether it’s scanning for open ports or analyzing protocol behavior, understanding these elements is crucial in both offense and defense in the cybersecurity landscape.
-
----
-
-Would you like me to follow this format for the rest of the topics as well? And do you want a separate explanation on **"Port Scanning"** as a topic later?
 
 
 
@@ -178,7 +164,7 @@ Would you like me to follow this format for the rest of the topics as well? And 
   </main>
 
     <footer>
-    <a href="CD_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
     </footer>
 
  </body>
