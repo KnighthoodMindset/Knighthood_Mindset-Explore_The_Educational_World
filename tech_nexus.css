@@ -129,6 +129,7 @@ section h2::after {
 .back-btn:hover {
   background-color: #2cbcc5;
 }
+
 .units-container {
   display: flex;
   flex-direction: column;
@@ -154,3 +155,4 @@ section h2::after {
   background-color: #d6ddf5;
   transform: scale(1.05);
 }
+
