@@ -16,13 +16,17 @@ h1 {
 }
 
 h2 {
-  padding: 30px 20px 10px;
+  text-align: center;
+  padding: 10px 10px 10px;
   font-size: 1.5rem;
   color: rgb(46, 12, 108);
 }
 
 h3 {
   color: rgb(11, 9, 103);
+}
+h4 {
+  color: rgb(174, 18, 143);
 }
 
 .units-section {
@@ -99,3 +103,4 @@ h3 {
     text-align: center;
   }
 }
+
