@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+Here’s a **long and detailed explanation** for **“Process of System Hacking”** tailored for **Ethical Hacking Unit 3** notes:
+
+---
+
+# **Process of System Hacking**
+
+## **1. Introduction**
+
+System hacking refers to the process by which an attacker gains unauthorized access to a target system to steal, modify, or destroy data, or to use the system for malicious purposes. It is a multi-step procedure involving a series of planned actions, tools, and techniques designed to bypass security mechanisms and control the compromised system.
+
+Understanding the **process of system hacking** is crucial for ethical hackers to identify vulnerabilities, replicate attack strategies for testing, and strengthen defenses.
+
+---
+
+## **2. Overview of the Process**
+
+System hacking generally follows a systematic sequence of phases:
+
+1. **Information Gathering and Reconnaissance**
+2. **Scanning and Enumeration**
+3. **Gaining Access**
+4. **Maintaining Access**
+5. **Clearing Tracks**
+6. **Covering Footprints and Post-Exploitation**
+
+Each phase involves specific objectives and methods designed to move the attacker closer to full control of the target system.
+
+---
+
+## **3. Detailed Steps**
+
+### **Step 1: Information Gathering and Reconnaissance**
+
+* **Objective**: Collect as much information about the target system, network, and users as possible.
+* **Methods**:
+
+  * Passive reconnaissance (e.g., WHOIS lookups, social media mining, Google hacking).
+  * Active reconnaissance (e.g., ping sweeps, banner grabbing).
+* **Tools**: Nmap, Maltego, Recon-ng, Netcraft.
+
+This phase sets the foundation by identifying system details, open ports, services, and potential vulnerabilities.
+
+---
+
+### **Step 2: Scanning and Enumeration**
+
+* **Objective**: Identify live hosts, open ports, and gather detailed info about system resources and users.
+* **Techniques**:
+
+  * **Port Scanning**: Using tools to find open ports (e.g., TCP/UDP).
+  * **Vulnerability Scanning**: Detecting exploitable software weaknesses.
+  * **Enumeration**: Extracting user names, group info, network shares, and services.
+* **Tools**: Nmap, Nessus, Netcat, SNMPwalk, Enum4linux.
+
+Enumeration helps identify target services and user accounts, which may be exploited later.
+
+---
+
+### **Step 3: Gaining Access**
+
+* **Objective**: Exploit identified vulnerabilities or weaknesses to obtain unauthorized entry.
+* **Methods**:
+
+  * **Exploiting software vulnerabilities** (buffer overflows, SQL injection, misconfigurations).
+  * **Password attacks** (brute force, dictionary, default passwords).
+  * **Social engineering** (phishing, pretexting).
+  * **Privilege escalation** to gain administrative rights.
+* **Tools**: Metasploit Framework, Hydra, John the Ripper, SQLMap.
+
+This is the critical phase where the attacker penetrates the system.
+
+---
+
+### **Step 4: Maintaining Access**
+
+* **Objective**: Ensure continued control over the system after the initial breach.
+* **Techniques**:
+
+  * Installing **backdoors** and **rootkits** to regain access.
+  * Creating new user accounts with elevated privileges.
+  * Using **trojan horses** and **remote access tools (RATs)**.
+* **Tools**: Netcat, NetBus, Meterpreter.
+
+Maintaining access allows persistent control for data extraction or launching further attacks.
+
+---
+
+### **Step 5: Clearing Tracks**
+
+* **Objective**: Erase evidence of intrusion to avoid detection.
+* **Methods**:
+
+  * Deleting or modifying logs (system, security, application).
+  * Altering timestamps.
+  * Removing installed backdoors or tools after use.
+* **Tools**: Log cleaners, rootkits.
+
+Clearing tracks helps attackers avoid forensic analysis and prolong their presence.
+
+---
+
+### **Step 6: Covering Footprints and Post-Exploitation**
+
+* **Objective**: Secure and exploit the compromised system further.
+* **Activities**:
+
+  * **Data exfiltration** (stealing sensitive data).
+  * **Pivoting** to other network systems.
+  * Installing persistent malware.
+  * Creating botnets or launching DoS attacks.
+* **Tools**: Mimikatz (credential harvesting), Proxychains (anonymizing), Cobalt Strike.
+
+Post-exploitation maximizes the attack’s impact and spreads influence.
+
+---
+
+## **4. Summary Table of the System Hacking Process**
+
+| Phase                  | Description                                      | Tools/Techniques            |
+| ---------------------- | ------------------------------------------------ | --------------------------- |
+| Information Gathering  | Collect initial data about target systems        | WHOIS, Recon-ng, Maltego    |
+| Scanning & Enumeration | Identify live hosts, open ports, users           | Nmap, Nessus, Enum4linux    |
+| Gaining Access         | Exploit vulnerabilities to enter system          | Metasploit, SQLMap, Hydra   |
+| Maintaining Access     | Install backdoors, rootkits, create users        | Netcat, Meterpreter         |
+| Clearing Tracks        | Erase evidence, logs                             | Log cleaners, rootkits      |
+| Post-Exploitation      | Data theft, lateral movement, persistent control | Mimikatz, Proxychains, RATs |
+
+---
+
+## **5. Importance for Ethical Hackers**
+
+* Replicating the attack process in a controlled environment enables identification of weak points.
+* Helps organizations patch vulnerabilities before attackers exploit them.
+* Guides implementation of layered defenses to block or detect each phase.
+* Encourages proactive monitoring and incident response planning.
+
+---
+
+## **6. Conclusion**
+
+The **process of system hacking** is a structured approach that moves from reconnaissance to exploitation and finally to persistent control and cover-up. Ethical hackers must understand this process thoroughly to simulate real-world attacks and protect systems effectively. Each step offers unique opportunities for both attackers and defenders, emphasizing the importance of comprehensive security measures and continuous vigilance.
+
+---
+
+Would you like detailed notes on the next topic? Just let me know!
+
+    
+  </main>
+
+    <footer>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>

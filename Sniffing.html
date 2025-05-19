@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+
+Great! Here's a **long and detailed explanation** of the topic **"Sniffing"** for your **Tech Nexus Ethical Hacking Unit 3** notes:
+
+---
+
+# **Sniffing**
+
+## **1. Introduction**
+
+Sniffing is a technique used in ethical hacking and cybersecurity that involves monitoring and capturing network packets traveling through a network. These packets can contain sensitive data such as login credentials, emails, credit card numbers, or proprietary information. Depending on its use, sniffing can be either legal and useful (e.g., for network troubleshooting) or illegal and malicious (e.g., for stealing information).
+
+---
+
+## **2. What is Sniffing?**
+
+**Sniffing** is the process of intercepting and logging traffic that passes over a digital network or part of a network. It involves capturing the data packets that are transmitted between computers or devices in a network using specialized software or hardware tools.
+
+* The devices used for sniffing are often called **packet sniffers** or **network analyzers**.
+* Sniffing can occur on **wired** or **wireless** networks.
+* Ethical hackers use sniffing to detect network vulnerabilities, while attackers use it to steal sensitive data.
+
+---
+
+## **3. Types of Sniffing**
+
+### **A. Passive Sniffing**
+
+* Monitors the traffic without altering or interfering with the communication between devices.
+* Works well in **hub-based** networks where data packets are broadcasted to all connected systems.
+* Harder to detect since it doesn’t create abnormal network activity.
+
+**Example:** Monitoring HTTP traffic in a shared Wi-Fi network to capture login credentials.
+
+### **B. Active Sniffing**
+
+* Involves injecting packets into the network to force traffic through the attacker's system.
+* Used in **switched networks** where data is only sent to the specific recipient.
+* Can involve techniques like ARP poisoning or MAC flooding to reroute traffic.
+
+**Example:** Using ARP spoofing to redirect data from the victim to the attacker.
+
+---
+
+## **4. Protocols Vulnerable to Sniffing**
+
+Sniffing attacks are particularly effective against protocols that transmit data in plain text:
+
+| **Protocol**  | **Vulnerability**                              |
+| ------------- | ---------------------------------------------- |
+| **HTTP**      | Sends data unencrypted.                        |
+| **FTP**       | Transfers files without encryption.            |
+| **Telnet**    | Transmits commands and passwords in plaintext. |
+| **SMTP/POP3** | Email data often lacks encryption.             |
+
+**Note:** Protocols like HTTPS, SFTP, and SSH use encryption and are less vulnerable to sniffing.
+
+---
+
+## **5. Sniffing Tools**
+
+| **Tool**        | **Description**                                                                                    |
+| --------------- | -------------------------------------------------------------------------------------------------- |
+| **Wireshark**   | Most popular network protocol analyzer, used for both ethical hacking and network troubleshooting. |
+| **Tcpdump**     | Command-line packet analyzer.                                                                      |
+| **Ettercap**    | Supports active sniffing and MiTM attacks.                                                         |
+| **Cain & Abel** | Combines sniffing with password cracking features (mainly for Windows).                            |
+| **Kismet**      | Wireless sniffer, useful for Wi-Fi packet capture.                                                 |
+
+---
+
+## **6. Techniques Used in Sniffing**
+
+### a. **ARP Spoofing**
+
+* Attacker sends fake ARP messages to associate their MAC address with the IP address of another host (e.g., default gateway).
+* Redirects traffic through the attacker’s machine.
+
+### b. **MAC Flooding**
+
+* Overwhelms a switch with fake MAC addresses, forcing it into hub-like behavior.
+* This causes the switch to broadcast all traffic, which can then be sniffed.
+
+### c. **DNS Spoofing**
+
+* Alters DNS records to redirect traffic to malicious websites.
+* Can be combined with sniffing to capture sensitive data.
+
+### d. **MITM (Man-in-the-Middle) Attack**
+
+* The attacker secretly relays and possibly alters the communication between two parties.
+* Commonly used in combination with sniffing.
+
+---
+
+## **7. How Sniffing Works: Step-by-Step**
+
+1. **Identify the Target Network**: Attacker connects to a LAN or Wi-Fi network.
+2. **Enable Promiscuous Mode**: The attacker’s network interface card (NIC) is set to capture all packets (not just those addressed to it).
+3. **Capture Packets**: Using sniffing tools, packets are collected.
+4. **Analyze Data**: Extract information such as usernames, passwords, session cookies, etc.
+5. **Optionally Perform Active Attacks**: For example, using ARP spoofing to hijack sessions.
+
+---
+
+## **8. Real-World Examples**
+
+* **Public Wi-Fi Attacks**: Attackers on unsecured Wi-Fi networks can capture traffic from unsuspecting users.
+* **Corporate Espionage**: Malicious insiders use sniffers to steal proprietary data.
+* **Session Hijacking**: Sniffing is used to capture session tokens, enabling attackers to impersonate legitimate users.
+
+---
+
+## **9. Prevention and Detection of Sniffing**
+
+### **A. Prevention Techniques**
+
+| **Technique**           | **Description**                                    |
+| ----------------------- | -------------------------------------------------- |
+| Use Encrypted Protocols | Use HTTPS, SFTP, SSH, etc.                         |
+| Switch Networks         | Avoid hub-based networks.                          |
+| Use Static ARP Entries  | Prevent ARP spoofing.                              |
+| Employ VPNs             | Encrypt all traffic over public networks.          |
+| Implement Port Security | Limit the number of MAC addresses per switch port. |
+
+### **B. Detection Tools**
+
+| **Tool**      | **Description**                         |
+| ------------- | --------------------------------------- |
+| **Wireshark** | Can detect ARP spoofing.                |
+| **Sniffdet**  | Identifies NICs in promiscuous mode.    |
+| **Nmap**      | Can scan for abnormal network behavior. |
+| **ARPWatch**  | Monitors for ARP activity changes.      |
+
+---
+
+## **10. Ethical Hacking Perspective**
+
+Ethical hackers use sniffing to:
+
+* Diagnose network problems.
+* Identify security loopholes.
+* Monitor for unauthorized data leaks.
+* Test the effectiveness of encryption.
+
+However, ethical sniffing should always be done with permission and within legal boundaries to avoid violating user privacy or breaking the law.
+
+---
+
+## **11. Conclusion**
+
+Sniffing is a powerful yet dangerous technique that can reveal critical information when misused. Ethical hackers must understand how sniffing works to defend against it, detect malicious sniffers, and secure networks with proper encryption and architecture. With the rise of secure communication protocols and increasing cybersecurity awareness, effective sniffing prevention is now more achievable than ever.
+
+---
+
+Would you like me to continue with the next topic, or add images, diagrams, or tables for better visualization?
+
+
+       
+  </main>
+
+    <footer>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>

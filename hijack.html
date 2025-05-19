@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+Here is a **long and detailed explanation** of the topic **“Session Hijacking”** under **Ethical Hacking Unit 3: Sniffing**, suitable for your **Tech Nexus** website:
+
+---
+
+# **Session Hijacking**
+
+---
+
+## **1. Introduction**
+
+In the field of cybersecurity and ethical hacking, **Session Hijacking** is a critical and dangerous attack technique where an attacker **takes control of a legitimate session** between two systems. This session typically involves a user and a web server, often authenticated using cookies, tokens, or session IDs.
+
+By hijacking this session, the attacker **gains unauthorized access** to services and data as if they were the legitimate user.
+
+---
+
+## **2. What is a Session?**
+
+A **session** is a temporary and interactive exchange of information between two or more devices over a network. In web applications, sessions are used to maintain user state and identity after login.
+
+* For example: When you log in to a website, a session is created and maintained using a **session ID** stored in a cookie or URL parameter.
+
+---
+
+## **3. What is Session Hijacking?**
+
+**Session Hijacking** (also known as **cookie hijacking**) refers to the exploitation of a valid computer session—most commonly a web session—to **gain unauthorized access** to information or services in a computer system.
+
+> **Goal:** Impersonate a legitimate user and access confidential services or data.
+
+---
+
+## **4. How Session Hijacking Works**
+
+### 🔐 Step-by-Step Process:
+
+1. **User logs in** to a secure website (e.g., online banking).
+2. Server assigns a **session ID** to maintain the session.
+3. The session ID is stored in:
+
+   * Cookies
+   * URL (query string)
+   * Hidden form fields
+4. Attacker **steals the session ID** using various techniques.
+5. Attacker **injects the session ID** into their own browser.
+6. The server thinks the attacker is the legitimate user.
+7. Attacker **accesses the account without knowing the password**.
+
+---
+
+## **5. Techniques Used in Session Hijacking**
+
+| Technique                      | Description                                                              |
+| ------------------------------ | ------------------------------------------------------------------------ |
+| **Session Sidejacking**        | Capturing session cookies via sniffing tools on unsecured networks.      |
+| **Cross-site Scripting (XSS)** | Injecting scripts to steal session cookies.                              |
+| **Man-in-the-Middle (MITM)**   | Intercepting traffic between client and server to extract session IDs.   |
+| **Session Fixation**           | Forcing the user to use a known session ID so the attacker can reuse it. |
+| **Brute Forcing Session IDs**  | Guessing or predicting session IDs due to weak session management.       |
+
+---
+
+## **6. Types of Session Hijacking**
+
+### 🔹 **Active Session Hijacking**
+
+* The attacker **actively takes over** an ongoing session.
+* Often involves MITM attacks or injected commands.
+
+### 🔹 **Passive Session Hijacking**
+
+* The attacker only **monitors or eavesdrops** on the session.
+* No direct interaction or modification is made.
+
+---
+
+## **7. Real-Life Example: Sidejacking on Open Wi-Fi**
+
+1. User connects to a public Wi-Fi network and logs into a website (not using HTTPS).
+2. Attacker uses a tool like **Firesheep** or **Wireshark** to sniff network traffic.
+3. Session cookie is captured and used to hijack the session.
+4. Attacker logs into the victim’s account and takes control.
+
+---
+
+## **8. Popular Tools for Session Hijacking**
+
+| Tool                                      | Description                                                              |
+| ----------------------------------------- | ------------------------------------------------------------------------ |
+| **Ettercap**                              | Network sniffing and MITM attacks; useful for ARP poisoning.             |
+| **Firesheep**                             | Firefox extension that captures unencrypted session cookies.             |
+| **Burp Suite**                            | Intercepts and manipulates HTTP requests and sessions.                   |
+| **Wireshark**                             | Captures and analyzes packets on a network for sniffing session cookies. |
+| **BeEF (Browser Exploitation Framework)** | Leverages browser vulnerabilities to hijack sessions.                    |
+
+---
+
+## **9. Countermeasures and Prevention**
+
+| Strategy                         | Description                                                                   |
+| -------------------------------- | ----------------------------------------------------------------------------- |
+| **Use HTTPS (SSL/TLS)**          | Encrypts all communication, including session cookies.                        |
+| **Secure Cookies**               | Set cookies with `Secure` and `HttpOnly` flags to protect them.               |
+| **Regenerate Session IDs**       | Assign new session ID after login or privilege change.                        |
+| **Use Expiry Timers**            | Sessions should expire after inactivity.                                      |
+| **User Logout Functions**        | Provide an option to invalidate sessions.                                     |
+| **Token Binding or OAuth 2.0**   | Bind sessions to specific devices or IPs.                                     |
+| **Implement Session Monitoring** | Alert or block suspicious session reuse or changes in IP/browser fingerprint. |
+
+---
+
+## **10. Impact of Session Hijacking**
+
+| Consequence                     | Description                                                                  |
+| ------------------------------- | ---------------------------------------------------------------------------- |
+| **Unauthorized Data Access**    | Sensitive data like emails, bank accounts, and files are compromised.        |
+| **Identity Theft**              | The attacker impersonates the user online.                                   |
+| **Financial Loss**              | Direct theft or misuse of services under the victim’s account.               |
+| **Reputation Damage**           | Especially dangerous for organizations or government services.               |
+| **Further Network Penetration** | Hijacked sessions may lead to deeper internal access in a corporate network. |
+
+---
+
+## **11. Diagram: How Session Hijacking Works**
+
+```
++-------------+      Login      +-------------+    Session ID   +-------------+
+|   User PC   | --------------> |   Web Server| --------------> |   Attacker  |
+| (Victim)    | <-------------- |             | <-------------- | (Hijacker)  |
++-------------+     Response    +-------------+   Sniff/Steal   +-------------+
+
+Attacker uses stolen session ID to impersonate the user
+```
+
+---
+
+## **12. Ethical Hacking Perspective**
+
+As an ethical hacker or penetration tester, understanding session hijacking is important to:
+
+* **Simulate real-world threats** during security assessments.
+* **Evaluate the strength** of session management mechanisms.
+* **Test web applications** for XSS, insecure cookies, or weak encryption.
+* Help organizations adopt **security best practices**.
+
+---
+
+## **13. Conclusion**
+
+Session Hijacking is one of the most **dangerous and stealthy attacks** in cybersecurity. It allows an attacker to **bypass authentication mechanisms** and directly interact with sensitive data by impersonating a legitimate user. Ethical hackers must fully understand session hijacking techniques and actively test for vulnerabilities in session management to help organizations protect their systems from unauthorized access and data breaches.
+
+---
+
+
+
+       
+  </main>
+
+    <footer>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>

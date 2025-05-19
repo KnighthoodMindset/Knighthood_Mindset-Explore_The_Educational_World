@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+Here’s a **long and detailed explanation** of the **working of Trojans** for your Ethical Hacking Unit 3 notes:
+
+---
+
+# **Working of Trojans**
+
+## **1. Introduction**
+
+Trojans, or Trojan horses, are malicious programs disguised as legitimate software to trick users into installing them. Unlike viruses or worms, Trojans do not self-replicate but rely on social engineering and deception to gain access to a victim's system. Understanding their working is crucial for ethical hackers to detect, analyze, and prevent these attacks effectively.
+
+---
+
+## **2. Infection and Delivery**
+
+The first step in the working of a Trojan involves its delivery and execution on the target system. Trojans use various infection vectors, such as:
+
+* **Phishing emails**: Attachments or links disguised as legitimate files or documents entice users to download and run the Trojan.
+* **Malicious websites**: Trojans can be delivered through drive-by downloads or by exploiting browser vulnerabilities.
+* **Social engineering**: Attackers convince users to install fake software updates, pirated software, or useful utilities that contain the Trojan payload.
+* **Removable media**: USB drives or external devices infected with Trojans spread malware when connected to a system.
+
+Once the victim executes or installs the Trojan, the malicious payload begins its operation.
+
+---
+
+## **3. Execution and Payload Activation**
+
+After installation, the Trojan activates its payload, which is the malicious action it is designed to perform. This can include:
+
+* Creating backdoors for remote access.
+* Logging keystrokes.
+* Stealing sensitive data.
+* Downloading additional malware.
+* Encrypting files for ransomware.
+* Spying on user activities.
+
+The activation process often involves the Trojan running silently in the background without alerting the user.
+
+---
+
+## **4. Concealment and Persistence**
+
+Trojans employ various techniques to evade detection and maintain persistence on the infected system:
+
+* **Obfuscation**: The code may be encrypted or scrambled to avoid signature-based detection by antivirus software.
+* **Rootkits**: Some Trojans use rootkits to hide their files, processes, and network connections from security tools.
+* **Process Injection**: Malicious code is injected into legitimate system processes to mask its presence.
+* **Registry Modification**: Trojans often modify Windows Registry entries or add startup items to ensure they launch automatically on system reboot.
+* **Scheduled Tasks**: Creating scheduled tasks to restart or check the Trojan’s presence regularly.
+
+Persistence ensures the Trojan continues operating even after system restarts or attempts to remove it.
+
+---
+
+## **5. Communication with Command and Control (C\&C) Server**
+
+Many Trojans establish communication with an attacker-controlled **Command and Control (C\&C) server** to receive instructions or send stolen data. The communication may use:
+
+* HTTP/HTTPS protocols.
+* Custom protocols over specific ports.
+* Encrypted or encoded traffic to avoid detection.
+
+This remote connection allows attackers to:
+
+* Issue commands to the Trojan.
+* Update the malware or payload.
+* Exfiltrate sensitive information.
+* Download additional malicious modules.
+
+---
+
+## **6. Execution of Attacker Commands**
+
+Once connected to the C\&C server, the Trojan waits for commands and executes them, such as:
+
+* Capturing screenshots.
+* Logging keystrokes.
+* Uploading files.
+* Installing other malware.
+* Launching Distributed Denial of Service (DDoS) attacks.
+* Manipulating or deleting files.
+
+This remote control capability turns the victim machine into a bot or zombie under the attacker’s control.
+
+---
+
+## **7. Data Theft and Impact**
+
+The Trojan collects and sends sensitive data, including passwords, banking details, personal information, and corporate secrets. This information is used for identity theft, financial fraud, espionage, or further attacks.
+
+The presence of a Trojan can also degrade system performance, cause system instability, or facilitate other malicious activities like spreading ransomware or spyware.
+
+---
+
+## **8. Summary Flow**
+
+1. **Delivery**: Trojan is delivered to the victim through deceptive means.
+2. **Execution**: Victim runs the Trojan unknowingly.
+3. **Payload Activation**: Malicious payload starts running silently.
+4. **Persistence**: Trojan hides itself and ensures it remains active.
+5. **C\&C Communication**: Establishes a link with attacker’s server.
+6. **Command Execution**: Performs attacker’s commands remotely.
+7. **Data Theft & Damage**: Steals data and impacts system security.
+
+---
+
+## **9. Conclusion**
+
+The working of Trojans relies heavily on deception, stealth, and remote control. Their lifecycle from delivery to execution and communication makes them formidable threats. Ethical hackers must understand each phase to effectively detect, analyze, and mitigate Trojan infections and protect systems against these malicious programs.
+
+---
+
+Would you like me to prepare detailed notes on another topic or add examples of Trojan analysis?
+
+
+Here’s a **long and detailed explanation** of **Infection Techniques** related to Ethical Hacking Unit 3, focusing on how Trojans and other malware infect systems:
+
+---
+
+# **Infection Techniques**
+
+## **1. Introduction**
+
+Infection techniques refer to the methods and strategies attackers use to deliver malicious software (malware), such as Trojans, viruses, worms, and ransomware, onto target systems. Understanding these techniques is essential for ethical hackers to anticipate, detect, and prevent attacks effectively. Infection can occur through multiple vectors, each exploiting different vulnerabilities in human behavior, software, or network configurations.
+
+---
+
+## **2. Common Infection Techniques**
+
+### a. **Social Engineering**
+
+* **Definition**: Exploiting human psychology rather than technical vulnerabilities.
+* **Examples**:
+
+  * Phishing emails with malicious attachments or links disguised as legitimate communications.
+  * Fake software updates prompting users to download and install malware.
+  * Deceptive messages that create urgency or curiosity (e.g., “Your account has been compromised”).
+* **Why it works**: Humans are often the weakest security link, and attackers manipulate trust and curiosity.
+
+### b. **Email Attachments and Links**
+
+* **Malicious Attachments**: Documents, PDFs, or executables containing Trojans or viruses.
+* **Malicious Links**: URLs leading to drive-by download sites or phishing pages.
+* **Techniques**:
+
+  * Embedding malicious macros in Office documents.
+  * Using shortened URLs to hide destination addresses.
+  * Spoofing sender addresses to appear trustworthy.
+
+### c. **Drive-by Downloads**
+
+* Occurs when a user visits a compromised or malicious website.
+* Exploits browser or plugin vulnerabilities to automatically download and install malware without user knowledge.
+* No need for user interaction beyond visiting the webpage.
+* Common with outdated browsers or missing security patches.
+
+### d. **Exploiting Software Vulnerabilities**
+
+* Attackers exploit unpatched security flaws in operating systems, applications, or network services.
+* Techniques include buffer overflows, SQL injection, or zero-day exploits.
+* Can allow remote code execution, privilege escalation, or unauthorized access.
+* Vulnerability exploitation often used as a stepping stone to deploy Trojans or other malware.
+
+### e. **Removable Media Infection**
+
+* USB drives, external hard disks, or other portable media infected with malware.
+* Malware set to auto-execute when media is connected (via autorun features or user execution).
+* Common in corporate environments where devices are shared or transferred.
+
+### f. **Malvertising**
+
+* Distribution of malware through online advertisements.
+* Ads are embedded with malicious code that redirects users to exploit kits or downloads malware directly.
+* Even legitimate websites can unknowingly serve malvertisements.
+
+### g. **Network Propagation**
+
+* Worms or malware spread through network vulnerabilities.
+* Techniques include exploiting open ports, weak passwords, or unsecured protocols.
+* Once inside a network, malware can propagate laterally to infect multiple systems.
+
+### h. **File Sharing and Peer-to-Peer Networks**
+
+* Malware is disguised as popular files (music, movies, software cracks).
+* Shared on peer-to-peer (P2P) networks, torrents, or file-sharing platforms.
+* Users downloading infected files inadvertently execute malware.
+
+---
+
+## **3. Infection Process Flow**
+
+1. **Delivery**: The attacker sends the malicious payload through one of the infection vectors above.
+2. **Execution**: The payload is executed by the victim, often unknowingly.
+3. **Exploitation**: If applicable, exploits vulnerabilities to gain elevated privileges.
+4. **Installation**: The malware installs itself and prepares for persistence.
+5. **Communication**: Establishes a connection to attacker’s control infrastructure if needed.
+6. **Payload Execution**: Carries out the malicious actions (e.g., data theft, damage).
+
+---
+
+## **4. Infection via Trojans Specifically**
+
+* Trojans often rely heavily on **social engineering** and **disguised execution**.
+* Unlike worms, Trojans need the user to manually execute or install the malicious program.
+* They might be bundled with legitimate software or masquerade as utilities, games, or updates.
+* Attackers might spread Trojans via phishing, fake downloads, or infected email attachments.
+
+---
+
+## **5. Defense Against Infection Techniques**
+
+* **User Awareness and Training**: Educate users to recognize phishing, suspicious emails, and social engineering.
+* **Patch Management**: Regularly update operating systems and software to fix vulnerabilities.
+* **Email Filtering**: Use advanced spam filters and malware scanners.
+* **Browser Security**: Use modern browsers with security features enabled; avoid suspicious websites.
+* **Antivirus/Anti-malware Solutions**: Maintain up-to-date security software with real-time scanning.
+* **Disable Autorun**: Prevent automatic execution of removable media content.
+* **Network Security**: Use firewalls, intrusion detection/prevention systems, and secure configurations.
+* **Backup and Recovery**: Regularly backup data to restore from infection.
+
+---
+
+## **6. Conclusion**
+
+Infection techniques are diverse and constantly evolving, reflecting the creativity and persistence of attackers. Understanding these methods allows ethical hackers and security professionals to design effective defenses, improve detection, and educate users. Prevention hinges on technical controls, user awareness, and timely patching to minimize the attack surface and block infection vectors.
+
+---
+
+If you'd like, I can also prepare notes on specific infection vectors like phishing, drive-by downloads, or network propagation in more detail. Just ask!
+
+    
+  </main>
+
+    <footer>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>

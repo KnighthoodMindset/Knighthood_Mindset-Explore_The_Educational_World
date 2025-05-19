@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+Here’s a **long and detailed explanation** about **Worms** for Ethical Hacking Unit 3:
+
+---
+
+# **Worms**
+
+## **1. Introduction**
+
+A **worm** is a type of malicious software (malware) that can **self-replicate and propagate independently** across computer networks without the need to attach itself to an existing program or file. Unlike viruses, which require user action (like running an infected program) to spread, worms actively scan networks and exploit vulnerabilities to spread automatically.
+
+Worms can cause widespread damage by consuming bandwidth, deleting files, installing backdoors, or facilitating further malware infection.
+
+---
+
+## **2. Characteristics of Worms**
+
+* **Self-replication:** Worms can create copies of themselves without human intervention.
+* **Autonomous propagation:** They spread automatically by exploiting network weaknesses.
+* **No host file required:** Unlike viruses, worms do not need to attach to other files or programs.
+* **Network-focused:** Worms primarily spread over networks (LAN, Internet).
+* **Payload delivery:** Some worms carry payloads such as backdoors, ransomware, or keyloggers.
+
+---
+
+## **3. How Worms Work (Working Mechanism)**
+
+1. **Initial Infection:**
+
+   * The worm infiltrates a single vulnerable system, often by exploiting security flaws such as unpatched software, weak passwords, or open ports.
+   * Entry points can be email attachments, network file shares, or software vulnerabilities.
+
+2. **Scanning and Propagation:**
+
+   * Once inside, the worm scans the network for other vulnerable hosts.
+   * It uses various techniques such as random IP scanning, sequential scanning, or scanning known IP ranges.
+   * Upon finding a susceptible target, the worm attempts to exploit the vulnerability and install a copy of itself.
+
+3. **Replication:**
+
+   * The worm copies itself onto the new target system.
+   * This replication cycle repeats, exponentially increasing the number of infected machines.
+
+4. **Payload Execution (Optional):**
+
+   * Many worms carry malicious payloads that activate after infection.
+   * Payloads can include deleting files, creating backdoors, launching denial of service attacks, or installing other malware.
+
+---
+
+## **4. Types of Worms**
+
+### a. **Network Worms**
+
+* Target network vulnerabilities such as unpatched OS or network services.
+* Spread by scanning IP ranges and exploiting open ports.
+* Example: Blaster worm exploited Windows DCOM RPC vulnerability.
+
+### b. **Email Worms**
+
+* Spread by sending infected email attachments to contacts in the victim's address book.
+* Often rely on social engineering to trick users into opening attachments.
+* Example: ILOVEYOU worm spread via email with a malicious attachment.
+
+### c. **Instant Messaging Worms**
+
+* Spread through IM platforms by sending malicious links or files.
+* Exploit user trust in chat contacts to propagate.
+* Example: Mydoom worm spread via email and IM.
+
+### d. **File-sharing Worms**
+
+* Spread through peer-to-peer file-sharing networks.
+* Distribute infected files disguised as popular software or media.
+* Example: KaZaA worm.
+
+---
+
+## **5. Impact of Worms**
+
+* **Network congestion and slowdown:** Worms generate massive network traffic as they scan and propagate, which can degrade network performance.
+* **System resource consumption:** Replication and payload execution consume CPU, memory, and disk space.
+* **Data loss and corruption:** Payloads may delete or corrupt files.
+* **Security breaches:** Worms can install backdoors, allowing remote attackers to take control.
+* **Denial of service:** Worms may launch DoS attacks either on infected hosts or external targets.
+
+---
+
+## **6. Famous Worm Examples**
+
+* **Morris Worm (1988):** One of the first worms, caused widespread disruption on the early Internet.
+* **ILOVEYOU Worm (2000):** Spread via email, caused billions in damages by overwriting files.
+* **Blaster Worm (2003):** Exploited Windows vulnerability, caused system crashes.
+* **Conficker Worm (2008):** Infected millions of computers worldwide, created a large botnet.
+
+---
+
+## **7. Detection and Prevention**
+
+### Detection Techniques
+
+* **Network traffic analysis:** Monitoring for unusual scanning or traffic spikes.
+* **Signature-based detection:** Using antivirus databases of known worm signatures.
+* **Heuristic analysis:** Detecting suspicious behavior patterns.
+* **Anomaly detection:** Identifying deviations from normal network activity.
+
+### Prevention Methods
+
+* **Regular patching:** Keeping software and OS updated to close vulnerabilities.
+* **Firewalls:** Restricting unnecessary network traffic.
+* **Email filtering:** Blocking malicious attachments and spam.
+* **User education:** Training users not to open suspicious emails or files.
+* **Intrusion detection systems (IDS):** Alerting on worm-like activity.
+
+---
+
+## **8. Conclusion**
+
+Worms are powerful and dangerous malware capable of self-propagating rapidly across networks, causing extensive damage and disruption. Understanding how worms operate and their characteristics helps ethical hackers and security professionals implement robust defenses to detect, contain, and eliminate worm infections before they cause serious harm.
+
+---
+
+Would you like me to provide detailed notes on any related topics such as worms vs viruses comparison or worm mitigation techniques?
+
+    
+  </main>
+
+    <footer>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>

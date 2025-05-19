@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+
+# **System Hacking**
+
+## **1. Introduction**
+
+System Hacking refers to the process used by ethical hackers and malicious attackers alike to gain unauthorized access to systems, escalate privileges, and manipulate or steal data. It is a crucial phase in the **ethical hacking lifecycle**, typically occurring after vulnerability scanning and enumeration. While ethical hackers perform system hacking to **identify and fix security weaknesses**, attackers use it for **malicious intent** such as stealing credentials, gaining control of target systems, or causing disruption.
+
+Understanding system hacking is vital for cybersecurity professionals to **build defenses against real-world attacks** and mitigate the risk of data breaches and unauthorized access.
+
+---
+
+## **2. Key Objectives of System Hacking**
+
+System hacking involves achieving one or more of the following:
+
+* **Gaining Access** – Unauthorized entry into the system.
+* **Escalating Privileges** – Increasing access rights, e.g., from a normal user to an administrator.
+* **Executing Applications** – Running malicious software or scripts on the system.
+* **Hiding Activities** – Covering tracks to remain undetected.
+* **Maintaining Access** – Installing backdoors or rootkits to retain access.
+
+---
+
+## **3. Stages of System Hacking**
+
+System Hacking typically consists of several sub-phases:
+
+### **a. Password Cracking**
+
+* The most common entry point.
+* Involves retrieving user passwords by **guessing, brute force, dictionary attacks, or cracking password hashes**.
+* Tools: **John the Ripper**, **Cain and Abel**, **Hydra**, **OphCrack**.
+
+### **b. Privilege Escalation**
+
+* Once inside, attackers seek higher-level privileges.
+* Types:
+
+  * **Vertical Escalation**: Gaining admin rights from a lower-level account.
+  * **Horizontal Escalation**: Accessing resources of another user with the same privilege level.
+* Methods:
+
+  * Exploiting system vulnerabilities
+  * Misconfigured permissions
+  * DLL injection
+
+### **c. Executing Applications**
+
+* Running malicious executables or scripts to perform tasks such as downloading further malware, scanning internal networks, or launching ransomware.
+* Methods: PowerShell scripts, batch files, macros in Office documents.
+
+### **d. Hiding Files and Covering Tracks**
+
+* Attacker must remain undetected.
+* Techniques:
+
+  * **Rootkits** – Hide processes and files.
+  * **Steganography** – Hide data inside images or other files.
+  * **Clearing logs** – Deleting event logs and history.
+  * **Timestamp modification** – Altering the created/accessed/modified times of files.
+
+### **e. Planting Backdoors**
+
+* Attacker installs a **backdoor** to regain access later.
+* Examples:
+
+  * Netcat listener
+  * Custom malware
+  * Scheduled tasks
+
+---
+
+## **4. Common Techniques Used in System Hacking**
+
+| Technique             | Description                                                                  |
+| --------------------- | ---------------------------------------------------------------------------- |
+| **Keylogging**        | Captures keystrokes to steal usernames, passwords, and other sensitive data. |
+| **Phishing**          | Trick users into revealing credentials via fake emails or websites.          |
+| **Spyware**           | Monitors system activities and sends data to the attacker.                   |
+| **Trojan Horses**     | Malicious software disguised as legitimate applications.                     |
+| **Session Hijacking** | Takes control of a user’s session with the system.                           |
+| **Sniffing**          | Intercepts data transmitted over the network to steal login credentials.     |
+| **Password Guessing** | Manual or automated attempts to guess weak passwords.                        |
+
+---
+
+## **5. Tools Used in System Hacking**
+
+| Tool                | Purpose                                              |
+| ------------------- | ---------------------------------------------------- |
+| **Metasploit**      | Exploitation framework for delivering payloads.      |
+| **Cain & Abel**     | Password recovery and cracking.                      |
+| **Mimikatz**        | Extracts passwords and Kerberos tickets from memory. |
+| **John the Ripper** | Password cracking.                                   |
+| **Netcat**          | Network utility to read/write data across networks.  |
+| **Nmap**            | Port scanning and service enumeration.               |
+
+---
+
+## **6. Prevention and Protection Against System Hacking**
+
+### **Technical Controls**
+
+* Use strong and complex passwords.
+* Implement multi-factor authentication (MFA).
+* Apply software patches and updates regularly.
+* Disable unnecessary services and ports.
+* Configure firewalls and intrusion detection/prevention systems (IDS/IPS).
+* Encrypt sensitive data.
+
+### **Administrative Controls**
+
+* Security awareness training.
+* Least privilege principle (only necessary access).
+* Regular auditing and monitoring.
+* Implement strong user account policies.
+
+---
+
+## **7. Advantages and Disadvantages of System Hacking (from Ethical Perspective)**
+
+| Advantages (Ethical Hacking Context)             | Disadvantages (Malicious Hacking Context)     |
+| ------------------------------------------------ | --------------------------------------------- |
+| Helps organizations find and fix vulnerabilities | Can lead to identity theft and data loss      |
+| Improves system and network security             | Loss of reputation and financial harm         |
+| Protects against real-world cyberattacks         | Legal consequences if done without permission |
+| Informs better cybersecurity policies            | Disruption of services and operations         |
+
+---
+
+## **8. Real-World Examples of System Hacking**
+
+* **Stuxnet Worm (2010)** – Used system hacking to damage Iran's nuclear program.
+* **WannaCry Ransomware (2017)** – Gained system access through SMB vulnerability (EternalBlue).
+* **SolarWinds Attack (2020)** – Advanced persistent threat used system-level backdoors to infiltrate government networks.
+
+---
+
+## **9. Conclusion**
+
+System Hacking represents one of the most critical and dangerous stages of a cyberattack. While attackers use it to exploit systems and steal sensitive data, ethical hackers simulate these attacks to identify and mitigate vulnerabilities before real attackers do. Understanding the tools, techniques, and phases of system hacking is essential for building robust defense strategies.
+
+Organizations must adopt **proactive security measures**, perform regular audits, and engage in ethical hacking exercises to secure their systems and networks against this growing threat.
+
+---
+
+
+    
+  </main>
+
+    <footer>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>
