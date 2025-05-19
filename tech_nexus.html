@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tech_Nexus</title>
-  <link rel="stylesheet" href="tech_nexus.css" />
+  <link rel="stylesheet" href="tech_nexus.css"/>
 </head>
 <body>
   <header>
@@ -17,125 +17,36 @@
   </div>
 
   <div class="subjects-container" id="subjectsContainer">
-    <div class="subject-card" onclick="showUnits('Machine Learning')">
+    <div class="subject-card" onclick="openTopic('ML_UNIT1.html')">
       <h3>Machine Learning</h3>
     </div>
-    <div class="subject-card" onclick="showUnits('Compiler Design')">
+    <div class="subject-card" onclick="openTopic('CD_UNIT1.html')">
       <h3>Compiler Design</h3>
     </div>
-    <div class="subject-card" onclick="showUnits('Cryptography and Network Security')">
+    <div class="subject-card" onclick="openTopic('CNS_UNIT1.html')">
       <h3>Cryptography and Network Security</h3>
     </div>
-    <div class="subject-card" onclick="showUnits('OOAD')">
+    <div class="subject-card" onclick="openTopic('OOAD_UNIT1.html')">
       <h3>OOAD</h3>
     </div>
-    <div class="subject-card" onclick="showUnits('MEAN Stack Development')">
+    <div class="subject-card" onclick="openTopic('MSD_UNIT1.html')">
       <h3>MEAN Stack Development</h3>
     </div>
-    <div class="subject-card" onclick="showUnits('Ethical Hacking')">
+    <div class="subject-card" onclick="openTopic('EH_UNIT1.html')">
       <h3>Ethical Hacking</h3>
     </div>
-    <div class="subject-card" onclick="showUnits('Basic electronics')">
-      <h3>Basic electronics</h3>
+    <div class="subject-card" onclick="openTopic('BE_Topics.html')">
+      <h3>Basic Electronics</h3>
     </div>
-    <div class="subject-card" onclick="showUnits('Cloud Computing')">
+    <div class="subject-card" onclick="openTopic('CC_UNIT1.html')">
       <h3>Cloud Computing</h3>
     </div>
-    <div class="subject-card" onclick="showUnits('Internet Of Things')">
+    <div class="subject-card" onclick="openTopic('IOT_Topics.html')">
       <h3>Internet Of Things</h3>
     </div>
   </div>
-<!-- Machine Learning Units -->
-<div class="units-container" id="mlUnitsContainer" style="display: none;">
-  <h2>Machine Learning</h2>
-  <a href="ML_unit1.html" class="unit-card"><h3>Unit 1</h3></a>
-  <a href="ML_unit2.html" class="unit-card"><h3>Unit 2</h3></a>
-  <a href="ML_unit3.html" class="unit-card"><h3>Unit 3</h3></a>
-  <a href="ML_unit4.html" class="unit-card"><h3>Unit 4</h3></a>
-  <a href="ML_unit5.html" class="unit-card"><h3>Unit 5</h3></a>
-</div>
 
-<!-- Compiler Design Units -->
-<div class="units-container" id="cdUnitsContainer" style="display: none;">
-  <h2>Compiler Design</h2>
-  <a href="CD_UNIT1.html" class="unit-card"><h3>Unit 1</h3></a>
-  <a href="CD_UNIT2.html" class="unit-card"><h3>Unit 2</h3></a>
-  <a href="CD_UNIT3.html" class="unit-card"><h3>Unit 3</h3></a>
-  <a href="CD_UNIT4.html" class="unit-card"><h3>Unit 4</h3></a>
-  <a href="CD_UNIT5.html" class="unit-card"><h3>Unit 5</h3></a>  
-</div>
-
-<!-- Cryptography and Network Security Units -->
-<div class="units-container" id="cnsUnitsContainer" style="display: none;">
-  <h2>Cryptography and Network Security</h2>
-  <a href="CNS_UNIT1.html" class="unit-card"><h3>Unit 1</h3></a>
-  <a href="CNS_UNIT2.html" class="unit-card"><h3>Unit 2</h3></a>
-  <a href="CNS_UNIT3.html" class="unit-card"><h3>Unit 3</h3></a>
-  <a href="CNS_UNIT4.html" class="unit-card"><h3>Unit 4</h3></a>
-  <a href="CNS_UNIT5.html" class="unit-card"><h3>Unit 5</h3></a>
-</div>
-
-<!-- OOAD Units -->
-<div class="units-container" id="ooadUnitsContainer" style="display: none;">
-  <h2>OOAD</h2>
-  <a href="OOAD_UNIT1.html" class="unit-card"><h3>Unit 1</h3></a>
-  <a href="OOAD_UNIT2.html" class="unit-card"><h3>Unit 2</h3></a>
-  <a href="OOAD_UNIT3.html" class="unit-card"><h3>Unit 3</h3></a>
-  <a href="OOAD_UNIT4.html" class="unit-card"><h3>Unit 4</h3></a>
-  <a href="OOAD_UNIT5.html" class="unit-card"><h3>Unit 5</h3></a> 
-</div>
-
-<!-- MEAN Stack Development Units -->
-<div class="units-container" id="meanUnitsContainer" style="display: none;">
-  <h2>MEAN Stack Development</h2>
-  <a href="MSD_UNIT1.html" class="unit-card"><h3>Unit 1</h3></a>
-  <a href="MSD_UNIT2.html" class="unit-card"><h3>Unit 2</h3></a>
-  <a href="MSD_UNIT3.html" class="unit-card"><h3>Unit 3</h3></a>
-  <a href="MSD_UNIT4.html" class="unit-card"><h3>Unit 4</h3></a>
-  <a href="MSD_UNIT5.html" class="unit-card"><h3>Unit 5</h3></a>
-</div>
-<!-- Ethical Hacking -->
-<div class="units-container" id="EHUnitsContainer" style="display: none;">
-  <h2>Ethical Hacking</h2>
-  <a href="EH_UNIT1.html" class="unit-card"><h3>Unit 1</h3></a>
-  <a href="EH_UNIT2.html" class="unit-card"><h3>Unit 2</h3></a>
-  <a href="EH_UNIT3.html" class="unit-card"><h3>Unit 3</h3></a>
-  <a href="EH_UNIT4.html" class="unit-card"><h3>Unit 4</h3></a>
-  <a href="EH_UNIT5.html" class="unit-card"><h3>Unit 5</h3></a>
-</div>
-<!-- Basic Electronics -->
-<div class="units-container" id="BEUnitsContainer" style="display: none;">
-  <h2>Basic Electronics</h2>
-  <a href="BE_UNIT1.html" class="unit-card"><h3>Unit 1</h3></a>
-  <a href="BE_UNIT2.html" class="unit-card"><h3>Unit 2</h3></a>
-  <a href="BE_UNIT3.html" class="unit-card"><h3>Unit 3</h3></a>
-  <a href="BE_UNIT4.html" class="unit-card"><h3>Unit 4</h3></a>
-  <a href="BE_UNIT5.html" class="unit-card"><h3>Unit 5</h3></a>
-</div>
-<!-- Cloud Computing -->
-<div class="units-container" id="CCUnitsContainer" style="display: none;">
-  <h2>Cloud Computing</h2>
-  <a href="CC_UNIT1.html" class="unit-card"><h3>Unit 1</h3></a>
-  <a href="CC_UNIT2.html" class="unit-card"><h3>Unit 2</h3></a>
-  <a href="CC_UNIT3.html" class="unit-card"><h3>Unit 3</h3></a>
-  <a href="CC_UNIT4.html" class="unit-card"><h3>Unit 4</h3></a>
-  <a href="CC_UNIT5.html" class="unit-card"><h3>Unit 5</h3></a>
-</div>
-<!-- Internet Of Things -->
-<div class="units-container" id="IOTUnitsContainer" style="display: none;">
-  <h2>Internet Of Things</h2>
-  <a href="IOT_UNIT1.html" class="unit-card"><h3>Unit 1</h3></a>
-  <a href="IOT_UNIT2.html" class="unit-card"><h3>Unit 2</h3></a>
-  <a href="IOT_UNIT3.html" class="unit-card"><h3>Unit 3</h3></a>
-  <a href="IOT_UNIT4.html" class="unit-card"><h3>Unit 4</h3></a>
-  <a href="IOT_UNIT5.html" class="unit-card"><h3>Unit 5</h3></a>
-</div>
-
-
-
-  <script src="tech_nexus.js"></script>
-  
+<script src="tech_nexus.js"></script>
 </body>
 </html>
-
 
