@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+Here is a **detailed and comprehensive explanation** for the topic **“Steganography Methods and Attacks”** under **Ethical Hacking – Unit 3** for your **Tech Nexus** website:
+
+---
+
+## 🕵️‍♂️ Steganography Methods and Attacks
+
+---
+
+### 📘 **Introduction to Steganography**
+
+**Steganography** is the practice of concealing a secret message within another, seemingly harmless file or message. The goal is **not to attract attention** to the existence of hidden information.
+
+* **Derived from** the Greek words *“steganos”* (covered) and *“graphia”* (writing).
+* **Used in cybersecurity and ethical hacking** to understand how data can be hidden and how to detect such activities.
+
+---
+
+## 📌 Steganography Methods
+
+Steganography techniques can be classified based on the **media** used and **technical approach** adopted.
+
+### 🔹 1. **Text Steganography**
+
+Hiding data within text files using:
+
+* **Format-based methods** – modifying layout, spacing, or fonts.
+* **Random and statistical generation** – generating random-looking text where actual info is encoded.
+* **Linguistic methods** – using syntactic and semantic manipulation of text.
+
+🧪 **Example:**
+
+```plaintext
+Every First Letter of This Sentence Encodes Hidden Meaning.
+```
+
+Message: **EFLOTSEHM**
+
+---
+
+### 🔹 2. **Image Steganography**
+
+The most common method. Information is hidden in **image pixels**, especially in the **Least Significant Bits (LSB)**.
+
+#### Methods:
+
+* **LSB Insertion** – Altering the least significant bit of pixel values.
+* **Palette-based hiding** – Using the color palette index to store bits.
+* **DCT-based hiding** – Used in JPEGs to hide data in frequency components.
+
+🧪 **Example:**
+In a pixel (10110100), changing the LSB to ‘1’ results in (10110101) – barely detectable.
+
+---
+
+### 🔹 3. **Audio Steganography**
+
+Hides data in **audio files (MP3, WAV)**. Techniques include:
+
+* **LSB coding** – Modifying least significant bits of audio samples.
+* **Echo hiding** – Embedding data by introducing echoes at specific intervals.
+* **Phase coding** – Changing the phase of audio signal frequencies.
+
+🧪 **Application:** Hiding a message in a song audio file.
+
+---
+
+### 🔹 4. **Video Steganography**
+
+Uses video frames to embed data, combining image and audio steganography.
+
+#### Methods:
+
+* **LSB in frames**
+* **Motion vector manipulation**
+* **Frame duplication or drop technique**
+
+🧪 **Example:** Hiding a message across different frames in an MP4 video.
+
+---
+
+### 🔹 5. **Network Steganography**
+
+Hides data within **network protocols** (TCP/IP, HTTP, DNS).
+
+#### Techniques:
+
+* Hiding data in **packet headers**
+* Embedding data in **timing** or **size** of packets
+* Using unused or optional fields in protocols
+
+🧪 **Example:** Hiding a payload in TCP sequence numbers.
+
+---
+
+### 🔹 6. **Metadata Steganography**
+
+Hiding information in the **metadata** of files (like image EXIF data, document properties).
+
+🧪 **Example:** Adding a secret message in the author field of a Word document.
+
+---
+
+## 💣 Steganographic Attacks (Steganalysis)
+
+**Steganalysis** is the process of **detecting, extracting, or destroying** steganographic content. Ethical hackers perform such analysis to **uncover hidden threats**.
+
+---
+
+### 🔹 1. **Visual Attacks**
+
+Used against **image/video steganography**. Human inspection or software is used to detect unusual pixels or distortions.
+
+* **Noise pattern analysis**
+* **Histogram analysis**
+* **Color channel manipulation**
+
+🧪 Detecting repetitive patterns in images that indicate hidden data.
+
+---
+
+### 🔹 2. **Statistical Attacks**
+
+Analyzes statistical anomalies in file structures and content.
+
+* **Chi-square analysis**
+* **Entropy measurement**
+* **Compression ratio comparison**
+
+🧪 Example: A sudden change in file entropy may indicate embedded data.
+
+---
+
+### 🔹 3. **Signature-based Attacks**
+
+Certain steganography tools leave **signatures** in the file. Tools like **StegDetect** scan files for these fingerprints.
+
+🧪 Detecting a file altered by OpenStego or LSB tools.
+
+---
+
+### 🔹 4. **Structural Attacks**
+
+Focuses on **file format inconsistencies** introduced during embedding.
+
+🧪 Identifying an extra or unusual metadata chunk in a PNG image.
+
+---
+
+### 🔹 5. **Brute Force Attacks**
+
+If the method/tool used is unknown, attackers may use brute force to:
+
+* Attempt different tools and methods
+* Try all possible passwords (if encryption is used)
+
+---
+
+### 🔹 6. **Machine Learning-Based Attacks**
+
+Modern steganalysis uses **ML algorithms** to classify files as clean or stego.
+
+* Trained on datasets of stego and normal files
+* Detect subtle patterns unnoticeable by humans
+
+---
+
+### 🧠 Comparison Table
+
+| Method   | Carrier Type | Steganographic Technique | Common Attack Method      |
+| -------- | ------------ | ------------------------ | ------------------------- |
+| Text     | .txt, .docx  | Format-based, Linguistic | Statistical, NLP analysis |
+| Image    | .png, .jpeg  | LSB, Palette, DCT        | Visual, Signature-based   |
+| Audio    | .wav, .mp3   | Echo, LSB, Phase Coding  | Frequency Analysis        |
+| Video    | .mp4, .avi   | Frame/Bit Manipulation   | Frame Diff Analysis       |
+| Network  | TCP/IP       | Header/Timing            | Traffic Pattern Analysis  |
+| Metadata | EXIF, DOCX   | Hidden in metadata       | Metadata Scan Tools       |
+
+---
+
+## ✅ **Advantages of Understanding These Methods**
+
+* Helps in **identifying hidden threats** in images, videos, or files.
+* Useful in **cyber forensics** to detect criminal communication.
+* Important for **reverse engineering** hidden malware or data exfiltration.
+* Assists in **developing better security** tools and filters.
+
+---
+
+## ❌ **Dangers & Misuse**
+
+* **Used by cybercriminals** for covert communication.
+* **Data exfiltration** through steganographic channels.
+* **Embedding malware payloads** in harmless-looking media files.
+
+---
+
+## 🧩 Tools Used for Steganography & Steganalysis
+
+| Tool           | Purpose                        |
+| -------------- | ------------------------------ |
+| **OpenStego**  | Image/text steganography       |
+| **Steghide**   | Audio/image steganography      |
+| **SilentEye**  | GUI-based stego tool           |
+| **StegExpose** | Steganalysis and detection     |
+| **StegDetect** | Signature-based steganalysis   |
+| **ExifTool**   | Detects metadata steganography |
+
+---
+
+## 🧠 Conclusion
+
+Steganography provides a stealthy channel for hiding information, often used in both **cybersecurity defense** and **cybercrime**. Understanding its various **methods** allows ethical hackers to **detect and counter** threats efficiently. By mastering **steganalysis techniques**, security professionals can **identify covert communications**, protect digital assets, and assist in **cyber forensics investigations**.
+
+As attackers grow more sophisticated, ethical hackers must stay ahead by leveraging **advanced detection tools, statistical methods**, and even **machine learning algorithms** to **unmask hidden content**.
+
+---
+
+Would you like this answer converted into an HTML file for your site or move on to the next topic?
+
+
+
+       
+  </main>
+
+    <footer>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>
