@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+
+Here’s a **long and detailed explanation** of **Hash Functions** for your **Ethical Hacking Unit 3** notes in **Tech Nexus**:
+
+---
+
+# **Hash Functions**
+
+---
+
+## **1. Introduction**
+
+A **hash function** is a fundamental cryptographic primitive that takes an input (or 'message') and produces a fixed-size string of bytes, typically a digest that appears random. This output is commonly called the **hash value**, **hash code**, or simply **hash**.
+
+Hash functions are essential in various areas of cybersecurity and cryptography, providing data integrity, authentication, and verification services. They are widely used in digital signatures, password storage, and blockchain technologies.
+
+---
+
+## **2. Characteristics of Cryptographic Hash Functions**
+
+For a hash function to be cryptographically secure and useful, it must exhibit the following properties:
+
+* **Deterministic**: The same input always produces the same output hash.
+* **Fixed Output Size**: Regardless of the input size, the output hash is of a fixed length (e.g., 256 bits for SHA-256).
+* **Fast Computation**: It should be quick to compute the hash for any input.
+* **Pre-image Resistance**: Given a hash value, it should be computationally infeasible to find the original input.
+* **Second Pre-image Resistance**: Given an input and its hash, it should be infeasible to find a different input with the same hash.
+* **Collision Resistance**: It should be computationally infeasible to find two different inputs that produce the same hash.
+* **Avalanche Effect**: A small change in input (even a single bit) should drastically change the output hash, making it appear uncorrelated.
+
+---
+
+## **3. How Hash Functions Work**
+
+The input message is processed through a series of mathematical operations and transformations — including bitwise operations, modular arithmetic, and compression functions — to generate a fixed-length hash. The internal structure varies among different algorithms, but the goal is to produce a unique, irreversible digest.
+
+---
+
+## **4. Common Hash Algorithms**
+
+| Algorithm        | Output Size                              | Notes                                                                                            |
+| ---------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| **MD5**          | 128 bits                                 | Widely used in the past but now considered insecure due to vulnerabilities to collision attacks. |
+| **SHA-1**        | 160 bits                                 | More secure than MD5 but also deprecated because of collision vulnerabilities.                   |
+| **SHA-2 Family** | 224, 256, 384, 512 bits                  | Highly secure and widely used today, especially SHA-256 and SHA-512.                             |
+| **SHA-3 Family** | Variable (e.g., 224, 256, 384, 512 bits) | Newer standard designed to provide robustness against known attacks.                             |
+
+---
+
+## **5. Applications of Hash Functions**
+
+* **Data Integrity Verification**: Hashes can verify if data has been altered by comparing the original hash to the hash of received data.
+* **Password Storage**: Instead of storing plain passwords, systems store their hashes, making it harder for attackers to retrieve passwords.
+* **Digital Signatures**: The data is hashed before signing, ensuring efficient and secure signature verification.
+* **Message Authentication Codes (MACs)**: Hashes combined with secret keys provide message integrity and authenticity.
+* **Blockchain and Cryptocurrency**: Hashes link blocks securely, ensuring immutability and security of transaction history.
+* **File and Software Verification**: Checking file integrity by comparing hash values.
+
+---
+
+## **6. Hash Functions in Ethical Hacking**
+
+* Ethical hackers analyze systems to check for the use of weak or outdated hash algorithms (like MD5 or SHA-1) vulnerable to collision attacks.
+* They test password storage methods to ensure hashes are salted and securely stored.
+* Attempt to find collisions or pre-image attacks to identify cryptographic weaknesses.
+* Evaluate cryptographic protocols that use hashes to ensure proper implementation.
+
+---
+
+## **7. Limitations and Attacks on Hash Functions**
+
+* **Collision Attacks**: Finding two different inputs producing the same hash, undermining integrity.
+* **Pre-image Attacks**: Finding an input that matches a given hash, threatening confidentiality.
+* **Rainbow Table Attacks**: Precomputed hash tables used to reverse common hashes, especially against unsalted passwords.
+* **Length Extension Attacks**: Vulnerabilities in some hash functions allowing an attacker to append data without invalidating the hash.
+
+Mitigation techniques include using stronger hash functions (SHA-256 or higher), applying salts (random data) to inputs before hashing, and using key-based hashing like HMAC.
+
+---
+
+## **8. Conclusion**
+
+Hash functions are a cornerstone of modern cryptography, providing a fast, reliable method for verifying data integrity, authentication, and secure storage. For ethical hackers, understanding hash functions and their vulnerabilities is crucial for assessing and enhancing system security.
+
+---
+
+If you want, I can also provide practical examples or coding demonstrations of popular hash functions!
+
+
+       
+  </main>
+
+    <footer>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>
