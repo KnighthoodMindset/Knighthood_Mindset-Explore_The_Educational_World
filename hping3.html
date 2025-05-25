@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <title>Performing Flag Scan using hping3 | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -14,210 +14,151 @@
 
   <main>
 
-Here is a **detailed theoretical explanation** of the topic **“Performing Flag Scan using hping3”** under **Ethical Hacking**, written in a long, essay-style format suitable for your **Tech Nexus** website:
-
----
-
-## 🚩 **Performing Flag Scan using hping3 – Ethical Hacking**
-
-### 🔍 **Introduction to hping3**
-
-`hping3` is a powerful command-line TCP/IP packet crafting tool used by penetration testers, security researchers, and ethical hackers. It is designed for **packet manipulation and analysis**, allowing users to **create custom packets**, **send them**, and **analyze the responses** from the target.
-
-Unlike traditional scanners such as `nmap`, `hping3` offers more granular control over every part of the packet, including the **TCP flags**, **IP headers**, and **data payload**, making it ideal for **advanced scanning techniques** and **firewall testing**.
-
----
-
-### 🚩 **What is a Flag Scan?**
-
-A **flag scan** is a technique used in **port scanning** where specific **TCP flags** are set in packets to probe a system’s network behavior. Based on the responses (or lack thereof), attackers can infer whether a port is **open**, **closed**, or **filtered**.
-
-Flag scans are stealthier than regular full TCP scans because they **do not complete a full handshake**, allowing them to bypass some firewalls and intrusion detection systems.
-
----
-
-### 🧪 **Common TCP Flags Used in Scanning**
-
-| Flag     | Description                                     |
-| -------- | ----------------------------------------------- |
-| **SYN**  | Synchronize (used to initiate a TCP connection) |
-| **ACK**  | Acknowledge                                     |
-| **FIN**  | Finish (used to close a connection)             |
-| **RST**  | Reset                                           |
-| **PSH**  | Push                                            |
-| **URG**  | Urgent                                          |
-| **NULL** | No flags set                                    |
-| **XMAS** | FIN, PSH, and URG set                           |
-
-Each scan type uses one or more of these flags to trick the target into revealing port states.
-
----
-
-### 💻 **Using `hping3` for Flag Scanning**
-
-`hping3` allows users to **manually craft TCP packets** with specific flags, offering complete control over how the scanning is done.
-
-#### 🔹 **Syntax:**
-
-```bash
-hping3 [options] <target>
-```
-
-#### 🔹 **General Options Used in Flag Scans:**
-
-* `-S`: SYN flag
-* `-F`: FIN flag
-* `-A`: ACK flag
-* `-R`: RST flag
-* `-P`: PSH flag
-* `-U`: URG flag
-* `--scan`: Perform a port scan
-* `-p`: Specify target port
-* `-c`: Count of packets to send
-* `-n`: Numeric output only (no DNS resolution)
-* `-V`: Verbose output
-
----
-
-### 🔐 **Examples of Flag Scans Using hping3**
-
-#### ✅ **1. SYN Scan (Half-Open Scan)**
-
-Sends a SYN packet to initiate a connection without completing the handshake.
-
-```bash
-hping3 -S -p 80 -c 1 192.168.1.10
-```
-
-**Interpretation:**
-
-* If SYN-ACK is received, port is **open**.
-* If RST is received, port is **closed**.
-* If no response, port may be **filtered**.
-
----
-
-#### ✅ **2. FIN Scan**
-
-Sends a FIN packet, which is normally used to close a connection. Systems not expecting it may reveal port status.
-
-```bash
-hping3 -F -p 80 -c 1 192.168.1.10
-```
-
-**Interpretation:**
-
-* No response means the port is likely **open**.
-* RST means the port is **closed**.
-
-FIN scans are useful against systems that **do not comply with RFC 793** (e.g., older Unix systems).
-
----
-
-#### ✅ **3. NULL Scan**
-
-Sends a TCP packet with **no flags** set.
-
-```bash
-hping3 -p 80 -c 1 192.168.1.10
-```
-
-**Interpretation:**
-
-* No response = **open or filtered**
-* RST response = **closed**
-
-This is used to **bypass firewalls** that filter based on known flags like SYN or ACK.
-
----
-
-#### ✅ **4. XMAS Scan**
-
-Sets the FIN, PSH, and URG flags — called an XMAS scan because the flags make the packet look "lit up."
-
-```bash
-hping3 -F -P -U -p 80 -c 1 192.168.1.10
-```
-
-**Interpretation:**
-
-* No response = port is **open**.
-* RST = port is **closed**.
-
-XMAS scans are **stealthy** and often evade older firewalls.
-
----
-
-#### ✅ **5. ACK Scan**
-
-Sends an ACK packet to test firewall rules and **map firewall behavior** rather than discover open ports.
-
-```bash
-hping3 -A -p 80 -c 1 192.168.1.10
-```
-
-**Interpretation:**
-
-* RST = port is **unfiltered**.
-* No response = port is **filtered**.
-
-This scan doesn’t determine if the port is open — it checks **packet filtering**.
-
----
-
-### 📘 **Understanding the Output**
-
-The output of `hping3` provides crucial information:
-
-* `flags=SA`: SYN-ACK → port open
-* `flags=RA`: RST-ACK → port closed
-* `no reply`: port is filtered or silently dropped
-
-Verbose mode (`-V`) gives TTL, IP ID, window size, and other details that can also assist in OS fingerprinting.
-
----
-
-### 🧠 **Why Use hping3 for Flag Scans?**
-
-* **Stealth and flexibility**: Unlike tools like `nmap`, `hping3` provides raw packet crafting for **stealth scans**.
-* **Firewall testing**: Easily check how firewalls respond to various TCP flags.
-* **Security auditing**: Determine which ports are open without triggering alerts.
-* **Protocol analysis**: Can simulate DoS attacks, traceroutes, and more.
-
----
-
-### ⚠️ **Legal and Ethical Considerations**
-
-While `hping3` is powerful, its misuse can:
-
-* Trigger alarms in intrusion detection systems.
-* Violate network usage policies.
-* Lead to legal consequences if used without authorization.
-
-> ✅ **Only perform scans on systems you own or have explicit permission to test.**
-
----
-
-### 🛡️ **Defensive Measures Against Flag Scans**
-
-To protect systems from flag-based reconnaissance:
-
-* Implement **stateful firewalls** that reject abnormal TCP flags.
-* Use **Intrusion Detection Systems (IDS)** to detect irregular scanning behavior.
-* Disable unnecessary ports and use **port-knocking**.
-* Configure systems to **drop suspicious packets silently**.
-
----
-
-### 🧾 **Conclusion**
-
-Flag scanning with `hping3` is a **core skill in ethical hacking** that helps identify the state of target ports while evading detection. By manipulating TCP flags such as SYN, FIN, or NULL, ethical hackers can understand how systems and firewalls respond to unconventional packets. Tools like `hping3` grant deep packet-level control and are valuable for **covert scanning**, **firewall testing**, and **network behavior analysis**.
-
-Proper usage of `hping3` in a controlled, legal environment enables ethical hackers to identify vulnerabilities before malicious actors exploit them.
-
----
-
-Would you like an **HTML version** of this content for your Tech Nexus website?
+  <h3> Performing Flag Scan using hping3</h3>
+
+  <h4> Introduction to hping3</h4>
+  <p><code>hping3</code> is a powerful command-line TCP/IP packet crafting tool used by penetration testers, security researchers, and ethical hackers. It is designed for packet manipulation and analysis, allowing users to create custom packets, send them, and analyze the responses from the target.</p>
+  <p>Unlike traditional scanners such as <code>nmap</code>, <code>hping3</code> offers more granular control over every part of the packet, including the TCP flags, IP headers, and data payload, making it ideal for advanced scanning techniques and firewall testing.</p>
+
+  <h4> What is a Flag Scan?</h4>
+  <p>A flag scan is a technique used in port scanning where specific TCP flags are set in packets to probe a system’s network behavior. Based on the responses (or lack thereof), attackers can infer whether a port is open, closed, or filtered.</p>
+  <p>Flag scans are stealthier than regular full TCP scans because they do not complete a full handshake, allowing them to bypass some firewalls and intrusion detection systems.</p>
+
+  <h4> Common TCP Flags Used in Scanning</h4>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Flag</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>SYN</td><td>Synchronize (used to initiate a TCP connection)</td></tr>
+      <tr><td>ACK</td><td>Acknowledge</td></tr>
+      <tr><td>FIN</td><td>Finish (used to close a connection)</td></tr>
+      <tr><td>RST</td><td>Reset</td></tr>
+      <tr><td>PSH</td><td>Push</td></tr>
+      <tr><td>URG</td><td>Urgent</td></tr>
+      <tr><td>NULL</td><td>No flags set</td></tr>
+      <tr><td>XMAS</td><td>FIN, PSH, and URG set</td></tr>
+    </tbody>
+  </table>
+
+  <h4> Using hping3 for Flag Scanning</h4>
+  <h5> Syntax:</h5>
+  <pre><code>hping3 [options] &lt;target&gt;</code></pre>
+
+  <h5> General Options Used in Flag Scans:</h5>
+  <ul>
+    <li>-S: SYN flag</li>
+    <li>-F: FIN flag</li>
+    <li>-A: ACK flag</li>
+    <li>-R: RST flag</li>
+    <li>-P: PSH flag</li>
+    <li>-U: URG flag</li>
+    <li>--scan: Perform a port scan</li>
+    <li>-p: Specify target port</li>
+    <li>-c: Count of packets to send</li>
+    <li>-n: Numeric output only (no DNS resolution)</li>
+    <li>-V: Verbose output</li>
+  </ul>
+
+  <h4> Examples of Flag Scans Using hping3</h4>
+
+  <h5> 1. SYN Scan (Half-Open Scan)</h5>
+  <p>Sends a SYN packet to initiate a connection without completing the handshake.
+</p>
+  <pre><code>hping3 -S -p 80 -c 1 192.168.1.10</code></pre>
+  <p><strong>Interpretation:</strong></p>
+  <ul>
+    <li>If SYN-ACK is received, port is open.</li>
+    <li>If RST is received, port is closed.</li>
+    <li>If no response, port may be filtered.</li>
+  </ul>
+
+  <h5> 2. FIN Scan</h5>
+  <p>Sends a FIN packet, which is normally used to close a connection. Systems not expecting it may reveal port status.
+</p>
+  <pre><code>hping3 -F -p 80 -c 1 192.168.1.10</code></pre>
+  <p><strong>Interpretation:</strong></p>
+  <ul>
+    <li>No response means the port is likely open.</li>
+    <li>RST means the port is closed.</li>
+  </ul>
+  <p>FIN scans are useful against systems that do not comply with RFC 793 (e.g., older Unix systems).</p>
+
+  <h5> 3. NULL Scan</h5>
+  <p>Sends a TCP packet with no flags set.
+</p>
+  <pre><code>hping3 -p 80 -c 1 192.168.1.10</code></pre>
+  <p><strong>Interpretation:</strong></p>
+  <ul>
+    <li>No response = open or filtered</li>
+    <li>RST response = closed</li>
+  </ul>
+  <p>This is used to bypass firewalls that filter based on known flags like SYN or ACK.</p>
+
+  <h5> 4. XMAS Scan</h5>
+  <p>Sets the FIN, PSH, and URG flags — called an XMAS scan because the flags make the packet look "lit up."
+</p>
+  <pre><code>hping3 -F -P -U -p 80 -c 1 192.168.1.10</code></pre>
+  <p><strong>Interpretation:</strong></p>
+  <ul>
+    <li>No response = port is open.</li>
+    <li>RST = port is closed.</li>
+  </ul>
+  <p>XMAS scans are stealthy and often evade older firewalls.</p>
+
+  <h5> 5. ACK Scan</h5>
+  <p>Sends an ACK packet to test firewall rules and map firewall behavior rather than discover open ports.
+</p>
+  <pre><code>hping3 -A -p 80 -c 1 192.168.1.10</code></pre>
+  <p><strong>Interpretation:</strong></p>
+  <ul>
+    <li>RST = port is unfiltered.</li>
+    <li>No response = port is filtered.</li>
+  </ul>
+  <p>This scan doesn’t determine if the port is open — it checks packet filtering.</p>
+
+  <h4> Understanding the Output</h4>
+  <p>The output of <code>hping3</code> provides crucial information:</p>
+  <ul>
+    <li><code>flags=SA</code>: SYN-ACK → port open</li>
+    <li><code>flags=RA</code>: RST-ACK → port closed</li>
+    <li><code>no reply</code>: port is filtered or silently dropped</li>
+  </ul>
+  <p>Verbose mode (<code>-V</code>) gives TTL, IP ID, window size, and other details that can also assist in OS fingerprinting.</p>
+
+  <h4> Why Use hping3 for Flag Scans?</h4>
+  <ul>
+    <li>Stealth and flexibility: Unlike tools like <code>nmap</code>, <code>hping3</code> provides raw packet crafting for stealth scans.</li>
+    <li>Firewall testing: Easily check how firewalls respond to various TCP flags.</li>
+    <li>Security auditing: Determine which ports are open without triggering alerts.</li>
+    <li>Protocol analysis: Can simulate DoS attacks, traceroutes, and more.</li>
+  </ul>
+
+  <h4> Legal and Ethical Considerations</h4>
+  <p>While <code>hping3</code> is powerful, its misuse can:</p>
+  <ul>
+    <li>Trigger alarms in intrusion detection systems.</li>
+    <li>Violate network usage policies.</li>
+    <li>Lead to legal consequences if used without authorization.</li>
+  </ul>
+  <blockquote>
+     <strong>Only perform scans on systems you own or have explicit permission to test.</strong>
+  </blockquote>
+
+  <h4> Defensive Measures Against Flag Scans</h4>
+  <ul>
+    <li>Implement stateful firewalls that reject abnormal TCP flags.</li>
+    <li>Use Intrusion Detection Systems (IDS) to detect irregular scanning behavior.</li>
+    <li>Disable unnecessary ports and use port-knocking.</li>
+    <li>Configure systems to drop suspicious packets silently.</li>
+  </ul>
+
+  <h4> Conclusion</h4>
+  <p>Flag scanning with <code>hping3</code> is a core skill in ethical hacking that helps identify the state of target ports while evading detection. By manipulating TCP flags such as SYN, FIN, or NULL, ethical hackers can understand how systems and firewalls respond to unconventional packets. Tools like <code>hping3</code> grant deep packet-level control and are valuable for covert scanning, firewall testing, and network behavior analysis.</p>
+  <p>Proper usage of <code>hping3</code> in a controlled, legal environment enables ethical hackers to identify vulnerabilities before malicious actors exploit them.</p>
 
 
 
@@ -225,7 +166,7 @@ Would you like an **HTML version** of this content for your Tech Nexus website?
    </main>
 
     <footer>
-    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to  Topics</a>
     </footer>
 
  </body>
