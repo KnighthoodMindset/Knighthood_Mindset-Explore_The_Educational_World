@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <title>Introduction to Scanning | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -15,156 +15,172 @@
   <main>
 
 
-Here is a long, detailed theoretical answer for the topic **"Introduction to Scanning"** under **Ethical Hacking**:
+<section>
+    <h3>Introduction to Scanning</h3>
+    <p>Scanning is the second phase in the ethical hacking lifecycle, following footprinting. While footprinting involves gathering passive or indirect information about a target, scanning is more active and technical. It is the process of interacting with the target system to identify live hosts, open ports, services running, operating systems, and possible vulnerabilities. Ethical hackers use scanning to map the attack surface and gather data required for planning actual exploitation.</p>
+    <p>This phase helps in painting a clearer picture of the network and systems, thus bridging the gap between the reconnaissance and gaining access phases of ethical hacking.</p>
+</section>
 
----
+<section>
+    <h4>Objectives of Scanning</h4>
+    <p>The primary objectives of scanning are:</p>
+    <ul>
+        <li>Identifying live hosts (devices connected to a network)</li>
+        <li>Detecting open ports and active services</li>
+        <li>Determining the operating system and system architecture</li>
+        <li>Finding potential vulnerabilities in services or configurations</li>
+        <li>Enumerating network topology and device roles</li>
+    </ul>
+</section>
 
-### **Introduction to Scanning**
+<section>
+    <h4>Types of Scanning</h4>
+    <p>Scanning is broadly categorized into three main types:</p>
 
-**Scanning** is the second phase in the ethical hacking lifecycle, following **footprinting**. While footprinting involves gathering passive or indirect information about a target, **scanning is more active and technical**. It is the process of **interacting with the target system** to identify live hosts, open ports, services running, operating systems, and possible vulnerabilities. Ethical hackers use scanning to **map the attack surface** and gather data required for planning actual exploitation.
+    <section>
+        <h5>1. Port Scanning</h5>
+        <p>Port scanning is used to identify open ports and services listening on those ports. Since each service on a system typically listens on a specific port (e.g., HTTP on port 80), identifying open ports gives insight into what services are running.</p>
 
-This phase helps in painting a clearer picture of the network and systems, thus bridging the gap between the **reconnaissance** and **gaining access** phases of ethical hacking.
+        <p>Common Port States:</p>
+        <ul>
+            <li>Open – Application is actively accepting connections</li>
+            <li>Closed – No application is listening</li>
+            <li>Filtered – Packet is blocked by a firewall</li>
+        </ul>
 
----
+        <p>Techniques:</p>
+        <ul>
+            <li>TCP Connect Scan</li>
+            <li>SYN Scan (Half-open scan)</li>
+            <li>FIN/NULL/XMAS scans (stealth techniques)</li>
+        </ul>
+    </section>
 
-### **Objectives of Scanning**
+    <section>
+        <h5>2. Network Scanning</h5>
+        <p>Network scanning helps identify active hosts on a network. It involves discovering the IP addresses that respond to ping or connection requests.</p>
 
-The primary objectives of scanning are:
+        <p>Used for:</p>
+        <ul>
+            <li>Host discovery</li>
+            <li>IP mapping</li>
+            <li>Identifying unauthorized systems</li>
+        </ul>
+        <p>Tools: ping, arp, nmap, angry IP scanner</p>
+    </section>
 
-* **Identifying live hosts** (devices connected to a network)
-* **Detecting open ports** and active services
-* **Determining the operating system** and system architecture
-* **Finding potential vulnerabilities** in services or configurations
-* **Enumerating network topology** and device roles
+    <section>
+        <h5>3. Vulnerability Scanning</h5>
+        <p>This type of scanning is used to find known vulnerabilities in systems and applications. It includes identifying unpatched software, misconfigurations, weak passwords, and insecure protocols.</p>
+        <p>Tools: Nessus, OpenVAS, Nexpose</p>
+    </section>
+</section>
 
----
+<section>
+    <h4>Stages in the Scanning Process</h4>
+    <ul>
+  <li><strong>Ping Sweep:</strong> Determines live hosts by sending ICMP requests</li>
+  <li><strong>Port Scanning:</strong> Identifies open, closed, or filtered ports</li>
+  <li><strong>Service Scanning:</strong> Detects the application or service running on each open port</li>
+  <li><strong>OS Fingerprinting:</strong> Determines the operating system and its version</li>
+  <li><strong>Vulnerability Scanning:</strong> Finds security flaws or misconfigurations</li>
+</ul>
 
-### **Types of Scanning**
+</section>
 
-Scanning is broadly categorized into three main types:
+<section>
+    <h4>Popular Tools for Scanning</h4>
+    <ul>
+  <li><strong>Nmap:</strong> Network discovery, port scanning, OS detection</li>
+  <li><strong>Netcat:</strong> Network analysis and backdoor setup</li>
+  <li><strong>Angry IP Scanner:</strong> Lightweight IP scanner</li>
+  <li><strong>Nessus:</strong> Comprehensive vulnerability scanning</li>
+  <li><strong>OpenVAS:</strong> Open-source vulnerability scanner</li>
+</ul>
 
-#### **1. Port Scanning**
+</section>
 
-Port scanning is used to identify **open ports** and **services listening** on those ports. Since each service on a system typically listens on a specific port (e.g., HTTP on port 80), identifying open ports gives insight into what services are running.
+<section>
+    <h4>TCP Flags Used in Port Scanning</h4>
+    <dl>
+  <dt><strong>SYN</strong></dt>
+  <dd>Synchronize – Initiate connection</dd>
 
-* **Common Port States:**
+  <dt><strong>ACK</strong></dt>
+  <dd>Acknowledgment – Confirm connection</dd>
 
-  * **Open** – Application is actively accepting connections
-  * **Closed** – No application is listening
-  * **Filtered** – Packet is blocked by a firewall
+  <dt><strong>FIN</strong></dt>
+  <dd>Finish – Close connection</dd>
 
-* **Techniques:**
+  <dt><strong>RST</strong></dt>
+  <dd>Reset – Abort connection</dd>
 
-  * TCP Connect Scan
-  * SYN Scan (Half-open scan)
-  * FIN/NULL/XMAS scans (stealth techniques)
+  <dt><strong>PSH</strong></dt>
+  <dd>Push – Send data immediately</dd>
 
-#### **2. Network Scanning**
+  <dt><strong>URG</strong></dt>
+  <dd>Urgent – High-priority data</dd>
+</dl>
 
-Network scanning helps identify **active hosts** on a network. It involves discovering the **IP addresses** that respond to ping or connection requests.
+</section>
 
-* Used for:
+<section>
+    <h4>Ethical Hacking vs Malicious Scanning</h4>
+    <p>While both ethical hackers and malicious hackers perform scanning, the intent and legality are what differentiate them.</p>
+    <table border="1">
+        <tr>
+            <th>Ethical Scanning</th>
+            <th>Malicious Scanning</th>
+        </tr>
+        <tr>
+            <td>With permission</td>
+            <td>Without permission</td>
+        </tr>
+        <tr>
+            <td>For security assessment</td>
+            <td>For exploitation</td>
+        </tr>
+        <tr>
+            <td>Transparent and logged</td>
+            <td>Stealthy and hidden</td>
+        </tr>
+    </table>
+</section>
 
-  * Host discovery
-  * IP mapping
-  * Identifying unauthorized systems
+<section>
+    <h4>Risks of Scanning</h4>
+    <p>Even in ethical contexts, improper scanning can lead to:</p>
+    <ul>
+        <li>Triggering intrusion detection systems (IDS)</li>
+        <li>Flooding network bandwidth</li>
+        <li>Unintended service disruptions</li>
+        <li>Legal consequences if done without authorization</li>
+    </ul>
+</section>
 
-* Tools: `ping`, `arp`, `nmap`, `angry IP scanner`
+<section>
+    <h4>Preventive Measures</h4>
+    <p>Organizations can take steps to defend against unauthorized scanning:</p>
+    <ul>
+        <li>Use firewalls to block unnecessary ports</li>
+        <li>Employ Intrusion Detection and Prevention Systems (IDPS)</li>
+        <li>Conduct regular vulnerability scans internally</li>
+        <li>Implement network segmentation</li>
+        <li>Apply rate limiting on external connections</li>
+    </ul>
+</section>
 
-#### **3. Vulnerability Scanning**
-
-This type of scanning is used to find **known vulnerabilities** in systems and applications. It includes identifying **unpatched software**, **misconfigurations**, **weak passwords**, and **insecure protocols**.
-
-* Tools: Nessus, OpenVAS, Nexpose
-
----
-
-### **Stages in the Scanning Process**
-
-| Stage                      | Description                                                  |
-| -------------------------- | ------------------------------------------------------------ |
-| **Ping Sweep**             | Determines live hosts by sending ICMP requests               |
-| **Port Scanning**          | Identifies open, closed, or filtered ports                   |
-| **Service Scanning**       | Detects the application or service running on each open port |
-| **OS Fingerprinting**      | Determines the operating system and its version              |
-| **Vulnerability Scanning** | Finds security flaws or misconfigurations                    |
-
----
-
-### **Popular Tools for Scanning**
-
-| Tool                 | Purpose                                        |
-| -------------------- | ---------------------------------------------- |
-| **Nmap**             | Network discovery, port scanning, OS detection |
-| **Netcat**           | Network analysis and backdoor setup            |
-| **Angry IP Scanner** | Lightweight IP scanner                         |
-| **Nessus**           | Comprehensive vulnerability scanning           |
-| **OpenVAS**          | Open-source vulnerability scanner              |
-
----
-
-### **TCP Flags Used in Port Scanning**
-
-| Flag    | Meaning                             |
-| ------- | ----------------------------------- |
-| **SYN** | Synchronize – Initiate connection   |
-| **ACK** | Acknowledgment – Confirm connection |
-| **FIN** | Finish – Close connection           |
-| **RST** | Reset – Abort connection            |
-| **PSH** | Push – Send data immediately        |
-| **URG** | Urgent – High-priority data         |
-
----
-
-### **Ethical Hacking vs Malicious Scanning**
-
-While both ethical hackers and malicious hackers perform scanning, the **intent and legality** are what differentiate them.
-
-| Ethical Scanning        | Malicious Scanning  |
-| ----------------------- | ------------------- |
-| With permission         | Without permission  |
-| For security assessment | For exploitation    |
-| Transparent and logged  | Stealthy and hidden |
-
----
-
-### **Risks of Scanning**
-
-Even in ethical contexts, improper scanning can lead to:
-
-* **Triggering intrusion detection systems (IDS)**
-* **Flooding network bandwidth**
-* **Unintended service disruptions**
-* **Legal consequences** if done without authorization
-
----
-
-### **Preventive Measures**
-
-Organizations can take steps to **defend against unauthorized scanning**:
-
-* Use **firewalls** to block unnecessary ports
-* Employ **Intrusion Detection and Prevention Systems (IDPS)**
-* Conduct **regular vulnerability scans** internally
-* Implement **network segmentation**
-* Apply **rate limiting** on external connections
-
----
-
-### **Conclusion**
-
-Scanning is a **critical step in ethical hacking** that helps professionals understand the security posture of a system or network. It transitions from passive observation to **active exploration**, revealing the services, systems, and vulnerabilities that may exist. When performed responsibly and legally, scanning serves as a **powerful diagnostic and preventive tool**, helping organizations **fortify their networks** against potential intrusions. Ethical hackers use this phase not to exploit but to **proactively identify weaknesses** and recommend remediation strategies.
-
----
-
-Would you like this formatted into HTML for your Tech Nexus website as well?
+<section>
+    <h4>Conclusion</h4>
+    <p>Scanning is a critical step in ethical hacking that helps professionals understand the security posture of a system or network. It transitions from passive observation to active exploration, revealing the services, systems, and vulnerabilities that may exist.<br> When performed responsibly and legally, scanning serves as a powerful diagnostic and preventive tool, helping organizations fortify their networks against potential intrusions. Ethical hackers use this phase not to exploit but to proactively identify weaknesses and recommend remediation strategies.</p>
+</section>
 
 
 
    </main>
 
     <footer>
-    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to  Topics</a>
     </footer>
 
  </body>
