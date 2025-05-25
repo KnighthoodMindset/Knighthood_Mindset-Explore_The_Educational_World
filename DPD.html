@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <title>Default Password Databases | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -13,172 +13,192 @@
   </div>
 
   <main>
+<section>
+  <h3>Default Password Databases</h3>
 
-Here's a **long and detailed explanation** for the topic **“Default Password Databases”**, suitable for **Ethical Hacking Unit 3** notes:
+  <h4>1. Introduction</h4>
+  <p>Default Password Databases are collections of factory-set usernames and passwords assigned to hardware or software products by manufacturers. These credentials are typically used during initial setup or testing and are supposed to be changed immediately after deployment. However, many users neglect to update them, leaving devices vulnerable to unauthorized access.</p>
+  <p>Ethical hackers and cyber attackers alike often use default password databases as a first step during system hacking or penetration testing. Identifying and exploiting default credentials can provide quick and easy access to systems, making this a critical area of study in cybersecurity.</p>
 
----
+  <h4>2. What Are Default Passwords?</h4>
+  <p>A default password is a standard credential (username and password) set by the manufacturer for a device or application. These are often published in manuals or available online.</p>
 
-# **Default Password Databases**
+  <h5>Examples:</h5>
+   <ul>
+    <li><strong>Cisco Router:</strong> Username: admin, Password: admin</li>
+    <li><strong>D-Link Camera:</strong> Username: admin, Password: (blank)</li>
+    <li><strong>MySQL DBMS:</strong> Username: root, Password: root</li>
+    <li><strong>Tomcat Server:</strong> Username: admin, Password: admin</li>
+    <li><strong>Netgear Router:</strong> Username: admin, Password: password</li>
+  </ul>
 
-## **1. Introduction**
+  <h4>3. Why Default Passwords Are a Risk</h4>
+  <ul>
+    <li>Easily Guessable: Often published in manuals or on the manufacturer’s website.</li>
+    <li>Common Knowledge: Widely known among attackers and included in tools and scripts.</li>
+    <li>Unchanged by Users: Many users forget or fail to update the default credentials.</li>
+    <li>Automation-Friendly: Attackers use automated tools to scan and login using known defaults.</li>
+  </ul>
 
-**Default Password Databases** are collections of factory-set usernames and passwords assigned to hardware or software products by manufacturers. These credentials are typically used during initial setup or testing and are supposed to be changed immediately after deployment. However, **many users neglect to update them**, leaving devices vulnerable to unauthorized access.
+  <h4>4. Default Password Databases: Overview</h4>
+  <p>These are centralized lists or repositories of default usernames and passwords used by ethical hackers and security researchers during penetration testing.</p>
 
-Ethical hackers and cyber attackers alike often use **default password databases** as a first step during **system hacking** or **penetration testing**. Identifying and exploiting default credentials can provide quick and easy access to systems, making this a critical area of study in cybersecurity.
+  <h5>Popular Default Password Databases:</h5>
+  <table>
+    <thead>
+      <tr><th>Database Name</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>CIRT.net Default Password List</td><td>Large searchable online database of default credentials.</td></tr>
+      <tr><td>RouterPasswords.com</td><td>Database focused on default router and modem passwords.</td></tr>
+      <tr><td>DefaultPassword.com</td><td>Online repository of default logins for various hardware/software.</td></tr>
+      <tr><td>SecLists</td><td>GitHub repo by Daniel Miessler containing common default passwords.</td></tr>
+      <tr><td>Exploit-DB</td><td>Includes device credentials as part of exploit documentation.</td></tr>
+    </tbody>
+  </table>
 
----
+  <h4>5. Ethical Hacking Use Cases</h4>
 
-## **2. What Are Default Passwords?**
+  <h5>a. Information Gathering</h5>
+  <ul>
+    <li>Identify devices/software in use (e.g., using Nmap or Shodan).</li>
+    <li>Cross-reference identified systems with default password lists.</li>
+  </ul>
 
-A **default password** is a standard credential (username and password) set by the manufacturer for a device or application. These are often published in manuals or available online.
+  <h5>b. Vulnerability Assessment</h5>
+  <ul>
+    <li>Check if services still use default credentials.</li>
+    <li>Verify if administrative portals are protected.</li>
+  </ul>
 
-### **Examples:**
+  <h5>c. Exploitation</h5>
+  <ul>
+    <li>Use tools or manual login attempts with known default passwords.</li>
+    <li>Gain privileged access without advanced cracking techniques.</li>
+  </ul>
 
-| Device/Software | Default Username | Default Password |
-| --------------- | ---------------- | ---------------- |
-| Cisco Router    | admin            | admin            |
-| D-Link Camera   | admin            | (blank)          |
-| MySQL DBMS      | root             | root             |
-| Tomcat Server   | admin            | admin            |
-| Netgear Router  | admin            | password         |
+  <h4>6. Tools Leveraging Default Password Databases</h4>
+  <dl>
+  <dt><strong>Hydra</strong></dt>
+  <dd>
+    <p>Performs brute force attacks using default credential lists.</p>
+  </dd>
 
----
+  <dt><strong>Medusa</strong></dt>
+  <dd>
+    <p>Fast parallel login brute-forcer using credential databases.</p>
+  </dd>
 
-## **3. Why Default Passwords Are a Risk**
+  <dt><strong>Ncrack</strong></dt>
+  <dd>
+    <p>Network authentication cracking tool that includes default credentials.</p>
+  </dd>
 
-* **Easily Guessable**: Often published in manuals or on the manufacturer’s website.
-* **Common Knowledge**: Widely known among attackers and included in tools and scripts.
-* **Unchanged by Users**: Many users forget or fail to update the default credentials.
-* **Automation-Friendly**: Attackers use automated tools to scan and login using known defaults.
+  <dt><strong>Shodan + CIRT.net</strong></dt>
+  <dd>
+    <p>Combined usage helps identify exposed devices using default logins.</p>
+  </dd>
 
----
+  <dt><strong>Metasploit Framework</strong></dt>
+  <dd>
+    <p>Includes modules for checking default credentials on services.</p>
+  </dd>
+</dl>
 
-## **4. Default Password Databases: Overview**
 
-These are **centralized lists or repositories** of default usernames and passwords used by ethical hackers and security researchers during penetration testing.
+  <h4>7. Real-World Incidents</h4>
 
-### **Popular Default Password Databases:**
+  <h5>a. Mirai Botnet (2016)</h5>
+  <ul>
+    <li>Compromised hundreds of thousands of IoT devices (DVRs, cameras) using default credentials.</li>
+    <li>Turned them into a massive botnet, launching DDoS attacks on major websites.</li>
+    <li>Root cause: Users never changed the default passwords.</li>
+  </ul>
 
-| Database Name                      | Description                                                         |
-| ---------------------------------- | ------------------------------------------------------------------- |
-| **CIRT.net Default Password List** | Large searchable online database of default credentials.            |
-| **RouterPasswords.com**            | Database focused on default router and modem passwords.             |
-| **DefaultPassword.com**            | Online repository of default logins for various hardware/software.  |
-| **SecLists**                       | GitHub repo by Daniel Miessler containing common default passwords. |
-| **Exploit-DB**                     | Includes device credentials as part of exploit documentation.       |
+  <h5>b. Verkada Hack (2021)</h5>
+  <ul>
+    <li>Hackers gained access to 150,000+ security cameras by using default admin credentials.</li>
+    <li>Exposed live feeds from hospitals, prisons, and factories.</li>
+  </ul>
 
----
+  <h4>8. Prevention and Defense</h4>
 
-## **5. Ethical Hacking Use Cases**
+  <h5>a. Change Defaults Immediately</h5>
+  <ul>
+    <li>First and most critical step after setup.</li>
+    <li>Use strong, unique credentials.</li>
+  </ul>
 
-Ethical hackers use default password databases in various phases of penetration testing:
+  <h5>b. Disable Remote Access (if not needed)</h5>
+  <ul>
+    <li>Prevent remote attackers from accessing login portals.</li>
+  </ul>
 
-### **a. Information Gathering**
+  <h5>c. Use Two-Factor Authentication</h5>
+  <ul>
+    <li>Adds a second layer of defense even if default credentials are known.</li>
+  </ul>
 
-* Identify devices/software in use (e.g., using Nmap or Shodan).
-* Cross-reference identified systems with default password lists.
+  <h5>d. Conduct Regular Audits</h5>
+  <ul>
+    <li>Check for devices still using default logins.</li>
+    <li>Use automated scripts or tools to scan the network.</li>
+  </ul>
 
-### **b. Vulnerability Assessment**
+  <h5>e. Educate Users</h5>
+  <ul>
+    <li>Many users are unaware of the risks.</li>
+    <li>Promote awareness of the importance of changing default passwords.</li>
+  </ul>
 
-* Check if services still use default credentials.
-* Verify if administrative portals are protected.
+  <h4>9. Ethical vs. Malicious Use</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Ethical Hacking (White Hat)</th>
+        <th>Malicious Hacking (Black Hat)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Identify vulnerabilities in a controlled manner.</td>
+        <td>Exploit default credentials for unauthorized access.</td>
+      </tr>
+      <tr>
+        <td>Report findings to administrators.</td>
+        <td>Install malware, exfiltrate data, or build botnets.</td>
+      </tr>
+      <tr>
+        <td>Suggest mitigation steps.</td>
+        <td>Leave backdoors or sell access on the dark web.</td>
+      </tr>
+    </tbody>
+  </table>
 
-### **c. Exploitation**
+  <h4>10. Advantages and Disadvantages</h4>
+  <h5>Advantages</h5>
+  <ul>
+    <li>Easy and quick way to test system security.</li>
+    <li>Helps uncover user negligence.</li>
+    <li>Enables vulnerability discovery with minimal tools.</li>
+  </ul>
 
-* Use tools or manual login attempts with known default passwords.
-* Gain privileged access without advanced cracking techniques.
+  <h5>Disadvantages</h5>
+  <ul>
+    <li>Can be abused by attackers if systems are exposed.</li>
+    <li>Overreliance can miss stronger attack vectors.</li>
+    <li>Ethical use must be within legal and authorized boundaries.</li>
+  </ul>
 
----
+  <h4>11. Conclusion</h4>
+  <p>Default Password Databases are vital resources in ethical hacking, offering insight into one of the most common vulnerabilities in cybersecurity. The failure to change default credentials has led to massive security breaches, making it imperative for organizations to enforce strict password management policies and regularly audit their infrastructure.</p>
+  <p>Ethical hackers use these databases to test whether organizations have hardened their systems against this well-known threat. In the broader landscape of system hacking, default credentials are the low-hanging fruit that must not be overlooked.</p>
+</section>
 
-## **6. Tools Leveraging Default Password Databases**
-
-| Tool                     | Description                                                             |
-| ------------------------ | ----------------------------------------------------------------------- |
-| **Hydra**                | Performs brute force attacks using default credential lists.            |
-| **Medusa**               | Fast parallel login brute-forcer using credential databases.            |
-| **Ncrack**               | Network authentication cracking tool that includes default credentials. |
-| **Shodan + CIRT.net**    | Combined usage helps identify exposed devices using default logins.     |
-| **Metasploit Framework** | Includes modules for checking default credentials on services.          |
-
----
-
-## **7. Real-World Incidents**
-
-### **a. Mirai Botnet (2016)**
-
-* Compromised hundreds of thousands of IoT devices (DVRs, cameras) using **default credentials**.
-* Turned them into a **massive botnet**, launching DDoS attacks on major websites.
-* Root cause: Users never changed the default passwords.
-
-### **b. Verkada Hack (2021)**
-
-* Hackers gained access to **150,000+ security cameras** by using **default admin credentials**.
-* Exposed live feeds from hospitals, prisons, and factories.
-
----
-
-## **8. Prevention and Defense**
-
-### **a. Change Defaults Immediately**
-
-* First and most critical step after setup.
-* Use strong, unique credentials.
-
-### **b. Disable Remote Access (if not needed)**
-
-* Prevent remote attackers from accessing login portals.
-
-### **c. Use Two-Factor Authentication**
-
-* Adds a second layer of defense even if default credentials are known.
-
-### **d. Conduct Regular Audits**
-
-* Check for devices still using default logins.
-* Use automated scripts or tools to scan the network.
-
-### **e. Educate Users**
-
-* Many users are unaware of the risks.
-* Promote awareness of the importance of changing default passwords.
-
----
-
-## **9. Ethical vs. Malicious Use**
-
-| Ethical Hacking (White Hat)                      | Malicious Hacking (Black Hat)                        |
-| ------------------------------------------------ | ---------------------------------------------------- |
-| Identify vulnerabilities in a controlled manner. | Exploit default credentials for unauthorized access. |
-| Report findings to administrators.               | Install malware, exfiltrate data, or build botnets.  |
-| Suggest mitigation steps.                        | Leave backdoors or sell access on the dark web.      |
-
----
-
-## **10. Advantages and Disadvantages**
-
-| Advantages                                          | Disadvantages                                               |
-| --------------------------------------------------- | ----------------------------------------------------------- |
-| Easy and quick way to test system security.         | Can be abused by attackers if systems are exposed.          |
-| Helps uncover user negligence.                      | Overreliance can miss stronger attack vectors.              |
-| Enables vulnerability discovery with minimal tools. | Ethical use must be within legal and authorized boundaries. |
-
----
-
-## **11. Conclusion**
-
-**Default Password Databases** are vital resources in ethical hacking, offering insight into one of the most common vulnerabilities in cybersecurity. The failure to change default credentials has led to massive security breaches, making it imperative for organizations to **enforce strict password management policies** and regularly audit their infrastructure.
-
-Ethical hackers use these databases to test whether organizations have hardened their systems against this well-known threat. In the broader landscape of system hacking, **default credentials are the low-hanging fruit that must not be overlooked**.
-
----
-
-Would you like the next topic in Unit 3? Please provide the topic name.
-
-    
   </main>
 
     <footer>
-    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Topics</a>
     </footer>
 
  </body>
