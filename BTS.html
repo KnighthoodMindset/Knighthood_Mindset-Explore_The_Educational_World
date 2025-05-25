@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <title>Basic Techniques of Scanning | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -13,202 +14,236 @@
   </div>
 
   <main>
+<section>
+  <h3>Basic Techniques of Scanning</h3>
+
+  <p>In ethical hacking, scanning refers to the process of actively probing a target network or system to discover live hosts, open ports, running services, and vulnerabilities. To effectively conduct scanning, ethical hackers utilize various scanning techniques depending on their objective — whether it’s identifying accessible systems, detecting services, or fingerprinting operating systems.</p>
+
+  <p>Understanding the basic techniques of scanning is crucial, as they serve as the foundation for advanced network penetration testing and vulnerability assessments.</p>
+</section>
+
+
+
+<section>
+  <h4>1. Ping Sweep (ICMP Scanning)</h4>
+
+  <h5>Definition:</h5>
+  <p>Ping Sweep is a technique used to determine which IP addresses are active or "alive" on a network. It sends ICMP Echo Requests to multiple IP addresses and waits for ICMP Echo Replies.</p>
+
+  <h5>How It Works:</h5>
+  <ul>
+    <li>Sends a ping (ICMP Echo Request) to each IP address.</li>
+    <li>Waits for a response (ICMP Echo Reply).</li>
+    <li>Hosts that respond are marked as live.</li>
+  </ul>
+
+  <h5>Purpose:</h5>
+  <ul>
+    <li>Identify live systems in a subnet.</li>
+    <li>Eliminate non-responsive IPs from further scanning.</li>
+  </ul>
+
+  <h5>Limitations:</h5>
+  <ul>
+    <li>ICMP may be blocked by firewalls.</li>
+    <li>Can trigger intrusion detection systems (IDS).</li>
+  </ul>
+
+  <h5>Example Tool:</h5>
+  <p>fping, nmap, ping</p>
+</section>
+
+
+
+<section>
+  <h4>2. Port Scanning</h4>
+
+  <h5>Definition:</h5>
+  <p>Port scanning is used to discover open ports and services on a target system. Each port corresponds to a particular service or application.</p>
+
+  <h5>Types of Port Scanning:</h5>
+  <table border="1">
+    <tr>
+      <th>Technique</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>TCP Connect Scan</td>
+      <td>Establishes full TCP connection (3-way handshake). Reliable but noisy.</td>
+    </tr>
+    <tr>
+      <td>SYN Scan (Half-open scan)</td>
+      <td>Sends only SYN packets. If SYN-ACK is received, port is open. Stealthier.</td>
+    </tr>
+    <tr>
+      <td>FIN Scan</td>
+      <td>Sends FIN packets without connection. If no response, the port may be open. Used to evade firewalls.</td>
+    </tr>
+    <tr>
+      <td>NULL Scan</td>
+      <td>Sends a packet with no flags set. Open ports remain silent. Can bypass stateless firewalls.</td>
+    </tr>
+    <tr>
+      <td>XMAS Scan</td>
+      <td>Sends a packet with FIN, URG, and PUSH flags set. Responses are interpreted for status.</td>
+    </tr>
+  </table>
+
+  <h5>Purpose:</h5>
+  <ul>
+    <li>Identify open/closed/filtered ports.</li>
+    <li>Discover services and daemons.</li>
+    <li>Map possible attack entry points.</li>
+  </ul>
+
+  <h5>Example Tool:</h5>
+  <p>nmap, Netcat</p>
+</section>
+
+
+
+<section>
+  <h4>3. Network Scanning</h4>
+
+  <h5>Definition:</h5>
+  <p>Network scanning is used to identify active devices, network topology, and potential vulnerabilities in a network.</p>
+
+  <h5>Techniques:</h5>
+  <ul>
+    <li>ARP scanning for local networks</li>
+    <li>ICMP scanning for remote hosts</li>
+    <li>TCP/UDP port detection</li>
+    <li>Banner grabbing for identifying services</li>
+  </ul>
 
+  <h5>Purpose:</h5>
+  <ul>
+    <li>Map network devices</li>
+    <li>Identify unauthorized systems</li>
+    <li>Determine available services</li>
+  </ul>
 
-Here is a **detailed theoretical explanation** of the topic **“Basic Techniques of Scanning”** under **Ethical Hacking** for your **Tech Nexus** website:
+  <h5>Example Tools:</h5>
+  <p>Nmap, Angry IP Scanner</p>
+</section>
 
----
 
-## 🔍 **Basic Techniques of Scanning – Ethical Hacking**
 
-In ethical hacking, **scanning** refers to the process of actively probing a target network or system to discover live hosts, open ports, running services, and vulnerabilities. To effectively conduct scanning, ethical hackers utilize various **scanning techniques** depending on their objective — whether it’s identifying accessible systems, detecting services, or fingerprinting operating systems.
+<section>
+  <h4>4. Vulnerability Scanning</h4>
 
-Understanding the **basic techniques of scanning** is crucial, as they serve as the **foundation for advanced network penetration testing** and vulnerability assessments.
+  <h5>Definition:</h5>
+  <p>Vulnerability scanning involves analyzing systems to detect security flaws, such as unpatched software, misconfigured services, or weak passwords.</p>
 
----
+  <h5>Types:</h5>
+  <ul>
+    <li>Authenticated scan: Requires credentials to probe systems deeply.</li>
+    <li>Unauthenticated scan: Tests external vulnerabilities without login.</li>
+  </ul>
 
-### 🧭 **1. Ping Sweep (ICMP Scanning)**
+  <h5>Purpose:</h5>
+  <ul>
+    <li>Detect known CVEs (Common Vulnerabilities and Exposures)</li>
+    <li>Identify insecure software versions</li>
+    <li>Assess system health from a security perspective</li>
+  </ul>
 
-#### **Definition:**
+  <h5>Example Tools:</h5>
+  <p>Nessus, OpenVAS, Nikto</p>
+</section>
 
-Ping Sweep is a technique used to determine **which IP addresses are active** or "alive" on a network. It sends **ICMP Echo Requests** to multiple IP addresses and waits for **ICMP Echo Replies**.
 
-#### **How It Works:**
 
-* Sends a **ping (ICMP Echo Request)** to each IP address.
-* Waits for a **response (ICMP Echo Reply)**.
-* Hosts that respond are marked as **live**.
+<section>
+  <h4>5. Operating System (OS) Fingerprinting</h4>
 
-#### **Purpose:**
+  <h5>Definition:</h5>
+  <p>OS Fingerprinting helps determine the operating system and its version running on a target host.</p>
 
-* Identify live systems in a subnet.
-* Eliminate non-responsive IPs from further scanning.
+  <h5>Types:</h5>
+  <ul>
+    <li>Active Fingerprinting: Sends crafted packets to elicit OS-specific responses.</li>
+    <li>Passive Fingerprinting: Observes traffic without sending probes.</li>
+  </ul>
 
-#### **Limitations:**
+  <h5>Purpose:</h5>
+  <ul>
+    <li>Determine system type (e.g., Linux, Windows, macOS)</li>
+    <li>Customize further attacks or exploits</li>
+  </ul>
 
-* ICMP may be blocked by firewalls.
-* Can trigger intrusion detection systems (IDS).
+  <h5>Tools:</h5>
+  <p>Nmap, XProbe, p0f</p>
+</section>
 
-#### **Example Tool:** `fping`, `nmap`, `ping`
 
----
 
-### 🌐 **2. Port Scanning**
+<section>
+  <h4>6. Banner Grabbing</h4>
 
-#### **Definition:**
+  <h5>Definition:</h5>
+  <p>Banner grabbing is a technique where an attacker sends requests to a service and records the response headers, which often reveal the software type, version, and configuration.</p>
 
-Port scanning is used to discover **open ports** and **services** on a target system. Each port corresponds to a particular service or application.
+  <h5>How it works:</h5>
+  <ul>
+    <li>Connects to open ports (like 80, 21, 22)</li>
+    <li>Reads metadata or initial response</li>
+    <li>Extracts service banners</li>
+  </ul>
 
-#### **Types of Port Scanning:**
+  <h5>Purpose:</h5>
+  <ul>
+    <li>Discover software versions</li>
+    <li>Identify vulnerabilities linked to specific versions</li>
+    <li>Plan service-specific exploits</li>
+  </ul>
 
-| Technique                     | Description                                                                                                     |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| **TCP Connect Scan**          | Establishes full TCP connection (3-way handshake). Reliable but noisy.                                          |
-| **SYN Scan (Half-open scan)** | Sends only SYN packets. If SYN-ACK is received, port is open. Stealthier.                                       |
-| **FIN Scan**                  | Sends FIN packets without connection. If no response, the port may be open. Used to evade firewalls.            |
-| **NULL Scan**                 | Sends a packet with no flags set. Open ports remain silent. Can bypass stateless firewalls.                     |
-| **XMAS Scan**                 | Sends a packet with FIN, URG, and PUSH flags set (like a Christmas tree). Responses are interpreted for status. |
+  <h5>Example:</h5>
+  <p>Using <code>telnet</code>:</p>
+  <pre><code>telnet example.com 80</code></pre>
+</section>
 
-#### **Purpose:**
 
-* Identify open/closed/filtered ports.
-* Discover services and daemons.
-* Map possible attack entry points.
 
-#### **Example Tool:** `nmap`, `Netcat`
+<section>
+  <h4>7. UDP Scanning</h4>
 
----
+  <h5>Definition:</h5>
+  <p>Unlike TCP scanning, UDP scanning checks for services running over the User Datagram Protocol, which is connectionless and harder to detect.</p>
 
-### 📍 **3. Network Scanning**
+  <h5>Challenges:</h5>
+  <ul>
+    <li>Lack of response may mean open or filtered</li>
+    <li>Slower and less reliable than TCP scans</li>
+    <li>Firewalls often block UDP packets</li>
+  </ul>
 
-#### **Definition:**
+  <h5>Tools:</h5>
+  <p>Nmap -sU</p>
+</section>
 
-Network scanning is used to **identify active devices**, **network topology**, and **potential vulnerabilities** in a network.
 
-#### **Techniques:**
 
-* ARP scanning for local networks
-* ICMP scanning for remote hosts
-* TCP/UDP port detection
-* Banner grabbing for identifying services
+<section>
+  <h4>Conclusion</h4>
 
-#### **Purpose:**
+  <p>The basic techniques of scanning form the cornerstone of ethical hacking. Each scanning technique serves a specific purpose and is chosen based on the target environment and assessment goals. When used responsibly and with authorization, scanning helps detect vulnerabilities before malicious hackers can exploit them.</p>
 
-* Map network devices
-* Identify unauthorized systems
-* Determine available services
+  <p>Ethical hackers must master these techniques to:</p>
+  <ul>
+    <li>Understand how attackers work</li>
+    <li>Assess security defenses</li>
+    <li>Provide informed remediation strategies</li>
+  </ul>
 
-#### **Example Tools:** `Nmap`, `Angry IP Scanner`
-
----
-
-### 🧱 **4. Vulnerability Scanning**
-
-#### **Definition:**
-
-Vulnerability scanning involves analyzing systems to detect **security flaws**, such as unpatched software, misconfigured services, or weak passwords.
-
-#### **Types:**
-
-* **Authenticated scan:** Requires credentials to probe systems deeply.
-* **Unauthenticated scan:** Tests external vulnerabilities without login.
-
-#### **Purpose:**
-
-* Detect known CVEs (Common Vulnerabilities and Exposures)
-* Identify insecure software versions
-* Assess system health from a security perspective
-
-#### **Example Tools:** `Nessus`, `OpenVAS`, `Nikto`
-
----
-
-### 🖥️ **5. Operating System (OS) Fingerprinting**
-
-#### **Definition:**
-
-OS Fingerprinting helps determine the **operating system and its version** running on a target host.
-
-#### **Types:**
-
-* **Active Fingerprinting:** Sends crafted packets to elicit OS-specific responses.
-* **Passive Fingerprinting:** Observes traffic without sending probes.
-
-#### **Purpose:**
-
-* Determine system type (e.g., Linux, Windows, macOS)
-* Customize further attacks or exploits
-
-#### **Tools:** `Nmap`, `XProbe`, `p0f`
-
----
-
-### 🔧 **6. Banner Grabbing**
-
-#### **Definition:**
-
-Banner grabbing is a technique where an attacker sends requests to a service and records the response headers, which often reveal the **software type, version, and configuration**.
-
-#### **How it works:**
-
-* Connects to open ports (like 80, 21, 22)
-* Reads metadata or initial response
-* Extracts service banners
-
-#### **Purpose:**
-
-* Discover software versions
-* Identify vulnerabilities linked to specific versions
-* Plan service-specific exploits
-
-#### **Example:**
-
-Using `telnet`:
-
-```bash
-telnet example.com 80
-```
-
----
-
-### 🔁 **7. UDP Scanning**
-
-#### **Definition:**
-
-Unlike TCP scanning, UDP scanning checks for services running over the **User Datagram Protocol**, which is **connectionless** and **harder to detect**.
-
-#### **Challenges:**
-
-* Lack of response may mean open or filtered
-* Slower and less reliable than TCP scans
-* Firewalls often block UDP packets
-
-#### **Tools:** `Nmap -sU`
-
----
-
-### 🧠 **Conclusion**
-
-The basic techniques of scanning form the **cornerstone of ethical hacking**. Each scanning technique serves a specific purpose and is chosen based on the target environment and assessment goals. When used responsibly and with authorization, scanning helps **detect vulnerabilities before malicious hackers can exploit them**.
-
-Ethical hackers must master these techniques to:
-
-* Understand how attackers work
-* Assess security defenses
-* Provide informed remediation strategies
-
-Mastery of scanning tools and methodologies lays the groundwork for the **exploitation**, **privilege escalation**, and **post-exploitation** phases that follow in a full penetration test.
-
----
-
-Would you like this explanation in HTML format as well for your Tech Nexus website?
-
+  <p>Mastery of scanning tools and methodologies lays the groundwork for the exploitation, privilege escalation, and post-exploitation phases that follow in a full penetration test.</p>
+</section>
 
 
    </main>
 
     <footer>
-    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to  Topics</a>
     </footer>
 
  </body>
