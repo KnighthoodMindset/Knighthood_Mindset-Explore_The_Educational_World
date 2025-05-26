@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+   🛠️ Virtualization Structures, Tools, and Mechanisms
+📝 Introduction
+Virtualization is the key technology behind cloud computing and modern IT infrastructures. It allows multiple operating systems or applications to run on the same physical hardware by creating virtual versions of hardware or software components.
+
+To implement virtualization efficiently, various structures, tools, and mechanisms are used. These help in creating, managing, and optimizing virtual environments.
+
+This answer explains the main virtualization architectures, commonly used tools/software, and the mechanisms that make virtualization possible.
+
+🧱 1. Virtualization Structures (Architectures)
+These refer to how virtualization is structured or implemented within a system. There are several common architectural models:
+
+🔹 A. Full Virtualization
+✅ Definition:
+A virtual machine completely mimics real hardware so that guest OS can run unmodified.
+
+🔧 How it works:
+The hypervisor intercepts and emulates privileged instructions.
+
+🟢 Examples:
+VMware ESXi, Oracle VirtualBox
+
+✅ Pros:
+No changes needed in guest OS.
+
+High compatibility.
+
+⚠️ Cons:
+Performance overhead due to emulation.
+
+🔹 B. Paravirtualization
+✅ Definition:
+The guest OS is modified to work with the hypervisor using special APIs.
+
+🔧 How it works:
+Guest OS is aware it's running in a virtualized environment.
+
+🟢 Examples:
+Xen hypervisor (with modified Linux kernels)
+
+✅ Pros:
+Better performance than full virtualization.
+
+⚠️ Cons:
+Requires guest OS to be modified.
+
+🔹 C. OS-Level Virtualization (Container-Based)
+✅ Definition:
+Virtualization is done at the operating system kernel level.
+
+🔧 How it works:
+Applications run in isolated user-space environments (containers), sharing the same OS kernel.
+
+🟢 Examples:
+Docker, LXC (Linux Containers)
+
+✅ Pros:
+Lightweight, fast startup, low resource usage.
+
+⚠️ Cons:
+All containers must use the same OS.
+
+🧰 2. Virtualization Tools
+These are software tools or platforms used to implement and manage virtualization in real systems.
+
+🔧 A. Hypervisors (Virtual Machine Monitors)
+Hypervisors are the core tools of hardware virtualization.
+
+🔹 Type 1 – Bare-Metal Hypervisors
+Installed directly on hardware.
+
+Example: VMware ESXi, Microsoft Hyper-V, Xen
+
+🔹 Type 2 – Hosted Hypervisors
+Installed inside an existing OS.
+
+Example: Oracle VirtualBox, VMware Workstation
+
+🐳 B. Containerization Tools
+Used in OS-level virtualization to manage containers.
+
+Docker – Most popular containerization tool.
+
+Podman – Lightweight and daemonless alternative to Docker.
+
+Kubernetes – Orchestrates and manages multiple containers across clusters.
+
+LXC – Low-level Linux container manager.
+
+☁️ C. Cloud-Based Virtualization Platforms
+Cloud providers use their own virtualization stacks:
+
+AWS EC2 – Uses Xen and Nitro hypervisors.
+
+Microsoft Azure – Uses Hyper-V.
+
+Google Cloud Platform – Uses KVM.
+
+📦 D. Other Virtualization Tools
+QEMU – Emulator and virtualizer used for system emulation.
+
+KVM (Kernel-based Virtual Machine) – Open-source Linux-based virtualization.
+
+VirtualBox – Cross-platform, desktop virtualization tool.
+
+⚙️ 3. Virtualization Mechanisms
+These are the technical processes and features that enable virtualization to function properly.
+
+🔹 A. Hypervisor
+A thin layer of software that manages multiple virtual machines.
+
+Allocates CPU, memory, storage, and networking.
+
+🔹 B. Virtual Machines (VMs)
+Software-based emulation of a physical machine.
+
+Each VM runs its own OS and apps.
+
+🔹 C. Virtual CPU (vCPU)
+Abstracted CPU that is mapped to physical CPU cores.
+
+Allows multiple VMs to share the same physical processor.
+
+🔹 D. Virtual Memory
+Hypervisor allocates memory to each VM.
+
+Uses techniques like ballooning and memory overcommitment.
+
+🔹 E. Virtual Storage
+Disk storage is abstracted and assigned to VMs as virtual disks (e.g., VMDK, VHD).
+
+Supports features like snapshots and cloning.
+
+🔹 F. Virtual Networking
+Creates virtual network interfaces for VMs.
+
+Enables internal and external communication using virtual switches, NAT, and bridges.
+
+🔹 G. Live Migration
+Mechanism to move a running VM from one host to another without downtime.
+
+Used for load balancing and maintenance.
+
+
+📌 Conclusion
+Virtualization is made possible through a combination of architectural structures, software tools, and technical mechanisms. Whether it’s virtual machines using hypervisors or lightweight containers running in isolated environments, each tool and structure has its unique use-case and benefits.
+
+These technologies are essential for cloud computing, resource optimization, scalability, security, and cost-efficiency in modern computing environments.
+
+
+
+
+
+    
+     </main>
+
+    <footer>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>
