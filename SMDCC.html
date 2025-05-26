@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+   ☁️ System Models for Distributed and Cloud Computing
+📝 Introduction
+Distributed and cloud computing systems are designed to provide powerful computing capabilities by using multiple computers or servers working together. To understand how these systems function, we use system models, which are conceptual frameworks that explain how components interact in a distributed or cloud environment. These models help in designing, managing, and optimizing such systems.
+
+This answer covers the key system models used in distributed computing and cloud computing, their roles, characteristics, and differences.
+
+🌐 What is a System Model?
+A system model is a theoretical structure that helps describe the behavior and interaction of components in a computing environment. In distributed and cloud computing, system models define:
+
+How computing tasks are distributed
+
+How resources are accessed
+
+How data is managed and shared
+
+How communication happens between components
+
+These models are essential for designing scalable, reliable, and efficient systems.
+
+🔗 1. Distributed Computing System Models
+Distributed systems consist of multiple independent computers connected by a network that work together as a single system.
+
+a) Client-Server Model
+The most basic and widely used model.
+
+Client: Requests resources or services.
+
+Server: Responds to client requests by providing services or data.
+
+Example: A web browser (client) requesting a webpage from a web server.
+
+b) Peer-to-Peer (P2P) Model
+All nodes (peers) are equal and can act as both clients and servers.
+
+Resources are shared among all users without a centralized server.
+
+Example: File-sharing systems like BitTorrent.
+
+c) Three-Tier Model
+Divides the application into three layers:
+
+Presentation Tier (User interface)
+
+Logic Tier (Application logic)
+
+Data Tier (Database)
+
+Enhances scalability and separation of concerns.
+
+Common in enterprise applications.
+
+d) N-Tier Model
+An extension of the three-tier model with more than three layers.
+
+Allows better scalability, flexibility, and security by distributing different functions across different layers.
+
+☁️ 2. Cloud Computing System Models
+Cloud computing extends distributed computing by offering virtualized resources over the internet. The system models here focus on resource abstraction, automation, and service delivery.
+
+a) Service Models (SPI Model)
+Cloud computing is generally classified into three service models:
+
+i. IaaS (Infrastructure as a Service)
+Provides virtualized hardware resources like servers, storage, and networks.
+
+Users manage the OS, applications, and data.
+
+Example: Amazon EC2, Microsoft Azure VMs.
+
+ii. PaaS (Platform as a Service)
+Provides a platform for developers to build and run applications without managing the underlying hardware or OS.
+
+Example: Google App Engine, Heroku.
+
+iii. SaaS (Software as a Service)
+Delivers software over the internet. Users simply log in and use it—no setup required.
+
+Example: Gmail, Microsoft Office 365, Dropbox.
+
+b) Deployment Models
+These describe how the cloud environment is deployed and accessed:
+
+Public Cloud – Open to everyone; shared infrastructure (e.g., AWS).
+
+Private Cloud – Used by a single organization; more control and security.
+
+Hybrid Cloud – Combines both public and private clouds for flexibility.
+
+Community Cloud – Shared by organizations with similar needs (e.g., government bodies).
+
+🔁 3. Virtualization Model
+Virtualization is key in cloud computing. It allows multiple virtual machines (VMs) to run on a single physical machine.
+
+Enables resource pooling, isolation, and efficient hardware use.
+
+Managed using hypervisors (e.g., VMware, KVM, Xen).
+
+Helps in scaling, automation, and multi-tenant environments.
+
+📡 4. Data-Centric Models
+In both cloud and distributed systems, data is often stored and processed in distributed environments:
+
+Distributed File Systems – Data is split across different nodes. (Example: Google File System, Hadoop HDFS)
+
+Data Replication – Copies of data are stored on multiple servers for availability.
+
+Data Partitioning – Large datasets are split and processed in parallel.
+
+🔧 5. Communication and Coordination Models
+These models focus on how nodes or services communicate:
+
+Message Passing – Components exchange messages (e.g., APIs, REST).
+
+Shared Memory – Multiple processes share memory for faster data exchange (mainly in tightly coupled systems).
+
+Remote Procedure Calls (RPCs) – A process on one machine executes a function on another machine.
+
+✅ Advantages of System Models
+Help in understanding and designing complex systems.
+
+Ensure scalability, security, and performance.
+
+Aid in fault-tolerance and recovery planning.
+
+Improve resource management and automation.
+
+⚠️ Challenges
+Latency and network issues in communication.
+
+Data consistency across distributed nodes.
+
+Security and privacy in shared environments.
+
+Complex system management and maintenance.
+
+💡 Real-Life Example
+Imagine a video streaming service like Netflix:
+
+Uses a client-server model (user devices request videos from servers).
+
+Runs on cloud infrastructure (IaaS) for scalability.
+
+Uses distributed data storage for storing videos close to users.
+
+Implements microservices (a type of N-tier model) for handling different functions like user login, video delivery, billing, etc.
+
+All of these are examples of how different system models are used together in cloud and distributed environments.
+
+📌 Conclusion
+System models for distributed and cloud computing provide a blueprint for building modern, efficient, and scalable computing systems. Each model serves a different purpose—from managing resources to handling communication and data. By understanding these models, developers and engineers can build powerful applications that meet the growing demands of today’s connected world.
+
+
+
+
+
+    
+     </main>
+
+    <footer>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>
