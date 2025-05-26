@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+   
+
+🧠 Virtualization of CPU
+📝 Introduction
+Virtualization of the CPU refers to the process of creating virtual versions of physical processor cores so that multiple virtual machines (VMs) can share the same physical CPU resources. This is a key part of hardware-level virtualization and is handled by the hypervisor (also known as the Virtual Machine Monitor or VMM).
+
+CPU virtualization allows multiple operating systems and applications to run on a single physical machine, increasing resource utilization, efficiency, and flexibility—especially in cloud and data center environments.
+
+⚙️ What Is CPU Virtualization?
+CPU Virtualization is the method of abstracting the physical CPU of a host system into multiple virtual CPUs (vCPUs) that can be used by virtual machines. The hypervisor allocates processing time to each vCPU based on scheduling algorithms.
+
+This enables concurrent execution of multiple operating systems, each believing it has its own CPU.
+
+🔍 Why Is CPU Virtualization Important?
+Enables multi-tenancy (many VMs on one server)
+
+Improves hardware utilization
+
+Allows for server consolidation
+
+Supports isolation between different virtual machines
+
+Enables live migration of VMs across hosts
+
+🧱 How CPU Virtualization Works
+🔹 1. Virtual CPUs (vCPUs)
+Each virtual machine is assigned one or more vCPUs. These are software abstractions of the physical CPU.
+
+The hypervisor maps these vCPUs to physical CPU cores.
+
+It schedules and manages which VM gets access to the CPU and when.
+
+🔹 2. CPU Scheduling
+The hypervisor uses scheduling algorithms to manage vCPUs:
+
+Time-sharing: Each VM gets CPU time in turns.
+
+Priority-based: Important tasks get more CPU time.
+
+Affinity-based: vCPUs are assigned to specific physical cores.
+
+🔹 3. Ring Levels and Privilege Modes
+CPUs have different privilege levels (e.g., Ring 0 for kernel, Ring 3 for user mode).
+
+Normally, an OS runs in Ring 0.
+
+In virtualization, guest OSes cannot access Ring 0 directly.
+
+The hypervisor manages access to prevent crashes and unauthorized actions.
+
+🧰 Techniques Used for CPU Virtualization
+🔧 A. Binary Translation (BT)
+The hypervisor translates privileged instructions into safe ones.
+
+Used in full virtualization.
+
+Slower, but no need to modify the guest OS.
+
+🔧 B. Paravirtualization
+Guest OS is modified to interact directly with the hypervisor using hypercalls.
+
+More efficient than binary translation.
+
+Example: Xen hypervisor with Linux guests.
+
+🔧 C. Hardware-Assisted Virtualization
+Modern CPUs from Intel and AMD have built-in support for virtualization:
+
+Intel VT-x (Virtualization Technology)
+
+AMD-V (AMD Virtualization)
+
+These features allow guest OSes to run in Ring 0 securely, with help from the hardware, increasing performance and reducing complexity.
+
+🧪 Example: How a Guest OS Sees the CPU
+The guest OS thinks it is running on a dedicated CPU.
+
+It runs its own scheduler, kernel, and apps.
+
+The hypervisor tricks it into thinking it’s in control, while actually managing all hardware access.
+
+🧠 Challenges in CPU Virtualization
+Overhead from context switching between VMs.
+
+Performance bottlenecks if many VMs fight for limited CPU resources.
+
+Security risks if isolation between VMs is not properly enforced.
+
+Scheduling conflicts can occur with too many vCPUs.
+
+🌍 Real-World Usage
+Cloud providers like AWS, Azure, and Google Cloud use CPU virtualization to run thousands of VMs on fewer physical machines.
+
+Data centers use CPU virtualization to maximize hardware efficiency.
+
+Developers use local virtual machines for testing apps on different operating systems.
+
+
+
+📌 Conclusion
+CPU virtualization is a fundamental part of enabling multiple virtual machines to run efficiently on shared physical hardware. It involves abstracting physical processors into virtual ones, using advanced scheduling, hardware support, and software tricks to deliver near-native performance. By allowing better resource usage, flexibility, and isolation, CPU virtualization plays a central role in cloud computing, server management, and modern IT infrastructure.
+
+
+
+    
+     </main>
+
+    <footer>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    </footer>
+
+ </body>
+</html>
