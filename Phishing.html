@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <title>Phishing Process | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -14,221 +15,256 @@
 
   <main>
 
-
-Here is a **long and detailed explanation** of the topic **"Phishing Process"** for **Ethical Hacking – Unit 3**, suitable for your **Tech Nexus** website:
-
----
-
-# **Phishing Process**
-
----
-
-## **1. Introduction**
-
-**Phishing** is a deceptive cyberattack where attackers impersonate trustworthy entities to **steal sensitive information** such as login credentials, credit card numbers, personal identification details, or financial data. It is one of the **most common and successful social engineering attacks** due to its simplicity, scalability, and effectiveness.
-
-Phishing attacks exploit **human psychology**—curiosity, fear, urgency, and trust—to trick victims into clicking malicious links or opening infected attachments.
-
----
-
-## **2. Importance in Ethical Hacking**
-
-Understanding the **phishing process** is essential for ethical hackers to:
-
-* Simulate phishing attacks in penetration tests.
-* Evaluate an organization's resilience against social engineering threats.
-* Train employees to recognize and avoid phishing.
-* Help develop countermeasures to detect and prevent attacks.
-
----
-
-## **3. Phishing Lifecycle / Process**
-
-The phishing process typically consists of **seven structured phases**, from planning the attack to stealing information and exploiting it.
-
----
-
-### **Phase 1: Information Gathering / Target Selection**
-
-In this phase, the attacker identifies and studies the target (individual or organization) using:
-
-* Publicly available data (social media, LinkedIn, company websites).
-* Leaked data from previous breaches.
-* Search engines and people-finder websites.
-* Tools like Maltego, Recon-ng, and Google Dorking.
-
-**Objective**: Gather enough personal and organizational details to craft a **believable phishing message**.
-
----
-
-### **Phase 2: Crafting the Attack Message**
-
-The attacker creates a **convincing email, SMS, or webpage** that impersonates a trusted entity like:
-
-* A bank
-* A colleague
-* A government agency
-* A popular service (Google, Microsoft, Facebook)
-
-**Tactics used**:
-
-* Urgent language: “Your account will be suspended!”
-* Lures: “Claim your reward now!”
-* Fear: “Unusual activity detected!”
-
-This message typically includes:
-
-* A **malicious URL** pointing to a fake login page.
-* A **malicious attachment** (e.g., Word doc, Excel file, PDF).
-* A **call to action** encouraging users to click or download.
-
----
-
-### **Phase 3: Delivery of the Phishing Message**
-
-The message is sent to the target through different vectors:
-
-| **Medium**   | **Technique Name** | **Example**                                    |
-| ------------ | ------------------ | ---------------------------------------------- |
-| Email        | Phishing           | “Reset your Gmail password now!”               |
-| SMS          | Smishing           | “Your bank account is locked, click here.”     |
-| Phone call   | Vishing            | “We’re calling from your credit card company.” |
-| Social Media | Phishing           | Fake messages or links from friends            |
-| Ads/Websites | Malvertising       | Fake antivirus warnings or tech support        |
-
-Attackers may use **email spoofing** or compromised domains to make the message seem legitimate.
-
----
-
-### **Phase 4: Exploitation**
-
-Once the target **clicks the link or opens the attachment**, the actual phishing attack is executed.
-
-**Two common scenarios:**
-
-1. **Credential Harvesting**
-
-   * The link leads to a fake website mimicking a legitimate login page.
-   * Victim enters credentials.
-   * Credentials are sent to the attacker.
-
-2. **Malware Delivery**
-
-   * The attachment contains malware (e.g., keylogger, ransomware).
-   * Opening the file activates the malicious payload.
-
-In both cases, the attacker silently gains **unauthorized access** to the victim’s system or accounts.
-
----
-
-### **Phase 5: Data Collection**
-
-Once credentials or other data are captured, they are stored in an attacker-controlled location (e.g., a server, dark web repository). In malware-based attacks, the malware might continuously send:
-
-* Keystrokes
-* Screenshots
-* Passwords
-* System data
-
----
-
-### **Phase 6: Exploitation of Stolen Information**
-
-Attackers use the harvested data for malicious purposes such as:
-
-* Identity theft
-* Unauthorized bank transactions
-* Selling credentials on the dark web
-* Internal network compromise (if credentials are reused in corporate systems)
-
-In more complex attacks, phishing is the **first step in a multi-stage attack**, leading to lateral movement inside a network.
-
----
-
-### **Phase 7: Covering Tracks**
-
-Attackers may:
-
-* Remove traces of the phishing page or malware.
-* Use proxies or VPNs to hide their location.
-* Automatically redirect phishing URLs to legitimate sites after the attack to avoid suspicion.
-
----
-
-## **4. Real-World Example of a Phishing Attack**
-
-> **Scenario**: An attacker sends a fake email to employees of a financial company claiming to be from the internal IT team.
-
-**Email Content**:
-
-> *Subject: Immediate Action Required – Password Expiry Notification*
-> *Body: Your account password expires today. Click here to reset your password immediately to avoid being locked out.*
-
-**Link**: \[Reset Password] → Leads to a fake internal portal.
-
-Victims who click and enter their details unknowingly **hand over their credentials**. The attacker then uses the stolen credentials to access the internal network, possibly leading to a **data breach**.
-
----
-
-## **5. Tools Used in Phishing Attacks**
-
-| Tool                                      | Purpose                                  |
-| ----------------------------------------- | ---------------------------------------- |
-| **SET (Social Engineer Toolkit)**         | Automate phishing website creation       |
-| **Gophish**                               | Create and manage phishing campaigns     |
-| **Evilginx**                              | Capture 2FA tokens through reverse proxy |
-| **BeEF (Browser Exploitation Framework)** | Exploit vulnerabilities in browsers      |
-| **Phishing Kits**                         | Prebuilt packages for fake websites      |
-
----
-
-## **6. Prevention and Mitigation Techniques**
-
-| Prevention Strategy                 | Description                                           |
-| ----------------------------------- | ----------------------------------------------------- |
-| **Email Filtering & Anti-Spam**     | Blocks suspicious messages before they reach inbox    |
-| **User Education & Awareness**      | Regular training on how to identify phishing messages |
-| **Hover Over Links**                | Check URLs before clicking to spot fake domains       |
-| **2FA (Two-Factor Authentication)** | Even if credentials are stolen, access is denied      |
-| **Report Suspicious Emails**        | To IT/SOC teams for immediate investigation           |
-| **Use of Domain Spoof Protection**  | Technologies like SPF, DKIM, and DMARC                |
-| **Secure Web Gateways**             | Filter and block access to known phishing sites       |
-
----
-
-## **7. Visual Overview of the Phishing Process**
-
-```mermaid
-graph TD;
-    A[Target Selection] --> B[Crafting Phishing Message];
-    B --> C[Sending Message via Email/SMS];
-    C --> D[Victim Clicks or Opens File];
-    D --> E[Credentials Harvested or Malware Installed];
-    E --> F[Data Sent to Attacker];
-    F --> G[Exploitation of Data];
-    G --> H[Covering Tracks];
-```
-
----
-
-## **8. Conclusion**
-
-The **phishing process** is a strategic, multistage cyberattack that targets the human element of security. Its success lies in **deception, urgency, and trust exploitation**. Understanding each stage is vital for building effective defenses and educating users.
-
-> 🛡️ "The first line of defense against phishing is awareness. Technology helps, but humans must recognize the bait."
-
-As phishing continues to evolve with AI-generated messages and deepfake technologies, constant vigilance and training are essential.
-
----
-
-Would you like this content converted into HTML format for your website, or shall we proceed to the next topic in Unit 3?
-
+<section>
+  <h3>1. Introduction</h3>
+  <p>Phishing is a deceptive cyberattack where attackers impersonate trustworthy entities to steal sensitive information such as login credentials, credit card numbers, personal identification details, or financial data. It is one of the most common and successful social engineering attacks due to its simplicity, scalability, and effectiveness.</p>
+  <p>Phishing attacks exploit human psychology—curiosity, fear, urgency, and trust—to trick victims into clicking malicious links or opening infected attachments.</p>
+</section>
+
+<section>
+
+  <h4>2. Importance in Ethical Hacking</h4>
+  <p>Understanding the phishing process is essential for ethical hackers to:</p>
+  <ul>
+    <li>Simulate phishing attacks in penetration tests.</li>
+    <li>Evaluate an organization's resilience against social engineering threats.</li>
+    <li>Train employees to recognize and avoid phishing.</li>
+    <li>Help develop countermeasures to detect and prevent attacks.</li>
+  </ul>
+</section>
+
+<section>
+  <h4>3. Phishing Lifecycle / Process</h4>
+  <p>The phishing process typically consists of seven structured phases, from planning the attack to stealing information and exploiting it.</p>
+</section>
+
+<section>
+  <h4>Phase 1: Information Gathering / Target Selection</h4>
+  <p>In this phase, the attacker identifies and studies the target (individual or organization) using:</p>
+  <ul>
+    <li>Publicly available data (social media, LinkedIn, company websites).</li>
+    <li>Leaked data from previous breaches.</li>
+    <li>Search engines and people-finder websites.</li>
+    <li>Tools like Maltego, Recon-ng, and Google Dorking.</li>
+  </ul>
+  <p>Objective: Gather enough personal and organizational details to craft a believable phishing message.</p>
+</section>
+
+<section>
+  <h4>Phase 2: Crafting the Attack Message</h4>
+  <p>The attacker creates a convincing email, SMS, or webpage that impersonates a trusted entity like:</p>
+  <ul>
+    <li>A bank</li>
+    <li>A colleague</li>
+    <li>A government agency</li>
+    <li>A popular service (Google, Microsoft, Facebook)</li>
+  </ul>
+  <p>Tactics used:</p>
+  <ul>
+    <li>Urgent language: “Your account will be suspended!”</li>
+    <li>Lures: “Claim your reward now!”</li>
+    <li>Fear: “Unusual activity detected!”</li>
+  </ul>
+  <p>This message typically includes:</p>
+  <ul>
+    <li>A malicious URL pointing to a fake login page.</li>
+    <li>A malicious attachment (e.g., Word doc, Excel file, PDF).</li>
+    <li>A call to action encouraging users to click or download.</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Phase 3: Delivery of the Phishing Message</h4>
+  <p>The message is sent to the target through different vectors:</p>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Medium</th>
+        <th>Technique Name</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Email</td>
+        <td>Phishing</td>
+        <td>“Reset your Gmail password now!”</td>
+      </tr>
+      <tr>
+        <td>SMS</td>
+        <td>Smishing</td>
+        <td>“Your bank account is locked, click here.”</td>
+      </tr>
+      <tr>
+        <td>Phone call</td>
+        <td>Vishing</td>
+        <td>“We’re calling from your credit card company.”</td>
+      </tr>
+      <tr>
+        <td>Social Media</td>
+        <td>Phishing</td>
+        <td>Fake messages or links from friends</td>
+      </tr>
+      <tr>
+        <td>Ads/Websites</td>
+        <td>Malvertising</td>
+        <td>Fake antivirus warnings or tech support</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Attackers may use email spoofing or compromised domains to make the message seem legitimate.</p>
+</section>
+
+<section>
+  <h4>Phase 4: Exploitation</h4>
+  <p>Once the target clicks the link or opens the attachment, the actual phishing attack is executed.</p>
+  <p>Two common scenarios:</p>
+  <ol>
+    <li>
+      <strong>Credential Harvesting</strong>
+      <ul>
+        <li>The link leads to a fake website mimicking a legitimate login page.</li>
+        <li>Victim enters credentials.</li>
+        <li>Credentials are sent to the attacker.</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Malware Delivery</strong>
+      <ul>
+        <li>The attachment contains malware (e.g., keylogger, ransomware).</li>
+        <li>Opening the file activates the malicious payload.</li>
+      </ul>
+    </li>
+  </ol>
+  <p>In both cases, the attacker silently gains unauthorized access to the victim’s system or accounts.</p>
+</section>
+
+<section>
+  <h4>Phase 5: Data Collection</h4>
+  <p>Once credentials or other data are captured, they are stored in an attacker-controlled location (e.g., a server, dark web repository). In malware-based attacks, the malware might continuously send:</p>
+  <ul>
+    <li>Keystrokes</li>
+    <li>Screenshots</li>
+    <li>Passwords</li>
+    <li>System data</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Phase 6: Exploitation of Stolen Information</h4>
+  <p>Attackers use the harvested data for malicious purposes such as:</p>
+  <ul>
+    <li>Identity theft</li>
+    <li>Unauthorized bank transactions</li>
+    <li>Selling credentials on the dark web</li>
+    <li>Internal network compromise (if credentials are reused in corporate systems)</li>
+  </ul>
+  <p>In more complex attacks, phishing is the first step in a multi-stage attack, leading to lateral movement inside a network.</p>
+</section>
+
+<section>
+  <h4>Phase 7: Covering Tracks</h4>
+  <p>Attackers may:</p>
+  <ul>
+    <li>Remove traces of the phishing page or malware.</li>
+    <li>Use proxies or VPNs to hide their location.</li>
+    <li>Automatically redirect phishing URLs to legitimate sites after the attack to avoid suspicion.</li>
+  </ul>
+</section>
+
+<section>
+  <h4>4. Real-World Example of a Phishing Attack</h4>
+  <p><strong>Scenario</strong>: An attacker sends a fake email to employees of a financial company claiming to be from the internal IT team.</p>
+  <p><strong>Email Content</strong>:</p>
+  <blockquote>
+    <p><em>Subject: Immediate Action Required – Password Expiry Notification</em></p>
+    <p><em>Body: Your account password expires today. Click here to reset your password immediately to avoid being locked out.</em></p>
+  </blockquote>
+  <p>Link: [Reset Password] → Leads to a fake internal portal.</p>
+  <p>Victims who click and enter their details unknowingly hand over their credentials. The attacker then uses the stolen credentials to access the internal network, possibly leading to a data breach.</p>
+</section>
+
+<section>
+  <section>
+  <h4>5. Tools Used in Phishing Attacks</h4>
+  <ul>
+    <li><strong>SET (Social Engineer Toolkit)</strong>: Automate phishing website creation</li>
+    <li><strong>Gophish</strong>: Create and manage phishing campaigns</li>
+    <li><strong>Evilginx</strong>: Capture 2FA tokens through reverse proxy</li>
+    <li><strong>BeEF (Browser Exploitation Framework)</strong>: Exploit vulnerabilities in browsers</li>
+    <li><strong>Phishing Kits</strong>: Prebuilt packages for fake websites</li>
+  </ul>
+</section>
+
+</section>
+
+<section>
+  <h4>6. Prevention and Mitigation Techniques</h4>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Prevention Strategy</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Email Filtering &amp; Anti-Spam</td>
+        <td>Blocks suspicious messages before they reach inbox</td>
+      </tr>
+      <tr>
+        <td>User Education &amp; Awareness</td>
+        <td>Regular training on how to identify phishing messages</td>
+      </tr>
+      <tr>
+        <td>Hover Over Links</td>
+        <td>Check URLs before clicking to spot fake domains</td>
+      </tr>
+      <tr>
+        <td>2FA (Two-Factor Authentication)</td>
+        <td>Even if credentials are stolen, access is denied</td>
+      </tr>
+      <tr>
+        <td>Report Suspicious Emails</td>
+        <td>To IT/SOC teams for immediate investigation</td>
+      </tr>
+      <tr>
+        <td>Use of Domain Spoof Protection</td>
+        <td>Technologies like SPF, DKIM, and DMARC</td>
+      </tr>
+      <tr>
+        <td>Secure Web Gateways</td>
+        <td>Filter and block access to known phishing sites</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h4>7. Visual Overview of the Phishing Process</h4>
+  <pre><code>graph TD;
+    A[Target Selection] --&gt; B[Crafting Phishing Message];
+    B --&gt; C[Sending Message via Email/SMS];
+    C --&gt; D[Victim Clicks or Opens File];
+    D --&gt; E[Credentials Harvested or Malware Installed];
+    E --&gt; F[Data Sent to Attacker];
+    F --&gt; G[Exploitation of Data];
+    G --&gt; H[Covering Tracks];
+  </code></pre>
+</section>
+
+<section>
+  <h4>8. Conclusion</h4>
+  <p>The phishing process is a strategic, multistage cyberattack that targets the human element of security. Its success lies in deception, urgency, and trust exploitation. Understanding each stage is vital for building effective defenses and educating users.</p>
+  <p>“The first line of defense against phishing is awareness. Technology helps, but humans must recognize the bait.”</p>
+  <p>As phishing continues to evolve with AI-generated messages and deepfake technologies, constant vigilance and training are essential.</p>
+</section>
 
        
   </main>
 
     <footer>
-    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Topics</a>
     </footer>
 
  </body>
