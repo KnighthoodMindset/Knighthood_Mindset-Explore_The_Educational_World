@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <title>Active and Passive Sniffing Techniques | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -14,214 +14,329 @@
 
   <main>
 
-
-Here is a **long and detailed explanation** of the topic **“Active and Passive Techniques”** in the context of **Ethical Hacking Unit 3: Sniffing**, suitable for your **Tech Nexus** website:
-
----
-
-# **Active and Passive Sniffing Techniques**
-
----
-
-## **1. Introduction**
-
-In the realm of **network sniffing and ethical hacking**, sniffing techniques are broadly categorized into two types:
-
-* 🔴 **Active Sniffing**
-* 🟢 **Passive Sniffing**
-
-Both techniques are used to **capture data packets** on a network, but they differ significantly in their approach, usage, risk, and detectability.
-
-Understanding these methods is crucial for ethical hackers to identify how attackers might access sensitive data and how to protect against such attacks.
-
----
-
-## **2. What is Sniffing? (Quick Recap)**
-
-**Sniffing** is the process of **intercepting and analyzing network traffic** to extract useful information such as usernames, passwords, emails, session tokens, and more. It is performed using packet sniffers like **Wireshark**, **Tcpdump**, or **Cain and Abel**.
-
----
-
-## **3. Passive Sniffing**
-
----
-
-### ✅ **Definition**
-
-**Passive sniffing** involves listening to and capturing data packets **without altering or interfering** with the network traffic. It only works in environments where data is freely available to all devices, like networks using **hubs**.
-
----
-
-### 🛠️ **How It Works**
-
-* The attacker places their Network Interface Card (NIC) in **promiscuous mode**.
-* The NIC can now capture **all packets**, even if they are not addressed to it.
-* The attacker **analyzes the data silently**, without sending any data or triggering alerts.
-
----
-
-### 🧠 **Typical Scenario**
-
-* Works on **hub-based networks**, where all traffic is broadcast to all devices.
-* Since the traffic is not directed to a single device, an attacker can easily capture **all network communications**.
-
----
-
-### ✅ **Advantages**
-
-| Benefit                  | Explanation                                                |
-| ------------------------ | ---------------------------------------------------------- |
-| Undetectable             | No active packets are sent; very hard to detect.           |
-| Safe                     | No disruption to the network.                              |
-| Great for reconnaissance | Ideal for gathering sensitive data like login credentials. |
-
----
-
-### ❌ **Limitations**
-
-| Limitation                       | Explanation                                                     |
-| -------------------------------- | --------------------------------------------------------------- |
-| Works only in hub-based networks | Modern networks mostly use switches, where traffic is isolated. |
-| Low interactivity                | Can only observe data; cannot manipulate or redirect traffic.   |
-
----
-
-## **4. Active Sniffing**
-
----
-
-### ❗ **Definition**
-
-**Active sniffing** involves taking **deliberate actions** to manipulate or inject packets into a network, especially **switched networks**, to capture traffic not originally destined for the attacker.
-
----
-
-### 🛠️ **How It Works**
-
-* Switches create **dedicated communication paths** for each device.
-* To sniff on a switched network, the attacker must **send packets** that:
-
-  * Fool the switch into redirecting traffic.
-  * Cause the network to broadcast packets like a hub.
-
----
-
-### 🔍 **Common Active Sniffing Techniques**
-
-| Technique                  | Description                                                                 |
-| -------------------------- | --------------------------------------------------------------------------- |
-| **MAC Flooding**           | Overloads the switch with fake MAC addresses, causing it to act like a hub. |
-| **ARP Spoofing/Poisoning** | Sends fake ARP replies to redirect traffic through attacker’s system.       |
-| **DHCP Spoofing**          | Offers fake IP configurations to clients to redirect their traffic.         |
-| **DNS Spoofing**           | Sends false DNS responses to redirect users to malicious websites.          |
-
----
-
-### 🧠 **Typical Scenario**
-
-* Active sniffing is essential in **switched environments**, which isolate data streams between devices.
-* The attacker performs **ARP poisoning** to make the switch forward victim packets to them.
-
----
-
-### ✅ **Advantages**
-
-| Benefit                                  | Explanation                                               |
-| ---------------------------------------- | --------------------------------------------------------- |
-| Works in modern networks                 | Can bypass switches and access isolated traffic.          |
-| More control                             | Can modify, redirect, or drop packets.                    |
-| Enables man-in-the-middle (MITM) attacks | Crucial for intercepting encrypted or protected sessions. |
-
----
-
-### ❌ **Disadvantages**
-
-| Limitation              | Explanation                                                  |
-| ----------------------- | ------------------------------------------------------------ |
-| Detectable              | Can trigger alerts on IDS/IPS or network monitoring tools.   |
-| Risky                   | May cause network instability or raise suspicion.            |
-| Illegal if unauthorized | Can lead to legal consequences if performed without consent. |
-
----
-
-## **5. Comparison Table: Active vs Passive Sniffing**
-
-| Feature             | Passive Sniffing        | Active Sniffing                            |
-| ------------------- | ----------------------- | ------------------------------------------ |
-| **Mode**            | Listen-only             | Involves active manipulation               |
-| **Network Type**    | Hub-based networks      | Switched networks                          |
-| **Detectability**   | Very low / undetectable | High – Can be detected by monitoring tools |
-| **Risk**            | Low                     | High – Can disrupt network                 |
-| **Techniques Used** | NIC in promiscuous mode | ARP poisoning, MAC flooding, MITM          |
-| **Use Case**        | Passive observation     | Packet redirection and control             |
-
----
-
-## **6. Use Cases in Ethical Hacking**
-
-### ✅ **Passive Sniffing Use Cases**
-
-* Monitoring internal traffic for compliance.
-* Gathering reconnaissance data during penetration testing.
-* Observing network patterns or misconfigurations.
-
-### ⚠️ **Active Sniffing Use Cases**
-
-* Bypassing switches to analyze traffic during a pen test.
-* Capturing encrypted sessions for decryption attempts.
-* Testing the effectiveness of network segmentation and defenses.
-
----
-
-## **7. Tools Used for Active and Passive Sniffing**
-
-| Tool            | Passive Sniffing | Active Sniffing | Description                                                       |
-| --------------- | ---------------- | --------------- | ----------------------------------------------------------------- |
-| **Wireshark**   | yes              | ✅               | GUI tool to capture and analyze packets.                          |
-| **Tcpdump**     | ✅                | ✅               | CLI tool for packet capture.                                      |
-| **Cain & Abel** | no                | ✅               | Supports ARP poisoning and password sniffing.                     |
-| **Ettercap**    | ❌                | ✅               | Best for MITM and ARP poisoning attacks.                          |
-| **dsniff**      | ❌                | ✅               | Toolkit for password and credential sniffing over active methods. |
-
----
-
-## **8. Real-World Example: ARP Spoofing for Active Sniffing**
-
-1. Attacker performs **ARP spoofing** to mislead the network.
-2. Victim’s device sends data to the attacker, thinking it's the gateway.
-3. Attacker captures and optionally modifies data.
-4. Attacker forwards data to the actual gateway to avoid detection.
-
-This results in a successful **Man-in-the-Middle (MITM)** attack.
-
----
-
-## **9. Countermeasures Against Sniffing**
-
-| Defense Mechanism          | Description                                               |
-| -------------------------- | --------------------------------------------------------- |
-| **Use Switches, Not Hubs** | Prevent passive sniffing by isolating traffic.            |
-| **Encrypt Traffic**        | Use HTTPS, SSL/TLS, VPNs to secure sensitive data.        |
-| **Enable Port Security**   | Limit the number of MAC addresses per switch port.        |
-| **Use Static ARP Entries** | Prevent ARP spoofing by hardcoding gateway MAC addresses. |
-| **Implement IDS/IPS**      | Detect and alert on sniffing or suspicious activity.      |
-
----
-
-## **10. Conclusion**
-
-Understanding **active and passive sniffing techniques** is critical for ethical hackers, network defenders, and IT professionals. While passive sniffing quietly monitors data, active sniffing goes a step further by **interfering with the network** to gather data. Both approaches reveal important vulnerabilities in network infrastructure. Ethical hackers must use these techniques responsibly to test systems, uncover flaws, and **strengthen overall network security**.
-
----
-
-Would you like this explanation in HTML format for your Tech Nexus website, or shall I move to the next topic in Unit 3?
-
+<section>
+  <h3>Active and Passive Sniffing Techniques</h3>
+ 
+
+  <section>
+    <h4>1. Introduction</h4>
+    <p>In the realm of network sniffing and ethical hacking, sniffing techniques are broadly categorized into two types:</p>
+    <ul>
+      <li>Active Sniffing</li>
+      <li>Passive Sniffing</li>
+    </ul>
+    <p>Both techniques are used to capture data packets on a network, but they differ significantly in their approach, usage, risk, and detectability.</p>
+    <p>Understanding these methods is crucial for ethical hackers to identify how attackers might access sensitive data and how to protect against such attacks.</p>
+  </section>
+
+ 
+
+  <section>
+    <h4>2. What is Sniffing? (Quick Recap)</h4>
+    <p>Sniffing is the process of intercepting and analyzing network traffic to extract useful information such as usernames, passwords, emails, session tokens, and more. It is performed using packet sniffers like Wireshark, Tcpdump, or Cain and Abel.</p>
+  </section>
+
+ 
+
+  <section>
+    <h4>3. Passive Sniffing</h4>
+  
+
+    <section>
+      <h5>Definition</h5>
+      <p>Passive sniffing involves listening to and capturing data packets without altering or interfering with the network traffic. It only works in environments where data is freely available to all devices, like networks using hubs.</p>
+    </section>
+
+  
+
+    <section>
+      <h5>How It Works</h5>
+      <ul>
+        <li>The attacker places their Network Interface Card (NIC) in promiscuous mode.</li>
+        <li>The NIC can now capture all packets, even if they are not addressed to it.</li>
+        <li>The attacker analyzes the data silently, without sending any data or triggering alerts.</li>
+      </ul>
+    </section>
+
+   
+
+    <section>
+      <h5>Typical Scenario</h5>
+      <ul>
+        <li>Works on hub-based networks, where all traffic is broadcast to all devices.</li>
+        <li>Since the traffic is not directed to a single device, an attacker can easily capture all network communications.</li>
+      </ul>
+    </section>
+
+   
+
+    <section>
+      <section>
+  <h5>Advantages</h5>
+  <ul>
+    <li><b>Undetectable:</b> No active packets are sent; very hard to detect.</li>
+    <li><b>Safe:</b> No disruption to the network.</li>
+    <li><b>Great for reconnaissance:</b> Ideal for gathering sensitive data like login credentials.</li>
+  </ul>
+</section>
+
+<section>
+  <h5>Limitations</h5>
+  <ul>
+    <li><b>Works only in hub-based networks:</b> Modern networks mostly use switches, where traffic is isolated.</li>
+    <li><b>Low interactivity:</b> Can only observe data; cannot manipulate or redirect traffic.</li>
+  </ul>
+</section>
+
+    </section>
+
+
+
+
+  <section>
+    <h4>4. Active Sniffing</h4>
+  
+
+    <section>
+      <h5>Definition</h5>
+      <p>Active sniffing involves taking deliberate actions to manipulate or inject packets into a network, especially switched networks, to capture traffic not originally destined for the attacker.</p>
+    </section>
+
+  
+
+    <section>
+      <h5>How It Works</h5>
+      <ul>
+        <li>Switches create dedicated communication paths for each device.</li>
+        <li>To sniff on a switched network, the attacker must send packets that:
+          <ul>
+            <li>Fool the switch into redirecting traffic.</li>
+            <li>Cause the network to broadcast packets like a hub.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+   
+
+    <section>
+      <h5>Common Active Sniffing Techniques</h5>
+      <table border="1" cellspacing="0" cellpadding="5">
+        <thead>
+          <tr>
+            <th>Technique</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>MAC Flooding</td>
+            <td>Overloads the switch with fake MAC addresses, causing it to act like a hub.</td>
+          </tr>
+          <tr>
+            <td>ARP Spoofing/Poisoning</td>
+            <td>Sends fake ARP replies to redirect traffic through attacker’s system.</td>
+          </tr>
+          <tr>
+            <td>DHCP Spoofing</td>
+            <td>Offers fake IP configurations to clients to redirect their traffic.</td>
+          </tr>
+          <tr>
+            <td>DNS Spoofing</td>
+            <td>Sends false DNS responses to redirect users to malicious websites.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+   
+
+    <section>
+      <h5>Typical Scenario</h5>
+      <ul>
+        <li>Active sniffing is essential in switched environments, which isolate data streams between devices.</li>
+        <li>The attacker performs ARP poisoning to make the switch forward victim packets to them.</li>
+      </ul>
+    </section>
+
+   
+
+    <section>
+      <h5>Advantages</h5>
+      <ul>
+  <li><strong>Works in modern networks:</strong> Can bypass switches and access isolated traffic.</li>
+  <li><strong>More control:</strong> Can modify, redirect, or drop packets.</li>
+  <li><strong>Enables man-in-the-middle (MITM) attacks:</strong> Crucial for intercepting encrypted or protected sessions.</li>
+</ul>
+
+    </section>
+
+   
+
+    <section>
+      <h5>Disadvantages</h5>
+<ul>
+  <li><strong>Detectable:</strong> Can trigger alerts on IDS/IPS or network monitoring tools.</li>
+  <li><strong>Risky:</strong> May cause network instability or raise suspicion.</li>
+  <li><strong>Illegal if unauthorized:</strong> Can lead to legal consequences if performed without consent.</li>
+</ul>
+
+    </section>
+  </section>
+
+ 
+
+  <section>
+    <h4>5. Comparison Table: Active vs Passive Sniffing</h4>
+    <table border="1" cellspacing="0" cellpadding="5">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Passive Sniffing</th>
+          <th>Active Sniffing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mode</td>
+          <td>Listen-only</td>
+          <td>Involves active manipulation</td>
+        </tr>
+        <tr>
+          <td>Network Type</td>
+          <td>Hub-based networks</td>
+          <td>Switched networks</td>
+        </tr>
+        <tr>
+          <td>Detectability</td>
+          <td>Very low / undetectable</td>
+          <td>High – Can be detected by monitoring tools</td>
+        </tr>
+        <tr>
+          <td>Risk</td>
+          <td>Low</td>
+          <td>High – Can disrupt network</td>
+        </tr>
+        <tr>
+          <td>Techniques Used</td>
+          <td>NIC in promiscuous mode</td>
+          <td>ARP poisoning, MAC flooding, MITM</td>
+        </tr>
+        <tr>
+          <td>Use Case</td>
+          <td>Passive observation</td>
+          <td>Packet redirection and control</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+ 
+
+  <section>
+    <h4>6. Use Cases in Ethical Hacking</h4>
+    <h5>Passive Sniffing Use Cases</h5>
+    <ul>
+      <li>Monitoring internal traffic for compliance.</li>
+      <li>Gathering reconnaissance data during penetration testing.</li>
+      <li>Observing network patterns or misconfigurations.</li>
+    </ul>
+
+    <h5>Active Sniffing Use Cases</h5>
+    <ul>
+      <li>Bypassing switches to analyze traffic during a pen test.</li>
+      <li>Capturing encrypted sessions for decryption attempts.</li>
+      <li>Testing the effectiveness of network segmentation and defenses.</li>
+    </ul>
+  </section>
+
+ 
+
+  <section>
+    <h4>7. Tools Used for Active and Passive Sniffing</h4>
+    <table border="1" cellspacing="0" cellpadding="5">
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Passive Sniffing</th>
+          <th>Active Sniffing</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wireshark</td>
+          <td>yes</td>
+          <td>yes</td>
+          <td>GUI tool to capture and analyze packets.</td>
+        </tr>
+        <tr>
+          <td>Tcpdump</td>
+          <td>yes</td>
+          <td>yes</td>
+          <td>CLI tool for packet capture.</td>
+        </tr>
+        <tr>
+          <td>Cain &amp; Abel</td>
+          <td>no</td>
+          <td>yes</td>
+          <td>Supports ARP poisoning and password sniffing.</td>
+        </tr>
+        <tr>
+          <td>Ettercap</td>
+          <td>no</td>
+          <td>yes</td>
+          <td>Best for MITM and ARP poisoning attacks.</td>
+        </tr>
+        <tr>
+          <td>dsniff</td>
+          <td>no</td>
+          <td>yes</td>
+          <td>Toolkit for password and credential sniffing over active methods.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+ 
+
+  <section>
+    <h4>8. Real-World Example: ARP Spoofing for Active Sniffing</h4>
+    <ol>
+      <li>Attacker performs ARP spoofing to mislead the network.</li>
+      <li>Victim’s device sends data to the attacker, thinking it's the gateway.</li>
+      <li>Attacker captures and optionally modifies data.</li>
+      <li>Attacker forwards data to the actual gateway to avoid detection.</li>
+    </ol>
+    <p>This results in a successful Man-in-the-Middle (MITM) attack.</p>
+  </section>
+
+ 
+
+  <section>
+    <h4>9. Countermeasures Against Sniffing</h4>
+<ul>
+  <li><b>Use Switches, Not Hubs:</b> Prevent passive sniffing by isolating traffic.</li>
+  <li><b>Encrypt Traffic:</b> Use HTTPS, SSL/TLS, VPNs to secure sensitive data.</li>
+  <li><b>Enable Port Security:</b> Limit the number of MAC addresses per switch port.</li>
+  <li><b>Use Static ARP Entries:</b> Prevent ARP spoofing by hardcoding gateway MAC addresses.</li>
+  <li><b>Implement IDS/IPS:</b> Detect and alert on sniffing or suspicious activity.</li>
+</ul>
+
+  </section>
+
+
+  <section>
+    <h4>10. Conclusion</h4>
+    <p>Understanding active and passive sniffing techniques is critical for ethical hackers, network defenders, and IT professionals. While passive sniffing quietly monitors data, active sniffing goes a step further by interfering with the network to gather data. Both approaches reveal important vulnerabilities in network infrastructure. Ethical hackers must use these techniques responsibly to test systems, uncover flaws, and strengthen overall network security.</p>
+  </section>
+</section>
 
        
   </main>
 
     <footer>
-    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Topics</a>
     </footer>
 
  </body>
