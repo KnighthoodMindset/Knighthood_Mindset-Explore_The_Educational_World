@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <title>Social Engineering Toolkit (SET) | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -13,137 +14,174 @@
   </div>
 
   <main>
-Here’s a **long and detailed explanation** of **Social Engineering Toolkit (SET)** for your **Ethical Hacking Unit 3** notes in **Tech Nexus**:
 
----
 
-# **Social Engineering Toolkit (SET)**
 
----
+  <section>
+    <h3>Social Engineering Toolkit (SET)</h3>
+  </section>
 
-## **1. Introduction**
+  <section>
+    <h4>1. Introduction</h4>
+    <p>
+      The Social Engineering Toolkit (SET) is an open-source, Python-based framework designed for penetration testers and ethical hackers to simulate advanced social engineering attacks. Developed by TrustedSec and maintained by security expert David Kennedy, SET automates and streamlines a wide variety of attack techniques focused on human manipulation.
+    </p>
+    <p>
+      Social engineering attacks exploit human psychology rather than technical vulnerabilities, and SET provides a comprehensive platform for creating realistic, customizable attack scenarios.
+    </p>
+  </section>
 
-The **Social Engineering Toolkit (SET)** is an open-source, Python-based framework designed for **penetration testers** and **ethical hackers** to simulate advanced social engineering attacks. Developed by **TrustedSec** and maintained by security expert **David Kennedy**, SET automates and streamlines a wide variety of attack techniques focused on human manipulation.
+  <section>
+    <h4>2. Purpose and Importance</h4>
+    <ul>
+      <li><strong>Realistic Simulation:</strong> SET helps security professionals simulate real-world social engineering attacks, allowing organizations to test their defenses and train employees.</li>
+      <li><strong>Automated Toolkit:</strong> It combines multiple attack methods into a single easy-to-use tool, reducing the complexity of creating sophisticated social engineering attacks.</li>
+      <li><strong>Customizable Payloads:</strong> Allows attackers or testers to craft targeted payloads such as phishing emails, malicious websites, and USB-based exploits.</li>
+      <li><strong>Educational Tool:</strong> Security teams use SET to educate employees on the dangers of social engineering and how to recognize and avoid such attacks.</li>
+    </ul>
+  </section>
 
-Social engineering attacks exploit human psychology rather than technical vulnerabilities, and SET provides a comprehensive platform for creating realistic, customizable attack scenarios.
+  <section>
+    <h4>3. Key Features of SET</h4>
 
----
+    <h5>a. Phishing Attack Vectors</h5>
+    <ul>
+      <li>SET can generate phishing emails that appear legitimate.</li>
+      <li>It supports credential harvesting by mimicking login pages of popular sites.</li>
+      <li>Supports mass mailing and cloning legitimate emails (clone phishing).</li>
+    </ul>
 
-## **2. Purpose and Importance**
+    <h5>b. Website Attack Vectors</h5>
+    <ul>
+      <li>SET hosts fake websites (e.g., fake Facebook login) to steal user credentials.</li>
+      <li>Supports man-in-the-middle (MitM) attacks to intercept traffic and data.</li>
+      <li>Ability to use Java applet attacks or browser exploits.</li>
+    </ul>
 
-* **Realistic Simulation**: SET helps security professionals simulate real-world social engineering attacks, allowing organizations to test their defenses and train employees.
-* **Automated Toolkit**: It combines multiple attack methods into a single easy-to-use tool, reducing the complexity of creating sophisticated social engineering attacks.
-* **Customizable Payloads**: Allows attackers or testers to craft targeted payloads such as phishing emails, malicious websites, and USB-based exploits.
-* **Educational Tool**: Security teams use SET to educate employees on the dangers of social engineering and how to recognize and avoid such attacks.
+    <h5>c. Infectious Media Generator</h5>
+    <ul>
+      <li>Creates malicious payloads embedded in USB devices.</li>
+      <li>When plugged into a target machine, it can execute scripts or malware.</li>
+    </ul>
 
----
+    <h5>d. Mass Mailer Attack</h5>
+    <ul>
+      <li>Sends large volumes of phishing or spear phishing emails.</li>
+      <li>Can spoof sender addresses to appear legitimate.</li>
+    </ul>
 
-## **3. Key Features of SET**
+    <h5>e. PowerShell Attack Vectors</h5>
+    <ul>
+      <li>Uses PowerShell scripts to bypass security controls on Windows systems.</li>
+      <li>Supports command execution and remote access payloads.</li>
+    </ul>
 
-### a. **Phishing Attack Vectors**
+    <h5>f. Payload Generator</h5>
+    <ul>
+      <li>Generates payloads for different platforms (Windows, Linux, Mac).</li>
+      <li>Supports reverse shells, Meterpreter payloads, and more.</li>
+    </ul>
+  </section>
 
-* SET can generate phishing emails that appear legitimate.
-* It supports credential harvesting by mimicking login pages of popular sites.
-* Supports mass mailing and cloning legitimate emails (clone phishing).
+  <section>
+    <h4>4. Working of SET</h4>
+    <ol>
+      <li><strong>User Interface:</strong> SET runs through a menu-driven CLI interface, guiding the user through multiple attack options.</li>
+      <li><strong>Selection of Attack Vector:</strong> User selects the type of social engineering attack (e.g., phishing, website attack).</li>
+      <li><strong>Configuration:</strong> User customizes payloads, target details, and delivery methods.</li>
+      <li><strong>Execution:</strong> SET automatically creates the payload, hosts fake sites, or sends phishing emails.</li>
+      <li><strong>Collection:</strong> Credentials or session information collected from victims are stored and displayed.</li>
+      <li><strong>Post-Exploitation:</strong> Allows further exploitation, such as gaining remote shell access.</li>
+    </ol>
+  </section>
 
-### b. **Website Attack Vectors**
+  <section>
+    <h4>5. Popular Modules of SET</h4>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Module Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Spear Phishing Attack</td>
+          <td>Sends targeted phishing emails to specific victims.</td>
+        </tr>
+        <tr>
+          <td>Website Attack Vectors</td>
+          <td>Hosts fake websites to harvest credentials or exploit browsers.</td>
+        </tr>
+        <tr>
+          <td>Infectious Media Generator</td>
+          <td>Creates USB-based attack vectors.</td>
+        </tr>
+        <tr>
+          <td>Mass Mailer Attack</td>
+          <td>Automates large-scale phishing campaigns.</td>
+        </tr>
+        <tr>
+          <td>PowerShell Attack Vectors</td>
+          <td>Uses PowerShell for Windows system exploitation.</td>
+        </tr>
+        <tr>
+          <td>Wireless Access Point</td>
+          <td>Creates rogue Wi-Fi access points for MitM attacks.</td>
+        </tr>
+        <tr>
+          <td>SMS Spoofing</td>
+          <td>Sends fake SMS messages to targets (if configured).</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-* SET hosts fake websites (e.g., fake Facebook login) to steal user credentials.
-* Supports **man-in-the-middle (MitM)** attacks to intercept traffic and data.
-* Ability to use **Java applet attacks** or browser exploits.
+  <section>
+    <h4>6. Practical Uses and Ethical Implications</h4>
+    <ul>
+      <li>Penetration Testing: Security professionals use SET to identify human vulnerabilities in organizations.</li>
+      <li>Awareness Training: Helps employees recognize phishing and social engineering tactics.</li>
+      <li>Ethical Considerations: Usage is strictly ethical and legal only with prior permission; unauthorized use is illegal and unethical.</li>
+    </ul>
+  </section>
 
-### c. **Infectious Media Generator**
+  <section>
+    <h4>7. Example Scenario</h4>
+    <p>
+      A penetration tester uses SET to simulate a spear phishing attack targeting the HR department:
+    </p>
+    <ul>
+      <li>SET clones a legitimate internal email.</li>
+      <li>The email includes a link to a fake login page hosted by SET.</li>
+      <li>HR employees entering credentials on this page unwittingly give access to the tester.</li>
+      <li>The tester uses this access to demonstrate potential risks and recommend improvements.</li>
+    </ul>
+  </section>
 
-* Creates malicious payloads embedded in USB devices.
-* When plugged into a target machine, it can execute scripts or malware.
+  <section>
+    <h4>8. Installation and Usage</h4>
+    <ul>
+      <li>SET runs on Linux distributions, primarily Kali Linux.</li>
+      <li>Installation is often straightforward:
+        <pre><code>sudo apt-get install set</code></pre>
+      </li>
+      <li>Launched by typing:
+        <pre><code>sudo setoolkit</code></pre>
+      </li>
+      <li>The user interacts with menus to select attack options.</li>
+    </ul>
+  </section>
 
-### d. **Mass Mailer Attack**
-
-* Sends large volumes of phishing or spear phishing emails.
-* Can spoof sender addresses to appear legitimate.
-
-### e. **PowerShell Attack Vectors**
-
-* Uses PowerShell scripts to bypass security controls on Windows systems.
-* Supports command execution and remote access payloads.
-
-### f. **Payload Generator**
-
-* Generates payloads for different platforms (Windows, Linux, Mac).
-* Supports reverse shells, Meterpreter payloads, and more.
-
----
-
-## **4. Working of SET**
-
-1. **User Interface**: SET runs through a menu-driven CLI interface, guiding the user through multiple attack options.
-2. **Selection of Attack Vector**: User selects the type of social engineering attack (e.g., phishing, website attack).
-3. **Configuration**: User customizes payloads, target details, and delivery methods.
-4. **Execution**: SET automatically creates the payload, hosts fake sites, or sends phishing emails.
-5. **Collection**: Credentials or session information collected from victims are stored and displayed.
-6. **Post-Exploitation**: Allows further exploitation, such as gaining remote shell access.
-
----
-
-## **5. Popular Modules of SET**
-
-| **Module Name**            | **Description**                                                 |
-| -------------------------- | --------------------------------------------------------------- |
-| Spear Phishing Attack      | Sends targeted phishing emails to specific victims.             |
-| Website Attack Vectors     | Hosts fake websites to harvest credentials or exploit browsers. |
-| Infectious Media Generator | Creates USB-based attack vectors.                               |
-| Mass Mailer Attack         | Automates large-scale phishing campaigns.                       |
-| PowerShell Attack Vectors  | Uses PowerShell for Windows system exploitation.                |
-| Wireless Access Point      | Creates rogue Wi-Fi access points for MitM attacks.             |
-| SMS Spoofing               | Sends fake SMS messages to targets (if configured).             |
-
----
-
-## **6. Practical Uses and Ethical Implications**
-
-* **Penetration Testing**: Security professionals use SET to identify human vulnerabilities in organizations.
-* **Awareness Training**: Helps employees recognize phishing and social engineering tactics.
-* **Ethical Considerations**: Usage is strictly ethical and legal only with prior permission; unauthorized use is illegal and unethical.
-
----
-
-## **7. Example Scenario**
-
-A penetration tester uses SET to simulate a **spear phishing attack** targeting the HR department:
-
-* SET clones a legitimate internal email.
-* The email includes a link to a fake login page hosted by SET.
-* HR employees entering credentials on this page unwittingly give access to the tester.
-* The tester uses this access to demonstrate potential risks and recommend improvements.
-
----
-
-## **8. Installation and Usage**
-
-* SET runs on Linux distributions, primarily **Kali Linux**.
-* Installation is often straightforward:
-
-  ```
-  sudo apt-get install set
-  ```
-* Launched by typing:
-
-  ```
-  sudo setoolkit
-  ```
-* The user interacts with menus to select attack options.
-
----
-
-## **9. Conclusion**
-
-The **Social Engineering Toolkit (SET)** is a powerful, versatile framework designed to simulate social engineering attacks in a controlled and ethical manner. It bridges the gap between technical exploits and human vulnerability, allowing security teams to comprehensively evaluate organizational defenses.
-
-> ⚠️ *While SET is an invaluable tool for ethical hacking, it must always be used responsibly and with explicit authorization to avoid legal consequences.*
-
----
-
-If you want, I can also provide you with a **step-by-step tutorial** on using SET or a sample phishing attack script. Would you like that?
+  <section>
+    <h4>9. Conclusion</h4>
+    <p>
+      The Social Engineering Toolkit (SET) is a powerful, versatile framework designed to simulate social engineering attacks in a controlled and ethical manner. It bridges the gap between technical exploits and human vulnerability, allowing security teams to comprehensively evaluate organizational defenses.
+    </p>
+    <blockquote>
+       <em>While SET is an invaluable tool for ethical hacking, it must always be used responsibly and with explicit authorization to avoid legal consequences.</em>
+    </blockquote>
+  </section>
 
 
 
@@ -152,7 +190,7 @@ If you want, I can also provide you with a **step-by-step tutorial** on using SE
   </main>
 
     <footer>
-    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Topics</a>
     </footer>
 
  </body>
