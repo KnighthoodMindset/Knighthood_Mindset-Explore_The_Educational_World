@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <title>Working of Trojans | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -14,125 +15,114 @@
 
   <main>
 
-Here’s a **long and detailed explanation** of the **working of Trojans** for your Ethical Hacking Unit 3 notes:
+  <section>
+    <h3>Working of Trojans</h3>
 
----
+    <section>
+      <h4>1. Introduction</h4>
+      <p>Trojans, or Trojan horses, are malicious programs disguised as legitimate software to trick users into installing them. Unlike viruses or worms, Trojans do not self-replicate but rely on social engineering and deception to gain access to a victim's system. Understanding their working is crucial for ethical hackers to detect, analyze, and prevent these attacks effectively.</p>
+    </section>
 
-# **Working of Trojans**
+    <section>
+      <h4>2. Infection and Delivery</h4>
+      <p>The first step in the working of a Trojan involves its delivery and execution on the target system. Trojans use various infection vectors, such as:</p>
+      <ul>
+        <li><strong>Phishing emails</strong>: Attachments or links disguised as legitimate files or documents entice users to download and run the Trojan.</li>
+        <li><strong>Malicious websites</strong>: Trojans can be delivered through drive-by downloads or by exploiting browser vulnerabilities.</li>
+        <li><strong>Social engineering</strong>: Attackers convince users to install fake software updates, pirated software, or useful utilities that contain the Trojan payload.</li>
+        <li><strong>Removable media</strong>: USB drives or external devices infected with Trojans spread malware when connected to a system.</li>
+      </ul>
+      <p>Once the victim executes or installs the Trojan, the malicious payload begins its operation.</p>
+    </section>
 
-## **1. Introduction**
+    <section>
+      <h4>3. Execution and Payload Activation</h4>
+      <p>After installation, the Trojan activates its payload, which is the malicious action it is designed to perform. This can include:</p>
+      <ul>
+        <li>Creating backdoors for remote access.</li>
+        <li>Logging keystrokes.</li>
+        <li>Stealing sensitive data.</li>
+        <li>Downloading additional malware.</li>
+        <li>Encrypting files for ransomware.</li>
+        <li>Spying on user activities.</li>
+      </ul>
+      <p>The activation process often involves the Trojan running silently in the background without alerting the user.</p>
+    </section>
 
-Trojans, or Trojan horses, are malicious programs disguised as legitimate software to trick users into installing them. Unlike viruses or worms, Trojans do not self-replicate but rely on social engineering and deception to gain access to a victim's system. Understanding their working is crucial for ethical hackers to detect, analyze, and prevent these attacks effectively.
+    <section>
+      <h4>4. Concealment and Persistence</h4>
+      <p>Trojans employ various techniques to evade detection and maintain persistence on the infected system:</p>
+      <ul>
+        <li><strong>Obfuscation</strong>: The code may be encrypted or scrambled to avoid signature-based detection by antivirus software.</li>
+        <li><strong>Rootkits</strong>: Some Trojans use rootkits to hide their files, processes, and network connections from security tools.</li>
+        <li><strong>Process Injection</strong>: Malicious code is injected into legitimate system processes to mask its presence.</li>
+        <li><strong>Registry Modification</strong>: Trojans often modify Windows Registry entries or add startup items to ensure they launch automatically on system reboot.</li>
+        <li><strong>Scheduled Tasks</strong>: Creating scheduled tasks to restart or check the Trojan’s presence regularly.</li>
+      </ul>
+      <p>Persistence ensures the Trojan continues operating even after system restarts or attempts to remove it.</p>
+    </section>
 
----
+    <section>
+      <h4>5. Communication with Command and Control (C&amp;C) Server</h4>
+      <p>Many Trojans establish communication with an attacker-controlled <strong>Command and Control (C&amp;C) server</strong> to receive instructions or send stolen data. The communication may use:</p>
+      <ul>
+        <li>HTTP/HTTPS protocols.</li>
+        <li>Custom protocols over specific ports.</li>
+        <li>Encrypted or encoded traffic to avoid detection.</li>
+      </ul>
+      <p>This remote connection allows attackers to:</p>
+      <ul>
+        <li>Issue commands to the Trojan.</li>
+        <li>Update the malware or payload.</li>
+        <li>Exfiltrate sensitive information.</li>
+        <li>Download additional malicious modules.</li>
+      </ul>
+    </section>
 
-## **2. Infection and Delivery**
+    <section>
+      <h4>6. Execution of Attacker Commands</h4>
+      <p>Once connected to the C&amp;C server, the Trojan waits for commands and executes them, such as:</p>
+      <ul>
+        <li>Capturing screenshots.</li>
+        <li>Logging keystrokes.</li>
+        <li>Uploading files.</li>
+        <li>Installing other malware.</li>
+        <li>Launching Distributed Denial of Service (DDoS) attacks.</li>
+        <li>Manipulating or deleting files.</li>
+      </ul>
+      <p>This remote control capability turns the victim machine into a bot or zombie under the attacker’s control.</p>
+    </section>
 
-The first step in the working of a Trojan involves its delivery and execution on the target system. Trojans use various infection vectors, such as:
+    <section>
+      <h4>7. Data Theft and Impact</h4>
+      <p>The Trojan collects and sends sensitive data, including passwords, banking details, personal information, and corporate secrets. This information is used for identity theft, financial fraud, espionage, or further attacks.</p>
+      <p>The presence of a Trojan can also degrade system performance, cause system instability, or facilitate other malicious activities like spreading ransomware or spyware.</p>
+    </section>
 
-* **Phishing emails**: Attachments or links disguised as legitimate files or documents entice users to download and run the Trojan.
-* **Malicious websites**: Trojans can be delivered through drive-by downloads or by exploiting browser vulnerabilities.
-* **Social engineering**: Attackers convince users to install fake software updates, pirated software, or useful utilities that contain the Trojan payload.
-* **Removable media**: USB drives or external devices infected with Trojans spread malware when connected to a system.
+    <section>
+      <h4>8. Summary Flow</h4>
+      <ol>
+        <li><strong>Delivery</strong>: Trojan is delivered to the victim through deceptive means.</li>
+        <li><strong>Execution</strong>: Victim runs the Trojan unknowingly.</li>
+        <li><strong>Payload Activation</strong>: Malicious payload starts running silently.</li>
+        <li><strong>Persistence</strong>: Trojan hides itself and ensures it remains active.</li>
+        <li><strong>C&amp;C Communication</strong>: Establishes a link with attacker’s server.</li>
+        <li><strong>Command Execution</strong>: Performs attacker’s commands remotely.</li>
+        <li><strong>Data Theft &amp; Damage</strong>: Steals data and impacts system security.</li>
+      </ol>
+    </section>
 
-Once the victim executes or installs the Trojan, the malicious payload begins its operation.
+    <section>
+      <h4>9. Conclusion</h4>
+      <p>The working of Trojans relies heavily on deception, stealth, and remote control. Their lifecycle from delivery to execution and communication makes them formidable threats. Ethical hackers must understand each phase to effectively detect, analyze, and mitigate Trojan infections and protect systems against these malicious programs.</p>
+    </section>
+  </section>
 
----
 
-## **3. Execution and Payload Activation**
-
-After installation, the Trojan activates its payload, which is the malicious action it is designed to perform. This can include:
-
-* Creating backdoors for remote access.
-* Logging keystrokes.
-* Stealing sensitive data.
-* Downloading additional malware.
-* Encrypting files for ransomware.
-* Spying on user activities.
-
-The activation process often involves the Trojan running silently in the background without alerting the user.
-
----
-
-## **4. Concealment and Persistence**
-
-Trojans employ various techniques to evade detection and maintain persistence on the infected system:
-
-* **Obfuscation**: The code may be encrypted or scrambled to avoid signature-based detection by antivirus software.
-* **Rootkits**: Some Trojans use rootkits to hide their files, processes, and network connections from security tools.
-* **Process Injection**: Malicious code is injected into legitimate system processes to mask its presence.
-* **Registry Modification**: Trojans often modify Windows Registry entries or add startup items to ensure they launch automatically on system reboot.
-* **Scheduled Tasks**: Creating scheduled tasks to restart or check the Trojan’s presence regularly.
-
-Persistence ensures the Trojan continues operating even after system restarts or attempts to remove it.
-
----
-
-## **5. Communication with Command and Control (C\&C) Server**
-
-Many Trojans establish communication with an attacker-controlled **Command and Control (C\&C) server** to receive instructions or send stolen data. The communication may use:
-
-* HTTP/HTTPS protocols.
-* Custom protocols over specific ports.
-* Encrypted or encoded traffic to avoid detection.
-
-This remote connection allows attackers to:
-
-* Issue commands to the Trojan.
-* Update the malware or payload.
-* Exfiltrate sensitive information.
-* Download additional malicious modules.
-
----
-
-## **6. Execution of Attacker Commands**
-
-Once connected to the C\&C server, the Trojan waits for commands and executes them, such as:
-
-* Capturing screenshots.
-* Logging keystrokes.
-* Uploading files.
-* Installing other malware.
-* Launching Distributed Denial of Service (DDoS) attacks.
-* Manipulating or deleting files.
-
-This remote control capability turns the victim machine into a bot or zombie under the attacker’s control.
-
----
-
-## **7. Data Theft and Impact**
-
-The Trojan collects and sends sensitive data, including passwords, banking details, personal information, and corporate secrets. This information is used for identity theft, financial fraud, espionage, or further attacks.
-
-The presence of a Trojan can also degrade system performance, cause system instability, or facilitate other malicious activities like spreading ransomware or spyware.
-
----
-
-## **8. Summary Flow**
-
-1. **Delivery**: Trojan is delivered to the victim through deceptive means.
-2. **Execution**: Victim runs the Trojan unknowingly.
-3. **Payload Activation**: Malicious payload starts running silently.
-4. **Persistence**: Trojan hides itself and ensures it remains active.
-5. **C\&C Communication**: Establishes a link with attacker’s server.
-6. **Command Execution**: Performs attacker’s commands remotely.
-7. **Data Theft & Damage**: Steals data and impacts system security.
-
----
-
-## **9. Conclusion**
-
-The working of Trojans relies heavily on deception, stealth, and remote control. Their lifecycle from delivery to execution and communication makes them formidable threats. Ethical hackers must understand each phase to effectively detect, analyze, and mitigate Trojan infections and protect systems against these malicious programs.
-
----
-
-Would you like me to prepare detailed notes on another topic or add examples of Trojan analysis?
-
-    
   </main>
 
     <footer>
-    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Topics</a>
     </footer>
 
  </body>
