@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <title>Trojans | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -14,252 +14,107 @@
 
   <main>
 
-Here’s a **long and detailed explanation** for **“Using Keyloggers”** suitable for your **Ethical Hacking Unit 3** notes:
 
----
-
-# **Using Keyloggers**
-
-## **1. Introduction**
-
-Keyloggers are one of the most prevalent and stealthy tools used in system hacking. They are designed to capture and record keystrokes made by a user on a computer or device. By logging keystrokes, attackers can harvest sensitive information such as passwords, credit card numbers, personal messages, and other confidential data without the victim’s knowledge.
-
-Ethical hackers study keyloggers to understand their functioning, identify their signs, and develop effective defenses against them.
-
----
-
-## **2. What is a Keylogger?**
-
-A **keylogger** is a type of surveillance software or hardware that monitors and records every key pressed on a keyboard. There are two main categories:
-
-* **Software Keyloggers**: Programs that run in the background of an operating system and record keystrokes digitally.
-* **Hardware Keyloggers**: Physical devices plugged between a keyboard and the computer or embedded within keyboards to capture keystrokes.
-
----
-
-## **3. Types of Keyloggers**
-
-### **a. Software Keyloggers**
-
-* **Kernel-based Keyloggers**: Operate at the kernel level (lowest system level) with high privileges, making detection difficult.
-* **API-based Keyloggers**: Use operating system APIs to capture keystrokes.
-* **Form Grabbing Keyloggers**: Capture data when forms are submitted online.
-* **Wireless Keyloggers**: Capture keystrokes on wireless keyboards by intercepting radio signals.
-
-### **b. Hardware Keyloggers**
-
-* **External Keyloggers**: Inserted between the keyboard and the computer’s USB or PS/2 port.
-* **Internal Keyloggers**: Embedded inside the keyboard or motherboard.
-* **Wireless Keyloggers**: Capture keystrokes remotely from wireless keyboards.
-
----
-
-## **4. How Keyloggers Work**
-
-Keyloggers typically function by intercepting keystroke signals before they reach the application layer, storing this data locally or sending it remotely to an attacker. Here’s a simplified workflow:
-
-1. **Interception**: Capture keystrokes as the user types.
-2. **Logging**: Save the captured data into a file or memory buffer.
-3. **Transmission**: Send logged data to an attacker via email, FTP, or other channels (for remote keyloggers).
-4. **Extraction**: Attacker retrieves and analyzes the data.
-
----
-
-## **5. Methods of Deployment**
-
-* **Phishing Emails**: Deliver keylogger malware disguised as legitimate attachments.
-* **Drive-by Downloads**: Exploit vulnerabilities on websites to silently install keyloggers.
-* **Trojan Horses**: Hide keyloggers inside seemingly useful software.
-* **Physical Access**: Installing hardware keyloggers directly onto target machines.
-* **Social Engineering**: Convincing users to install malicious software.
-
----
-
-## **6. Uses of Keyloggers by Attackers**
-
-* **Credential Theft**: Capturing usernames and passwords for unauthorized access.
-* **Financial Fraud**: Stealing credit card information and banking credentials.
-* **Corporate Espionage**: Obtaining sensitive company data and intellectual property.
-* **Identity Theft**: Collecting personal information for fraudulent use.
-* **Surveillance**: Monitoring user activities covertly.
-
----
-
-## **7. Detection and Prevention**
-
-### **Detection Techniques**
-
-* **Anti-Malware Scans**: Modern antivirus and anti-spyware software can detect known keylogger signatures.
-* **Behavioral Analysis**: Monitoring system processes for suspicious activities like hidden logging or unusual network traffic.
-* **Hardware Inspection**: Physically checking connections for unauthorized devices.
-* **System Audits**: Reviewing installed software and active processes regularly.
-
-### **Prevention Strategies**
-
-* **Use Strong, Multi-Factor Authentication (MFA)** to minimize impact of stolen passwords.
-* **Keep Systems Updated** to patch vulnerabilities that keyloggers exploit.
-* **Avoid Downloading Unknown Software** or clicking suspicious links.
-* **Employ Encryption Tools** such as virtual keyboards or encrypted keystroke transmission.
-* **Limit Physical Access** to devices to prevent hardware keylogger installation.
-* **Deploy Endpoint Security Solutions** that include behavior-based detection.
-
----
-
-## **8. Ethical Use of Keyloggers**
-
-Ethical hackers or system administrators may use keyloggers legally for:
-
-* **Employee Monitoring** (with consent and within legal boundaries).
-* **Parental Control** to monitor children’s computer use.
-* **Penetration Testing** to simulate attacks and assess security.
-
-Strict guidelines and legal compliance must always be observed to respect privacy and avoid misuse.
-
----
-
-## **9. Conclusion**
-
-Keyloggers remain a powerful tool in the arsenal of attackers due to their stealth and effectiveness in capturing sensitive information. Understanding the types, working principles, deployment methods, and prevention techniques is vital for ethical hackers. By mastering knowledge about keyloggers, defenders can better protect systems, detect intrusions early, and maintain secure computing environments.
-
----
-
-Would you like to continue with another topic or need practical examples of keylogger detection and removal?
-
-
-Here’s a **long and detailed explanation** for **“Trojans”** for your **Ethical Hacking Unit 3** notes:
-
----
-
-# **Trojans**
-
-## **1. Introduction**
-
-A **Trojan**, also known as a **Trojan horse**, is a type of malicious software (malware) that misleads users about its true intent. Unlike viruses and worms, Trojans do not self-replicate but rely on tricking users into executing them. Named after the infamous wooden horse from Greek mythology, Trojans appear legitimate or harmless to deceive victims and then perform harmful actions covertly.
-
-Trojans are widely used by attackers to gain unauthorized access, steal data, or create backdoors on compromised systems.
-
----
-
-## **2. What is a Trojan?**
-
-* A **Trojan** is a malware program disguised as or embedded within a legitimate application.
-* It requires user interaction to be executed, such as downloading or opening a seemingly useful file.
-* Once executed, it performs malicious activities without the user’s consent or knowledge.
-
----
-
-## **3. Types of Trojans**
-
-Trojans come in many varieties, each tailored for specific malicious objectives. Common types include:
-
-### a. **Backdoor Trojan**
-
-* Opens a backdoor on the victim’s system allowing remote control by an attacker.
-* Enables attackers to execute commands, install additional malware, or exfiltrate data.
-* Examples: Sub7, Back Orifice.
-
-### b. **Downloader Trojan**
-
-* Designed to download and install other malicious software onto the victim’s machine.
-* Acts as a gateway for further infection.
-
-### c. **Dropper Trojan**
-
-* Drops or installs malware payloads like viruses, worms, or ransomware.
-* Often used in conjunction with downloader Trojans.
-
-### d. **Rootkit Trojan**
-
-* Hides other malicious programs or files on the system to avoid detection.
-* Operates at a low level to maintain stealth.
-
-### e. **Spyware Trojan**
-
-* Collects sensitive information such as keystrokes, screenshots, or browsing habits.
-* Sends the collected data back to the attacker.
-
-### f. **Ransomware Trojan**
-
-* Encrypts victim’s data and demands ransom for decryption.
-* Often spread through Trojan delivery methods.
-
----
-
-## **4. How Trojans Work**
-
-1. **Infection Vector**: Trojans are often delivered via phishing emails, malicious websites, infected software downloads, or removable media.
-2. **Execution**: The victim unwittingly runs the Trojan, believing it to be a legitimate program.
-3. **Payload Activation**: The Trojan activates its malicious payload, which may vary from data theft to system control.
-4. **Concealment**: Many Trojans employ obfuscation techniques or rootkits to hide their presence.
-5. **Communication**: Some Trojans connect to Command and Control (C\&C) servers for instructions or to send stolen data.
-
----
-
-## **5. Common Techniques Used by Trojans**
-
-* **Social Engineering**: Tricks users into installing or executing them by masquerading as useful software or attachments.
-* **Polymorphism**: Frequently changing their code to evade antivirus detection.
-* **Encryption**: Encrypting payloads or communication to avoid detection.
-* **Process Injection**: Injecting malicious code into legitimate processes to hide activities.
-* **Persistence Mechanisms**: Creating registry entries or scheduled tasks to survive reboots.
-
----
-
-## **6. Impact and Dangers**
-
-* **Unauthorized Remote Access**: Attackers can control systems remotely, steal data, or disrupt operations.
-* **Data Theft**: Personal, financial, and business-critical data can be stolen.
-* **System Damage**: Trojans can corrupt or delete files, cause system instability, or launch attacks on other systems.
-* **Botnet Creation**: Infected machines can become part of a botnet used for Distributed Denial of Service (DDoS) attacks.
-* **Financial Loss**: Through fraud, ransom demands, or business downtime.
-
----
-
-## **7. Detection and Prevention**
-
-### Detection
-
-* **Antivirus and Anti-Malware Software**: Signature-based and heuristic scanning to identify known and unknown Trojans.
-* **Behavioral Analysis**: Monitoring unusual system behavior like unexpected network connections.
-* **Network Traffic Analysis**: Detecting suspicious communication with external servers.
-* **File Integrity Checks**: Monitoring changes to critical system files.
-
-### Prevention
-
-* **Avoid Downloading Software from Untrusted Sources**.
-* **Do Not Open Suspicious Email Attachments or Links**.
-* **Use Updated Antivirus and Firewall Solutions**.
-* **Apply Security Patches and Updates Regularly**.
-* **Implement Principle of Least Privilege** to limit damage if a Trojan executes.
-* **Educate Users** about social engineering and phishing threats.
-
----
-
-## **8. Ethical Use and Legal Considerations**
-
-While Trojans are primarily malicious, similar techniques can be used by ethical hackers and security professionals for:
-
-* **Penetration Testing**: Using controlled Trojan-like tools to test defenses.
-* **Security Research**: Understanding Trojan behavior to develop defenses.
-* **Digital Forensics**: Investigating infections and attack vectors.
-
-However, unauthorized use or distribution of Trojans is illegal and unethical.
-
----
-
-## **9. Conclusion**
-
-Trojans represent a significant threat due to their deceptive nature and potential for severe damage. Their ability to disguise themselves as legitimate software makes them particularly dangerous and difficult to detect. Ethical hackers must understand how Trojans operate, their delivery mechanisms, and prevention strategies to better defend systems and educate users on safe practices.
-
----
-
-If you'd like, I can prepare notes on the next topic or provide examples of Trojan detection and removal. Just let me know!
+  <section>
+    
+    <h3>Trojans</h3>
+
+    <h4>1. Introduction</h4>
+    <p>A Trojan, also known as a Trojan horse, is a type of malicious software (malware) that misleads users about its true intent. Unlike viruses and worms, Trojans do not self-replicate but rely on tricking users into executing them. Named after the infamous wooden horse from Greek mythology, Trojans appear legitimate or harmless to deceive victims and then perform harmful actions covertly.</p>
+    <p>Trojans are widely used by attackers to gain unauthorized access, steal data, or create backdoors on compromised systems.</p>
+
+    <h4>2. What is a Trojan?</h4>
+    <ul>
+      <li>A Trojan is a malware program disguised as or embedded within a legitimate application.</li>
+      <li>It requires user interaction to be executed, such as downloading or opening a seemingly useful file.</li>
+      <li>Once executed, it performs malicious activities without the user’s consent or knowledge.</li>
+    </ul>
+
+    <h4>3. Types of Trojans</h4>
+
+    <h5>a. Backdoor Trojan</h5>
+    <p>Opens a backdoor on the victim’s system allowing remote control by an attacker. Enables attackers to execute commands, install additional malware, or exfiltrate data.</p>
+
+    <h5>b. Downloader Trojan</h5>
+    <p>Designed to download and install other malicious software onto the victim’s machine. Acts as a gateway for further infection.</p>
+
+    <h5>c. Dropper Trojan</h5>
+    <p>Drops or installs malware payloads like viruses, worms, or ransomware. Often used in conjunction with downloader Trojans.</p>
+
+    <h5>d. Rootkit Trojan</h5>
+    <p>Hides other malicious programs or files on the system to avoid detection. Operates at a low level to maintain stealth.</p>
+
+    <h5>e. Spyware Trojan</h5>
+    <p>Collects sensitive information such as keystrokes, screenshots, or browsing habits. Sends the collected data back to the attacker.</p>
+
+    <h5>f. Ransomware Trojan</h5>
+    <p>Encrypts victim’s data and demands ransom for decryption. Often spread through Trojan delivery methods.</p>
+
+    <h4>4. How Trojans Work</h4>
+    <ol>
+      <li><strong>Infection Vector:</strong> Trojans are often delivered via phishing emails, malicious websites, infected software downloads, or removable media.</li>
+      <li><strong>Execution:</strong> The victim unwittingly runs the Trojan, believing it to be a legitimate program.</li>
+      <li><strong>Payload Activation:</strong> The Trojan activates its malicious payload, which may vary from data theft to system control.</li>
+      <li><strong>Concealment:</strong> Many Trojans employ obfuscation techniques or rootkits to hide their presence.</li>
+      <li><strong>Communication:</strong> Some Trojans connect to Command and Control (C&C) servers for instructions or to send stolen data.</li>
+    </ol>
+
+    <h4>5. Common Techniques Used by Trojans</h4>
+    <ul>
+      <li><strong>Social Engineering:</strong> Tricks users into installing or executing them by masquerading as useful software or attachments.</li>
+      <li><strong>Polymorphism:</strong> Frequently changing their code to evade antivirus detection.</li>
+      <li><strong>Encryption:</strong> Encrypting payloads or communication to avoid detection.</li>
+      <li><strong>Process Injection:</strong> Injecting malicious code into legitimate processes to hide activities.</li>
+      <li><strong>Persistence Mechanisms:</strong> Creating registry entries or scheduled tasks to survive reboots.</li>
+    </ul>
+
+    <h4>6. Impact and Dangers</h4>
+    <ul>
+      <li><strong>Unauthorized Remote Access:</strong> Attackers can control systems remotely, steal data, or disrupt operations.</li>
+      <li><strong>Data Theft:</strong> Personal, financial, and business-critical data can be stolen.</li>
+      <li><strong>System Damage:</strong> Trojans can corrupt or delete files, cause system instability, or launch attacks on other systems.</li>
+      <li><strong>Botnet Creation:</strong> Infected machines can become part of a botnet used for Distributed Denial of Service (DDoS) attacks.</li>
+      <li><strong>Financial Loss:</strong> Through fraud, ransom demands, or business downtime.</li>
+    </ul>
+
+    <h4>7. Detection and Prevention</h4>
+
+    <h5>Detection</h5>
+    <ul>
+      <li><strong>Antivirus and Anti-Malware Software:</strong> Signature-based and heuristic scanning to identify known and unknown Trojans.</li>
+      <li><strong>Behavioral Analysis:</strong> Monitoring unusual system behavior like unexpected network connections.</li>
+      <li><strong>Network Traffic Analysis:</strong> Detecting suspicious communication with external servers.</li>
+      <li><strong>File Integrity Checks:</strong> Monitoring changes to critical system files.</li>
+    </ul>
+
+    <h5>Prevention</h5>
+    <ul>
+      <li>Avoid Downloading Software from Untrusted Sources.</li>
+      <li>Do Not Open Suspicious Email Attachments or Links.</li>
+      <li>Use Updated Antivirus and Firewall Solutions.</li>
+      <li>Apply Security Patches and Updates Regularly.</li>
+      <li>Implement Principle of Least Privilege to limit damage if a Trojan executes.</li>
+      <li>Educate Users about social engineering and phishing threats.</li>
+    </ul>
+
+    <h4>8. Ethical Use and Legal Considerations</h4>
+    <p>While Trojans are primarily malicious, similar techniques can be used by ethical hackers and security professionals for:</p>
+    <ul>
+      <li><strong>Penetration Testing:</strong> Using controlled Trojan-like tools to test defenses.</li>
+      <li><strong>Security Research:</strong> Understanding Trojan behavior to develop defenses.</li>
+      <li><strong>Digital Forensics:</strong> Investigating infections and attack vectors.</li>
+    </ul>
+    <p>However, unauthorized use or distribution of Trojans is illegal and unethical.</p>
+
+    <h4>9. Conclusion</h4>
+    <p>Trojans represent a significant threat due to their deceptive nature and potential for severe damage. Their ability to disguise themselves as legitimate software makes them particularly dangerous and difficult to detect. Ethical hackers must understand how Trojans operate, their delivery mechanisms, and prevention strategies to better defend systems and educate users on safe practices.</p>
+  </section>
 
     
   </main>
 
     <footer>
-    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Topics</a>
     </footer>
 
  </body>
