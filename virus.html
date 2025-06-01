@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <title>Lifecycle and Classification of Virus | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -13,183 +14,297 @@
   </div>
 
   <main>
-Certainly! Here’s a **long and detailed explanation** of the **Lifecycle and Classification of Viruses** for Ethical Hacking Unit 3:
 
----
 
-# **Lifecycle and Classification of Virus**
+<section>
+  <h3>Lifecycle and Classification of Virus</h3>
 
-## **1. Introduction**
+  <section>
+    <h4>1. Introduction</h4>
+    <p>A <strong>computer virus</strong> is a type of malicious software designed to replicate itself and spread from one computer to another, often causing damage or disrupting normal system operations. Understanding the virus lifecycle is crucial for ethical hackers and cybersecurity professionals to detect, analyze, and prevent virus infections effectively.</p>
+    <p>Additionally, viruses come in many types, each with distinct characteristics, infection methods, and payloads. Classifying viruses helps in identifying their behavior and developing appropriate countermeasures.</p>
+  </section>
 
-A **computer virus** is a type of malicious software designed to replicate itself and spread from one computer to another, often causing damage or disrupting normal system operations. Understanding the virus lifecycle is crucial for ethical hackers and cybersecurity professionals to detect, analyze, and prevent virus infections effectively.
+  <section>
+    <h4>2. Lifecycle of a Virus</h4>
+    <p>The lifecycle of a virus describes the sequential stages it undergoes from initial infection to spreading and causing harm. Although the exact details may vary depending on the virus type, the lifecycle generally includes the following phases:</p>
 
-Additionally, viruses come in many types, each with distinct characteristics, infection methods, and payloads. Classifying viruses helps in identifying their behavior and developing appropriate countermeasures.
+    <section>
+      <h5>a. Penetration (Entry)</h5>
+      <ul>
+        <li>The virus gains access to the host system.</li>
+        <li>Entry vectors include:
+          <ul>
+            <li>Executing infected files.</li>
+            <li>Opening infected email attachments.</li>
+            <li>Using infected removable media (USB drives).</li>
+            <li>Exploiting network vulnerabilities.</li>
+          </ul>
+        </li>
+        <li>At this stage, the virus is typically dormant and not yet active.</li>
+      </ul>
+    </section>
 
----
+    <section>
+      <h5>b. Activation (Triggering)</h5>
+      <ul>
+        <li>The virus waits for a specific condition or trigger to activate.</li>
+        <li>Triggers can be:
+          <ul>
+            <li>A specific date/time (e.g., April 1st).</li>
+            <li>Execution of a particular program.</li>
+            <li>System startup.</li>
+            <li>User actions.</li>
+          </ul>
+        </li>
+        <li>This delayed activation helps evade immediate detection.</li>
+      </ul>
+    </section>
 
-## **2. Lifecycle of a Virus**
+    <section>
+      <h5>c. Replication</h5>
+      <ul>
+        <li>The virus replicates itself by creating copies.</li>
+        <li>Replication methods:
+          <ul>
+            <li>Infecting other executable files (e.g., .exe, .com).</li>
+            <li>Infecting boot sectors of storage devices.</li>
+            <li>Injecting code into system processes or memory.</li>
+          </ul>
+        </li>
+        <li>This enables the virus to spread within the host system and potentially to other systems.</li>
+      </ul>
+    </section>
 
-The lifecycle of a virus describes the sequential stages it undergoes from initial infection to spreading and causing harm. Although the exact details may vary depending on the virus type, the lifecycle generally includes the following phases:
+    <section>
+      <h5>d. Execution of Payload</h5>
+      <ul>
+        <li>The virus executes its payload, which is the malicious part.</li>
+        <li>Payload actions can vary widely:
+          <ul>
+            <li>Deleting or corrupting files.</li>
+            <li>Logging keystrokes.</li>
+            <li>Opening backdoors for remote access.</li>
+            <li>Displaying messages or prank behavior.</li>
+            <li>Consuming system resources causing slowdowns.</li>
+          </ul>
+        </li>
+        <li>Some viruses have no payload, their primary purpose being replication.</li>
+      </ul>
+    </section>
 
-### a. **Penetration (Entry)**
+    <section>
+      <h5>e. Concealment and Evasion</h5>
+      <ul>
+        <li>To avoid detection by antivirus software, viruses employ evasion techniques:
+          <ul>
+            <li><strong>Polymorphism</strong>: Virus changes its code each time it replicates.</li>
+            <li><strong>Metamorphism</strong>: Virus rewrites its own code entirely.</li>
+            <li><strong>Encryption</strong>: Virus encrypts its code and decrypts at runtime.</li>
+            <li><strong>Rootkit techniques</strong>: Hides processes and files from the OS.</li>
+          </ul>
+        </li>
+        <li>These techniques make detection and removal difficult.</li>
+      </ul>
+    </section>
 
-* The virus gains access to the host system.
-* Entry vectors include:
+    <section>
+      <h5>f. Propagation to Other Systems</h5>
+      <ul>
+        <li>After infecting the host system, the virus attempts to spread to other computers.</li>
+        <li>Methods include:
+          <ul>
+            <li>Infecting files shared via network shares.</li>
+            <li>Emailing infected attachments.</li>
+            <li>Infecting removable media.</li>
+            <li>Exploiting network vulnerabilities.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </section>
 
-  * Executing infected files.
-  * Opening infected email attachments.
-  * Using infected removable media (USB drives).
-  * Exploiting network vulnerabilities.
-* At this stage, the virus is typically dormant and not yet active.
+  <section>
+    <h4>3. Classification of Viruses</h4>
+    <p>Viruses are classified based on various factors including infection method, target location, and behavior. Below are the common classifications:</p>
 
-### b. **Activation (Triggering)**
+    <section>
+      <h5>a. File Infectors</h5>
+      <ul>
+        <li>Infect executable files (.exe, .com).</li>
+        <li>Activate when the infected file is run.</li>
+        <li>Example: Cascade virus.</li>
+      </ul>
+    </section>
 
-* The virus waits for a specific condition or trigger to activate.
-* Triggers can be:
+    <section>
+      <h5>b. Boot Sector Viruses</h5>
+      <ul>
+        <li>Infect the boot sector of hard drives or removable disks.</li>
+        <li>Activate during system startup before the OS loads.</li>
+        <li>Can cause system failure and make detection difficult.</li>
+        <li>Example: Michelangelo virus.</li>
+      </ul>
+    </section>
 
-  * A specific date/time (e.g., April 1st).
-  * Execution of a particular program.
-  * System startup.
-  * User actions.
-* This delayed activation helps evade immediate detection.
+    <section>
+      <h5>c. Macro Viruses</h5>
+      <ul>
+        <li>Infect documents that contain macros (e.g., Microsoft Word, Excel).</li>
+        <li>Triggered when the document is opened and macros execute.</li>
+        <li>Often used in phishing campaigns.</li>
+        <li>Example: Melissa virus.</li>
+      </ul>
+    </section>
 
-### c. **Replication**
+    <section>
+      <h5>d. Polymorphic Viruses</h5>
+      <ul>
+        <li>Change their code structure each time they infect to avoid detection.</li>
+        <li>Use encryption and code obfuscation.</li>
+        <li>Example: Marburg virus.</li>
+      </ul>
+    </section>
 
-* The virus replicates itself by creating copies.
-* Replication methods:
+    <section>
+      <h5>e. Metamorphic Viruses</h5>
+      <ul>
+        <li>Rewrite their entire code with each infection.</li>
+        <li>More complex than polymorphic viruses, harder to detect.</li>
+        <li>Example: W32/Simile virus.</li>
+      </ul>
+    </section>
 
-  * Infecting other executable files (e.g., .exe, .com).
-  * Infecting boot sectors of storage devices.
-  * Injecting code into system processes or memory.
-* This enables the virus to spread within the host system and potentially to other systems.
+    <section>
+      <h5>f. Resident Viruses</h5>
+      <ul>
+        <li>Embed themselves into system memory.</li>
+        <li>Can infect files and processes regardless of which program is running.</li>
+        <li>Stay active until system reboot.</li>
+        <li>Example: Randex virus.</li>
+      </ul>
+    </section>
 
-### d. **Execution of Payload**
+    <section>
+      <h5>g. Non-resident Viruses</h5>
+      <ul>
+        <li>Infect files and then terminate.</li>
+        <li>They do not stay resident in memory.</li>
+        <li>Example: Vienna virus.</li>
+      </ul>
+    </section>
 
-* The virus executes its payload, which is the malicious part.
-* Payload actions can vary widely:
+    <section>
+      <h5>h. Stealth Viruses</h5>
+      <ul>
+        <li>Hide their presence by intercepting system calls.</li>
+        <li>Provide fake clean results to antivirus scans.</li>
+        <li>Example: Brain virus.</li>
+      </ul>
+    </section>
 
-  * Deleting or corrupting files.
-  * Logging keystrokes.
-  * Opening backdoors for remote access.
-  * Displaying messages or prank behavior.
-  * Consuming system resources causing slowdowns.
-* Some viruses have no payload, their primary purpose being replication.
+    <section>
+      <h5>i. Multipartite Viruses</h5>
+      <ul>
+        <li>Infect multiple parts of the system such as files and boot sectors.</li>
+        <li>More difficult to remove as they have multiple infection points.</li>
+        <li>Example: One_Half virus.</li>
+      </ul>
+    </section>
+  </section>
 
-### e. **Concealment and Evasion**
+  <section>
+    <h4>4. Summary Table of Virus Classifications</h4>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Virus Type</th>
+          <th>Infection Target</th>
+          <th>Activation</th>
+          <th>Key Features</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>File Infector</td>
+          <td>Executable files</td>
+          <td>When infected file runs</td>
+          <td>Spreads by infecting executables</td>
+          <td>Cascade</td>
+        </tr>
+        <tr>
+          <td>Boot Sector Virus</td>
+          <td>Boot sectors</td>
+          <td>At system startup</td>
+          <td>Infects system boot process</td>
+          <td>Michelangelo</td>
+        </tr>
+        <tr>
+          <td>Macro Virus</td>
+          <td>Macro-enabled documents</td>
+          <td>When document opened</td>
+          <td>Spread via Office docs</td>
+          <td>Melissa</td>
+        </tr>
+        <tr>
+          <td>Polymorphic Virus</td>
+          <td>Varies</td>
+          <td>Varies</td>
+          <td>Code changes to evade detection</td>
+          <td>Marburg</td>
+        </tr>
+        <tr>
+          <td>Metamorphic Virus</td>
+          <td>Varies</td>
+          <td>Varies</td>
+          <td>Complete code rewriting</td>
+          <td>W32/Simile</td>
+        </tr>
+        <tr>
+          <td>Resident Virus</td>
+          <td>System memory</td>
+          <td>Stays in memory until reboot</td>
+          <td>Infects files while resident</td>
+          <td>Randex</td>
+        </tr>
+        <tr>
+          <td>Non-resident Virus</td>
+          <td>Infect files only</td>
+          <td>Terminates after infection</td>
+          <td>Does not stay in memory</td>
+          <td>Vienna</td>
+        </tr>
+        <tr>
+          <td>Stealth Virus</td>
+          <td>Varies</td>
+          <td>Hides from antivirus</td>
+          <td>Intercepts system calls</td>
+          <td>Brain</td>
+        </tr>
+        <tr>
+          <td>Multipartite Virus</td>
+          <td>Multiple (files + boot sector)</td>
+          <td>Varies</td>
+          <td>Multiple infection points</td>
+          <td>One_Half</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-* To avoid detection by antivirus software, viruses employ evasion techniques:
+  <section>
+    <h4>5. Conclusion</h4>
+    <p>The lifecycle of a virus highlights the phases from initial infection to spreading and payload execution, while the classification of viruses helps identify their unique characteristics and infection methods. For ethical hackers, this knowledge is critical to detect infections early, analyze virus behavior, and develop effective mitigation strategies.</p>
+  </section>
 
-  * **Polymorphism**: Virus changes its code each time it replicates.
-  * **Metamorphism**: Virus rewrites its own code entirely.
-  * **Encryption**: Virus encrypts its code and decrypts at runtime.
-  * **Rootkit techniques**: Hides processes and files from the OS.
-* These techniques make detection and removal difficult.
-
-### f. **Propagation to Other Systems**
-
-* After infecting the host system, the virus attempts to spread to other computers.
-* Methods include:
-
-  * Infecting files shared via network shares.
-  * Emailing infected attachments.
-  * Infecting removable media.
-  * Exploiting network vulnerabilities.
-
----
-
-## **3. Classification of Viruses**
-
-Viruses are classified based on various factors including infection method, target location, and behavior. Below are the common classifications:
-
-### a. **File Infectors**
-
-* Infect executable files (.exe, .com).
-* Activate when the infected file is run.
-* Example: Cascade virus.
-
-### b. **Boot Sector Viruses**
-
-* Infect the boot sector of hard drives or removable disks.
-* Activate during system startup before the OS loads.
-* Can cause system failure and make detection difficult.
-* Example: Michelangelo virus.
-
-### c. **Macro Viruses**
-
-* Infect documents that contain macros (e.g., Microsoft Word, Excel).
-* Triggered when the document is opened and macros execute.
-* Often used in phishing campaigns.
-* Example: Melissa virus.
-
-### d. **Polymorphic Viruses**
-
-* Change their code structure each time they infect to avoid detection.
-* Use encryption and code obfuscation.
-* Example: Marburg virus.
-
-### e. **Metamorphic Viruses**
-
-* Rewrite their entire code with each infection.
-* More complex than polymorphic viruses, harder to detect.
-* Example: W32/Simile virus.
-
-### f. **Resident Viruses**
-
-* Embed themselves into system memory.
-* Can infect files and processes regardless of which program is running.
-* Stay active until system reboot.
-* Example: Randex virus.
-
-### g. **Non-resident Viruses**
-
-* Infect files and then terminate.
-* They do not stay resident in memory.
-* Example: Vienna virus.
-
-### h. **Stealth Viruses**
-
-* Hide their presence by intercepting system calls.
-* Provide fake clean results to antivirus scans.
-* Example: Brain virus.
-
-### i. **Multipartite Viruses**
-
-* Infect multiple parts of the system such as files and boot sectors.
-* More difficult to remove as they have multiple infection points.
-* Example: One\_Half virus.
-
----
-
-## **4. Summary Table of Virus Classifications**
-
-| Virus Type         | Infection Target               | Activation                   | Key Features                     | Example      |
-| ------------------ | ------------------------------ | ---------------------------- | -------------------------------- | ------------ |
-| File Infector      | Executable files               | When infected file runs      | Spreads by infecting executables | Cascade      |
-| Boot Sector Virus  | Boot sectors                   | At system startup            | Infects system boot process      | Michelangelo |
-| Macro Virus        | Macro-enabled documents        | When document opened         | Spread via Office docs           | Melissa      |
-| Polymorphic Virus  | Varies                         | Varies                       | Code changes to evade detection  | Marburg      |
-| Metamorphic Virus  | Varies                         | Varies                       | Complete code rewriting          | W32/Simile   |
-| Resident Virus     | System memory                  | Stays in memory until reboot | Infects files while resident     | Randex       |
-| Non-resident Virus | Infect files only              | Terminates after infection   | Does not stay in memory          | Vienna       |
-| Stealth Virus      | Varies                         | Hides from antivirus         | Intercepts system calls          | Brain        |
-| Multipartite Virus | Multiple (files + boot sector) | Varies                       | Multiple infection points        | One\_Half    |
-
----
-
-## **5. Conclusion**
-
-The lifecycle of a virus highlights the phases from initial infection to spreading and payload execution, while the classification of viruses helps identify their unique characteristics and infection methods. For ethical hackers, this knowledge is critical to detect infections early, analyze virus behavior, and develop effective mitigation strategies.
-
----
-
-If you want, I can also prepare notes on virus detection methods or famous viruses and their impact!
-
+</section>
 
     
   </main>
 
     <footer>
-    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Topics</a>
     </footer>
 
  </body>
