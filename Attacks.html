@@ -13,365 +13,128 @@
   </div>
 
   <main>
-Here’s a **long and detailed explanation** of the **working of Trojans** for your Ethical Hacking Unit 3 notes:
 
----
-
-# **Working of Trojans**
-
-## **1. Introduction**
-
-Trojans, or Trojan horses, are malicious programs disguised as legitimate software to trick users into installing them. Unlike viruses or worms, Trojans do not self-replicate but rely on social engineering and deception to gain access to a victim's system. Understanding their working is crucial for ethical hackers to detect, analyze, and prevent these attacks effectively.
-
----
-
-## **2. Infection and Delivery**
-
-The first step in the working of a Trojan involves its delivery and execution on the target system. Trojans use various infection vectors, such as:
-
-* **Phishing emails**: Attachments or links disguised as legitimate files or documents entice users to download and run the Trojan.
-* **Malicious websites**: Trojans can be delivered through drive-by downloads or by exploiting browser vulnerabilities.
-* **Social engineering**: Attackers convince users to install fake software updates, pirated software, or useful utilities that contain the Trojan payload.
-* **Removable media**: USB drives or external devices infected with Trojans spread malware when connected to a system.
-
-Once the victim executes or installs the Trojan, the malicious payload begins its operation.
-
----
-
-## **3. Execution and Payload Activation**
-
-After installation, the Trojan activates its payload, which is the malicious action it is designed to perform. This can include:
-
-* Creating backdoors for remote access.
-* Logging keystrokes.
-* Stealing sensitive data.
-* Downloading additional malware.
-* Encrypting files for ransomware.
-* Spying on user activities.
-
-The activation process often involves the Trojan running silently in the background without alerting the user.
-
----
-
-## **4. Concealment and Persistence**
-
-Trojans employ various techniques to evade detection and maintain persistence on the infected system:
-
-* **Obfuscation**: The code may be encrypted or scrambled to avoid signature-based detection by antivirus software.
-* **Rootkits**: Some Trojans use rootkits to hide their files, processes, and network connections from security tools.
-* **Process Injection**: Malicious code is injected into legitimate system processes to mask its presence.
-* **Registry Modification**: Trojans often modify Windows Registry entries or add startup items to ensure they launch automatically on system reboot.
-* **Scheduled Tasks**: Creating scheduled tasks to restart or check the Trojan’s presence regularly.
-
-Persistence ensures the Trojan continues operating even after system restarts or attempts to remove it.
-
----
-
-## **5. Communication with Command and Control (C\&C) Server**
-
-Many Trojans establish communication with an attacker-controlled **Command and Control (C\&C) server** to receive instructions or send stolen data. The communication may use:
-
-* HTTP/HTTPS protocols.
-* Custom protocols over specific ports.
-* Encrypted or encoded traffic to avoid detection.
-
-This remote connection allows attackers to:
-
-* Issue commands to the Trojan.
-* Update the malware or payload.
-* Exfiltrate sensitive information.
-* Download additional malicious modules.
-
----
-
-## **6. Execution of Attacker Commands**
-
-Once connected to the C\&C server, the Trojan waits for commands and executes them, such as:
-
-* Capturing screenshots.
-* Logging keystrokes.
-* Uploading files.
-* Installing other malware.
-* Launching Distributed Denial of Service (DDoS) attacks.
-* Manipulating or deleting files.
-
-This remote control capability turns the victim machine into a bot or zombie under the attacker’s control.
-
----
-
-## **7. Data Theft and Impact**
-
-The Trojan collects and sends sensitive data, including passwords, banking details, personal information, and corporate secrets. This information is used for identity theft, financial fraud, espionage, or further attacks.
-
-The presence of a Trojan can also degrade system performance, cause system instability, or facilitate other malicious activities like spreading ransomware or spyware.
-
----
-
-## **8. Summary Flow**
-
-1. **Delivery**: Trojan is delivered to the victim through deceptive means.
-2. **Execution**: Victim runs the Trojan unknowingly.
-3. **Payload Activation**: Malicious payload starts running silently.
-4. **Persistence**: Trojan hides itself and ensures it remains active.
-5. **C\&C Communication**: Establishes a link with attacker’s server.
-6. **Command Execution**: Performs attacker’s commands remotely.
-7. **Data Theft & Damage**: Steals data and impacts system security.
-
----
-
-## **9. Conclusion**
-
-The working of Trojans relies heavily on deception, stealth, and remote control. Their lifecycle from delivery to execution and communication makes them formidable threats. Ethical hackers must understand each phase to effectively detect, analyze, and mitigate Trojan infections and protect systems against these malicious programs.
-
----
-
-Would you like me to prepare detailed notes on another topic or add examples of Trojan analysis?
-
-
-Here’s a **long and detailed explanation** of **Infection Techniques** related to Ethical Hacking Unit 3, focusing on how Trojans and other malware infect systems:
-
----
-
-# **Infection Techniques**
-
-## **1. Introduction**
-
-Infection techniques refer to the methods and strategies attackers use to deliver malicious software (malware), such as Trojans, viruses, worms, and ransomware, onto target systems. Understanding these techniques is essential for ethical hackers to anticipate, detect, and prevent attacks effectively. Infection can occur through multiple vectors, each exploiting different vulnerabilities in human behavior, software, or network configurations.
-
----
-
-## **2. Common Infection Techniques**
-
-### a. **Social Engineering**
-
-* **Definition**: Exploiting human psychology rather than technical vulnerabilities.
-* **Examples**:
-
-  * Phishing emails with malicious attachments or links disguised as legitimate communications.
-  * Fake software updates prompting users to download and install malware.
-  * Deceptive messages that create urgency or curiosity (e.g., “Your account has been compromised”).
-* **Why it works**: Humans are often the weakest security link, and attackers manipulate trust and curiosity.
-
-### b. **Email Attachments and Links**
-
-* **Malicious Attachments**: Documents, PDFs, or executables containing Trojans or viruses.
-* **Malicious Links**: URLs leading to drive-by download sites or phishing pages.
-* **Techniques**:
-
-  * Embedding malicious macros in Office documents.
-  * Using shortened URLs to hide destination addresses.
-  * Spoofing sender addresses to appear trustworthy.
-
-### c. **Drive-by Downloads**
-
-* Occurs when a user visits a compromised or malicious website.
-* Exploits browser or plugin vulnerabilities to automatically download and install malware without user knowledge.
-* No need for user interaction beyond visiting the webpage.
-* Common with outdated browsers or missing security patches.
-
-### d. **Exploiting Software Vulnerabilities**
-
-* Attackers exploit unpatched security flaws in operating systems, applications, or network services.
-* Techniques include buffer overflows, SQL injection, or zero-day exploits.
-* Can allow remote code execution, privilege escalation, or unauthorized access.
-* Vulnerability exploitation often used as a stepping stone to deploy Trojans or other malware.
-
-### e. **Removable Media Infection**
-
-* USB drives, external hard disks, or other portable media infected with malware.
-* Malware set to auto-execute when media is connected (via autorun features or user execution).
-* Common in corporate environments where devices are shared or transferred.
-
-### f. **Malvertising**
-
-* Distribution of malware through online advertisements.
-* Ads are embedded with malicious code that redirects users to exploit kits or downloads malware directly.
-* Even legitimate websites can unknowingly serve malvertisements.
-
-### g. **Network Propagation**
-
-* Worms or malware spread through network vulnerabilities.
-* Techniques include exploiting open ports, weak passwords, or unsecured protocols.
-* Once inside a network, malware can propagate laterally to infect multiple systems.
-
-### h. **File Sharing and Peer-to-Peer Networks**
-
-* Malware is disguised as popular files (music, movies, software cracks).
-* Shared on peer-to-peer (P2P) networks, torrents, or file-sharing platforms.
-* Users downloading infected files inadvertently execute malware.
-
----
-
-## **3. Infection Process Flow**
-
-1. **Delivery**: The attacker sends the malicious payload through one of the infection vectors above.
-2. **Execution**: The payload is executed by the victim, often unknowingly.
-3. **Exploitation**: If applicable, exploits vulnerabilities to gain elevated privileges.
-4. **Installation**: The malware installs itself and prepares for persistence.
-5. **Communication**: Establishes a connection to attacker’s control infrastructure if needed.
-6. **Payload Execution**: Carries out the malicious actions (e.g., data theft, damage).
-
----
-
-## **4. Infection via Trojans Specifically**
-
-* Trojans often rely heavily on **social engineering** and **disguised execution**.
-* Unlike worms, Trojans need the user to manually execute or install the malicious program.
-* They might be bundled with legitimate software or masquerade as utilities, games, or updates.
-* Attackers might spread Trojans via phishing, fake downloads, or infected email attachments.
-
----
-
-## **5. Defense Against Infection Techniques**
-
-* **User Awareness and Training**: Educate users to recognize phishing, suspicious emails, and social engineering.
-* **Patch Management**: Regularly update operating systems and software to fix vulnerabilities.
-* **Email Filtering**: Use advanced spam filters and malware scanners.
-* **Browser Security**: Use modern browsers with security features enabled; avoid suspicious websites.
-* **Antivirus/Anti-malware Solutions**: Maintain up-to-date security software with real-time scanning.
-* **Disable Autorun**: Prevent automatic execution of removable media content.
-* **Network Security**: Use firewalls, intrusion detection/prevention systems, and secure configurations.
-* **Backup and Recovery**: Regularly backup data to restore from infection.
-
----
-
-## **6. Conclusion**
-
-Infection techniques are diverse and constantly evolving, reflecting the creativity and persistence of attackers. Understanding these methods allows ethical hackers and security professionals to design effective defenses, improve detection, and educate users. Prevention hinges on technical controls, user awareness, and timely patching to minimize the attack surface and block infection vectors.
-
----
-
-If you'd like, I can also prepare notes on specific infection vectors like phishing, drive-by downloads, or network propagation in more detail. Just ask!
-
-
-Sure! Here’s a **long and detailed explanation** of **Attacks** in the context of Ethical Hacking Unit 3:
-
----
-
-# **Attacks in Ethical Hacking**
-
-## **1. Introduction**
-
-In the realm of ethical hacking and cybersecurity, an **attack** is any deliberate attempt by a malicious actor (attacker) to compromise the confidentiality, integrity, or availability of information systems. Attacks exploit vulnerabilities in systems, networks, applications, or human factors to gain unauthorized access, steal data, disrupt services, or cause damage.
-
-Understanding the various types of attacks, their mechanisms, and impacts is essential for ethical hackers to effectively identify, analyze, and defend against them.
-
----
-
-## **2. Classification of Attacks**
-
-Attacks can be broadly classified based on various factors such as the attacker’s goal, method of execution, and the target system. The common classifications include:
-
-### a. **Passive Attacks**
-
-* **Definition**: Attacks in which the attacker intercepts or monitors data without altering it.
-* **Goal**: To gather information covertly without detection.
-* **Examples**:
-
-  * **Eavesdropping**: Listening to network traffic to capture sensitive data like passwords.
-  * **Traffic Analysis**: Analyzing communication patterns to infer information.
-* **Impact**: Loss of confidentiality; data is exposed but not modified.
-
-### b. **Active Attacks**
-
-* **Definition**: Attacks involving alteration, destruction, or disruption of data or services.
-* **Goal**: To disrupt normal operations, corrupt data, or gain unauthorized control.
-* **Examples**:
-
-  * **Denial of Service (DoS)**: Overloading systems to make them unavailable.
-  * **Data Modification**: Changing data in transit or storage.
-  * **Masquerading**: Pretending to be a legitimate user.
-* **Impact**: Loss of integrity, availability, and possibly confidentiality.
-
----
-
-## **3. Types of Attacks**
-
-### a. **Reconnaissance Attacks**
-
-* Initial phase of an attack where the attacker gathers information about the target.
-* Techniques include network scanning, footprinting, and social engineering.
-* Helps attackers identify vulnerabilities.
-
-### b. **Denial of Service (DoS) and Distributed Denial of Service (DDoS) Attacks**
-
-* **DoS**: Attack aims to make a system or network resource unavailable by overwhelming it.
-* **DDoS**: Multiple compromised systems attack a target simultaneously.
-* Effects include service downtime and loss of business.
-
-### c. **Man-in-the-Middle (MitM) Attacks**
-
-* Attacker intercepts and possibly alters communication between two parties without their knowledge.
-* Common in unsecured Wi-Fi networks.
-* Can lead to data theft, session hijacking.
-
-### d. **Phishing and Spear Phishing**
-
-* Fraudulent attempts to obtain sensitive information by masquerading as a trustworthy entity.
-* Spear phishing targets specific individuals or organizations.
-
-### e. **SQL Injection**
-
-* Injection of malicious SQL code into an application’s input fields to manipulate databases.
-* Can lead to data leakage, unauthorized access, or database corruption.
-
-### f. **Cross-Site Scripting (XSS)**
-
-* Attackers inject malicious scripts into web pages viewed by other users.
-* Can steal cookies, hijack sessions, or redirect users.
-
-### g. **Password Attacks**
-
-* Methods to obtain user passwords include brute force, dictionary attacks, and rainbow table attacks.
-* Compromise user accounts and access control.
-
-### h. **Malware Attacks**
-
-* Use of malicious software such as viruses, worms, Trojans, ransomware, spyware, and adware.
-* Can steal data, encrypt files, or gain control over systems.
-
-### i. **Privilege Escalation Attacks**
-
-* Exploiting vulnerabilities to gain higher access rights than authorized.
-* Enables attackers to control systems or access sensitive data.
-
----
-
-## **4. Attack Vectors**
-
-* **Network-based attacks**: Exploiting network protocols or devices.
-* **Application-based attacks**: Targeting web applications or software vulnerabilities.
-* **Physical attacks**: Gaining physical access to hardware or infrastructure.
-* **Social engineering**: Manipulating people to reveal confidential information.
-
----
-
-## **5. Phases of a Typical Attack**
-
-1. **Reconnaissance**: Gathering information about the target.
-2. **Scanning**: Identifying open ports, services, and vulnerabilities.
-3. **Gaining Access**: Exploiting vulnerabilities to enter the system.
-4. **Maintaining Access**: Installing backdoors or Trojans.
-5. **Covering Tracks**: Deleting logs and hiding evidence.
-
----
-
-## **6. Impact of Attacks**
-
-* Loss of data confidentiality, integrity, and availability.
-* Financial losses due to downtime and data breaches.
-* Damage to reputation and customer trust.
-* Legal consequences and compliance violations.
-
----
-
-## **7. Conclusion**
-
-Attacks in cybersecurity are varied and constantly evolving. Ethical hackers must stay informed about attack types and techniques to anticipate threats and strengthen defenses. A systematic approach involving prevention, detection, and response is key to managing and mitigating the impact of cyber attacks.
-
----
-
-Would you like me to prepare detailed notes on any specific type of attack next?
+    <section>
+        <h3>Attacks in Ethical Hacking</h3>
+
+        <section>
+            <h4>1. Introduction</h4>
+            <p>In the realm of ethical hacking and cybersecurity, an <strong>attack</strong> is any deliberate attempt by a malicious actor (attacker) to compromise the confidentiality, integrity, or availability of information systems. Attacks exploit vulnerabilities in systems, networks, applications, or human factors to gain unauthorized access, steal data, disrupt services, or cause damage.</p>
+            <p>Understanding the various types of attacks, their mechanisms, and impacts is essential for ethical hackers to effectively identify, analyze, and defend against them.</p>
+        </section>
+
+        
+
+        <section>
+            <h4>2. Classification of Attacks</h4>
+            <p>Attacks can be broadly classified based on various factors such as the attacker’s goal, method of execution, and the target system. The common classifications include:</p>
+
+            <h5>a. <strong>Passive Attacks</strong></h5>
+            <ul>
+                <li><strong>Definition</strong>: Attacks in which the attacker intercepts or monitors data without altering it.</li>
+                <li><strong>Goal</strong>: To gather information covertly without detection.</li>
+                <li><strong>Examples</strong>:
+                    <ul>
+                        <li><strong>Eavesdropping</strong>: Listening to network traffic to capture sensitive data like passwords.</li>
+                        <li><strong>Traffic Analysis</strong>: Analyzing communication patterns to infer information.</li>
+                    </ul>
+                </li>
+                <li><strong>Impact</strong>: Loss of confidentiality; data is exposed but not modified.</li>
+            </ul>
+
+            <h5>b. <strong>Active Attacks</strong></h5>
+            <ul>
+                <li><strong>Definition</strong>: Attacks involving alteration, destruction, or disruption of data or services.</li>
+                <li><strong>Goal</strong>: To disrupt normal operations, corrupt data, or gain unauthorized control.</li>
+                <li><strong>Examples</strong>:
+                    <ul>
+                        <li><strong>Denial of Service (DoS)</strong>: Overloading systems to make them unavailable.</li>
+                        <li><strong>Data Modification</strong>: Changing data in transit or storage.</li>
+                        <li><strong>Masquerading</strong>: Pretending to be a legitimate user.</li>
+                    </ul>
+                </li>
+                <li><strong>Impact</strong>: Loss of integrity, availability, and possibly confidentiality.</li>
+            </ul>
+        </section>
+
+       
+
+        <section>
+            <h4>3. Types of Attacks</h4>
+
+            <h5>a. Reconnaissance Attacks</h5>
+            <p>Initial phase of an attack where the attacker gathers information about the target. Techniques include network scanning, footprinting, and social engineering. Helps attackers identify vulnerabilities.</p>
+
+            <h5>b. Denial of Service (DoS) and Distributed Denial of Service (DDoS) Attacks</h5>
+            <p><strong>DoS</strong>: Attack aims to make a system or network resource unavailable by overwhelming it.</p>
+            <p><strong>DDoS</strong>: Multiple compromised systems attack a target simultaneously. Effects include service downtime and loss of business.</p>
+
+            <h5>c. Man-in-the-Middle (MitM) Attacks</h5>
+            <p>Attacker intercepts and possibly alters communication between two parties without their knowledge. Common in unsecured Wi-Fi networks. Can lead to data theft, session hijacking.</p>
+
+            <h5>d. Phishing and Spear Phishing</h5>
+            <p>Fraudulent attempts to obtain sensitive information by masquerading as a trustworthy entity. Spear phishing targets specific individuals or organizations.</p>
+
+            <h5>e. SQL Injection</h5>
+            <p>Injection of malicious SQL code into an application’s input fields to manipulate databases. Can lead to data leakage, unauthorized access, or database corruption.</p>
+
+            <h5>f. Cross-Site Scripting (XSS)</h5>
+            <p>Attackers inject malicious scripts into web pages viewed by other users. Can steal cookies, hijack sessions, or redirect users.</p>
+
+            <h5>g. Password Attacks</h5>
+            <p>Methods to obtain user passwords include brute force, dictionary attacks, and rainbow table attacks. Compromise user accounts and access control.</p>
+
+            <h5>h. Malware Attacks</h5>
+            <p>Use of malicious software such as viruses, worms, Trojans, ransomware, spyware, and adware. Can steal data, encrypt files, or gain control over systems.</p>
+
+            <h5>i. Privilege Escalation Attacks</h5>
+            <p>Exploiting vulnerabilities to gain higher access rights than authorized. Enables attackers to control systems or access sensitive data.</p>
+        </section>
+
+       
+
+        <section>
+            <h4>4. Attack Vectors</h4>
+            <ul>
+                <li><strong>Network-based attacks</strong>: Exploiting network protocols or devices.</li>
+                <li><strong>Application-based attacks</strong>: Targeting web applications or software vulnerabilities.</li>
+                <li><strong>Physical attacks</strong>: Gaining physical access to hardware or infrastructure.</li>
+                <li><strong>Social engineering</strong>: Manipulating people to reveal confidential information.</li>
+            </ul>
+        </section>
+
+      
+
+        <section>
+            <h4>5. Phases of a Typical Attack</h4>
+            <ol>
+                <li><strong>Reconnaissance</strong>: Gathering information about the target.</li>
+                <li><strong>Scanning</strong>: Identifying open ports, services, and vulnerabilities.</li>
+                <li><strong>Gaining Access</strong>: Exploiting vulnerabilities to enter the system.</li>
+                <li><strong>Maintaining Access</strong>: Installing backdoors or Trojans.</li>
+                <li><strong>Covering Tracks</strong>: Deleting logs and hiding evidence.</li>
+            </ol>
+        </section>
+
+        
+
+        <section>
+            <h4>6. Impact of Attacks</h4>
+            <ul>
+                <li>Loss of data confidentiality, integrity, and availability.</li>
+                <li>Financial losses due to downtime and data breaches.</li>
+                <li>Damage to reputation and customer trust.</li>
+                <li>Legal consequences and compliance violations.</li>
+            </ul>
+        </section>
+
+      
+
+        <section>
+            <h4>7. Conclusion</h4>
+            <p>Attacks in cybersecurity are varied and constantly evolving. Ethical hackers must stay informed about attack types and techniques to anticipate threats and strengthen defenses. A systematic approach involving prevention, detection, and response is key to managing and mitigating the impact of cyber attacks.</p>
+        </section>
+    </section>
 
 
     
