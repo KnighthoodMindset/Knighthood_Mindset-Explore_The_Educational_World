@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Differences Between Compiler and Interpreter | Tech Nexus | Knighthood Mindest</title>
+  <title>Cryptography | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
 </head>
 <body>
@@ -14,129 +15,105 @@
 
   <main>
 
-Here’s a **long and detailed explanation** of **Cryptography** for your **Ethical Hacking Unit 3** notes in **Tech Nexus**:
 
----
+<h5>Cryptography</h5>
 
-# **Cryptography**
+<h4>1. Introduction</h4>
+<p>Cryptography is the science and art of protecting information by transforming it into an unreadable format, ensuring confidentiality, integrity, authentication, and non-repudiation of data. It plays a vital role in securing communication and data in the modern digital world, especially in areas such as online banking, e-commerce, military communications, and private communications.</p>
+<p>In ethical hacking, cryptography is fundamental because many security breaches involve bypassing or breaking cryptographic protections. Understanding cryptography helps security professionals evaluate the strength of encryption systems and identify vulnerabilities.</p>
 
----
+<h4>2. Objectives of Cryptography</h4>
+<ul>
+  <li><strong>Confidentiality</strong>: Ensures that information is only accessible to authorized users and remains secret from unauthorized parties.</li>
+  <li><strong>Integrity</strong>: Guarantees that data has not been altered or tampered with during transmission or storage.</li>
+  <li><strong>Authentication</strong>: Verifies the identity of users or systems involved in communication.</li>
+  <li><strong>Non-Repudiation</strong>: Prevents parties from denying their actions or involvement in data exchange.</li>
+</ul>
 
-## **1. Introduction**
+<h4>3. Basic Terminology</h4>
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr><th>Term</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Plaintext</td><td>Original readable data or message before encryption.</td></tr>
+    <tr><td>Ciphertext</td><td>Encrypted data, unreadable without decryption.</td></tr>
+    <tr><td>Encryption</td><td>Process of converting plaintext to ciphertext using an algorithm and key.</td></tr>
+    <tr><td>Decryption</td><td>Process of converting ciphertext back to plaintext using a key.</td></tr>
+    <tr><td>Key</td><td>A piece of information used by cryptographic algorithms to encrypt and decrypt data.</td></tr>
+    <tr><td>Cryptanalysis</td><td>The science of analyzing and breaking cryptographic systems to retrieve original data.</td></tr>
+    <tr><td>Algorithm (Cipher)</td><td>The mathematical procedure used for encryption and decryption.</td></tr>
+  </tbody>
+</table>
 
-**Cryptography** is the science and art of protecting information by transforming it into an unreadable format, ensuring confidentiality, integrity, authentication, and non-repudiation of data. It plays a vital role in securing communication and data in the modern digital world, especially in areas such as online banking, e-commerce, military communications, and private communications.
+<h4>4. Types of Cryptography</h4>
 
-In ethical hacking, cryptography is fundamental because many security breaches involve bypassing or breaking cryptographic protections. Understanding cryptography helps security professionals evaluate the strength of encryption systems and identify vulnerabilities.
+<h5>a. Symmetric Key Cryptography</h5>
+<ul>
+  <li>Uses the same key for both encryption and decryption.</li>
+  <li>The key must be shared securely between sender and receiver before communication.</li>
+  <li>It is generally faster and used for bulk data encryption.</li>
+  <li>Common symmetric algorithms: <strong>AES</strong>, <strong>DES</strong>, <strong>3DES</strong>, <strong>Blowfish</strong>.</li>
+</ul>
 
----
+<h5>b. Asymmetric Key Cryptography (Public Key Cryptography)</h5>
+<ul>
+  <li>Uses a pair of keys: a public key</strong> and a <strong>private key</strong>.</li>
+  <li>Data encrypted with the public key can only be decrypted with the private key and vice versa.</li>
+  <li>Provides confidentiality, digital signatures, and key exchange mechanisms.</li>
+  <li>Common algorithms: <strong>RSA</strong>, <strong>ECC</strong>, <strong>DSA</strong>.</li>
+</ul>
 
-## **2. Objectives of Cryptography**
+<h5>c. Hash Functions</h5>
+<ul>
+  <li>Convert input data into a fixed-size string of characters.</li>
+  <li>One-way: original data cannot be retrieved from the hash.</li>
+  <li>Used for integrity verification and password storage.</li>
+  <li>Common hash algorithms: <strong>MD5</strong>, <strong>SHA-1</strong>, <strong>SHA-256</strong>, <strong>SHA-3</strong>.</li>
+</ul>
 
-* **Confidentiality**: Ensures that information is only accessible to authorized users and remains secret from unauthorized parties.
-* **Integrity**: Guarantees that data has not been altered or tampered with during transmission or storage.
-* **Authentication**: Verifies the identity of users or systems involved in communication.
-* **Non-Repudiation**: Prevents parties from denying their actions or involvement in data exchange.
+<h4>5. Cryptographic Protocols</h4>
+<ul>
+  <li><strong>SSL/TLS</strong>: Secure web browsing (HTTPS)</li>
+  <li><strong>IPsec</strong>: Securing IP communications</li>
+  <li><strong>PGP</strong>: Email encryption</li>
+  <li><strong>SSH</strong>: Secure remote login</li>
+</ul>
 
----
+<h4>6. Applications of Cryptography</h4>
+<ul>
+  <li>Secure Communications: Email encryption, messaging apps</li>
+  <li>Data Protection: Encrypting files and databases</li>
+  <li>Authentication: Password hashing, digital certificates</li>
+  <li>Digital Signatures: Verifying authenticity and integrity</li>
+  <li>E-commerce: Protecting credit card transactions</li>
+  <li>Blockchain and Cryptocurrencies: Secure transactions and smart contracts</li>
+</ul>
 
-## **3. Basic Terminology**
+<h4>7. Cryptanalysis and Attacks on Cryptography</h4>
+<ul>
+  <li><strong>Brute Force Attack</strong>: Trying all possible keys</li>
+  <li><strong>Cryptanalytic Attacks</strong>: Exploiting algorithm weaknesses</li>
+  <li><strong>Man-in-the-Middle</strong>: Intercepting keys or data</li>
+  <li><strong>Side-Channel Attacks</strong>: Timing or power consumption leaks</li>
+</ul>
 
-| Term                   | Description                                                                            |
-| ---------------------- | -------------------------------------------------------------------------------------- |
-| **Plaintext**          | Original readable data or message before encryption.                                   |
-| **Ciphertext**         | Encrypted data, unreadable without decryption.                                         |
-| **Encryption**         | Process of converting plaintext to ciphertext using an algorithm and key.              |
-| **Decryption**         | Process of converting ciphertext back to plaintext using a key.                        |
-| **Key**                | A piece of information used by cryptographic algorithms to encrypt and decrypt data.   |
-| **Cryptanalysis**      | The science of analyzing and breaking cryptographic systems to retrieve original data. |
-| **Algorithm (Cipher)** | The mathematical procedure used for encryption and decryption.                         |
+<h4>8. Importance in Ethical Hacking</h4>
+<ul>
+  <li>Evaluate the security of encrypted data</li>
+  <li>Identify weak or improper cryptographic implementations</li>
+  <li>Test for vulnerabilities like weak keys</li>
+  <li>Conduct penetration tests on encrypted systems</li>
+</ul>
 
----
-
-## **4. Types of Cryptography**
-
-### a. **Symmetric Key Cryptography**
-
-* Uses the **same key** for both encryption and decryption.
-* The key must be shared securely between sender and receiver before communication.
-* It is generally faster and used for bulk data encryption.
-* Common symmetric algorithms: **AES (Advanced Encryption Standard)**, **DES (Data Encryption Standard)**, **3DES**, **Blowfish**.
-
-### b. **Asymmetric Key Cryptography (Public Key Cryptography)**
-
-* Uses a **pair of keys**: a **public key** (known to everyone) and a **private key** (kept secret).
-* Data encrypted with the public key can only be decrypted with the private key and vice versa.
-* Provides confidentiality, digital signatures, and key exchange mechanisms.
-* Common algorithms: **RSA**, **ECC (Elliptic Curve Cryptography)**, **DSA (Digital Signature Algorithm)**.
-
-### c. **Hash Functions**
-
-* Hash functions convert input data into a fixed-size string of characters, which appears random.
-* They are **one-way** functions, meaning the original data cannot be derived from the hash.
-* Used for data integrity verification and password storage.
-* Common hash algorithms: **MD5**, **SHA-1**, **SHA-256**, **SHA-3**.
-
----
-
-## **5. Cryptographic Protocols**
-
-* Protocols that use cryptographic algorithms to secure communication:
-
-  * **SSL/TLS**: Secure web browsing (HTTPS).
-  * **IPsec**: Securing IP communications.
-  * **PGP (Pretty Good Privacy)**: Email encryption.
-  * **SSH (Secure Shell)**: Secure remote login.
-
----
-
-## **6. Applications of Cryptography**
-
-* **Secure Communications**: Email encryption, messaging apps.
-* **Data Protection**: Encrypting files and databases.
-* **Authentication**: Password hashing, digital certificates.
-* **Digital Signatures**: Verifying authenticity and integrity.
-* **E-commerce**: Protecting credit card transactions.
-* **Blockchain and Cryptocurrencies**: Secure transactions and smart contracts.
-
----
-
-## **7. Cryptanalysis and Attacks on Cryptography**
-
-* Attackers try to break encryption using various techniques:
-
-  * **Brute Force Attack**: Trying all possible keys.
-  * **Cryptanalytic Attacks**: Exploiting algorithm weaknesses.
-  * **Man-in-the-Middle (MitM)**: Intercepting keys or data.
-  * **Side-Channel Attacks**: Using physical leaks like timing or power consumption.
-
----
-
-## **8. Importance in Ethical Hacking**
-
-* Ethical hackers must understand cryptography to:
-
-  * Evaluate the security of encrypted data.
-  * Identify weak or improperly implemented cryptographic systems.
-  * Test for vulnerabilities such as weak keys or poor key management.
-  * Conduct penetration tests on encrypted communications and systems.
-
----
-
-## **9. Conclusion**
-
-Cryptography forms the backbone of digital security in today’s interconnected world. Its principles and techniques are essential knowledge for ethical hackers to protect sensitive data, maintain trust, and ensure the integrity of communication systems. As encryption methods evolve, so do the challenges of cryptanalysis, making continuous learning and understanding critical in cybersecurity.
-
----
-
-If you want, I can also provide detailed explanations on specific cryptographic algorithms or protocols!
-
-
+<h4>9. Conclusion</h4>
+<p>Cryptography forms the backbone of digital security. Ethical hackers must understand its principles to protect data and ensure trust in systems. As encryption evolves, so must our skills to understand and test it securely.</p>
 
        
   </main>
 
     <footer>
-    <a href="EH_UNIT1.html" class="back-btn">← Back to Unit 1 Topics</a>
+    <a href="EH_UNIT1.html" class="back-btn">← Back to Topics</a>
     </footer>
 
  </body>
