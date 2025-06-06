@@ -121,21 +121,32 @@ h4 {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
 }
-/* Search bar */
-.search-container {
-  text-align: center;
+#searchBar {
+  width: 90%;
+  max-width: 600px;
+  padding: 12px 16px;
   margin: 20px auto;
+  display: block;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
-.search-container input {
-  width: 80%;
-  max-width: 500px;
-  padding: 12px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 30px;
+#searchBar:focus {
   outline: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-color: #20baba;
+  box-shadow: 0 0 8px rgba(32, 186, 186, 0.4);
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 480px) {
+  #searchBar {
+    font-size: 14px;
+    padding: 10px 14px;
+    margin: 15px auto;
+  }
 }
 
 
