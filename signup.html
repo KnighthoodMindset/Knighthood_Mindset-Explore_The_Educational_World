@@ -109,6 +109,10 @@
     // Google Sign In
     document.getElementById("google-login").addEventListener("click", () => {
       const provider = new GoogleAuthProvider();
+      provider.setCustomParameters({
+        prompt: 'select_account'  // Always show account chooser
+      });
+    
       signInWithPopup(auth, provider)
         .then((result) => {
           console.log("Signed in with Google:", result.user);
@@ -119,6 +123,7 @@
           alert("Google login failed: " + error.message);
         });
     });
+
 
     // Microsoft Sign In
     document.getElementById("microsoft-login").addEventListener("click", () => {
