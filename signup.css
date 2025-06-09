@@ -1,0 +1,193 @@
+/* Apply a subtle background gradient */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container styling */
+.auth-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  width: 350px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Heading */
+.auth-container h2 {
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 1.2px;
+}
+
+/* Input fields styling */
+.auth-container input[type="email"],
+.auth-container input[type="password"] {
+  width: 100%;
+  padding: 14px 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transition: background 0.3s ease;
+  box-sizing: border-box;
+}
+
+.auth-container input[type="email"]::placeholder,
+.auth-container input[type="password"]::placeholder {
+  color: #ddd;
+}
+
+.auth-container input[type="email"]:focus,
+.auth-container input[type="password"]:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Password container for input + toggle icon */
+.password-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Adjust password input padding for toggle icon */
+.password-container input {
+  padding: 14px 40px 14px 15px; /* right padding to make space for icon */
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transition: background 0.3s ease;
+  box-sizing: border-box;
+}
+
+.password-container input::placeholder {
+  color: #ddd;
+}
+
+.password-container input:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Toggle password eye icon */
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #dfb5f4;
+  font-size: 18px;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+  color: #fff;
+}
+
+/* Button styling */
+.auth-container button {
+  width: 100%;
+  padding: 14px 0;
+  background: linear-gradient(90deg, #5f8aff 0%, #0e4c82 100%);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(58, 11, 120, 0.6);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-container button:hover {
+  background: linear-gradient(90deg, #1a73ab 0%, #301f9c 100%);
+}
+
+/* Paragraph and link */
+.auth-container p {
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+.auth-container p a {
+  color: #dfb5f4;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  font-size: large;
+}
+
+.auth-container p a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+/* Social login container */
+.social-logins {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Common social button styles */
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+/* Google button */
+#google-login {
+  background-color: #ffffff;
+  color: #444;
+  border: 1px solid #ddd;
+}
+
+#google-login:hover {
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Microsoft button */
+#microsoft-login {
+  background-color: #2F2F2F;
+  color: #ffffff;
+}
+
+#microsoft-login:hover {
+  background-color: #1b1b1b;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon size and alignment */
+.social-btn i {
+  font-size: 18px;
+}

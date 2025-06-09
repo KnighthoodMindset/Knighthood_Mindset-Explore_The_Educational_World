@@ -1,0 +1,138 @@
++<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Knighthood Mindset</title>
+  <link rel="stylesheet" href="signup.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Create Your Knighthood Mindset Account</h2>
+
+    <input type="email" id="signup-email" placeholder="Email" required />
+    
+    <div class="password-container">
+      <input type="password" id="signup-password" placeholder="Enter Password" required />
+      <i class="fa-solid fa-eye-slash toggle-password" id="togglePassword"></i>
+    </div>
+
+    <button id="signup-btn">Sign Up</button>
+
+    <div class="divider">or</div>
+
+    <div class="social-logins">
+      <button id="google-login" class="social-btn"><i class="fab fa-google"></i> Sign up with Google</button>
+      <button id="microsoft-login" class="social-btn"><i class="fab fa-microsoft"></i> Sign up with Microsoft</button>
+    </div>
+
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithPopup,
+      GoogleAuthProvider,
+      OAuthProvider,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAI3VIPKvKJOUjcwtMibMwHnUayW3BEJu4",
+      authDomain: "knighthood-mindset.firebaseapp.com",
+      projectId: "knighthood-mindset",
+      storageBucket: "knighthood-mindset.appspot.com",
+      messagingSenderId: "417523408339",
+      appId: "1:417523408339:web:6f991791c7b18d6173a326",
+      measurementId: "G-FR2STZ6MQN"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Listen for auth state changes
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        console.log("User is signed in:", user.email);
+        // Example: redirect logged-in user to dashboard or homepage
+        // window.location.href = "dashboard.html";
+      } else {
+        console.log("No user signed in");
+      }
+    });
+
+    const signupBtn = document.getElementById("signup-btn");
+    const emailInput = document.getElementById("signup-email");
+    const passwordInput = document.getElementById("signup-password");
+    const togglePassword = document.getElementById("togglePassword");
+
+    // Toggle show/hide password
+    togglePassword.addEventListener("click", () => {
+      const isPassword = passwordInput.type === "password";
+      passwordInput.type = isPassword ? "text" : "password";
+      togglePassword.classList.toggle("fa-eye");
+      togglePassword.classList.toggle("fa-eye-slash");
+    });
+
+    // Email/Password Signup
+    signupBtn.addEventListener("click", () => {
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      if (!email || !password) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const isValidEmail = /\S+@\S+\.\S+/.test(email);
+      if (!isValidEmail) {
+        alert("Please enter a valid email.");
+        return;
+      }
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          console.log("Signup successful:", userCredential.user);
+          alert("Signup successful! You can now log in.");
+          window.location.href = "verify_code.html"; // or login.html
+        })
+        .catch((error) => {
+          console.error("Signup error:", error);
+          alert("Signup failed: " + error.message);
+        });
+    });
+
+    // Google Sign In
+    document.getElementById("google-login").addEventListener("click", () => {
+      const provider = new GoogleAuthProvider();
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          console.log("Signed in with Google:", result.user);
+          window.location.href = "verify_code.html";
+        })
+        .catch((error) => {
+          console.error("Google login error:", error);
+          alert("Google login failed: " + error.message);
+        });
+    });
+
+    // Microsoft Sign In
+    document.getElementById("microsoft-login").addEventListener("click", () => {
+      const microsoftProvider = new OAuthProvider("microsoft.com");
+      signInWithPopup(auth, microsoftProvider)
+        .then((result) => {
+          console.log("Signed in with Microsoft:", result.user);
+          window.location.href = "verify_code.html";
+        })
+        .catch((error) => {
+          console.error("Microsoft login error:", error);
+          alert("Microsoft login failed: " + error.message);
+        });
+    });
+  </script>
+</body>
+</html>

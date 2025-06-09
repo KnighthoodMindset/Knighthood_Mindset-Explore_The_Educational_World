@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Knighthood Mindset</title>
+  <link rel="stylesheet" href="signup.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Login to Knighthood Mindset</h2>
+
+    <input type="email" id="login-email" placeholder="Email" required />
+
+    <div class="password-container">
+      <input type="password" id="login-password" placeholder="Password" required />
+      <i class="fa-solid fa-eye-slash toggle-password" id="toggleLoginPassword"></i>
+    </div>
+
+    <button onclick="login()">Login</button>
+
+    <p><a href="forgot_password.html">Forgot Password?</a></p>
+    <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+  </div>
+
+  <script>
+    const loginPasswordInput = document.getElementById('login-password');
+    const toggleLoginPassword = document.getElementById('toggleLoginPassword');
+
+    toggleLoginPassword.addEventListener('click', () => {
+      const type = loginPasswordInput.type === 'password' ? 'text' : 'password';
+      loginPasswordInput.type = type;
+      toggleLoginPassword.className = type === 'password'
+        ? 'fa-solid fa-eye toggle-password'
+        : 'fa-solid fa-eye-slash toggle-password';
+    });
+
+    function login() {
+      const email = document.getElementById("login-email").value.trim();
+      const password = loginPasswordInput.value;
+
+      const storedEmail = localStorage.getItem("userEmail");
+      const storedPassword = localStorage.getItem("userPassword");
+
+      if (email === storedEmail && password === storedPassword) {
+        localStorage.setItem("loginTime", Date.now());
+        localStorage.setItem("isLoggedIn", "true");
+        alert("Login successful!");
+        window.location.href = "Knighthood_mindset.html";
+      } else {
+        alert("Invalid email or password.");
+      }
+    }
+  </script>
+  <!-- Add these before your login function in a script tag or external JS file -->
+<script type="module">
+  // Firebase setup
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getAuth, signInWithPopup, GoogleAuthProvider, OAuthProvider } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA3IVPlfVKJOUjcwMtMibMWhnUayW3BEJu4",
+    authDomain: "knighthood-mindset.firebaseapp.com",
+    projectId: "knighthood-mindset",
+    storageBucket: "knighthood-mindset.appspot.com",
+    messagingSenderId: "417523408339",
+    appId: "1:417523408339:web:6f99719c7b18d6173a326",
+    measurementId: "G-FR2STZ6MQN"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // Google login example
+  const provider = new GoogleAuthProvider();
+  document.getElementById('google-login').addEventListener('click', () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log("Signed in with Google:", result.user);
+        window.location.href = "verify-code.html";
+      })
+      .catch((error) => console.error("Login error:", error));
+  });
+
+  // Microsoft login example (optional)
+  const microsoftProvider = new OAuthProvider('microsoft.com');
+  document.getElementById('microsoft-login').addEventListener('click', () => {
+    signInWithPopup(auth, microsoftProvider)
+      .then((result) => {
+        console.log("Signed in with Microsoft:", result.user);
+        window.location.href = "verify-code.html";
+      })
+      .catch((error) => console.error("Login error:", error));
+  });
+</script>
+
+</body>
+</html>
+
