@@ -21,15 +21,17 @@
   </div>
 
   <script type="module">
+    // Firebase setup
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
     import {
       getAuth,
       signInWithPopup,
       GoogleAuthProvider,
       setPersistence,
-      browserLocalPersistence
+      browserLocalPersistence,
+      onAuthStateChanged
     } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-
+    
     const firebaseConfig = {
       apiKey: "AIzaSyAI3VIPKvKJOUjcwtMibMwHnUayW3BEJu4",
       authDomain: "knighthood-mindset.firebaseapp.com",
@@ -39,11 +41,18 @@
       appId: "1:417523408339:web:6f991791c7b18d6173a326",
       measurementId: "G-FR2STZ6MQN"
     };
-
+    
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
-
-    // Set persistent login (1 month)
+    
+    // 🔐 Check if already logged in
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        window.location.href = "dashboard.html";
+      }
+    });
+    
+    // 🔐 Set persistent login for 1 month
     setPersistence(auth, browserLocalPersistence)
       .then(() => {
         console.log("Persistence set to local (1 month)");
@@ -51,20 +60,21 @@
       .catch((error) => {
         console.error("Persistence error:", error);
       });
-
-    // Google Sign In
+    
+    // 🔐 Google Sign In
     document.getElementById("google-login").addEventListener("click", () => {
       const provider = new GoogleAuthProvider();
       signInWithPopup(auth, provider)
         .then((result) => {
           console.log("Signed in with Google:", result.user);
-          window.location.href = "Knighthood_Mindset.html"; // Replace with your main site page
+          window.location.href = "dashboard.html";
         })
         .catch((error) => {
           console.error("Google login error:", error);
           alert("Google login failed: " + error.message);
         });
     });
+
   </script>
 </body>
 </html>
