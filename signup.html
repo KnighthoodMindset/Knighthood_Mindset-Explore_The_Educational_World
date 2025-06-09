@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sign Up - Knighthood Mindset</title>
   <link rel="stylesheet" href="signup.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
   <div class="auth-container">
@@ -15,7 +15,7 @@
     
     <div class="password-container">
       <input type="password" id="signup-password" placeholder="Enter Password" required />
-      <i class="fa-solid fa-eye-slash toggle-password" id="togglePassword"></i>
+      <i class="fa-solid fa-eye-slash toggle-password" id="togglePassword" role="button" aria-label="Toggle password visibility"></i>
     </div>
 
     <button id="signup-btn">Sign Up</button>
@@ -67,7 +67,7 @@
     });
 
     // Create or Login with Email/Password
-    signupBtn.addEventListener("click", () => {
+    signupBtn.addEventListener("click", async () => {
       const email = emailInput.value.trim();
       const password = passwordInput.value.trim();
 
@@ -76,27 +76,41 @@
         return;
       }
 
-      createUserWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          window.location.href = "Knighthood_Mindset.html";
-        })
-        .catch((error) => {
-          if (error.code === "auth/email-already-in-use") {
-            // If already signed up, just log in
-            signInWithEmailAndPassword(auth, email, password)
-              .then(() => {
-                window.location.href = "Knighthood_Mindset.html";
-              })
-              .catch((err) => alert("Login failed: " + err.message));
-          } else {
-            alert("Signup failed: " + error.message);
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return;
+      }
+
+      signupBtn.disabled = true;
+      signupBtn.textContent = "Please wait...";
+
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        window.location.href = "Knighthood_Mindset.html";
+      } catch (error) {
+        if (error.code === "auth/email-already-in-use") {
+          try {
+            await signInWithEmailAndPassword(auth, email, password);
+            window.location.href = "Knighthood_Mindset.html";
+          } catch (err) {
+            alert("Login failed: " + err.message);
           }
-        });
+        } else {
+          alert("Signup failed: " + error.message);
+        }
+      } finally {
+        signupBtn.disabled = false;
+        signupBtn.textContent = "Sign Up";
+      }
     });
 
-    // Google Signup
+    // Google Signup with forced login prompt
     document.getElementById("google-login").addEventListener("click", () => {
       const provider = new GoogleAuthProvider();
+      provider.setCustomParameters({
+        prompt: 'login' // forces Google to ask for password every time
+      });
+
       signInWithPopup(auth, provider)
         .then(() => {
           window.location.href = "Knighthood_Mindset.html";
