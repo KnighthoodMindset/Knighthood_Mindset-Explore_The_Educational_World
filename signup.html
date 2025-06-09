@@ -1,11 +1,11 @@
-+<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sign Up - Knighthood Mindset</title>
   <link rel="stylesheet" href="signup.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <div class="auth-container">
@@ -31,21 +31,21 @@
   </div>
 
   <script type="module">
+    // Firebase setup
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
     import {
       getAuth,
       createUserWithEmailAndPassword,
       signInWithPopup,
       GoogleAuthProvider,
-      OAuthProvider,
-      onAuthStateChanged
+      OAuthProvider
     } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyAI3VIPKvKJOUjcwtMibMwHnUayW3BEJu4",
       authDomain: "knighthood-mindset.firebaseapp.com",
       projectId: "knighthood-mindset",
-      storageBucket: "knighthood-mindset.appspot.com",
+      storageBucket: "knighthood-mindset.firebaseapp.com",
       messagingSenderId: "417523408339",
       appId: "1:417523408339:web:6f991791c7b18d6173a326",
       measurementId: "G-FR2STZ6MQN"
@@ -53,17 +53,6 @@
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
-
-    // Listen for auth state changes
-    onAuthStateChanged(auth, user => {
-      if (user) {
-        console.log("User is signed in:", user.email);
-        // Example: redirect logged-in user to dashboard or homepage
-        // window.location.href = "dashboard.html";
-      } else {
-        console.log("No user signed in");
-      }
-    });
 
     const signupBtn = document.getElementById("signup-btn");
     const emailInput = document.getElementById("signup-email");
@@ -74,8 +63,9 @@
     togglePassword.addEventListener("click", () => {
       const isPassword = passwordInput.type === "password";
       passwordInput.type = isPassword ? "text" : "password";
-      togglePassword.classList.toggle("fa-eye");
-      togglePassword.classList.toggle("fa-eye-slash");
+      togglePassword.className = isPassword
+        ? "fa-solid fa-eye toggle-password"
+        : "fa-solid fa-eye-slash toggle-password";
     });
 
     // Email/Password Signup
@@ -98,7 +88,7 @@
         .then((userCredential) => {
           console.log("Signup successful:", userCredential.user);
           alert("Signup successful! You can now log in.");
-          window.location.href = "verify_code.html"; // or login.html
+          window.location.href = "verify_code.html"; // or "login.html"
         })
         .catch((error) => {
           console.error("Signup error:", error);
@@ -109,10 +99,6 @@
     // Google Sign In
     document.getElementById("google-login").addEventListener("click", () => {
       const provider = new GoogleAuthProvider();
-      provider.setCustomParameters({
-        prompt: 'select_account'  // Always show account chooser
-      });
-    
       signInWithPopup(auth, provider)
         .then((result) => {
           console.log("Signed in with Google:", result.user);
@@ -123,7 +109,6 @@
           alert("Google login failed: " + error.message);
         });
     });
-
 
     // Microsoft Sign In
     document.getElementById("microsoft-login").addEventListener("click", () => {
@@ -139,5 +124,6 @@
         });
     });
   </script>
+  
 </body>
 </html>
