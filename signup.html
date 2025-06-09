@@ -102,7 +102,6 @@
       signInWithPopup(auth, provider)
         .then((result) => {
           console.log("Signed in with Google:", result.user);
-          window.location.href = "verify_code.html";
         })
         .catch((error) => {
           console.error("Google login error:", error);
@@ -116,7 +115,6 @@
       signInWithPopup(auth, microsoftProvider)
         .then((result) => {
           console.log("Signed in with Microsoft:", result.user);
-          window.location.href = "verify_code.html";
         })
         .catch((error) => {
           console.error("Microsoft login error:", error);
