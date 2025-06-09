@@ -2,62 +2,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Knighthood Mindset</title>
-  <link rel="stylesheet" href="Knighthood_Mindset.css" />
+  <link rel="stylesheet" href="K_M.css" />
 </head>
 <body>
   <header>
     <div class="logo-container">
-      <img src="https://raw.githubusercontent.com/KnighthoodMindset/Knighthood_Mindset-Explore_The_Educational_World/main/KMlogo.png" alt="Knighthood Logo"width="100" style="border-radius: 50%;">
+      <img src="c:/Users/SWEETY/OneDrive/Pictures/KMlogo.png" alt="Knighthood Mindset Logo" class="logo" />
       <h1>Knighthood Mindset</h1>
     </div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-      </ul>
-    </nav>
+    <div class="more-options">
+      <button onclick="toggleDropdown()" class="more-btn">☰</button>
+      <div id="dropdownMenu" class="dropdown-content">
+        <a href="#">Home</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+        <a href="#" class="logout-link" id="logoutBtn" onclick="logout()" style="display: none;">Logout</a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <h2> Knighthood Mindset</h2>
-      <h3>Train your mind like a knight trains his sword — with focus, purpose, and honor.</h3>
-    </section>
+  <section class="hero">
+    <h2>Empower Your Educational Journey</h2>
+    <p>Take control of your learning with a platform designed to simplify your studies, boost your confidence, and help you succeed in every step of your academic journey</p>
+    <div class="hero-buttons">
+      <a href="signup.html" class="btn">Start Learning</a>
+      <a href="login.html" class="btn-outline">Login</a>
+    </div>
+  </section>
 
-    <div class="feature-boxes">
-        <a href="tech_nexus.html" class="feature-card tech">
-          <h3>Tech Nexus</h3>
-          <p>Dive into Computer Science topics, projects, and tutorials.</p>
-        </a>
-        <a href="Nursing_hub.html" class="feature-card nursing">
-          <h3>Nursing Hub</h3>
-          <p>Explore Nursing subjects, and practice guides.</p>
-        </a>
-        </a>
-        <a href="Green_Sphere.html" class="feature-card agriculture">
-          <h3>Green Sphere</h3>
-          <p>Explore Agriculture courses, techniques, and practices.</p>
-        </a>
-        <a href="Degree_Drive.html" class="feature-card degree">
-          <h3>Degree Drive</h3>
-          <p>Dive into B.A, B.Sc, B.Com subjects and study resources.</p>
-        </a>
-        <a href="School_Nest.html" class="feature-card school">
-          <h3>School Nest</h3>
-          <p>Subjects, notes, and guides for classes 1 to 10.</p>
-        </a> 
-        <a href="Inter_Spark.html" class="feature-card intermediate">
-          <h3>Inter Spark</h3>
-          <p>MPC, BiPC, MEC – subject-wise notes and resources.</p>
-        </a>
+  <section id="features" class="features">
+    <h2>What We Offer</h2>
+    <div class="features-grid">
+      <div class="feature-box">
+        <h3>Curated Notes</h3>
+        <p>Access detailed, easy-to-understand notes for various subjects and semesters.</p>
       </div>
-    
-  </main>
+      <div class="feature-box">
+        <h3>Peer Community</h3>
+        <p>Join discussions, ask doubts, and collaborate with fellow students worldwide.</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="footer">
-    2025 Knighthood Mindset - All rights reserved
-</div>
+  <section class="domains">
+    <h2>Supported Student Domains</h2>
+    <div class="domains-grid">
+      <div class="domain-box">
+        <img src="c:/Users/SWEETY/OneDrive/Pictures/tech_nexus.png" alt="Tech Nexus" style="width: 100%; max-width: 300px; height: auto; border-radius: 12px;">
+        <h3>Tech Nexus</h3>
+        <p>Focused on B.Tech CSE students with unit-wise notes and detailed practice guides for deeper understanding.</p>
+      </div>
+      <div class="domain-box">
+        <img src="c:/Users/SWEETY/OneDrive/Pictures/Nursing_hub.png" alt="Nursing Hub" style="width: 100%; max-width: 300px; height: auto; border-radius: 12px;">
+        <h3>Nursing Hub</h3>
+        <p>Empowers Nursing students with topic-wise explanations and practice guides to reinforce key concepts.</p>
+      </div>
+      <div class="domain-box">
+        <img src="c:/Users/SWEETY/OneDrive/Pictures/Green_sphere.png" alt="Green Sphere" style="width: 100%; max-width: 300px; height: auto; border-radius: 12px;">
+        <h3>Green Sphere</h3>
+        <p>Helps Agriculture students with academic content and structured practice guides for applied learning.</p>
+      </div>
+      <div class="domain-box">
+        <img src="c:/Users/SWEETY/OneDrive/Pictures/degree_domain.png" alt="Degree Domain" style="width: 100%; max-width: 300px; height: auto; border-radius: 12px;">
+        <h3>Degree Domain</h3>
+        <p>Supports Degree students with simplified notes and practice guides tailored for academic success.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Knighthood Mindset</h2>
+    <p>
+      We are a student-first platform built by learners, for learners. Our goal is to simplify education and make learning accessible and effective for everyone. Whether you're preparing for exams or exploring new skills, we're here to support your journey every step of the way.
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Knighthood Mindset. All rights reserved.</p>
+  </footer>
+
+  <!-- Show/hide logout button -->
+  <script>
+    window.onload = function () {
+      const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
+      const logoutBtn = document.getElementById("logoutBtn");
+
+      if (isLoggedIn) {
+        logoutBtn.style.display = "block";
+      } else {
+        logoutBtn.style.display = "none";
+      }
+    };
+
+    function logout() {
+      sessionStorage.clear(); // Remove login status
+      alert("You have been logged out.");
+      window.location.href = "login.html";
+    }
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdownMenu");
+      dropdown.classList.toggle("show");
+    }
+  </script>
+  
+
+  <!-- Optional: Additional JS -->
+  <script src="K.js"></script>
 </body>
 </html>
