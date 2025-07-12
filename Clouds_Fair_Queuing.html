@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scheduling Algorithms for Computing Clouds | Cloud computing| Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+    <section>
+       <h3>Scheduling Algorithms for Computing Clouds – Fair Queuing</h3> <p> In cloud computing environments, multiple users and applications compete for shared computing resources like CPU, memory, bandwidth, and storage. Efficient and fair scheduling of these resources is essential to ensure that all users receive adequate service without delays or starvation. Among the various scheduling algorithms used in cloud computing, <b>Fair Queuing (FQ)</b> is a widely adopted technique that ensures fairness in the distribution of resources among multiple tasks or users. </p> </section>
+        <section> <h4>What is Scheduling in Cloud Computing?</h4> <p> Scheduling in cloud computing refers to the process of assigning available resources to incoming tasks in an optimal way. The objective is to improve system performance, maintain fairness, and fulfill Service Level Agreements (SLAs). A good scheduling algorithm considers factors like priority, resource availability, deadlines, and workload characteristics. </p> </section> 
+        <section> <h4>Introduction to Fair Queuing</h4> <p> Fair Queuing (FQ) is a scheduling algorithm originally designed for network traffic management but has been adapted for cloud computing. The goal of FQ is to divide resources equally (or fairly) among active users or tasks. It aims to simulate a system where each task gets a fair share of the processing power, similar to what would happen if each had its own dedicated resource. </p> </section> 
+        <section> <h4>How Fair Queuing Works</h4> <p> Fair Queuing works by maintaining separate queues for each user or task. It assigns resources to each queue in a round-robin or weighted round-robin fashion. If one queue becomes empty, the resources are distributed to the remaining active queues. This prevents any single user or task from monopolizing the system and ensures fair treatment of all jobs. </p> <ul>
+           <li>Each job is placed in its own queue.</li> <li>The scheduler cycles through the queues in a fair order.</li> <li>Tasks receive a share of resources proportionally over time.</li> </ul> </section>
+         <section> <h4>Types of Fair Queuing</h4> <p> There are several variants of Fair Queuing used in computing clouds: </p> <ul> 
+          <li><b>Simple Fair Queuing:</b> All queues are treated equally. Every task receives the same amount of resources.</li> <li><b>Weighted Fair Queuing (WFQ):</b> Tasks are assigned different weights based on priority or resource demand. Higher-weighted tasks get more resources.</li> <li><b>Start-time Fair Queuing (SFQ):</b> Scheduling decisions are made based on the estimated start and finish times of tasks to ensure fairness in both time and order.</li> </ul> </section> 
+          <section> <h4>Advantages of Fair Queuing</h4> <p> Fair Queuing has several benefits in cloud environments: </p> <ul> <li><b>Fairness:</b> Prevents resource hogging by distributing resources evenly among users or tasks.</li> <li><b>Isolation:</b> Ensures that performance of one user does not impact another.</li> <li><b>Efficiency:</b> Makes good use of available resources without starvation or overload.</li> <li><b>Simplicity:</b> Easy to implement in both centralized and distributed systems.</li> </ul> </section> 
+         <section> <h4>Disadvantages of Fair Queuing</h4> <p> While Fair Queuing is effective, it also has some limitations: </p> 
+          <ul> <li><b>Overhead:</b> Maintaining separate queues for each task or user increases system overhead.</li> <li><b>Latency:</b> In some cases, low-priority tasks may face delays if resources are shared equally.</li> <li><b>Complexity in weighted scenarios:</b> Assigning and adjusting weights dynamically can be difficult.</li> </ul> </section> 
+          <section> <h4>Applications of Fair Queuing in Cloud Computing</h4> <p> Fair Queuing is used in various areas of cloud computing: </p> <ul> <li><b>Virtual machine scheduling:</b> Ensuring each VM gets fair access to CPU and memory.</li> <li><b>Bandwidth allocation:</b> Managing network traffic fairly among tenants.</li> <li><b>Storage access scheduling:</b> Preventing bottlenecks in disk I/O operations.</li> <li><b>Task scheduling in batch systems:</b> Fairly distributing compute slots in job queues.</li> </ul> </section> <section> <h4>Comparison with Other Scheduling Algorithms</h4> <p> Fair Queuing differs from other scheduling algorithms in several ways: </p> <ul> <li><b>FCFS (First Come First Serve):</b> Serves jobs in order of arrival, which may lead to long delays for small tasks.</li> <li><b>Round Robin:</b> Gives equal time slices to tasks but doesn’t consider task size or completion time.</li> <li><b>Priority Scheduling:</b> May starve lower-priority tasks.</li> <li><b>Fair Queuing:</b> Balances fairness with efficiency, reducing chances of starvation or delay.</li> </ul> </section> 
+         <section> <h4>Conclusion</h4> <p> Fair Queuing is a vital scheduling approach in cloud computing that ensures fair distribution of resources among competing tasks. It prevents monopolization of resources, promotes isolation, and improves user satisfaction by providing predictable performance. While it has some challenges like overhead and configuration complexity, its benefits make it a preferred choice in many multi-tenant cloud environments. As cloud systems evolve, Fair Queuing will continue to play a crucial role in maintaining balanced and fair service delivery across diverse applications. </p> </section>
+  </main>
+    <footer>
+    <a href="CC_UNIT1.html" class="back-btn">← Back to Topics</a>
+    </footer>
+
+ </body>
+</html>
