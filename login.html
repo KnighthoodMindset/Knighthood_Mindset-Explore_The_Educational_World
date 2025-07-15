@@ -104,19 +104,7 @@
           alert("Google login failed: " + error.message);
         });
     });
-
-    // Microsoft Login
-    const microsoftProvider = new OAuthProvider('microsoft.com');
-    document.getElementById('microsoft-login').addEventListener('click', () => {
-      signInWithPopup(auth, microsoftProvider)
-        .then(() => {
-          alert("Microsoft login successful!");
-          window.location.href = "Knighthood_Mindset.html";
-        })
-        .catch((error) => {
-          alert("Microsoft login failed: " + error.message);
-        });
-    });
+    
   </script>
 </body>
 </html>
