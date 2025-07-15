@@ -22,12 +22,16 @@
 
     <p><a href="forgot_password.html">Forgot Password?</a></p>
     <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+
+    <hr />
+    <button id="google-login">Login with Google</button>
+    <button id="microsoft-login">Login with Microsoft</button>
   </div>
 
   <script>
+    // Toggle password visibility
     const loginPasswordInput = document.getElementById('login-password');
     const toggleLoginPassword = document.getElementById('toggleLoginPassword');
-
     toggleLoginPassword.addEventListener('click', () => {
       const type = loginPasswordInput.type === 'password' ? 'text' : 'password';
       loginPasswordInput.type = type;
@@ -36,6 +40,23 @@
         : 'fa-solid fa-eye-slash toggle-password';
     });
 
+    // User class and validation
+    class User {
+      constructor(username, password) {
+        this.username = username;
+        this.password = password;
+      }
+    }
+
+    function validate(username, password, user) {
+      if (username === user.username && password === user.password) {
+        return "Login Successful";
+      } else {
+        return "Invalid username or password";
+      }
+    }
+
+    // Main login function using localStorage and validation
     function login() {
       const email = document.getElementById("login-email").value.trim();
       const password = loginPasswordInput.value;
@@ -43,58 +64,59 @@
       const storedEmail = localStorage.getItem("userEmail");
       const storedPassword = localStorage.getItem("userPassword");
 
-      if (email === storedEmail && password === storedPassword) {
+      const user = new User(storedEmail, storedPassword);
+      const result = validate(email, password, user);
+
+      if (result === "Login Successful") {
         localStorage.setItem("loginTime", Date.now());
         localStorage.setItem("isLoggedIn", "true");
-        alert("Login successful!");
+        alert(result);
         window.location.href = "Knighthood_mindset.html";
       } else {
-        alert("Invalid email or password.");
+        alert(result);
       }
     }
   </script>
-  <!-- Add these before your login function in a script tag or external JS file -->
-<script type="module">
-  // Firebase setup
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-  import { getAuth, signInWithPopup, GoogleAuthProvider, OAuthProvider } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyA3IVPlfVKJOUjcwMtMibMWhnUayW3BEJu4",
-    authDomain: "knighthood-mindset.firebaseapp.com",
-    projectId: "knighthood-mindset",
-    storageBucket: "knighthood-mindset.appspot.com",
-    messagingSenderId: "417523408339",
-    appId: "1:417523408339:web:6f99719c7b18d6173a326",
-    measurementId: "G-FR2STZ6MQN"
-  };
+  <!-- Firebase SDK and Google/Microsoft login -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, signInWithPopup, GoogleAuthProvider, OAuthProvider } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+    const firebaseConfig = {
+      apiKey: "AIzaSyA3IVPlfVKJOUjcwMtMibMWhnUayW3BEJu4",
+      authDomain: "knighthood-mindset.firebaseapp.com",
+      projectId: "knighthood-mindset",
+      storageBucket: "knighthood-mindset.appspot.com",
+      messagingSenderId: "417523408339",
+      appId: "1:417523408339:web:6f99719c7b18d6173a326",
+      measurementId: "G-FR2STZ6MQN"
+    };
 
-  // Google login example
-  const provider = new GoogleAuthProvider();
-  document.getElementById('google-login').addEventListener('click', () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        console.log("Signed in with Google:", result.user);
-        window.location.href = "verify-code.html";
-      })
-      .catch((error) => console.error("Login error:", error));
-  });
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-  // Microsoft login example (optional)
-  const microsoftProvider = new OAuthProvider('microsoft.com');
-  document.getElementById('microsoft-login').addEventListener('click', () => {
-    signInWithPopup(auth, microsoftProvider)
-      .then((result) => {
-        console.log("Signed in with Microsoft:", result.user);
-        window.location.href = "verify-code.html";
-      })
-      .catch((error) => console.error("Login error:", error));
-  });
-</script>
+    // Google Login
+    const googleProvider = new GoogleAuthProvider();
+    document.getElementById('google-login').addEventListener('click', () => {
+      signInWithPopup(auth, googleProvider)
+        .then((result) => {
+          console.log("Signed in with Google:", result.user);
+          window.location.href = "verify-code.html";
+        })
+        .catch((error) => console.error("Google login error:", error));
+    });
 
+    // Microsoft Login
+    const microsoftProvider = new OAuthProvider('microsoft.com');
+    document.getElementById('microsoft-login').addEventListener('click', () => {
+      signInWithPopup(auth, microsoftProvider)
+        .then((result) => {
+          console.log("Signed in with Microsoft:", result.user);
+          window.location.href = "verify-code.html";
+        })
+        .catch((error) => console.error("Microsoft login error:", error));
+    });
+  </script>
 </body>
 </html>
-
