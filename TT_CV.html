@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Thresholding Techniques | Computer Vision | Tech Nexus | Knighthood Mindest</title>
   <link rel="stylesheet" href="exp.css" />
+  <link rel="icon" type="image/png" href="KMlogo.png">
 </head>
 <body>
   <div class="top-banner">
@@ -14,224 +15,120 @@
 
   <main>
 
-    <section>
-        <h3>Thresholding Techniques</h3>
-    </section>
+   <section>
+  <h3>Thresholding Techniques</h3>
+</section>
 
-Absolutely! Let’s now continue with a **long, essay-style explanation** for the next important topic in Computer Vision:
+<section>
+  <h4>Introduction</h4>
+  <p>In the field of image processing and computer vision, one of the simplest yet most widely used techniques for <b>image segmentation</b> is thresholding. Thresholding transforms a grayscale image into a binary image — where each pixel is assigned either black (0) or white (1), depending on whether its intensity is above or below a certain threshold value.</p>
+  <p>Though it sounds simple, thresholding forms the foundation of many critical applications such as document analysis, medical imaging, object detection, and robot vision. It helps machines distinguish between foreground and background, isolate shapes, or identify areas of interest in a scene.</p>
+  <p>In essence, thresholding is a decision-making process, where every pixel is evaluated based on a predefined rule and classified accordingly. Now, let’s explore its types, mathematical foundations, advantages, and real-world uses in detail.</p>
+</section>
 
----
-
-## 🎯 **Thresholding Techniques**
-
-*Unit 1 – Computer Vision | Knighthood Mindset Notes*
-
----
-
-### 📘 **Introduction**
-
-In the field of image processing and computer vision, one of the simplest yet most widely used techniques for **image segmentation** is **thresholding**. Thresholding transforms a grayscale image into a binary image — where each pixel is assigned either black (0) or white (1), depending on whether its intensity is above or below a certain threshold value.
-
-Though it sounds simple, thresholding forms the foundation of many critical applications such as **document analysis**, **medical imaging**, **object detection**, and **robot vision**. It helps machines **distinguish between foreground and background**, isolate shapes, or identify areas of interest in a scene.
-
-In essence, thresholding is a **decision-making process**, where every pixel is evaluated based on a predefined rule and classified accordingly. Now, let’s explore its types, mathematical foundations, advantages, and real-world uses in detail.
-
----
-
-### 🌑 **What Is Thresholding?**
-
-Thresholding is the process of **dividing an image into regions** based on the intensity (gray-level) of pixels. It converts a grayscale image $I(x, y)$ into a binary image $B(x, y)$ using a threshold value $T$.
-
-#### ✅ Mathematical Definition:
-
-$$
+<section>
+  <h4>What Is Thresholding?</h4>
+  <p>Thresholding is the process of dividing an image into regions based on the intensity (gray-level) of pixels. It converts a grayscale image I(x, y) into a binary image B(x, y) using a threshold value T.</p>
+  <h5>Mathematical Definition:</h5>
+  <pre>
 B(x, y) =
-\begin{cases}
-1, & \text{if } I(x, y) > T \\
-0, & \text{if } I(x, y) \leq T
-\end{cases}
-$$
-
-Here:
-
-* $I(x, y)$ is the intensity at pixel location (x, y)
-* $T$ is the threshold value
-* $B(x, y)$ is the binary output
-
-In simple terms:
-
-* Pixels brighter than T become white (object)
-* Pixels darker than T become black (background)
-
-This binary simplification is highly useful when the goal is to identify and isolate shapes, objects, or text in an image.
-
----
-
-### 📊 **Types of Thresholding Techniques**
-
-#### 🟢 1. **Global Thresholding**
-
-This is the simplest form of thresholding. A **single threshold value T** is applied to the entire image.
-
-##### ➤ How it works:
-
-* Suitable when the image has **uniform lighting** and **clear contrast** between background and objects.
-
-##### ➤ Example:
-
-If T = 128, then all pixel values above 128 become 255 (white) and those below become 0 (black).
-
-##### ✅ Pros:
-
-* Fast and easy to implement
-* Useful in controlled conditions
-
-##### ❌ Cons:
-
-* Fails if lighting varies across the image
-* Doesn’t work well in complex scenes
-
----
-
-#### 🟡 2. **Adaptive Thresholding**
-
-Adaptive thresholding dynamically calculates a **local threshold** for different regions of the image based on the pixel neighborhood. This is especially useful when the image has **non-uniform illumination**.
-
-##### ➤ How it works:
-
-* The image is divided into small regions
-* A separate threshold is calculated for each region using the **mean or weighted mean** of neighboring pixels
-
-##### ✅ Methods:
-
-* **Mean Adaptive**: Threshold is the mean of the local region
-* **Gaussian Adaptive**: Threshold is the weighted sum using a Gaussian window
-
-##### ✅ Pros:
-
-* Excellent for images with **shadows, gradients**, or **uneven lighting**
-* Suitable for natural images or scanned documents
-
-##### ❌ Cons:
-
-* Slower than global thresholding
-* Requires more tuning (block size, constant subtraction)
-
----
-
-#### 🔵 3. **Otsu’s Thresholding Method**
-
-Otsu’s method is a **global, automatic** thresholding technique. It selects the threshold by minimizing the **intra-class variance** or maximizing the **inter-class variance** between object and background.
-
-##### ➤ How it works:
-
-* Analyzes the histogram of image intensities
-* Tries all possible thresholds and selects the one where the sum of variances within foreground and background is minimized
-
-##### ✅ Formula:
-
-It chooses a threshold T such that:
-
-$$
-\sigma^2_b(T) = w_0(T)w_1(T)\left[\mu_0(T) - \mu_1(T)\right]^2
-$$
-
-Where:
-
-* $w_0, w_1$ = probabilities of two classes (background and foreground)
-* $\mu_0, \mu_1$ = means of the two classes
-
-##### ✅ Pros:
-
-* Fully **automatic** (no need to set T manually)
-* Works well for **bimodal histograms** (two clear peaks)
-
-##### ❌ Cons:
-
-* Fails in images with more than two dominant regions
-* Sensitive to noise
-
----
-
-#### 🔴 4. **Multilevel Thresholding**
-
-Instead of just two classes (black and white), **multilevel thresholding** divides the image into **multiple regions** using **multiple thresholds**.
-
-##### ➤ Example:
-
-* With thresholds T1 and T2:
-
-  * Pixel < T1 → Class 1 (e.g., dark background)
-  * T1 ≤ Pixel < T2 → Class 2 (e.g., mid-intensity region)
-  * Pixel ≥ T2 → Class 3 (e.g., bright object)
-
-##### ✅ Applications:
-
-* Satellite images (land, water, sky)
-* Medical imaging with multiple tissue types
-
-##### ❌ Disadvantages:
-
-* More complex
-* Requires choosing the right number of thresholds
-
----
-
-### 📌 **Applications of Thresholding**
-
-Thresholding plays a crucial role in many real-world computer vision tasks:
-
-#### ✅ 1. **Document Analysis**
-
-* Removing backgrounds
-* Converting scanned text into binary for OCR (Optical Character Recognition)
-
-#### ✅ 2. **Medical Imaging**
-
-* Identifying regions of interest in CT, MRI, and X-ray scans
-* Segmenting tumors, organs, or bone structures
-
-#### ✅ 3. **Object Detection**
-
-* Isolating objects in surveillance or robotic vision
-* Tracking shapes against plain backgrounds
-
-#### ✅ 4. **Barcode/QR Code Detection**
-
-* Simplifies the image before reading encoded patterns
-
-#### ✅ 5. **Machine Vision in Industry**
-
-* Checking product presence or absence in quality control
-* Counting items on a conveyor belt
-
----
-
-### 🔍 **Limitations of Thresholding**
-
-While thresholding is simple and powerful, it comes with limitations:
-
-* **Sensitive to noise and lighting changes**
-* **Not suitable for complex backgrounds**
-* **Cannot handle overlapping intensity distributions**
-* **Fails in grayscale images with low contrast**
-
-In such cases, more advanced segmentation methods (e.g., clustering, region-growing, deep learning) are used in conjunction with or instead of thresholding.
-
----
-
-### ✅ **Conclusion**
-
-Thresholding is a **core image processing technique** that simplifies the visual data and helps in identifying the most relevant areas of interest within an image. Whether used in its basic form (global thresholding) or advanced versions (adaptive and Otsu’s method), it remains an essential tool for tasks requiring fast and interpretable segmentation.
-
-Despite the rise of deep learning in computer vision, thresholding continues to be **valued for its simplicity, speed, and effectiveness**, particularly in resource-constrained environments or pre-processing pipelines. For students and developers in computer vision, mastering thresholding is an essential first step in understanding how machines begin to perceive structure within visual data.
-
----
-
-Would you like to proceed with the next topic — **Image Formation Process** or **Histogram Processing**, or should we move to **Unit 2** next?
-
-
-        </main>
+  1, if I(x, y) > T
+  0, if I(x, y) ≤ T
+  </pre>
+  <p>Here:</p>
+  <ul>
+    <li>I(x, y) is the intensity at pixel location (x, y)</li>
+    <li>T is the threshold value</li>
+    <li>B(x, y) is the binary output</li>
+  </ul>
+  <p>In simple terms:</p>
+  <ul>
+    <li>Pixels brighter than T become white (object)</li>
+    <li>Pixels darker than T become black (background)</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Types of Thresholding Techniques</h4>
+
+  <h5>1. Global Thresholding</h5>
+  <ul>
+    <li><b>How it works:</b> Suitable when the image has uniform lighting and clear contrast between background and objects.</li>
+    <li><b>Example:</b> If T = 128, then all pixel values above 128 become 255 (white) and those below become 0 (black).</li>
+    <li><b>Pros:</b> Fast and easy to implement, useful in controlled conditions</li>
+    <li><b>Cons:</b> Fails if lighting varies across the image, doesn’t work well in complex scenes</li>
+  </ul>
+
+  <h5>2. Adaptive Thresholding</h5>
+  <ul>
+    <li><b>How it works:</b> The image is divided into small regions; a separate threshold is calculated for each region using the mean or weighted mean of neighboring pixels.</li>
+    <li><b>Methods:</b>
+      <ul>
+        <li><b>Mean Adaptive:</b> Threshold is the mean of the local region</li>
+        <li><b>Gaussian Adaptive:</b> Threshold is the weighted sum using a Gaussian window</li>
+      </ul>
+    </li>
+    <li><b>Pros:</b> Excellent for images with shadows, gradients, or uneven lighting; suitable for natural images or scanned documents</li>
+    <li><b>Cons:</b> Slower than global thresholding; requires more tuning (block size, constant subtraction)</li>
+  </ul>
+
+  <h5>3. Otsu’s Thresholding Method</h5>
+  <ul>
+    <li><b>How it works:</b> Analyzes the histogram of image intensities; tries all possible thresholds and selects the one where the sum of variances within foreground and background is minimized</li>
+    <li><b>Formula:</b></li>
+  </ul>
+  <pre>
+σ²b(T) = w₀(T)w₁(T)[μ₀(T) − μ₁(T)]²
+  </pre>
+  <ul>
+    <li>w₀, w₁ = probabilities of two classes (background and foreground)</li>
+    <li>μ₀, μ₁ = means of the two classes</li>
+    <li><b>Pros:</b> Fully automatic (no need to set T manually), works well for bimodal histograms (two clear peaks)</li>
+    <li><b>Cons:</b> Fails in images with more than two dominant regions, sensitive to noise</li>
+  </ul>
+
+  <h5>4. Multilevel Thresholding</h5>
+  <ul>
+    <li><b>Example:</b>
+      <ul>
+        <li>Pixel &lt; T1 → Class 1 (e.g., dark background)</li>
+        <li>T1 ≤ Pixel &lt; T2 → Class 2 (e.g., mid-intensity region)</li>
+        <li>Pixel ≥ T2 → Class 3 (e.g., bright object)</li>
+      </ul>
+    </li>
+    <li><b>Applications:</b> Satellite images (land, water, sky); medical imaging with multiple tissue types</li>
+    <li><b>Disadvantages:</b> More complex; requires choosing the right number of thresholds</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Applications of Thresholding</h4>
+  <ul>
+    <li><b>Document Analysis:</b> Removing backgrounds; converting scanned text into binary for OCR</li>
+    <li><b>Medical Imaging:</b> Identifying regions of interest in CT, MRI, and X-ray scans; segmenting tumors, organs, or bone structures</li>
+    <li><b>Object Detection:</b> Isolating objects in surveillance or robotic vision; tracking shapes against plain backgrounds</li>
+    <li><b>Barcode/QR Code Detection:</b> Simplifies the image before reading encoded patterns</li>
+    <li><b>Machine Vision in Industry:</b> Checking product presence or absence in quality control; counting items on a conveyor belt</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Limitations of Thresholding</h4>
+  <ul>
+    <li>Sensitive to noise and lighting changes</li>
+    <li>Not suitable for complex backgrounds</li>
+    <li>Cannot handle overlapping intensity distributions</li>
+    <li>Fails in grayscale images with low contrast</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Conclusion</h4>
+  <p>Thresholding is a core image processing technique that simplifies the visual data and helps in identifying the most relevant areas of interest within an image. Whether used in its basic form (global thresholding) or advanced versions (adaptive and Otsu’s method), it remains an essential tool for tasks requiring fast and interpretable segmentation.</p>
+  <p>Despite the rise of deep learning in computer vision, thresholding continues to be valued for its simplicity, speed, and effectiveness, particularly in resource-constrained environments or pre-processing pipelines. For students and developers in computer vision, mastering thresholding is an essential first step in understanding how machines begin to perceive structure within visual data.</p>
+</section>
+
+    </main>
 
     <footer>
     <a href="CV.html" class="back-btn">← Back to Topics</a>
