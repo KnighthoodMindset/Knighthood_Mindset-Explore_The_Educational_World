@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projection Schemes | Computer Vision | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+    <section>
+        <h3>Projection Schemes</h3>
+    </section>
+
+Here's a detailed and in-depth **theoretical long answer** for the topic **"Projection Schemes"** in Computer Vision, written in a structured and student-friendly essay format:
+
+---
+
+### **Projection Schemes in Computer Vision**
+
+In the context of computer vision, **projection schemes** refer to the mathematical models and techniques used to map three-dimensional (3D) objects in the real world onto two-dimensional (2D) image planes. This is a fundamental concept because cameras, by nature, capture only 2D representations of our 3D environment. Understanding these projection models is crucial for tasks like object recognition, depth estimation, 3D reconstruction, augmented reality, and more.
+
+#### **1. Introduction to Projection**
+
+Projection is the process of transforming a 3D point in space onto a 2D image plane using a set of rules governed by geometry and perspective. The 3D world is rich with depth information, but this depth is compressed during projection, resulting in a 2D image. Therefore, recovering or interpreting this information is one of the primary challenges in computer vision.
+
+---
+
+### **2. Types of Projection Schemes**
+
+#### a) **Orthographic Projection**
+
+Orthographic projection is a type of linear projection where the projection lines are orthogonal (perpendicular) to the image plane. This model assumes that all projection rays are parallel and neglects the perspective foreshortening effect.
+
+* **Advantages**: Simple calculations, ideal for objects far from the camera.
+* **Disadvantages**: Unrealistic for most real-world scenes as it does not consider perspective.
+
+Mathematically, if a 3D point is (X, Y, Z), the projection to the 2D plane would be:
+
+```
+x = X  
+y = Y
+```
+
+Z-coordinate is dropped.
+
+---
+
+#### b) **Perspective Projection**
+
+Perspective projection is a more realistic model as it mimics the way the human eye or a camera perceives the world. It projects 3D points onto a 2D plane using lines that converge at a single point called the center of projection (camera origin).
+
+* **Advantages**: Realistic, preserves the sense of depth.
+* **Disadvantages**: More complex calculations and potential for distortions.
+
+Mathematically:
+
+```
+x = f * (X / Z)
+y = f * (Y / Z)
+```
+
+Where `f` is the focal length of the camera.
+
+This scheme creates **vanishing points** and **foreshortening**, making it ideal for applications like **augmented reality**, **camera calibration**, and **3D reconstruction**.
+
+---
+
+#### c) **Weak Perspective Projection**
+
+This is an approximation between orthographic and perspective projections. It assumes that all points in the scene are roughly at the same depth (Z ≈ Z\_avg). The division by Z is replaced by a constant scale factor:
+
+```
+x = s * X  
+y = s * Y
+```
+
+Where `s = f / Z_avg`.
+
+It is useful for applications where the scene has small depth variations and requires lower computational cost compared to full perspective projection.
+
+---
+
+#### d) **Affine Projection**
+
+Affine projection is an intermediate model that maintains some perspective but discards effects like vanishing points. It results in parallel lines remaining parallel in the projected image, which is not true in pure perspective projection.
+
+Affine transformations involve scaling, rotation, translation, and shearing, making them more flexible for applications like **motion analysis** and **tracking**.
+
+---
+
+#### e) **Panoramic and Spherical Projection**
+
+For wide-angle and 360-degree imaging, panoramic and spherical projection models are used. They map points from 3D space onto a spherical or cylindrical surface, then unfold it onto a 2D plane. These are widely used in virtual tours, 3D modeling, and autonomous navigation.
+
+---
+
+### **3. Key Features and Characteristics**
+
+* **Focal Length**: Affects the scale of the projected image in perspective models.
+* **Field of View (FoV)**: Defines the extent of the observable scene captured.
+* **Projection Matrix**: Combines intrinsic (camera-specific) and extrinsic (pose-related) parameters to model the entire projection mathematically.
+* **Depth Information Loss**: A critical challenge in projection that is addressed through stereo vision and structure-from-motion.
+
+---
+
+### **4. How It Works**
+
+Projection schemes work by transforming world coordinates (3D) to camera coordinates and finally to pixel coordinates on the image plane using a series of transformations:
+
+* **World → Camera transformation** (Extrinsic)
+* **Camera → Image plane transformation** (Intrinsic)
+* **Image plane → Pixel grid transformation**
+
+A common formulation uses homogeneous coordinates and matrix multiplication:
+
+```
+x' = K [R | t] X
+```
+
+Where:
+
+* `X` is the 3D point (homogeneous)
+* `R` and `t` are rotation and translation matrices (extrinsic)
+* `K` is the intrinsic camera matrix
+* `x'` is the 2D projected point
+
+---
+
+### **5. Applications**
+
+* **3D scene reconstruction**
+* **Simultaneous Localization and Mapping (SLAM)**
+* **Camera calibration**
+* **Augmented and Virtual Reality**
+* **Object tracking and localization**
+
+---
+
+### **Conclusion**
+
+Projection schemes form the geometric foundation of computer vision. Understanding how 3D information is captured and projected onto a 2D plane allows developers and researchers to extract meaningful information, reconstruct depth, and interact with real-world environments. Each projection model serves different use-cases, depending on the assumptions, complexity, and desired accuracy. Mastering projection models is essential for designing robust and efficient vision-based systems in modern applications.
+
+---
+
+Shall I continue to the next topic: **Camera Calibration**?
+
+
+    
+  </main>
+
+    <footer>
+    <a href="CV.html" class="back-btn">← Back to Topics</a>
+    </footer>
+
+ </body>
+</html>

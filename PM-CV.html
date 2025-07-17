@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>parametric Motion | Computer Vision | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+    <section>
+        <h3>parametric Motion</h3>
+    </section>
+
+### **Parametric Motion in Computer Vision**
+
+**Introduction:**
+Parametric motion refers to a mathematical model that describes how an object moves in a scene using a fixed set of parameters. Instead of tracking every pixel independently, parametric models use a few variables to represent the overall motion of a region or object. These models are particularly useful in video processing, object tracking, image registration, and optical flow estimation, as they simplify complex motion into manageable transformations. Understanding parametric motion is essential for tasks that involve motion estimation and scene understanding in computer vision.
+
+---
+
+### **What Is Parametric Motion?**
+
+Parametric motion assumes that the motion in an image or image region can be described using a transformation model governed by a set of parameters. This reduces the high-dimensional motion field to a lower-dimensional representation. These transformations include translation, rotation, scaling, shearing, and combinations thereof.
+
+Let $p = (x, y)$ be a pixel in an image. The motion of this pixel can be described as:
+$p' = T(p, \theta)$
+where:
+
+* $T$ is the transformation function.
+* $\theta$ is a vector of motion parameters.
+* $p'$ is the new position after motion.
+
+---
+
+### **Types of Parametric Motion Models:**
+
+1. **Translational Model:**
+
+   $$
+   x' = x + t_x, \quad y' = y + t_y
+   $$
+
+   * Parameters: $t_x, t_y$
+   * Describes simple shifts.
+
+2. **Affine Model:**
+
+   $$
+   \begin{bmatrix} x' \\ y' \end{bmatrix} =
+   \begin{bmatrix} a & b \\ c & d \end{bmatrix}
+   \begin{bmatrix} x \\ y \end{bmatrix} +
+   \begin{bmatrix} t_x \\ t_y \end{bmatrix}
+   $$
+
+   * Parameters: 6 (a, b, c, d, $t_x$, $t_y$)
+   * Captures translation, rotation, scaling, and shearing.
+
+3. **Projective (Homography) Model:**
+
+   $$
+   \begin{bmatrix} x' \\ y' \\ w \end{bmatrix} =
+   \begin{bmatrix}
+   h_{11} & h_{12} & h_{13} \\
+   h_{21} & h_{22} & h_{23} \\
+   h_{31} & h_{32} & 1
+   \end{bmatrix}
+   \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}
+   $$
+
+   * Used for perspective transformations.
+
+---
+
+### **How It Works:**
+
+1. **Model Selection:**
+   Choose the type of motion model (translation, affine, projective).
+
+2. **Parameter Estimation:**
+   Estimate the model parameters using techniques such as least squares, optical flow, or feature matching.
+
+3. **Apply Transformation:**
+   Apply the estimated transformation to align or track the object across frames.
+
+4. **Optimization:**
+   Use optimization algorithms like gradient descent to minimize motion error (e.g., difference in pixel intensity or feature mismatch).
+
+---
+
+### **Key Features and Characteristics:**
+
+* **Compact Representation:** Uses a small number of parameters to model motion.
+* **Mathematically Defined:** Provides a clear, analytical model for motion estimation.
+* **Region-Based:** Typically applies to entire regions rather than individual pixels.
+* **Suitable for Rigid Objects:** Works well when the object does not deform.
+* **Fast Computation:** Efficient compared to dense optical flow methods.
+
+---
+
+### **Advantages:**
+
+* **Efficiency:** Requires fewer parameters than pixel-wise motion estimation.
+* **Robustness:** Less sensitive to noise due to regional analysis.
+* **Simplicity:** Easy to implement and interpret.
+* **Versatility:** Supports various transformations with different models.
+
+---
+
+### **Disadvantages:**
+
+* **Limited to Rigid Motion:** Does not handle non-rigid deformations well.
+* **Inaccuracy in Complex Scenes:** Performance degrades if the scene contains multiple independent motions or occlusions.
+* **Model Selection Sensitivity:** Choosing the wrong model can lead to inaccurate estimation.
+* **Parameter Optimization Complexity:** Accurate parameter estimation may require iterative and computationally expensive techniques.
+
+---
+
+### **Applications in Computer Vision:**
+
+* Video stabilization
+* Object tracking
+* Motion segmentation
+* Image registration
+* 3D scene reconstruction
+* Surveillance and navigation systems
+
+---
+
+### **Conclusion:**
+
+Parametric motion models are a foundational concept in computer vision, offering a powerful and efficient way to understand and manipulate motion in images and videos. Although they are best suited for simple, rigid transformations, they remain a critical tool in many real-world applications. Understanding their types, characteristics, and limitations helps in selecting the appropriate model for various vision tasks.
+
+
+    
+  </main>
+
+    <footer>
+    <a href="CV.html" class="back-btn">← Back to Topics</a>
+    </footer>
+
+ </body>
+</html>

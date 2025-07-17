@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photometric Stereo | Computer Vision | Tech Nexus | Knighthood Mindest</title>
+  <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+  <div class="top-banner">
+    <h1>Tech Nexus</h1>
+    <h2>Your Study Companion</h2>
+  </div>
+
+  <main>
+
+    <section>
+        <h3>Photometric Stereo</h3>
+    </section>
+
+Certainly! Here's a **long, detailed, theory-style explanation** of the topic:
+
+---
+
+## 🌄 Photometric Stereo — Computer Vision Technique
+
+### 🔍 Introduction
+
+**Photometric Stereo** is a powerful computer vision method used to reconstruct the **3D shape of a surface** by observing it under **different lighting conditions**, but **from a fixed camera viewpoint**. Unlike **Shape from Shading**, which relies on a single image and assumes lighting direction, Photometric Stereo uses **multiple images** taken under **known light directions**, providing richer information for reconstructing the **surface normals** and **depth map**.
+
+This technique is especially valuable in applications where high-precision surface modeling is required, such as cultural heritage preservation, biomedical imaging, and industrial inspection.
+
+---
+
+### 💡 Basic Principle
+
+The key idea behind Photometric Stereo is:
+
+> **By illuminating an object from various known light sources and capturing the reflected intensities at each pixel, we can determine the orientation (normal vector) of the surface at that point.**
+
+### 📸 Imaging Setup
+
+1. **Fixed Camera**: Captures all images from the same viewpoint.
+2. **Variable Light Sources**: Multiple directional lights are turned on one at a time.
+3. **Assumption of Lambertian Surface**: The surface reflects light diffusely (same brightness when viewed from any angle).
+
+Let’s say we take **n images**, each under a different known light direction **L₁, L₂, ..., Lₙ**.
+
+For each pixel (x, y), the intensity I₁, I₂, ..., Iₙ in those images forms a system of equations:
+
+```
+I₁ = ρ * (N · L₁)
+I₂ = ρ * (N · L₂)
+...
+Iₙ = ρ * (N · Lₙ)
+```
+
+Where:
+
+* **I₁, I₂, ..., Iₙ** are observed intensities at a pixel under different lights.
+* **ρ** is the surface albedo (reflectivity).
+* **N** is the unit surface normal vector.
+* **L₁, L₂, ..., Lₙ** are known lighting direction vectors.
+* **(N · Lᵢ)** is the dot product between normal and light direction.
+
+By solving this system (usually via least squares when n ≥ 3), we estimate **N** and **ρ**.
+
+Once normals (**N**) are known at every pixel, **surface depth (z)** can be estimated by integrating the gradient field derived from the normals.
+
+---
+
+### 🧠 Key Features
+
+| Feature                      | Description                                                                 |
+| ---------------------------- | --------------------------------------------------------------------------- |
+| **Multiple Images Needed**   | Minimum 3 for solving 3D normals (X, Y, Z).                                 |
+| **High Accuracy**            | More robust and precise than single-image methods like Shape from Shading.  |
+| **Albedo Recovery**          | In addition to shape, the surface reflectance (ρ) can also be estimated.    |
+| **Local Surface Estimation** | Produces a dense map of normals — one per pixel.                            |
+| **Non-Intrusive**            | Uses visible light and passive capture (ideal for fragile artifacts, etc.). |
+
+---
+
+### 🛠️ Applications
+
+1. **Cultural Heritage**: Capture fine details of ancient coins, sculptures, or inscriptions.
+2. **Medical Imaging**: Model the surface of skin, organs, or tissue samples.
+3. **Industrial Inspection**: Detect microscopic surface defects like dents, scratches, or pits.
+4. **3D Scanning**: Augment or replace laser-based scanning in certain applications.
+5. **Biometrics**: Fingerprint and palmprint surface capture with enhanced depth cues.
+
+---
+
+### 🧪 Challenges
+
+| Challenge                          | Explanation                                                                         |
+| ---------------------------------- | ----------------------------------------------------------------------------------- |
+| **Non-Lambertian Materials**       | Reflective or translucent surfaces distort intensity measurements.                  |
+| **Shadowing and Interreflections** | Some areas might be poorly lit or receive bounced light from other surfaces.        |
+| **Lighting Calibration**           | Inaccurate light direction measurements lead to incorrect normal estimation.        |
+| **Integration of Normals**         | Reconstructing depth from normals is mathematically complex and error-prone.        |
+| **Specular Highlights**            | Bright reflections violate the Lambertian assumption and affect normal calculation. |
+
+---
+
+### 🔁 Comparison with Shape from Shading
+
+| Feature                  | Shape from Shading  | Photometric Stereo       |
+| ------------------------ | ------------------- | ------------------------ |
+| **Number of Images**     | One                 | Multiple (≥ 3)           |
+| **Camera Setup**         | Static              | Static                   |
+| **Light Source**         | Single (assumed)    | Multiple (known)         |
+| **Accuracy**             | Low to Moderate     | High                     |
+| **Complexity**           | Simpler             | Moderate to Complex      |
+| **Surface Type Support** | Smooth, Lambertian  | Lambertian preferred     |
+| **Depth Estimation**     | Indirect, ambiguous | More direct and accurate |
+
+---
+
+### ✅ Conclusion
+
+**Photometric Stereo** is a robust and elegant approach for extracting fine-grained 3D surface information by utilizing multiple lighting directions with a static camera. It bypasses the inherent ambiguity of single-image techniques and offers pixel-wise surface normal and reflectance estimation. While it assumes ideal lighting and surface properties, modern adaptations using deep learning and multi-view integration are making Photometric Stereo more versatile and powerful than ever.
+
+---
+
+Would you like to continue with the next topic like **Shape from Texture** or **Stereo Vision**?
+
+
+    
+  </main>
+
+    <footer>
+    <a href="CV.html" class="back-btn">← Back to Topics</a>
+    </footer>
+
+ </body>
+</html>
