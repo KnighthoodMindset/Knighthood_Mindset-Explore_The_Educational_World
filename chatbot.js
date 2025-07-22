@@ -1,21 +1,13 @@
-// chatbot.js
-
 document.addEventListener("DOMContentLoaded", function () {
   const chatbotContainer = document.getElementById("chatbot-container");
   const closeBtn = document.getElementById("close-btn");
   const sendBtn = document.getElementById("send-btn");
   const chatBotInput = document.getElementById("chatbot-input");
   const chatbotMessages = document.getElementById("chatbot-messages");
-  const chatbotIcon = document.getElementById("chatbot-icon");
-
-  chatbotIcon.addEventListener("click", () => {
-    chatbotContainer.classList.remove("hidden");
-    chatbotIcon.style.display = "none";
-  });
 
   closeBtn.addEventListener("click", () => {
     chatbotContainer.classList.add("hidden");
-    chatbotIcon.style.display = "flex";
+    alert("Esita has been hidden.");
   });
 
   sendBtn.addEventListener("click", sendMessage);
@@ -39,23 +31,35 @@ function appendMessage(sender, message) {
   const messageContainer = document.getElementById("chatbot-messages");
   const messageElement = document.createElement("div");
   messageElement.classList.add("message", sender);
-  messageElement.innerHTML = renderMarkdown(message); // Render Markdown
+  messageElement.innerHTML = renderMarkdown(message);
   messageContainer.appendChild(messageElement);
   messageContainer.scrollTop = messageContainer.scrollHeight;
 }
 
 function renderMarkdown(text) {
   return text
-    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // **bold**
-    .replace(/(^|\n)\* (.+)/g, "$1• $2")              // Replace * list items with bullet (•)
-    .replace(/(?<!\*)\*(?!\*)(.*?)\*(?!\*)/g, "<em>$1</em>") // *italic*, avoid list * getting caught
-    .replace(/`([^`]+)`/g, "<code>$1</code>")         // `code`
-    .replace(/\n/g, "<br>");                          // new lines
+    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+    .replace(/(^|\n)\* (.+)/g, "$1• $2")
+    .replace(/(?<!\*)\*(?!\*)(.*?)\*(?!\*)/g, "<em>$1</em>")
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/\n/g, "<br>");
 }
 
-
 async function getBotResponse(userMessage) {
-  const API_KEY = "AIzaSyAjs_EslA87gBY6R-s8YGi-8qq3QmLctJg"; // replace with real key
+  const lowerCaseMessage = userMessage.toLowerCase();
+
+  // Esita name detection
+  if (["what is your name", "your name", "who are you", "tell me your name"].some(q => lowerCaseMessage.includes(q))) {
+    appendMessage("bot", "My name is Esita, your AI assistant 🤖");
+    return;
+  }
+
+  if (lowerCaseMessage.includes("esita")) {
+    appendMessage("bot", "Yes, I'm here! How can I help you? 😊");
+    return;
+  }
+
+  const API_KEY = "AIzaSyAjs_EslA87gBY6R-s8YGi-8qq3QmLctJg"; // Replace with your actual key
   const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
   try {
@@ -81,9 +85,6 @@ async function getBotResponse(userMessage) {
     appendMessage("bot", botMessage);
   } catch (error) {
     console.error("Error:", error);
-    appendMessage(
-      "bot",
-      "Sorry, I'm having trouble responding. Please try again."
-    );
+    appendMessage("bot", "Sorry, I'm having trouble responding. Please try again.");
   }
 }
