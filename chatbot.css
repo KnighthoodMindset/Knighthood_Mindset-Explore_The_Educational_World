@@ -8,13 +8,12 @@
 
 body {
   height: 100vh;
-  background-color: #01242d; /* Black background */
+  background-color: #000000; /* Changed to pure black */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
-
 
 /* Container for the chatbot */
 .chatbot-container {
@@ -58,7 +57,6 @@ body {
   flex-grow: 1;
   text-align: center;
 }
-
 
 /* Close button */
 .chatbot-close-btn {
