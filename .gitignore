@@ -1,0 +1,11 @@
+# Ignore environment file
+.env
+
+# Optional: Node modules (if using Node.js backend)
+node_modules
+
+# Logs
+*.log
+
+# System files
+.DS_Store
