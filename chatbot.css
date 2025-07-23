@@ -183,3 +183,13 @@ body {
   border: 2px solid #f0f0f0;
 }
 
+@media (max-width: 850px) {
+  .chatbot-container {
+    width: 90vw;
+    height: 70vh;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+}
+
