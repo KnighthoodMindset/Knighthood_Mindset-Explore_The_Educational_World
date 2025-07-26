@@ -139,4 +139,8 @@ tr:nth-child(even) {
 tr:hover {
   background-color: #f1f1f1;
 }
+abbr {
+  font-style: italic;
+  color: rgb(11, 154, 173);
+}
 
