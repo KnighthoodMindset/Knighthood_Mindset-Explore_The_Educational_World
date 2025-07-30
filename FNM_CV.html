@@ -19,112 +19,99 @@
     </section>
 
 
-Here’s a **detailed theoretical explanation** for the topic **“Foot-of-Normal Method”** — a fundamental technique used in **image processing**, particularly in **boundary description**, **pattern recognition**, and **shape analysis**.
 
-This explanation includes:
-✅ Introduction
-✅ Working Principle
-✅ Mathematical Foundation
-✅ Applications
-✅ Advantages & Limitations
-✅ Conclusion
+  <section>
+    <h4>Introduction:</h4>
+    <p>The Foot-of-Normal Method is a geometric approach used to describe the shape of an object’s boundary by computing the foot of the perpendicular (normal) drawn from a boundary point to a reference line or point — typically the centroid of the shape. This method is often used in pattern recognition, object representation, and boundary signature extraction. It converts a 2D boundary into a 1D signal, making shape comparison and analysis easier.</p>
+    <p>In essence, this method provides a mathematical and visual representation of how a shape “flows” around its center, and it plays a vital role in tasks where shape-based object recognition is crucial.</p>
+  </section>
 
----
+  <section>
+    <h4>Working Principle:</h4>
+    <ol>
+      <li><b>Object Boundary Extraction:</b>
+        <ul>
+          <li>First, the object is segmented, and its boundary is extracted using edge detection techniques like Canny, Sobel, or contour tracing.</li>
+        </ul>
+      </li>
+      <li><b>Centroid Calculation:</b>
+        <ul>
+          <li>The centroid (geometric center) of the shape is computed using the average of all the boundary points.</li>
+        </ul>
+      </li>
+      <li><b>Normal Construction:</b>
+        <ul>
+          <li>For each boundary point, a normal (perpendicular) is constructed towards the centroid.</li>
+        </ul>
+      </li>
+      <li><b>Foot of the Normal:</b>
+        <ul>
+          <li>The foot of the normal is the point on the shape’s reference axis (usually a central line or centroid) where this perpendicular meets.</li>
+          <li>This point is used to define a distance or angle that serves as a descriptor for the shape.</li>
+        </ul>
+      </li>
+      <li><b>Signature Generation:</b>
+        <ul>
+          <li>The collection of these distances (or angles) from boundary points to their foot points is used to form a shape signature — a 1D function representing the shape.</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
 
-### 🧩 **Foot-of-Normal Method**
+  <section>
+    <h4>Mathematical Foundation:</h4>
+    <p>Let a shape be represented by its boundary points: Let <code>P(x_i, y_i)</code> be a boundary point, and <code>C(x_c, y_c)</code> be the centroid.</p>
+    <p>The vector from the centroid to the boundary point is:</p>
+    <p>
+      <code>
+        v = (x_i - x_c, y_i - y_c)
+      </code>
+    </p>
+    <p>The foot of the perpendicular (normal) from the boundary point to a line (e.g., x-axis, centroid axis, or boundary tangent) is computed using standard geometry.</p>
+    <p>The distance <code>d_i</code> from the boundary point to its foot gives a scalar that can be plotted against angle or boundary index to generate the signature:</p>
+    <p>
+      <code>
+        Signature(i) = d_i
+      </code>
+    </p>
+  </section>
 
-#### 🔷 Introduction:
+  <section>
+    <h4>Applications:</h4>
+    <ul>
+      <li>Shape Recognition: Comparing the 1D signatures of different shapes to recognize or classify them.</li>
+      <li>Object Tracking: Tracking a specific shape across frames by analyzing its boundary flow.</li>
+      <li>Handwritten Character Recognition: Describing and matching handwritten characters using boundary signatures.</li>
+      <li>Medical Imaging: Detecting organ shapes or contours in X-ray/CT/MRI scans.</li>
+      <li>Fingerprint or Palmprint Matching: Describing the ridge shape flow.</li>
+    </ul>
+  </section>
 
-The **Foot-of-Normal Method** is a geometric approach used to describe the **shape of an object’s boundary** by computing the **foot of the perpendicular (normal)** drawn from a boundary point to a reference line or point — typically the **centroid** of the shape. This method is often used in **pattern recognition**, **object representation**, and **boundary signature extraction**. It converts a 2D boundary into a 1D signal, making shape comparison and analysis easier.
+  <section>
+    <h4>Advantages:</h4>
+    <ul>
+      <li>Compact Representation: Converts 2D shape information into a 1D signal for easy analysis.</li>
+      <li>Rotation Invariant (with normalization): By measuring angles or distances from the centroid, rotation invariance can be achieved.</li>
+      <li>Simplicity: Easy to compute and implement with basic geometry.</li>
+    </ul>
+  </section>
 
-In essence, this method provides a **mathematical and visual representation of how a shape “flows” around its center**, and it plays a vital role in tasks where **shape-based object recognition** is crucial.
+  <section>
+    <h4>Limitations:</h4>
+    <ul>
+      <li>Sensitive to Noise: Small boundary fluctuations can affect the normals and distort the signature.</li>
+      <li>Not Scale Invariant (by default): Requires normalization to handle different sizes of the same shape.</li>
+      <li>Fails in Complex Topologies: Not effective for shapes with holes or self-intersections.</li>
+      <li>Centroid Dependence: If the centroid lies outside the object (as in some concave shapes), the method may be less accurate.</li>
+    </ul>
+  </section>
 
----
+  <section>
+    <h4>Conclusion:</h4>
+    <p>The Foot-of-Normal Method is a powerful boundary descriptor that translates complex 2D shapes into simpler 1D signals, enabling efficient analysis and comparison. Its geometric simplicity and visual interpretability make it a preferred technique in image analysis tasks involving shape-based recognition. However, for robust performance in real-world scenarios, it must often be combined with noise reduction, normalization, and feature matching techniques.</p>
+  </section>
+</section>
 
-#### ⚙️ Working Principle:
-
-1. **Object Boundary Extraction**:
-
-   * First, the object is segmented, and its boundary is extracted using edge detection techniques like **Canny**, **Sobel**, or **contour tracing**.
-
-2. **Centroid Calculation**:
-
-   * The centroid (geometric center) of the shape is computed using the average of all the boundary points.
-
-3. **Normal Construction**:
-
-   * For each boundary point, a **normal (perpendicular)** is constructed towards the centroid.
-
-4. **Foot of the Normal**:
-
-   * The **foot of the normal** is the point on the shape’s reference axis (usually a central line or centroid) where this perpendicular meets.
-   * This point is used to define a **distance or angle** that serves as a descriptor for the shape.
-
-5. **Signature Generation**:
-
-   * The collection of these distances (or angles) from boundary points to their foot points is used to form a **shape signature** — a 1D function representing the shape.
-
----
-
-#### 📐 Mathematical Foundation:
-
-Let a shape be represented by its boundary points:
-Let $P(x_i, y_i)$ be a boundary point, and $C(x_c, y_c)$ be the centroid.
-
-* The **vector** from the centroid to the boundary point is:
-
-  $$
-  \vec{v} = (x_i - x_c, y_i - y_c)
-  $$
-
-* The **foot of the perpendicular (normal)** from the boundary point to a line (e.g., x-axis, centroid axis, or boundary tangent) is computed using standard geometry.
-
-* The **distance** $d_i$ from the boundary point to its foot gives a scalar that can be plotted against angle or boundary index to generate the **signature**:
-
-  $$
-  \text{Signature}(i) = d_i
-  $$
-
----
-
-#### 🧠 Applications:
-
-* **Shape Recognition**: Comparing the 1D signatures of different shapes to recognize or classify them.
-* **Object Tracking**: Tracking a specific shape across frames by analyzing its boundary flow.
-* **Handwritten Character Recognition**: Describing and matching handwritten characters using boundary signatures.
-* **Medical Imaging**: Detecting organ shapes or contours in X-ray/CT/MRI scans.
-* **Fingerprint or Palmprint Matching**: Describing the ridge shape flow.
-
----
-
-#### ✅ Advantages:
-
-* **Compact Representation**: Converts 2D shape information into a 1D signal for easy analysis.
-* **Rotation Invariant (with normalization)**: By measuring angles or distances from the centroid, rotation invariance can be achieved.
-* **Simplicity**: Easy to compute and implement with basic geometry.
-
-#### ❌ Limitations:
-
-* **Sensitive to Noise**: Small boundary fluctuations can affect the normals and distort the signature.
-* **Not Scale Invariant (by default)**: Requires normalization to handle different sizes of the same shape.
-* **Fails in Complex Topologies**: Not effective for shapes with holes or self-intersections.
-* **Centroid Dependence**: If the centroid lies outside the object (as in some concave shapes), the method may be less accurate.
-
----
-
-#### 🔚 Conclusion:
-
-The **Foot-of-Normal Method** is a powerful boundary descriptor that translates complex 2D shapes into simpler 1D signals, enabling efficient analysis and comparison. Its geometric simplicity and visual interpretability make it a preferred technique in image analysis tasks involving shape-based recognition. However, for robust performance in real-world scenarios, it must often be combined with **noise reduction**, **normalization**, and **feature matching techniques**.
-
----
-
-If you're building notes or slides, I can help you with:
-
-* A diagram explaining the foot of the normal visually
-* Python code to extract the signature
-* A comparison with **Centroid Distance Method**
-
-Would you like to include any of these?
 
     
   </main>
