@@ -75,7 +75,7 @@ h4 {
 }
 
 /* Mobile Responsive */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   body {
     padding: 10px;
   }
