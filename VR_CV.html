@@ -18,99 +18,124 @@
         <h3>Volumetric Representations</h3>
     </section>
 
-### 📦 **Volumetric Representations in Computer Vision**
+    <section>
+        <h4>Introduction</h4>
+        <p>Volumetric representation is a powerful 3D data modeling technique in computer vision where objects or scenes are described as a volume of space, rather than just points or surfaces. The space is typically divided into small elements called voxels (short for volumetric pixels), which represent a value (like occupancy, density, or color) in a 3D grid. This form of representation is crucial for tasks that require understanding the full spatial extent and internal structure of an object or environment.</p>
+    </section>
 
-**Introduction**
+    <section>
+        <h4>What is a Volumetric Representation?</h4>
+        <p>A volumetric model breaks down 3D space into a grid of equally sized cubes (voxels). Each voxel can hold data such as:</p>
+        <ul>
+            <li>Occupancy (whether it contains part of an object or not)</li>
+            <li>Color or intensity</li>
+            <li>Surface normal</li>
+            <li>Probability of containing material</li>
+        </ul>
+        <p>Think of it as a 3D version of a 2D image: while a 2D image has pixels arranged in rows and columns, a volumetric model has voxels arranged in a 3D lattice (width × height × depth).</p>
+    </section>
 
-Volumetric representation is a powerful 3D data modeling technique in computer vision where objects or scenes are described as a volume of space, rather than just points or surfaces. The space is typically divided into small elements called **voxels** (short for *volumetric pixels*), which represent a value (like occupancy, density, or color) in a 3D grid. This form of representation is crucial for tasks that require understanding the full spatial extent and internal structure of an object or environment.
+    <section>
+        <h4>How It Works</h4>
+        <ol>
+            <li>
+                <strong>Voxelization</strong>: Converts geometric data (e.g., mesh or point cloud) into a regular voxel grid.
+            </li>
+            <li>
+                <strong>Data Assignment</strong>:
+                <ul>
+                    <li>Binary Occupancy Grids: Each voxel is either occupied (1) or empty (0).</li>
+                    <li>Signed Distance Functions (SDFs): Store the distance from a voxel to the closest surface (positive for outside, negative for inside).</li>
+                    <li>Truncated Signed Distance Function (TSDF): Used in real-time 3D reconstruction (e.g., KinectFusion).</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Storage Optimization</strong>:
+                <ul>
+                    <li>Sparse Voxel Octrees (SVOs): Efficiently store large volumes by dividing only occupied regions recursively.</li>
+                    <li>Run-Length Encoding (RLE) or Hash Grids to reduce memory usage.</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
 
----
+    <section>
+        <h4>Types of Volumetric Representations</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Occupancy Grid</td>
+                    <td>Binary voxel map indicating filled or empty space.</td>
+                </tr>
+                <tr>
+                    <td>TSDF (Truncated Signed Distance Field)</td>
+                    <td>Stores how far each voxel is from the nearest surface. Efficient for fusion and rendering.</td>
+                </tr>
+                <tr>
+                    <td>Voxel Color Grid</td>
+                    <td>Voxels store RGB data along with spatial position.</td>
+                </tr>
+                <tr>
+                    <td>Probability Grids</td>
+                    <td>Store likelihoods for object presence (used in SLAM).</td>
+                </tr>
+                <tr>
+                    <td>Semantic Volume</td>
+                    <td>Each voxel contains class labels (e.g., chair, wall).</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-### 🧱 **What is a Volumetric Representation?**
+    <section>
+        <h4>Advantages</h4>
+        <ul>
+            <li>Full 3D Structure: Captures internal and external parts of an object.</li>
+            <li>Surface and Volume Encoding: Not limited to just boundaries.</li>
+            <li>Uniform Sampling: Consistent resolution across space.</li>
+            <li>Good for Physics Simulations: Useful in collision detection, fluid simulations, etc.</li>
+            <li>Supports Boolean Operations: Union, subtraction, and intersection of 3D objects.</li>
+        </ul>
+    </section>
 
-A **volumetric model** breaks down 3D space into a grid of equally sized cubes (voxels). Each voxel can hold data such as:
+    <section>
+        <h4>Disadvantages</h4>
+        <ul>
+            <li>Memory Intensive: Storing 3D grids can require large amounts of memory, especially at high resolutions.</li>
+            <li>Computationally Expensive: Voxel-based processing often requires a lot of computation.</li>
+            <li>Loss of Detail at Low Resolution: Fine details may be missed if voxel size is too large.</li>
+            <li>Sparse Data Waste: Many voxels may remain empty, leading to inefficiency.</li>
+        </ul>
+    </section>
 
-* Occupancy (whether it contains part of an object or not)
-* Color or intensity
-* Surface normal
-* Probability of containing material
+    <section>
+        <h4>Applications</h4>
+        <ul>
+            <li>Medical Imaging: MRI and CT scans are naturally volumetric.</li>
+            <li>Robotics & SLAM: Robot mapping of environments using occupancy grids.</li>
+            <li>3D Reconstruction: Real-time systems like KinectFusion rely on TSDF volumes.</li>
+            <li>Gaming & Simulation: Voxel-based terrain in games (e.g., Minecraft).</li>
+            <li>Scientific Visualization: Simulations in physics, chemistry, and biology.</li>
+            <li>Neural Rendering & Deep Learning: Volumetric CNNs for 3D object classification and segmentation.</li>
+        </ul>
+    </section>
 
-Think of it as a 3D version of a 2D image: while a 2D image has pixels arranged in rows and columns, a volumetric model has voxels arranged in a 3D lattice (width × height × depth).
+    <section>
+        <h4>Conclusion</h4>
+        <p>Volumetric representation is a foundational approach for representing 3D data, especially when internal structure or space-filling accuracy is important. Though computationally and memory heavy, its advantages in precision and versatility make it invaluable in fields like medical imaging, robotics, and 3D reconstruction. With optimization techniques like sparse voxel trees and hybrid models, volumetric methods continue to advance and become more practical in real-time applications.</p>
+    </section>
 
----
-
-### 🔍 **How It Works**
-
-1. **Voxelization**: Converts geometric data (e.g., mesh or point cloud) into a regular voxel grid.
-
-2. **Data Assignment**:
-
-   * **Binary Occupancy Grids**: Each voxel is either occupied (1) or empty (0).
-   * **Signed Distance Functions (SDFs)**: Store the distance from a voxel to the closest surface (positive for outside, negative for inside).
-   * **Truncated Signed Distance Function (TSDF)**: Used in real-time 3D reconstruction (e.g., KinectFusion).
-
-3. **Storage Optimization**:
-
-   * **Sparse Voxel Octrees (SVOs)**: Efficiently store large volumes by dividing only occupied regions recursively.
-   * **Run-Length Encoding (RLE)** or **Hash Grids** to reduce memory usage.
-
----
-
-### 💡 **Types of Volumetric Representations**
-
-| Type                                       | Description                                                                                |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| **Occupancy Grid**                         | Binary voxel map indicating filled or empty space.                                         |
-| **TSDF (Truncated Signed Distance Field)** | Stores how far each voxel is from the nearest surface. Efficient for fusion and rendering. |
-| **Voxel Color Grid**                       | Voxels store RGB data along with spatial position.                                         |
-| **Probability Grids**                      | Store likelihoods for object presence (used in SLAM).                                      |
-| **Semantic Volume**                        | Each voxel contains class labels (e.g., chair, wall).                                      |
-
----
-
-### ✅ **Advantages**
-
-* **Full 3D Structure**: Captures internal and external parts of an object.
-* **Surface and Volume Encoding**: Not limited to just boundaries.
-* **Uniform Sampling**: Consistent resolution across space.
-* **Good for Physics Simulations**: Useful in collision detection, fluid simulations, etc.
-* **Supports Boolean Operations**: Union, subtraction, and intersection of 3D objects.
-
----
-
-### ❌ **Disadvantages**
-
-* **Memory Intensive**: Storing 3D grids can require large amounts of memory, especially at high resolutions.
-* **Computationally Expensive**: Voxel-based processing often requires a lot of computation.
-* **Loss of Detail at Low Resolution**: Fine details may be missed if voxel size is too large.
-* **Sparse Data Waste**: Many voxels may remain empty, leading to inefficiency.
-
----
-
-### 🛠️ **Applications**
-
-* 🧠 **Medical Imaging**: MRI and CT scans are naturally volumetric.
-* 🤖 **Robotics & SLAM**: Robot mapping of environments using occupancy grids.
-* 🧱 **3D Reconstruction**: Real-time systems like KinectFusion rely on TSDF volumes.
-* 🎮 **Gaming & Simulation**: Voxel-based terrain in games (e.g., Minecraft).
-* 🔬 **Scientific Visualization**: Simulations in physics, chemistry, and biology.
-* ✨ **Neural Rendering & Deep Learning**: Volumetric CNNs for 3D object classification and segmentation.
-
----
-
-### 🔚 **Conclusion**
-
-Volumetric representation is a foundational approach for representing 3D data, especially when internal structure or space-filling accuracy is important. Though computationally and memory heavy, its advantages in precision and versatility make it invaluable in fields like medical imaging, robotics, and 3D reconstruction. With optimization techniques like sparse voxel trees and hybrid models, volumetric methods continue to advance and become more practical in real-time applications.
-
-Let me know if you’d like a comparison between **Point-Based** and **Volumetric** representations!
-
-
-    
   </main>
 
-    <footer>
+  <footer>
     <a href="CV.html" class="back-btn">← Back to Topics</a>
-    </footer>
+  </footer>
 
- </body>
+</body>
 </html>
